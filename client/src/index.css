@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+
+
+:root {
+  --primary-color: #f68c1e; /* Tailwind's green-400 */
+  --secondary-color: #0d0f36; /* Tailwind's yellow-400 */
+  --dark-color:#141413;
+  --background-color: #1f2937; /* Tailwind's gray-800 */
+  --text-color: #161718; /* Tailwind's gray-50 */
+}
