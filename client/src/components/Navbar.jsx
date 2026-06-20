@@ -7,13 +7,15 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="bg-white w-[80%] md:max-w-7xl mx-auto rounded-lg md:rounded-full px-5">
+    <nav className="bg-white w-full mx-auto px-5">
 
-      <div className="flex justify-between items-center p-4">
+      <div className="flex justify-between items-center p-4 max-w-7xl mx-auto">
 
-       <div>
+       <Link to="/"><div>
+      
           <img src={logo} alt="Logo" className="h-10" />
        </div>
+       </Link>
 
         <button
           className="md:hidden"
@@ -24,11 +26,11 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-6">
-          <li className="cursor-pointer"><Link to="/">Home</Link></li>
-          <li className="cursor-pointer"><Link to="/about">About</Link></li>
-          <li className="cursor-pointer"><Link to="/courses">Courses</Link></li>
-          <li className="cursor-pointer"><Link to="/gallery">Gallery</Link></li>
-          <li className="cursor-pointer"><Link to="/contact">Contact</Link></li>
+          <li className="cursor-pointer hover:border-t-2 border-orange-500"><Link to="/">Home</Link></li>
+          <li className="cursor-pointer hover:border-t-2 border-orange-500"><Link to="/about">About</Link></li>
+          <li className="cursor-pointer hover:border-t-2 border-orange-500"><Link to="/courses">Courses</Link></li>
+          <li className="cursor-pointer hover:border-t-2 border-orange-500"><Link to="/gallery">Gallery</Link></li>
+          <li className="cursor-pointer hover:border-t-2 border-orange-500"><Link to="/contact">Contact</Link></li>
         </ul>
 
       </div>

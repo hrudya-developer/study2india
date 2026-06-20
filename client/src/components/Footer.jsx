@@ -1,60 +1,184 @@
-import logo from '../assets/logo.png'
+import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 const Footer = () => {
   return (
-    <section className='footer w-full bg-black'>
-        <div className='max-w-7xl mx-auto h-auto py-10 px-4 text-center text-white'>
+    <footer className="bg-black text-white">
+      <div className="max-w-7xl mx-auto px-5 py-12">
+        
+        {/* Top Section */}
+        <div className="grid md:grid-cols-3 gap-10 border-b border-white/20 pb-10">
 
-<div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-10 border-b border-white pb-10'>
-<div className='mb-5 flex flex-col justify-center items-center'>
-    <div className='text-2xl font-bold mb-2'><img src={logo} alt="Study2India Logo" className='bg-white p-2 rounded-lg'/></div>
-    <p className='text-sm text-start'>Together, let's guide the next generation toward informed choices, brighter careers, and a stronger future.</p>
+          {/* Logo */}
+          <div>
+            <img
+              src={logo}
+              alt="Study2India"
+              className="bg-white p-2 rounded-lg h-16 mb-4"
+            />
 
+            <p className="text-sm text-gray-300 leading-6 max-w-sm">
+              Together, let's guide the next generation toward informed
+              choices, brighter careers, and a stronger future.
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-xl font-semibold mb-4">
+              Quick Links
+            </h3>
+
+            <ul className="space-y-2 text-gray-300">
+              <li>
+                <Link to="/" className="hover:text-[#f68c1e] transition">
+                  Home
+                </Link>
+              </li>
+
+              <li>
+                <Link to="/about" className="hover:text-[#f68c1e] transition">
+                  About Us
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to="/courses"
+                  className="hover:text-[#f68c1e] transition"
+                >
+                  Courses
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to="/contact"
+                  className="hover:text-[#f68c1e] transition"
+                >
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h3 className="text-xl font-semibold mb-4">
+              Contact Us
+            </h3>
+
+            <div className="space-y-2 text-gray-300 text-sm">
+              <p>📧 info@study2india.com</p>
+              <p>🌐 www.study2india.com</p>
+              <p>📞 +91 95269 23555</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Branches */}
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-5 py-10 border-b border-white/20">
+          
+           <div>
+            <h4 className="font-semibold text-[#f68c1e]">
+               Head Office
+              <br />
+              Thiruvalla
+            </h4>
+            <p className="text-sm text-gray-300">
+              +91 96458 38555
+            </p>
+          </div>
+          
+          <div>
+            <h4 className="font-semibold text-[#f68c1e]">
+              Thodupuzha
+            </h4>
+            <p className="text-sm text-gray-300">
+             
+              +91 95269 23555
+            </p>
+          </div>
+
+         
+
+          <div>
+            <h4 className="font-semibold text-[#f68c1e]">
+              Kottayam
+            </h4>
+            <p className="text-sm text-gray-300">
+              +91 97458 28555
+            </p>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-[#f68c1e]">
+              Thrissur
+            </h4>
+            <p className="text-sm text-gray-300">
+              +91 99471 74555
+            </p>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-[#f68c1e]">
+              Kattapana
+            </h4>
+            <p className="text-sm text-gray-300">
+              +91 70258 48586
+            </p>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-[#f68c1e]">
+              Kochi
+            </h4>
+            <p className="text-sm text-gray-300">
+              +91 95269 89555
+            </p>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-[#f68c1e]">
+              Kollam
+            </h4>
+            <p className="text-sm text-gray-300">
+              +91 99475 89555
+            </p>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-[#f68c1e]">
+              Kannur
+            </h4>
+            <p className="text-sm text-gray-300">
+              +91 99471 74555
+            </p>
+          </div>
+        </div>
+
+        {/* Google Map */}
+     <div className="mt-10">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3936.3954770238474!2d76.5746693!3d9.3866442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0625001cf26701%3A0x87aa7d34b3366d77!2sStudy%202%20India!5e0!3m2!1sen!2sin!4v1781937350553!5m2!1sen!2sin"
+    width="100%"
+    height="400"
+    style={{ border: 0 }}
+    allowFullScreen
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+    className="rounded-2xl"
+    title="Study2India Location"
+  />
 </div>
-<div className='mb-5 text-start flex flex-col justify-center items-center'>
-    <h3 className='text-xl mb-2'>Quick Links</h3>
-    <ul className='text-start text-sm'>
-        <li><a href='#' className='text-white hover:text-gray-300'>Home</a></li>
-        <li><a href='#' className='text-white hover:text-gray-300'>About Us</a></li>
-        <li><a href='#' className='text-white hover:text-gray-300'>Services</a></li>
-        <li><a href='#' className='text-white hover:text-gray-300'>Contact</a></li>
-    </ul>
-</div>
-<div className='mb-5 text-start flex flex-col justify-center items-center'>
-    <h3 className='text-xl mb-2'>Contact Us</h3>
-    <p className='text-sm'>Email:info@study2india.com   </p>
-    <p className='text-sm'>Website: www.study2india.com   </p>
-    <p className='text-sm'>Phone: +91 95269 23555   </p>
-</div>
 
+        {/* Copyright */}
+        <div className="pt-8 text-center text-gray-400 text-sm">
+          © 2026 Study2India. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+  );
+};
 
-
-            </div>
-
-
-            <div className='text-sm grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-8 gap-4 mt-5'>
-                <p>Thodupuzha <br />(Head Office):<br /> +91 95269 23555</p>
-                <p>Thiruvalla: <br />+91 96458 38555</p>
-                <p>Kottayam: <br />+91 97458 28555</p>
-                <p>Thrissur:<br />+91 99471 74555</p>
-                <p>Kattapana:<br />+91 70258 48586</p>
-                <p>Kochi:<br />+91 95269 89555</p>
-                <p>Kollam:<br />+91 99475 89555</p>
-                <p>Kannur:<br />+91 99471 74555</p>
-
-            </div>
-
-             <div className="grid grid-cols-1 text-center mt-10 text-sm">
-                <p>© 2026 Study2India. All Rights Reserved</p>
-                
-            </div>
-            
-            
-            </div>
-           
-    
-    </section>
-  )
-}
-
-export default Footer
+export default Footer;

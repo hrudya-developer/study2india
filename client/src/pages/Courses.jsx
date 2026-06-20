@@ -1,5 +1,6 @@
+import Navbar from "../components/Navbar"
 
-import CommonNavbar from '../components/CommonNavbar'
+
 
 const Courses = () => {
     const colleges = [
@@ -75,8 +76,8 @@ const Courses = () => {
 
 
   return (
-    <section>
-      <CommonNavbar />
+    <section className="bg-gray-100">
+     
         <div className='max-w-7xl mx-auto h-auto py-20 px-10'>
             <h1 className='text-3xl sm:text-3xl md:text-5xl font-bold text-center mb-15'>Courses</h1>
             <h4 className='text-2xl font-semibold pb-5 text-center'>
