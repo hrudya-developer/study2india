@@ -39,10 +39,10 @@ const Navbar = () => {
       {open && (
         <ul className="md:hidden flex flex-col w-full bg-white border-t">
           <li className="p-3 border-b"><Link to="/">Home</Link></li>
-          <li className="p-3 border-b"><Link to="/about">About</Link></li>
-          <li className="p-3 border-b"><Link to="/courses">Courses</Link></li>
-          <li className="p-3 border-b"><Link to="/gallery">Gallery</Link></li>
-          <li className="p-3 border-b"><Link to="/contact">Contact</Link></li>
+          <li className="p-3 border-b"><Link to="/about" onClick={()=>setOpen(false)}>About</Link></li>
+          <li className="p-3 border-b"><Link to="/courses" onClick={()=>setOpen(false)}>Courses</Link></li>
+          <li className="p-3 border-b"><Link to="/gallery" onClick={()=>setOpen(false)}>Gallery</Link></li>
+          <li className="p-3 border-b"><Link to="/contact" onClick={()=>setOpen(false)}>Contact</Link></li>
         </ul>
       )}
 

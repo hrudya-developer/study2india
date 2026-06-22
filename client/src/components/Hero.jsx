@@ -60,17 +60,19 @@ export default function HeroSection() {
                 opportunities. Discover the right path with expert guidance.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center lg:justify-start">
-                <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full font-semibold flex items-center justify-center gap-2 transition">
-                  Get Started
-                  <ArrowRight size={18} />
-                </button>
+             <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center lg:justify-start">
+  <button className="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full font-semibold flex items-center justify-center gap-2 transition">
+    Get Started
+    <ArrowRight size={18} />
+  </button>
 
-                <Link to="/courses"><button className="border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-6 py-3 rounded-full font-semibold flex items-center justify-center gap-2 transition">
-                  Explore Courses
-                  <GraduationCap size={18} />
-                </button></Link>
-              </div>
+  <Link to="/courses" className="w-full sm:w-auto">
+    <button className="w-full border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-6 py-3 rounded-full font-semibold flex items-center justify-center gap-2 transition">
+      Explore Courses
+      <GraduationCap size={18} />
+    </button>
+  </Link>
+</div>
 
               <div className="mt-13 mb-10 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
                 <div className="bg-white/95 backdrop-blur rounded-2xl p-5 text-center shadow-lg">
