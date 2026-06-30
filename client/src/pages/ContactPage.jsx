@@ -15,7 +15,7 @@ export default function ContactPage() {
     {
       icon: "☎️",
       title: "Call Us",
-      text: ["+91 95269 23555"],
+      text: ["+91 96458 38555"], 
     },
     {
       icon: "🕘",
