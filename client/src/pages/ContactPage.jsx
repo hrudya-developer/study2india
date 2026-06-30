@@ -1,4 +1,5 @@
 import React from "react";
+import ContactForm from "./ContactForm";
 
 export default function ContactPage() {
   const items = [
@@ -95,6 +96,10 @@ export default function ContactPage() {
           Get in Touch
         </button></a>
       </div>
+
+<ContactForm />
+
+
     </section>
   );
 }
