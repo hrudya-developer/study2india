@@ -26,7 +26,7 @@ export default function ContactPage() {
   ];
 
   return (
-    <section className="min-h-screen bg-gray-50 font-sans">
+    <section className="min-h-screen bg-gray-100 font-sans">
       <div className="relative overflow-hidden px-4 pt-16 pb-32 text-center text-white">
         
 
@@ -36,13 +36,13 @@ export default function ContactPage() {
 
         <div className="relative mx-auto mt-5 h-1 w-20 bg-orange-400" />
 
-        <p className="relative mx-auto mt-6 max-w-3xl text-base leading-relaxed md:text-xl">
+        <p className="relative mx-auto text-gray-700 mt-6 mb-5 max-w-3xl text-md leading-relaxed md:text-md">
           We align leaders around a shared purpose and strategic story that
           catalyzes their business and brand to take action.
         </p>
       </div>
 
-      <div className="relative z-10 mx-auto -mt-20 w-[92%] max-w-7xl">
+      <div className="relative z-10 mx-auto -mt-20 w-[92%] max-w-7xl mb-10">
         <div className="grid gap-16 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
           {items.map((item) => (
             <div
