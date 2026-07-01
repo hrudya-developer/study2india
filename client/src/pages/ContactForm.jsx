@@ -31,11 +31,20 @@ export default function ContactForm() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
+      const text = await response.text();
+
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch {
+        console.error("Non JSON response:", text);
+        throw new Error("Server returned website HTML instead of JSON");
+      }
 
       if (!response.ok || !data.success) {
         throw new Error(data.message || "Failed to send message");
@@ -56,7 +65,7 @@ export default function ContactForm() {
         message: "",
       });
     } catch (error) {
-      console.error(error);
+      console.error("Contact form error:", error);
 
       Swal.fire({
         title: "Server Error!",
@@ -75,10 +84,47 @@ export default function ContactForm() {
         <h2 className="mb-8 text-center text-3xl font-bold">Contact Form</h2>
 
         <form onSubmit={handleSubmit} className="grid gap-6 md:grid-cols-2">
-          <input name="name" value={formData.name} onChange={handleChange} required placeholder="Your Name" className="rounded-lg border p-3" />
-          <input name="email" type="email" value={formData.email} onChange={handleChange} required placeholder="Email Address" className="rounded-lg border p-3" />
-          <input name="phone" type="tel" value={formData.phone} onChange={handleChange} required placeholder="Phone Number" className="rounded-lg border p-3" />
-          <input name="place" value={formData.place} onChange={handleChange} required placeholder="Place" className="rounded-lg border p-3" />
+          <input
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            autoComplete="name"
+            placeholder="Your Name"
+            className="rounded-lg border p-3"
+          />
+
+          <input
+            name="email"
+            type="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            autoComplete="email"
+            placeholder="Email Address"
+            className="rounded-lg border p-3"
+          />
+
+          <input
+            name="phone"
+            type="tel"
+            value={formData.phone}
+            onChange={handleChange}
+            required
+            autoComplete="tel"
+            placeholder="Phone Number"
+            className="rounded-lg border p-3"
+          />
+
+          <input
+            name="place"
+            value={formData.place}
+            onChange={handleChange}
+            required
+            autoComplete="address-level2"
+            placeholder="Place"
+            className="rounded-lg border p-3"
+          />
 
           <textarea
             name="message"
@@ -94,7 +140,7 @@ export default function ContactForm() {
             <button
               type="submit"
               disabled={loading}
-              className="rounded-lg bg-slate-900 px-8 py-3 text-white disabled:opacity-60"
+              className="rounded-lg bg-slate-900 px-8 py-3 text-white transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-60"
             >
               {loading ? "Sending..." : "Submit"}
             </button>

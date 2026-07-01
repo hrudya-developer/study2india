@@ -7,10 +7,16 @@ dotenv.config({ path: "./config/config.env" });
 
 const app = express();
 
-app.use(cors({
-  origin: ["http://localhost:5173", "https://study2india.com", "https://www.study2india.com"],
-  methods: ["GET", "POST"],
-}));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://study2india.com",
+      "https://www.study2india.com",
+    ],
+    methods: ["GET", "POST"],
+  })
+);
 
 app.use(express.json());
 
@@ -23,7 +29,10 @@ const transporter = nodemailer.createTransport({
 });
 
 app.get("/api/health", (req, res) => {
-  res.json({ success: true, message: "Mail server running" });
+  res.json({
+    success: true,
+    message: "Mail server running",
+  });
 });
 
 app.post("/api/send-email", async (req, res) => {
@@ -53,14 +62,14 @@ ${message}
       `,
     });
 
-    return res.status(200).json({
+    res.status(200).json({
       success: true,
       message: "Email sent successfully",
     });
   } catch (error) {
     console.error("Email error:", error);
 
-    return res.status(500).json({
+    res.status(500).json({
       success: false,
       message: "Unable to send email",
     });
