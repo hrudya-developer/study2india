@@ -1,6 +1,9 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
 
+const API_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -19,59 +22,48 @@ export default function ContactForm() {
     }));
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       setLoading(true);
 
-    const response = await fetch("/api/send-email", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch(`${API_URL}/api/send-email`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
+      const text = await response.text();
 
-      const data = await response.json();
-
-
-      if (data.success) {
-
-        Swal.fire({
-          title: "Success!",
-          text: "Message sent successfully",
-          icon: "success",
-          confirmButtonText: "OK",
-        });
-
-
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          place: "",
-          message: "",
-        });
-
-
-      } else {
-
-        Swal.fire({
-          title: "Error!",
-          text: "Failed to send message",
-          icon: "error",
-          confirmButtonText: "Try Again",
-        });
-
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch {
+        throw new Error("Server returned HTML instead of JSON");
       }
 
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || "Failed to send message");
+      }
 
+      await Swal.fire({
+        title: "Success!",
+        text: "Message sent successfully",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        place: "",
+        message: "",
+      });
     } catch (error) {
-
       console.log(error);
 
       Swal.fire({
@@ -80,32 +72,19 @@ export default function ContactForm() {
         icon: "error",
         confirmButtonText: "OK",
       });
-
-
     } finally {
-
       setLoading(false);
-
     }
   };
 
-
   return (
-    <section className="max-w-5xl mx-auto px-6 py-10">
-
-      <div className="rounded-xl bg-white shadow-lg p-8">
-
-        <h2 className="text-3xl font-bold text-center mb-8">
+    <section className="mx-auto max-w-5xl px-6 py-10">
+      <div className="rounded-xl bg-white p-8 shadow-lg">
+        <h2 className="mb-8 text-center text-3xl font-bold">
           Contact Form
         </h2>
 
-
-        <form
-          onSubmit={handleSubmit}
-          className="grid gap-6 md:grid-cols-2"
-        >
-
-
+        <form onSubmit={handleSubmit} className="grid gap-6 md:grid-cols-2">
           <input
             type="text"
             name="name"
@@ -113,9 +92,9 @@ export default function ContactForm() {
             value={formData.name}
             onChange={handleChange}
             required
-            className="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            autoComplete="name"
+            className="rounded-lg border p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-
 
           <input
             type="email"
@@ -124,9 +103,9 @@ export default function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             required
-            className="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            autoComplete="email"
+            className="rounded-lg border p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-
 
           <input
             type="tel"
@@ -135,9 +114,9 @@ export default function ContactForm() {
             value={formData.phone}
             onChange={handleChange}
             required
-            className="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            autoComplete="tel"
+            className="rounded-lg border p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-
 
           <input
             type="text"
@@ -146,9 +125,9 @@ export default function ContactForm() {
             value={formData.place}
             onChange={handleChange}
             required
-            className="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            autoComplete="address-level2"
+            className="rounded-lg border p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-
 
           <textarea
             name="message"
@@ -157,25 +136,20 @@ export default function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             required
-            className="md:col-span-2 border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="rounded-lg border p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 md:col-span-2"
           />
 
-
-<div className="md:col-span-2 flex justify-center md:justify-end">
-  <button
-    type="submit"
-    disabled={loading}
-    className="bg-slate-900 text-white px-8 py-3 rounded-lg hover:bg-slate-700 transition disabled:opacity-60 disabled:cursor-not-allowed"
-  >
-    {loading ? "Sending..." : "Submit"}
-  </button>
-</div>
-
-
+          <div className="flex justify-center md:col-span-2 md:justify-end">
+            <button
+              type="submit"
+              disabled={loading}
+              className="rounded-lg bg-slate-900 px-8 py-3 text-white transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              {loading ? "Sending..." : "Submit"}
+            </button>
+          </div>
         </form>
-
       </div>
-
     </section>
   );
 }

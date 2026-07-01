@@ -9,7 +9,14 @@ dotenv.config({
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://study2india.com"],
+    methods: ["GET", "POST"],
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
@@ -20,7 +27,14 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-app.post("/send-email", async (req, res) => {
+app.get("/", (req, res) => {
+  res.json({
+    success: true,
+    message: "Study2India mail server is running",
+  });
+});
+
+app.post("/api/send-email", async (req, res) => {
   const { name, email, phone, place, message } = req.body;
 
   if (!name || !email || !phone || !place || !message) {
@@ -32,10 +46,10 @@ app.post("/send-email", async (req, res) => {
 
   try {
     await transporter.sendMail({
-      from: `"Study2India Contact" <${process.env.EMAIL_USER}>`,
+      from: `"Study2India - Enquiries" <${process.env.EMAIL_USER}>`,
       to: process.env.MAIL_TO,
       replyTo: email,
-      subject: "Study2India Contact Form Submission",
+      subject: "Study2India - Enquiries",
       text: `
 Name: ${name}
 Email: ${email}
@@ -47,22 +61,23 @@ ${message}
       `,
     });
 
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       message: "Email sent successfully",
     });
   } catch (error) {
-    console.log("Email error:", error.message);
+    console.log("Email error:", error);
 
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
-      message: error.message,
+      message: "Unable to send email",
+      error: error.message,
     });
   }
 });
 
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
-  console.log("EMAIL_USER:", process.env.EMAIL_USER);
-  console.log("EMAIL_PASS:", process.env.EMAIL_PASS ? "Loaded" : "Not loaded");
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
