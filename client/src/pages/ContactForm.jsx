@@ -1,8 +1,7 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
 
-const API_URL =
-  import.meta.env.VITE_API_URL || "http://localhost:5000";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -36,14 +35,7 @@ export default function ContactForm() {
         body: JSON.stringify(formData),
       });
 
-      const text = await response.text();
-
-      let data;
-      try {
-        data = JSON.parse(text);
-      } catch {
-        throw new Error("Server returned HTML instead of JSON");
-      }
+      const data = await response.json();
 
       if (!response.ok || !data.success) {
         throw new Error(data.message || "Failed to send message");
@@ -64,7 +56,7 @@ export default function ContactForm() {
         message: "",
       });
     } catch (error) {
-      console.log(error);
+      console.error(error);
 
       Swal.fire({
         title: "Server Error!",
@@ -80,70 +72,29 @@ export default function ContactForm() {
   return (
     <section className="mx-auto max-w-5xl px-6 py-10">
       <div className="rounded-xl bg-white p-8 shadow-lg">
-        <h2 className="mb-8 text-center text-3xl font-bold">
-          Contact Form
-        </h2>
+        <h2 className="mb-8 text-center text-3xl font-bold">Contact Form</h2>
 
         <form onSubmit={handleSubmit} className="grid gap-6 md:grid-cols-2">
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            autoComplete="name"
-            className="rounded-lg border p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-
-          <input
-            type="email"
-            name="email"
-            placeholder="Email Address"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            autoComplete="email"
-            className="rounded-lg border p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Phone Number"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-            autoComplete="tel"
-            className="rounded-lg border p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-
-          <input
-            type="text"
-            name="place"
-            placeholder="Place"
-            value={formData.place}
-            onChange={handleChange}
-            required
-            autoComplete="address-level2"
-            className="rounded-lg border p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+          <input name="name" value={formData.name} onChange={handleChange} required placeholder="Your Name" className="rounded-lg border p-3" />
+          <input name="email" type="email" value={formData.email} onChange={handleChange} required placeholder="Email Address" className="rounded-lg border p-3" />
+          <input name="phone" type="tel" value={formData.phone} onChange={handleChange} required placeholder="Phone Number" className="rounded-lg border p-3" />
+          <input name="place" value={formData.place} onChange={handleChange} required placeholder="Place" className="rounded-lg border p-3" />
 
           <textarea
             name="message"
-            placeholder="Your Message"
             rows="6"
             value={formData.message}
             onChange={handleChange}
             required
-            className="rounded-lg border p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 md:col-span-2"
+            placeholder="Your Message"
+            className="rounded-lg border p-3 md:col-span-2"
           />
 
           <div className="flex justify-center md:col-span-2 md:justify-end">
             <button
               type="submit"
               disabled={loading}
-              className="rounded-lg bg-slate-900 px-8 py-3 text-white transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-60"
+              className="rounded-lg bg-slate-900 px-8 py-3 text-white disabled:opacity-60"
             >
               {loading ? "Sending..." : "Submit"}
             </button>

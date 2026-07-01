@@ -3,19 +3,14 @@ const nodemailer = require("nodemailer");
 const cors = require("cors");
 const dotenv = require("dotenv");
 
-dotenv.config({
-  path: "./config/config.env",
-});
+dotenv.config({ path: "./config/config.env" });
 
 const app = express();
 
-app.use(
-  cors({
-    origin: ["http://localhost:5173", "https://study2india.com"],
-    methods: ["GET", "POST"],
-    credentials: true,
-  })
-);
+app.use(cors({
+  origin: ["http://localhost:5173", "https://study2india.com", "https://www.study2india.com"],
+  methods: ["GET", "POST"],
+}));
 
 app.use(express.json());
 
@@ -27,11 +22,8 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-app.get("/", (req, res) => {
-  res.json({
-    success: true,
-    message: "Study2India mail server is running",
-  });
+app.get("/api/health", (req, res) => {
+  res.json({ success: true, message: "Mail server running" });
 });
 
 app.post("/api/send-email", async (req, res) => {
@@ -66,12 +58,11 @@ ${message}
       message: "Email sent successfully",
     });
   } catch (error) {
-    console.log("Email error:", error);
+    console.error("Email error:", error);
 
     return res.status(500).json({
       success: false,
       message: "Unable to send email",
-      error: error.message,
     });
   }
 });
@@ -79,5 +70,5 @@ ${message}
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Mail server running on port ${PORT}`);
 });
