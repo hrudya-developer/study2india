@@ -1,8 +1,6 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
-
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -12,8 +10,6 @@ export default function ContactForm() {
     message: "",
   });
 
-  const [loading, setLoading] = useState(false);
-
   const handleChange = (e) => {
     setFormData((prev) => ({
       ...prev,
@@ -21,62 +17,45 @@ export default function ContactForm() {
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+ const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    try {
-      setLoading(true);
+  const whatsappNumber = "919645838555";
 
-      const response = await fetch(`${API_URL}/api/send-email`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+  const message = `
+*Study2India New Enquiry*
 
-      const text = await response.text();
+*Name:* ${formData.name}
+*Email:* ${formData.email}
+*Phone:* ${formData.phone}
+*Place:* ${formData.place}
 
-      let data;
-      try {
-        data = JSON.parse(text);
-      } catch {
-        console.error("Non JSON response:", text);
-        throw new Error("Server returned website HTML instead of JSON");
-      }
+*Message:*
+${formData.message}
+`;
 
-      if (!response.ok || !data.success) {
-        throw new Error(data.message || "Failed to send message");
-      }
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    message
+  )}`;
 
-      await Swal.fire({
-        title: "Success!",
-        text: "Message sent successfully",
-        icon: "success",
-        confirmButtonText: "OK",
-      });
+  await Swal.fire({
+    title: "Redirecting to WhatsApp",
+    text: "Please send the message in WhatsApp.",
+    icon: "success",
+    timer: 1000,
+    showConfirmButton: false,
+  });
 
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        place: "",
-        message: "",
-      });
-    } catch (error) {
-      console.error("Contact form error:", error);
+  window.open(whatsappUrl, "_blank");
 
-      Swal.fire({
-        title: "Server Error!",
-        text: "Unable to send message. Please try again later.",
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
+  setFormData({
+    name: "",
+    email: "",
+    phone: "",
+    place: "",
+    message: "",
+  });
+};
 
   return (
     <section className="mx-auto max-w-5xl px-6 py-10">
@@ -139,10 +118,9 @@ export default function ContactForm() {
           <div className="flex justify-center md:col-span-2 md:justify-end">
             <button
               type="submit"
-              disabled={loading}
-              className="rounded-lg bg-slate-900 px-8 py-3 text-white transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-60"
+              className="rounded-lg bg-slate-900 px-8 py-3 text-white transition hover:bg-slate-700"
             >
-              {loading ? "Sending..." : "Submit"}
+              Send via WhatsApp
             </button>
           </div>
         </form>
