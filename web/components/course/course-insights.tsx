@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { SourceStamp } from "@/components/source-stamp";
-import type { CourseBranch, CourseRanked, CourseStats } from "@/lib/queries/catalog";
+import { mostlyRecorded, type CourseBranch, type CourseRanked, type CourseStats } from "@/lib/queries/catalog";
 
 const fmt = (n: number) => n.toLocaleString("en-IN");
 
@@ -32,15 +32,29 @@ function intakeNote(stats: CourseStats) {
   return `Seats are the approved intake ${when}, as published by the regulator. Actual admissions can differ.`;
 }
 
+/** "recorded for X of Y colleges" under a figure that only some colleges have; nothing when all or none have it. */
+function coverageLine(recorded: number, total: number) {
+  return recorded > 0 && recorded < total ? `recorded for ${fmt(recorded)} of ${plural(total, "college", "colleges")}` : null;
+}
+
 export function CourseKeyNumbers({ short, slug, stats }: { short: string; slug: string; stats: CourseStats }) {
-  const tiles: { k: string; v: number | null; note?: string }[] = [
-    { k: `Colleges offering ${short}`, v: stats.colleges || null },
-    { k: "Approved seats", v: stats.seats, note: stats.years.length === 1 && stats.years[0].year ? stats.years[0].year : undefined },
-    { k: "States and UTs", v: stats.states || null },
-    { k: "Government colleges", v: stats.colleges ? stats.ownership.government : null },
+  const { colleges, collegesWithSeats } = stats;
+  const withState = colleges - stats.collegesWithoutState;
+  const withOwner = stats.ownership.recorded;
+  // A tile shows its figure only when at least half of the colleges have the value (stats.seats already follows this rule).
+  const tiles: { k: string; v: number | null; note?: string; coverage?: string | null }[] = [
+    { k: `Colleges offering ${short}`, v: colleges || null },
+    {
+      k: "Approved seats",
+      v: stats.seats,
+      note: stats.seats !== null && stats.years.length === 1 && stats.years[0].year ? stats.years[0].year : undefined,
+      coverage: coverageLine(collegesWithSeats, colleges),
+    },
+    { k: "States and UTs", v: mostlyRecorded(withState, colleges) ? stats.states || null : null, coverage: coverageLine(withState, colleges) },
+    { k: "Government colleges", v: mostlyRecorded(withOwner, colleges) ? stats.ownership.government : null, coverage: coverageLine(withOwner, colleges) },
   ];
   const note = intakeNote(stats);
-  const partialSeats = stats.colleges > 0 && stats.collegesWithSeats > 0 && stats.collegesWithSeats < stats.colleges;
+  const partialSeats = colleges > 0 && collegesWithSeats > 0 && collegesWithSeats < colleges;
 
   return (
     <section className="card p-5 sm:p-6" aria-labelledby="key-numbers">
@@ -51,6 +65,7 @@ export function CourseKeyNumbers({ short, slug, stats }: { short: string; slug: 
             <dt className="mt-1 text-[0.88rem] leading-snug text-muted">
               {t.k}
               {t.note ? <span className="block">{t.note}</span> : null}
+              {t.coverage ? <span className="tabular mt-0.5 block text-[0.8rem]">{t.coverage}</span> : null}
             </dt>
             <dd className="tabular font-display text-[1.3rem] font-extrabold leading-none sm:text-[1.8rem]">
               {t.v === null ? <span className="font-sans text-[1rem] font-normal italic text-muted">Not recorded</span> : fmt(t.v)}
@@ -62,9 +77,16 @@ export function CourseKeyNumbers({ short, slug, stats }: { short: string; slug: 
         <div className="mt-4 space-y-2 text-[0.92rem] text-ink-soft">
           {note ? <p>{note}</p> : null}
           {partialSeats ? (
-            <p>
-              Seat figures are recorded for {fmt(stats.collegesWithSeats)} of {fmt(stats.colleges)} colleges, and the total covers those colleges only.
-            </p>
+            stats.seats !== null ? (
+              <p>
+                Seat figures are recorded for {fmt(collegesWithSeats)} of {fmt(colleges)} colleges, and the total covers those colleges only.
+              </p>
+            ) : (
+              <p>
+                Seat figures are recorded for only {fmt(collegesWithSeats)} of {fmt(colleges)} colleges, so we do not show a total. Each college&apos;s page shows its
+                own figure where one is recorded.
+              </p>
+            )
           ) : null}
           {stats.sources.length ? (
             <div className="flex flex-wrap gap-2 pt-1">
@@ -91,12 +113,19 @@ export function CourseKeyNumbers({ short, slug, stats }: { short: string; slug: 
 
 export function CourseStates({ short, slug, stats }: { short: string; slug: string; stats: CourseStats }) {
   if (!stats.byState.length) return null;
-  const max = Math.max(1, ...stats.byState.map((s) => s.seats ?? 0));
+  // When most colleges have no seat figure, rank states by colleges instead, so partial seat sums do not set the order.
+  const bySeats = stats.seats !== null;
+  const list = bySeats ? stats.byState : [...stats.byState].sort((a, b) => b.colleges - a.colleges || a.name.localeCompare(b.name));
+  const size = (s: (typeof list)[number]) => (bySeats ? (s.seats ?? 0) : s.colleges);
+  const max = Math.max(1, ...list.map(size));
+  const someHidden = list.some((s) => s.seats === null);
   return (
     <section className="card p-5 sm:p-6" aria-labelledby="by-state">
       <h2 id="by-state" className="text-2xl font-bold">{short} seats and colleges by state</h2>
       <p className="mt-1 text-[0.92rem] text-muted">
-        {plural(stats.byState.length, "state or union territory", "states and union territories")}, sorted by approved seats. Select a state to see its colleges.
+        {plural(list.length, "state or union territory", "states and union territories")}, sorted by {bySeats ? "approved seats" : "number of colleges"}. Select a
+        state to see its colleges.
+        {someHidden ? " A state's seat total is shown only when at least half of its colleges have a seat figure." : null}
       </p>
       <div className="mt-4">
         <table className="w-full text-left text-[0.95rem]">
@@ -108,14 +137,14 @@ export function CourseStates({ short, slug, stats }: { short: string; slug: stri
             </tr>
           </thead>
           <tbody>
-            {stats.byState.map((s) => (
+            {list.map((s) => (
               <tr key={s.slug} className="border-t border-rule">
                 <td className="py-2.5">
                   <Link href={`/colleges?course=${slug}&state=${s.slug}`} className="font-bold wrap-anywhere hover:text-brand-hover">
                     {s.name}
                   </Link>
                   <div className="mt-1 h-1.5 rounded-full bg-band" aria-hidden="true">
-                    <div className="h-1.5 rounded-full bg-brand" style={{ width: `${Math.max(1, ((s.seats ?? 0) / max) * 100)}%` }} />
+                    <div className="h-1.5 rounded-full bg-brand" style={{ width: `${Math.max(1, (size(s) / max) * 100)}%` }} />
                   </div>
                 </td>
                 <td className="tabular py-2.5 pl-3 text-right align-top">{fmt(s.colleges)}</td>
@@ -240,12 +269,14 @@ export function CourseRankedColleges({
 
 export function CourseOwnership({ short, slug, stats }: { short: string; slug: string; stats: CourseStats }) {
   if (!stats.colleges) return null;
-  const { government, private: priv, others, notRecorded } = stats.ownership;
+  const { government, private: priv, others, notRecorded, recorded } = stats.ownership;
   const otherTotal = others.reduce((n, o) => n + o.colleges, 0);
   const pct = (n: number) => (n / stats.colleges) * 100;
   const pctText = (n: number) => {
     const p = pct(n);
-    return p > 0 && p < 1 ? "under 1%" : `${Math.round(p)}%`;
+    if (p > 0 && p < 1) return "under 1%";
+    if (p > 99 && p < 100) return "over 99%";
+    return `${Math.round(p)}%`;
   };
   const parts = [
     { key: "government", label: "Government", n: government, color: "bg-verified", href: `/colleges?course=${slug}&ownership=government` },
@@ -253,11 +284,63 @@ export function CourseOwnership({ short, slug, stats }: { short: string; slug: s
     { key: "others", label: "Others", n: otherTotal, color: "bg-brand", href: null },
     { key: "none", label: "Not recorded", n: notRecorded, color: "bg-[#c3c8d8]", href: null },
   ].filter((p) => p.n > 0);
+  const othersNote = others.length ? (
+    <p className="mt-3 text-[0.92rem] text-ink-soft">Others: {listText(others.map((o) => `${o.label} (${fmt(o.colleges)})`))}.</p>
+  ) : null;
+
+  // Most colleges have no ownership recorded: lead with that, and list the few recorded ones as counts, not shares.
+  if (!mostlyRecorded(recorded, stats.colleges)) {
+    const known = parts.filter((p) => p.key !== "none");
+    return (
+      <section className="card p-5 sm:p-6" aria-labelledby="ownership">
+        <h2 id="ownership" className="text-2xl font-bold">Government and private {short} colleges</h2>
+        <div className="mt-4 rounded-xl bg-band p-4">
+          <p className="tabular font-display text-[1.3rem] font-extrabold leading-tight sm:text-[1.6rem]">
+            Not recorded for {fmt(notRecorded)} of {plural(stats.colleges, "college", "colleges")}
+            <span className="ml-2 font-sans text-[1rem] font-normal text-muted">({pctText(notRecorded)})</span>
+          </p>
+          <p className="mt-1 text-[0.92rem] text-ink-soft">
+            The regulator&apos;s list we hold for {short} does not say whether these colleges are government or private, so we do not show a government and
+            private split.
+          </p>
+        </div>
+        {known.length ? (
+          <>
+            <p className="mt-4 text-[0.92rem] text-muted">Ownership is recorded for {plural(recorded, "college", "colleges")} only:</p>
+            <ul className="mt-2 flex flex-wrap gap-2">
+              {known.map((p) => {
+                const body = (
+                  <>
+                    <span className="font-bold">{p.label}</span> <span className="tabular">{fmt(p.n)}</span>
+                  </>
+                );
+                return (
+                  <li key={p.key}>
+                    {p.href ? (
+                      <Link href={p.href} className="inline-block rounded-full border border-rule px-3 py-1.5 text-[0.92rem] hover:border-brand hover:bg-brand-soft">
+                        {body}
+                      </Link>
+                    ) : (
+                      <span className="inline-block rounded-full border border-rule px-3 py-1.5 text-[0.92rem]">{body}</span>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+            {othersNote}
+          </>
+        ) : null}
+      </section>
+    );
+  }
 
   return (
     <section className="card p-5 sm:p-6" aria-labelledby="ownership">
       <h2 id="ownership" className="text-2xl font-bold">Government and private {short} colleges</h2>
-      <p className="mt-1 text-[0.92rem] text-muted">How the {plural(stats.colleges, "college", "colleges")} offering {short} are run, as recorded by the regulator.</p>
+      <p className="mt-1 text-[0.92rem] text-muted">
+        How the {plural(stats.colleges, "college", "colleges")} offering {short} are run, as recorded by the regulator.
+        {notRecorded ? ` Ownership is recorded for ${fmt(recorded)} of them.` : null}
+      </p>
       <div className="mt-4 flex h-3 overflow-hidden rounded-full bg-band" aria-hidden="true">
         {parts.map((p) => (
           <div key={p.key} className={p.color} style={{ width: `${pct(p.n)}%` }} />
@@ -288,11 +371,7 @@ export function CourseOwnership({ short, slug, stats }: { short: string; slug: s
           );
         })}
       </ul>
-      {others.length ? (
-        <p className="mt-3 text-[0.92rem] text-ink-soft">
-          Others: {listText(others.map((o) => `${o.label} (${fmt(o.colleges)})`))}.
-        </p>
-      ) : null}
+      {othersNote}
     </section>
   );
 }

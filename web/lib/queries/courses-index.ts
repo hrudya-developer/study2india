@@ -1,5 +1,6 @@
 import { sql } from "drizzle-orm";
 import { rows } from "@/lib/db";
+import { mostlyRecorded } from "@/lib/queries/catalog";
 
 /** One course on the /courses index, with what we have recorded about who offers it. */
 export type CourseIndexItem = {
@@ -12,9 +13,11 @@ export type CourseIndexItem = {
   streamName: string;
   /** Published institutions with a recorded offering of this course. */
   colleges: number;
-  /** Of those, how many have an approved intake figure. */
+  /** Of those, how many have an approved intake figure (on the offering or summed from its branches). */
   collegesWithSeats: number;
-  /** Sum of approved seats where recorded, null when no institution has a figure. */
+  /** Sum of every recorded seat figure, null when no institution has one. Partial when collegesWithSeats < colleges. */
+  seatsRecorded: number | null;
+  /** The seat total to display: seatsRecorded when at least half of the colleges have a figure, otherwise null. */
   seats: number | null;
   /** Latest academic year among the offerings, null when there are none. */
   latestYear: string | null;
@@ -36,9 +39,10 @@ export type CourseIndexSummary = {
 const n = (v: unknown) => Number(v ?? 0);
 
 /**
- * Every course with offering counts, aggregated in one grouped query.
- * Only the latest academic year per institution and course is counted, so a
- * college listed for two years is not double counted in colleges or seats.
+ * Every course with offering counts, aggregated in one grouped query. Uses the same rules as the
+ * course pages (latestOfferings in catalog.ts): one offering per institution and course, from the
+ * most recent academic year it appears in (a missing year sorts last), and seats fall back to the
+ * sum of branch seats when the offering itself has no total.
  */
 export async function getCourseIndex(): Promise<CourseIndexItem[]> {
   const list = await rows<{
@@ -63,20 +67,19 @@ export async function getCourseIndex(): Promise<CourseIndexItem[]> {
     from courses c
     join streams s on s.id = c.stream_id
     left join (
-      select o.institution_id, o.course_id, o.seats, o.academic_year
+      select o.institution_id, o.course_id, o.academic_year,
+        coalesce(o.seats, (select sum(b.seats) from offering_branches b where b.offering_id = o.id)) as seats,
+        row_number() over (partition by o.institution_id, o.course_id order by o.academic_year is null, o.academic_year desc, o.id desc) as rn
       from offerings o
       join institutions i on i.id = o.institution_id and i.status = 'published'
-      where not exists (
-        select 1 from offerings o2
-        where o2.institution_id = o.institution_id and o2.course_id = o.course_id
-          and o2.academic_year > o.academic_year
-      )
-    ) o on o.course_id = c.id
+    ) o on o.course_id = c.id and o.rn = 1
     group by c.id, c.slug, c.short_name, c.name, c.level, c.duration_text, s.slug, s.name, s.sort_order, c.sort_order
     order by s.sort_order, c.sort_order, c.name
   `);
   return list.map((c) => {
+    const colleges = n(c.colleges);
     const withSeats = n(c.with_seats);
+    const seatsRecorded = withSeats > 0 ? n(c.seats) : null;
     return {
       slug: c.slug,
       short: c.short_name,
@@ -85,9 +88,10 @@ export async function getCourseIndex(): Promise<CourseIndexItem[]> {
       duration: c.duration_text,
       streamSlug: c.stream_slug,
       streamName: c.stream_name,
-      colleges: n(c.colleges),
+      colleges,
       collegesWithSeats: withSeats,
-      seats: withSeats > 0 ? n(c.seats) : null,
+      seatsRecorded,
+      seats: mostlyRecorded(withSeats, colleges) ? seatsRecorded : null,
       latestYear: c.latest_year,
     };
   });

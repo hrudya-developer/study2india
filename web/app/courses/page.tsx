@@ -8,6 +8,7 @@ import { CourseCard } from "@/components/courses/course-card";
 import { CourseSearch } from "@/components/courses/course-search";
 import { LEVELS } from "@/components/courses/levels";
 import { one, qs, type SearchParams } from "@/lib/params";
+import { mostlyRecorded } from "@/lib/queries/catalog";
 
 export const dynamic = "force-dynamic";
 
@@ -70,6 +71,17 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
 
 const num = (v: number) => v.toLocaleString("en-IN");
 
+/**
+ * Seat figures summed over a set of courses, counted per college and course (a course offering).
+ * The total is shown only when at least half of the offerings have a figure, as on the course pages.
+ */
+function seatCoverage(items: CourseIndexItem[]) {
+  const offerings = items.reduce((n, c) => n + c.colleges, 0);
+  const recorded = items.reduce((n, c) => n + c.collegesWithSeats, 0);
+  const seats = items.reduce((n, c) => n + (c.seatsRecorded ?? 0), 0);
+  return { offerings, recorded, seats: recorded > 0 && mostlyRecorded(recorded, offerings) ? seats : null };
+}
+
 export default async function CoursesPage({ searchParams }: Props) {
   const f = await readFilters(searchParams);
   const [courses, streams, summary, exams] = await Promise.all([getCourseIndex(), getCourseIndexStreams(), getCourseIndexSummary(), getExams()]);
@@ -79,7 +91,7 @@ export default async function CoursesPage({ searchParams }: Props) {
   const sq = active.q ? squash(active.q) : "";
   const shortOnly = !!sq && courses.some((c) => squash(c.short).startsWith(sq));
   const shown = courses.filter((c) => matches(c, active, shortOnly));
-  const totalSeats = courses.reduce((n, c) => n + (c.seats ?? 0), 0);
+  const total = seatCoverage(courses);
   const filtered = !!(active.level || active.field || active.q);
   const levelName = LEVELS.find((l) => l.value === active.level)?.label;
 
@@ -104,18 +116,23 @@ export default async function CoursesPage({ searchParams }: Props) {
       <PageHero
         crumbs={[{ label: "Courses" }]}
         title="All courses in India"
-        intro="Every major course by field of study, with the colleges offering it and their approved intake from AICTE, NMC, INC, NCISM, NCH and NIRF records. Durations are shown only where the regulator fixes them."
+        intro="Every major course by field of study, with the colleges offering it and their approved intake from AICTE, NMC, INC, NCISM, NCH, PCI, DCI, VCI and NIRF records. Durations are shown only where the regulator fixes them."
       >
         <dl className="tabular mt-6 grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-4">
           {[
             { label: "Courses", value: num(summary.courses) },
             { label: "Fields of study", value: num(summary.fields) },
             { label: "Colleges covered", value: num(summary.colleges) },
-            { label: "Approved seats recorded", value: totalSeats ? num(totalSeats) : "Not recorded" },
+            {
+              label: "Approved seats recorded",
+              value: total.seats !== null ? num(total.seats) : "Not recorded",
+              note: total.recorded > 0 && total.recorded < total.offerings ? `recorded for ${num(total.recorded)} of ${num(total.offerings)} course offerings` : null,
+            },
           ].map((s) => (
             <div key={s.label} className="rounded-xl bg-white/10 px-4 py-3">
               <dt className="text-[0.85rem] text-[#c9cbe6]">{s.label}</dt>
-              <dd className="text-2xl font-extrabold">{s.value}</dd>
+              <dd className={s.value === "Not recorded" ? "text-lg font-normal italic" : "text-2xl font-extrabold"}>{s.value}</dd>
+              {"note" in s && s.note ? <dd className="mt-0.5 text-[0.78rem] leading-snug text-[#c9cbe6]">{s.note}</dd> : null}
             </div>
           ))}
         </dl>
@@ -216,7 +233,14 @@ export default async function CoursesPage({ searchParams }: Props) {
               <div className="mt-8 space-y-10">
                 {groups.map((g) => {
                   const ex = exams.filter((e) => e.streams.includes(g.name)).map((e) => e.short);
-                  const seats = g.items.reduce((n, c) => n + (c.seats ?? 0), 0);
+                  const cover = seatCoverage(g.items);
+                  const partial = cover.recorded < cover.offerings;
+                  const seatText =
+                    cover.seats !== null
+                      ? `, ${num(cover.seats)} approved seats recorded${partial ? ` (for ${num(cover.recorded)} of ${num(cover.offerings)} course offerings)` : ""}`
+                      : cover.recorded > 0
+                        ? `, approved seats recorded for only ${num(cover.recorded)} of ${num(cover.offerings)} course offerings`
+                        : "";
                   return (
                     <section key={g.slug} id={g.slug} className="scroll-mt-32" aria-labelledby={`h-${g.slug}`}>
                       <div className="flex flex-wrap items-end justify-between gap-3 border-b border-rule pb-3">
@@ -228,7 +252,7 @@ export default async function CoursesPage({ searchParams }: Props) {
                             </h2>
                             <p className="tabular text-[0.9rem] text-muted">
                               {g.items.length} {g.items.length === 1 ? "course" : "courses"}
-                              {seats ? `, ${num(seats)} approved seats recorded` : ""}
+                              {seatText}
                               {ex.length ? `. Entrance exams: ${ex.join(", ")}` : ""}
                             </p>
                           </div>
@@ -266,7 +290,7 @@ export default async function CoursesPage({ searchParams }: Props) {
 
             <p className="mt-10 text-[0.88rem] text-muted">
               College and seat counts come from regulator records for the latest academic year we hold. &quot;Not recorded&quot; means we have no official figure for
-              that course yet, not that no college offers it.{" "}
+              that course yet, or figures for fewer than half of the colleges offering it, not that no college offers it.{" "}
               <Link href="/how-we-check-data" className="underline underline-offset-4 hover:text-ink">
                 How we check data
               </Link>

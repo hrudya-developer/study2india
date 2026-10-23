@@ -4,6 +4,9 @@ import { useEffect, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { Search, X } from "lucide-react";
 
+/** Pause after the last keystroke before the page is asked for new results. */
+const SEARCH_DELAY_MS = 400;
+
 function href(q: string, level?: string, field?: string) {
   const u = new URLSearchParams();
   if (level) u.set("level", level);
@@ -23,6 +26,9 @@ export function CourseSearch({ q = "", level, field }: { q?: string; level?: str
   const [prevQ, setPrevQ] = useState(q);
   const [pending, startTransition] = useTransition();
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // The query the page was last asked for (trimmed). The page is rendered on the server, so a
+  // request with the same text would only re-run the same queries.
+  const requested = useRef(q.trim());
 
   // Follow the URL when it changes from outside the box, for example "Clear all".
   // Typed text that matches the URL once trimmed is kept as is, so a trailing space survives.
@@ -31,19 +37,26 @@ export function CourseSearch({ q = "", level, field }: { q?: string; level?: str
     if (q !== value.trim()) setValue(q);
   }
 
+  useEffect(() => {
+    requested.current = q.trim();
+  }, [q]);
+
   useEffect(() => () => {
     if (timer.current) clearTimeout(timer.current);
   }, []);
 
   function go(next: string) {
     if (timer.current) clearTimeout(timer.current);
-    startTransition(() => router.replace(href(next, level, field), { scroll: false }));
+    const text = next.trim();
+    if (text === requested.current) return;
+    requested.current = text;
+    startTransition(() => router.replace(href(text, level, field), { scroll: false }));
   }
 
   function onChange(next: string) {
     setValue(next);
     if (timer.current) clearTimeout(timer.current);
-    timer.current = setTimeout(() => go(next), 300);
+    timer.current = setTimeout(() => go(next), SEARCH_DELAY_MS);
   }
 
   return (
