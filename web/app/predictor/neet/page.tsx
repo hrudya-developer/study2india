@@ -375,7 +375,7 @@ export default async function NeetPredictorPage({ searchParams }: Props) {
                   JIPMER and BHU seats. Other quotas (deemed university paid seats, Delhi University, IP University, AMU, ESI and more) are under More options.
                 </li>
                 <li>
-                  Quota names are exactly as MCC prints them. 25 of the institutions in the MCC lists, including several newer AIIMS, are not yet matched to a college
+                  Quota names are exactly as MCC prints them. 20 of the institutions in the MCC lists, including several newer AIIMS, are not yet matched to a college
                   page of ours and are left out of these results.
                 </li>
                 <li>State quota counselling, AYUSH and veterinary admissions are not covered.</li>

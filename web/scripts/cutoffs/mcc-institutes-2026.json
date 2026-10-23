@@ -86,9 +86,12 @@
    "courses": [
     "mbbs"
    ],
-   "institution": null,
-   "match": "none",
-   "note": "AIIMS Bathinda: no record"
+   "institution": {
+    "scheme": "inc",
+    "value": "xt9qw0"
+   },
+   "match": "hand",
+   "note": "AIIMS Bathinda: not on the NMC list; joined to its INC record \"Aiims Bathinda\" (Bathinda, Punjab), which is the institute itself"
   },
   {
    "index": 7,
@@ -99,7 +102,7 @@
    ],
    "institution": null,
    "match": "none",
-   "note": "AIIMS Bilaspur: no record"
+   "note": "AIIMS Bilaspur (Himachal Pradesh): in no list we load (not on the NMC, NIRF or INC lists)"
   },
   {
    "index": 8,
@@ -110,7 +113,7 @@
    ],
    "institution": null,
    "match": "none",
-   "note": "AIIMS Guwahati: no record"
+   "note": "AIIMS Guwahati: not on the NMC or NIRF lists; only its College of Nursing is on the INC list (inc zklp6l), which is not joined to the institute"
   },
   {
    "index": 9,
@@ -121,7 +124,7 @@
    ],
    "institution": null,
    "match": "none",
-   "note": "AIIMS Jammu: no record"
+   "note": "AIIMS Jammu: in no list we load"
   },
   {
    "index": 10,
@@ -132,7 +135,7 @@
    ],
    "institution": null,
    "match": "none",
-   "note": "AIIMS Mangalagiri: no record"
+   "note": "AIIMS Mangalagiri: in no list we load"
   },
   {
    "index": 11,
@@ -143,7 +146,7 @@
    ],
    "institution": null,
    "match": "none",
-   "note": "AIIMS Rajkot: no record"
+   "note": "AIIMS Rajkot: in no list we load"
   },
   {
    "index": 12,
@@ -182,7 +185,7 @@
    ],
    "institution": null,
    "match": "none",
-   "note": "AIIMS Bibinagar: no record"
+   "note": "AIIMS Bibinagar: in no list we load"
   },
   {
    "index": 15,
@@ -191,9 +194,12 @@
    "courses": [
     "mbbs"
    ],
-   "institution": null,
-   "match": "none",
-   "note": "AIIMS Deoghar: no record"
+   "institution": {
+    "scheme": "inc",
+    "value": "ukykas"
+   },
+   "match": "hand",
+   "note": "AIIMS Deoghar: not on the NMC list; joined to its INC record \"All India Institute Of Medical Sciences\" (Deoghar, Jharkhand), which is the institute itself"
   },
   {
    "index": 16,
@@ -204,7 +210,7 @@
    ],
    "institution": null,
    "match": "none",
-   "note": "AIIMS Gorakhpur: no record"
+   "note": "AIIMS Gorakhpur: in no list we load"
   },
   {
    "index": 17,
@@ -229,7 +235,7 @@
    ],
    "institution": null,
    "match": "none",
-   "note": "AIIMS Kalyani: no record"
+   "note": "AIIMS Kalyani: not on the NMC or NIRF lists; only its College of Nursing is on the INC list (inc 1l9qtq1), which is not joined to the institute"
   },
   {
    "index": 19,
@@ -240,7 +246,7 @@
    ],
    "institution": null,
    "match": "none",
-   "note": "AIIMS Madurai: no record"
+   "note": "AIIMS Madurai: in no list we load"
   },
   {
    "index": 20,
@@ -251,7 +257,7 @@
    ],
    "institution": null,
    "match": "none",
-   "note": "AIIMS Nagpur: no record"
+   "note": "AIIMS Nagpur: not on the NMC or NIRF lists; only its College of Nursing is on the INC list (inc 16xu6mj), which is not joined to the institute"
   },
   {
    "index": 21,
@@ -290,7 +296,7 @@
    ],
    "institution": null,
    "match": "none",
-   "note": "AIIMS Rae Bareli: no record"
+   "note": "AIIMS Rae Bareli: in no list we load"
   },
   {
    "index": 24,
@@ -329,7 +335,7 @@
    ],
    "institution": null,
    "match": "none",
-   "note": "AIIMS Rewari: no record"
+   "note": "AIIMS Rewari: in no list we load"
   },
   {
    "index": 27,
@@ -952,7 +958,7 @@
    ],
    "institution": null,
    "match": "none",
-   "note": "CAPFIMS (AIIMS-CAPFIMS), Delhi: no record"
+   "note": "CAPFIMS (AIIMS-CAPFIMS), Maidan Garhi, Delhi: in no list we load"
   },
   {
    "index": 75,
@@ -1118,9 +1124,12 @@
    "courses": [
     "bsc-nursing"
    ],
-   "institution": null,
-   "match": "none",
-   "note": "College of Nursing, BHU: no INC record of ours; not joined to IMS BHU"
+   "institution": {
+    "scheme": "inc",
+    "value": "l8b2mh"
+   },
+   "match": "hand",
+   "note": "College of Nursing, IMS BHU: joined to the INC record \"College Of Nursing, Sir Sunder Lal Hospital\" (Varanasi), BHU's teaching hospital"
   },
   {
    "index": 88,
@@ -1158,7 +1167,7 @@
    ],
    "institution": null,
    "match": "none",
-   "note": "College of Nursing, Lady Hardinge Medical College: no INC record of ours; not joined to LHMC"
+   "note": "College of Nursing, Lady Hardinge Medical College: not on the INC list we load; not joined to LHMC"
   },
   {
    "index": 91,
@@ -1677,9 +1686,12 @@
    "courses": [
     "bsc-nursing"
    ],
-   "institution": null,
-   "match": "none",
-   "note": "ESIC College of Nursing, Gulbarga: no INC record"
+   "institution": {
+    "scheme": "inc",
+    "value": "1qrj5oa"
+   },
+   "match": "hand",
+   "note": "ESIC College of Nursing, Kalaburagi: INC record \"E S I C College Of Nursing-Gulbarga\" (PIN 585106, Sedam Road)"
   },
   {
    "index": 131,
@@ -1688,9 +1700,12 @@
    "courses": [
     "bsc-nursing"
    ],
-   "institution": null,
-   "match": "none",
-   "note": "ESIC College of Nursing, Indiranagar, Bengaluru: no INC record"
+   "institution": {
+    "scheme": "inc",
+    "value": "1848yhw"
+   },
+   "match": "hand",
+   "note": "ESIC College of Nursing, Indiranagar, Bengaluru: INC record \"Employees State Insurance Corporation College Of Nursing\" (Bangalore; ESIC's only nursing college in Bengaluru)"
   },
   {
    "index": 132,
@@ -5220,7 +5235,7 @@
    ],
    "institution": null,
    "match": "none",
-   "note": "JIPMER Karaikal: no record"
+   "note": "JIPMER Karaikal: a separate campus of JIPMER with its own seats and ranks; no record of its own, and not joined to JIPMER Puducherry"
   },
   {
    "index": 403,
