@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { InfoPage } from "@/components/info-page";
 
-export const metadata: Metadata = { title: "How we check our data", description: "Where Study2India's college, course, ranking, fee and cutoff data comes from, and how we keep it accurate." };
+export const metadata: Metadata = { title: "How we check our data", description: "Where Study2India's college, course, ranking, fee and cutoff data comes from, and how we keep it accurate.",
+  alternates: { canonical: "/how-we-check-data" },
+};
 
 export default function HowWeCheckPage() {
   return (

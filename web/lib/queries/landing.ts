@@ -1,7 +1,7 @@
 import { sql } from "drizzle-orm";
 import { rows } from "@/lib/db";
 import { mostlyRecorded, NIRF_CATEGORY_BY_STREAM, NIRF_GENERAL_CATEGORIES } from "@/lib/queries/catalog";
-import { getCollegeFacets, formatNumber } from "@/lib/queries/colleges";
+import { collegesHref, getCollegeFacets, formatNumber, type CollegeFilters } from "@/lib/queries/colleges";
 import { districtFromSlug, districtSlug } from "@/lib/districts";
 import { districtLandingPath, landingPath } from "@/lib/seo";
 
@@ -170,6 +170,27 @@ export function isDistrictLandingPair(index: LandingIndex, kind: LandingKind, di
   const n = districtPairColleges(index, kind, dim, state, district);
   const stateTotal = pairColleges(index, kind, dim, state);
   return n >= LANDING_MIN_COLLEGES && n < stateTotal && mostlyRecorded(index.districtPlaced.get(`${kind}|${dim}|${state}`) ?? 0, stateTotal);
+}
+
+/**
+ * The clean path /colleges redirects a set of filters to, or null when it serves them itself:
+ * exactly a course (or field) and a state that make a landing page, optionally with a district
+ * that makes a district landing page, and no other filter or sort. The page number is kept.
+ */
+export function cleanListingPath(f: Partial<CollegeFilters>, index: LandingIndex, stateName: string | undefined): string | null {
+  const filtered = !!(f.ownership?.length || f.approval?.length || f.level || f.ranked || f.q || (f.sort && f.sort !== "relevance"));
+  if (filtered || !f.state || (f.course && f.stream)) return null;
+  const kind: LandingKind | null = f.course ? "course" : f.stream ? "stream" : null;
+  const dim = f.course ?? f.stream;
+  if (!kind || !dim || !isLandingPair(index, kind, dim, f.state)) return null;
+  if (!f.city) return landingPath(dim, f.state, f.page);
+  const district = districtSlug(stateName, f.city);
+  return district && isDistrictLandingPair(index, kind, dim, f.state, district) ? districtLandingPath(dim, f.state, district, f.page) : null;
+}
+
+/** A listing URL for a set of filters that does not redirect: the landing page when there is one, else the /colleges query URL. */
+export function listingHref(f: Partial<CollegeFilters>, index: LandingIndex, stateName: string | undefined): string {
+  return cleanListingPath(f, index, stateName) ?? collegesHref(f);
 }
 
 export type DistrictLink = { slug: string; name: string; colleges: number; indexable: boolean; lastmod: string | null };

@@ -19,8 +19,11 @@ const POPULAR_SEARCHES: { course: string; short: string; states: string[] }[] = 
   { course: "mba", short: "MBA", states: ["Kerala", "Karnataka"] },
 ];
 
-/** The regulators whose lists the site is built from, linked to their official sites. */
-const SOURCES = [
+/**
+ * The official lists the site is built from, linked to their official sites: the regulators, the
+ * NIRF rankings and, labelled as such, JoSAA's counselling seat matrix (JoSAA is not a regulator).
+ */
+const SOURCES: { short: string; name: string; url: string; note?: string }[] = [
   { short: "AICTE", name: "All India Council for Technical Education", url: "https://www.aicte-india.org" },
   { short: "NMC", name: "National Medical Commission", url: "https://www.nmc.org.in" },
   { short: "INC", name: "Indian Nursing Council", url: "https://www.indiannursingcouncil.org" },
@@ -30,6 +33,7 @@ const SOURCES = [
   { short: "DCI", name: "Dental Council of India", url: "https://dciindia.gov.in/CollegeSearch.aspx" },
   { short: "VCI", name: "Veterinary Council of India", url: "https://vci.dahd.gov.in/list-of-college" },
   { short: "NIRF", name: "National Institutional Ranking Framework", url: "https://www.nirfindia.org" },
+  { short: "JoSAA", name: "Joint Seat Allocation Authority (JoSAA)", url: "https://josaa.nic.in", note: "counselling seat matrix" },
 ];
 
 const head = "text-[0.82rem] font-bold uppercase tracking-wide text-white";
@@ -182,9 +186,10 @@ export function SiteFooter() {
           <ul className="mt-3 flex flex-wrap gap-2 text-[0.88rem]">
             {SOURCES.map((s) => (
               <li key={s.short}>
-                <a href={s.url} target="_blank" rel="noopener" title={s.name} className="inline-flex min-h-9 items-center gap-1.5 rounded-full border border-white/20 px-3 hover:border-white/60 hover:text-white">
+                <a href={s.url} target="_blank" rel="noopener" title={s.note ? `${s.name}, ${s.note}` : s.name} className="inline-flex min-h-9 items-center gap-1.5 rounded-full border border-white/20 px-3 hover:border-white/60 hover:text-white">
                   <span className="font-bold text-white">{s.short}</span>
                   <span className="hidden sm:inline">{s.name}</span>
+                  {s.note ? <span className="text-white/70">({s.note})</span> : null}
                   <ExternalLink size={12} aria-hidden="true" />
                   <span className="sr-only">(opens in a new tab)</span>
                 </a>

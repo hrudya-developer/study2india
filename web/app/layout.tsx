@@ -5,11 +5,10 @@ import "@fontsource/atkinson-hyperlegible-next/latin-700.css";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-
-const siteUrl = process.env.SITE_URL ?? "https://study2india.com";
+import { metadataOrigin } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(metadataOrigin()),
   title: {
     default: "Study2India: colleges, courses, fees and rankings in India",
     template: "%s | Study2India",

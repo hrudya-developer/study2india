@@ -11,6 +11,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Scholarships for college students in India",
   description: "Central and state government scholarships for college students, with eligibility, amounts, 2026-27 deadlines and official application links.",
+  alternates: { canonical: "/scholarships" },
 };
 
 type Scholarship = Awaited<ReturnType<typeof getScholarships>>[number];

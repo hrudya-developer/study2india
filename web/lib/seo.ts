@@ -6,6 +6,17 @@
  */
 export const SITE_ORIGIN = "https://study2india.com";
 
+/**
+ * The origin for metadataBase, which turns relative canonical and Open Graph URLs absolute. In
+ * production it is always SITE_ORIGIN, the same origin as the sitemaps and JSON-LD, so a missing
+ * or wrong SITE_URL cannot make canonicals point at http://localhost:3000 or a staging host.
+ * Outside production SITE_URL may override it, for local testing only.
+ */
+export function metadataOrigin(): string {
+  const local = process.env.NODE_ENV !== "production" ? process.env.SITE_URL?.trim() : undefined;
+  return local && /^https?:\/\/[^/]/.test(local) ? local.replace(/\/+$/, "") : SITE_ORIGIN;
+}
+
 /** An absolute URL on the public site for a path such as "/college/x" or "/colleges?course=y". */
 export function absoluteUrl(path: string): string {
   if (/^https?:\/\//.test(path)) return path;

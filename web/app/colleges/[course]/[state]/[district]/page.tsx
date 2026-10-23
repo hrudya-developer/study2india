@@ -9,10 +9,10 @@ import {
   getLandingIndex,
   getLandingStats,
   isDistrictLandingPair,
-  isLandingPair,
   landingIntro,
   landingMeta,
   landingPath,
+  listingHref,
   pairColleges,
   resolveDistrictLanding,
   type LandingTarget,
@@ -41,7 +41,6 @@ const load = cache(async (dim: string, stateSlug: string, districtSlug: string) 
     index,
     stats,
     indexable: isDistrictLandingPair(index, t.kind, t.slug, t.state.slug, t.district.slug),
-    stateIndexable: isLandingPair(index, t.kind, t.slug, t.state.slug),
   };
 });
 
@@ -70,13 +69,9 @@ export async function generateMetadata({ params, searchParams }: Props): Promise
   const { t } = data;
   const page = readCollegeFilters(await searchParams).page;
   const { title, description } = landingMeta(t, data.stats);
-  // A thin district pair is kept out of the index and points to the state page, or to the
-  // all-India listing when the state page is itself below the minimum.
-  const canonical = data.indexable
-    ? districtLandingPath(t.slug, t.state.slug, t.district.slug, page)
-    : data.stateIndexable
-      ? landingPath(t.slug, t.state.slug)
-      : indiaHref(t);
+  // Each page is its own canonical. A thin district pair is noindex,follow, without a canonical
+  // to another page, which alongside noindex would send search engines mixed signals.
+  const canonical = districtLandingPath(t.slug, t.state.slug, t.district.slug, page);
   return {
     title: page > 1 ? `${title} (page ${page})` : title,
     description,
@@ -175,6 +170,7 @@ export default async function DistrictLandingPage({ params, searchParams }: Prop
         cities={cities}
         result={result}
         pageHref={(p) => districtLandingPath(t.slug, t.state.slug, t.district.slug, p)}
+        listingHref={(x) => listingHref(x, index, t.state.name)}
         intro={intro}
       />
       <section aria-labelledby="other-districts" className="bg-band">

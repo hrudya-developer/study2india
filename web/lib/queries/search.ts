@@ -2,6 +2,7 @@ import { sql, type SQL } from "drizzle-orm";
 import { rows } from "@/lib/db";
 import { STATE_ALIASES } from "@/data/reference";
 import { own } from "@/lib/params";
+import { getLandingIndex, listingHref, type LandingIndex } from "@/lib/queries/landing";
 
 /**
  * Site search shared by the header suggestions, the home page search and the /search page.
@@ -248,14 +249,9 @@ function collegeHref(slug: string) {
   return `/college/${slug}`;
 }
 
-function listHref(p: Parsed, q?: string) {
-  const u = new URLSearchParams();
-  if (p.course) u.set("course", p.course.slug);
-  else if (p.stream) u.set("stream", p.stream.slug);
-  if (p.state) u.set("state", p.state.slug);
-  if (q) u.set("q", q);
-  const s = u.toString();
-  return `/colleges${s ? `?${s}` : ""}`;
+/** The listing for a parsed query: a course or field and a state with a landing page link to it directly, not through the /colleges redirect. */
+function listHref(p: Parsed, index: LandingIndex, q?: string) {
+  return listingHref({ course: p.course?.slug, stream: p.course ? undefined : p.stream?.slug, state: p.state?.slug, q }, index, p.state?.name);
 }
 
 export async function searchSite(rawQ: string, opts: { colleges?: number; courses?: number; exams?: number; states?: number } = {}): Promise<SearchResult> {
@@ -312,20 +308,20 @@ export async function searchSite(rawQ: string, opts: { colleges?: number; course
   if ((p.course || p.stream) && p.state) {
     const what = p.course ? p.course.short : `${p.stream!.name}`;
     tasks.push(
-      countColleges(filters).then((n) => {
-        quick.push({ label: `${what} colleges in ${p.state!.name}`, href: listHref(p), meta: n > 0 ? `${fmt(n)} ${n === 1 ? "college" : "colleges"}` : "No college recorded yet" });
+      Promise.all([countColleges(filters), getLandingIndex()]).then(([n, index]) => {
+        quick.push({ label: `${what} colleges in ${p.state!.name}`, href: listHref(p, index), meta: n > 0 ? `${fmt(n)} ${n === 1 ? "college" : "colleges"}` : "No college recorded yet" });
       }),
     );
   } else if (p.course && p.rest.length === 0) {
     tasks.push(
-      countColleges(filters).then((n) => {
-        if (n > 0) quick.push({ label: `Colleges offering ${p.course!.short}`, href: listHref(p), meta: `${fmt(n)} colleges` });
+      Promise.all([countColleges(filters), getLandingIndex()]).then(([n, index]) => {
+        if (n > 0) quick.push({ label: `Colleges offering ${p.course!.short}`, href: listHref(p, index), meta: `${fmt(n)} colleges` });
       }),
     );
   } else if (p.stream && p.rest.length === 0) {
     tasks.push(
-      countColleges(filters).then((n) => {
-        if (n > 0) quick.push({ label: `${p.stream!.name} colleges`, href: listHref(p), meta: `${fmt(n)} colleges` });
+      Promise.all([countColleges(filters), getLandingIndex()]).then(([n, index]) => {
+        if (n > 0) quick.push({ label: `${p.stream!.name} colleges`, href: listHref(p, index), meta: `${fmt(n)} colleges` });
       }),
     );
   }
@@ -378,5 +374,5 @@ export async function collegeListHref(rawQ: string): Promise<string | null> {
   const cat = await getCatalog();
   const p = parseQuery(rawQ, cat);
   if (p.rest.length > 1 || (p.rest[0] && own(NAME_ABBREVIATIONS, norm(p.rest[0])))) return null;
-  return listHref(p, p.rest[0]);
+  return listHref(p, await getLandingIndex(), p.rest[0]);
 }

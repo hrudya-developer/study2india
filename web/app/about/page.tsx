@@ -3,7 +3,9 @@ import Link from "next/link";
 import { InfoPage } from "@/components/info-page";
 import { CONTACT } from "@/data/reference";
 
-export const metadata: Metadata = { title: "About us", description: "Study2India is a Kerala-based education consultancy helping students choose and join accredited colleges across India." };
+export const metadata: Metadata = { title: "About us", description: "Study2India is a Kerala-based education consultancy helping students choose and join accredited colleges across India.",
+  alternates: { canonical: "/about" },
+};
 
 export default function AboutPage() {
   return (

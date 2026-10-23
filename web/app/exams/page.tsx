@@ -35,6 +35,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Entrance exams in India: NEET, JEE, KEAM, CUET, CAT, CLAT and more",
   description: "National and state entrance exams for medical, engineering, management, law, design and other courses, with conducting bodies and official sites.",
+  alternates: { canonical: "/exams" },
 };
 
 export default async function ExamsPage() {

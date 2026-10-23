@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Search, Building2, BookOpen, FileText, MapPin, Sparkles, History, TrendingUp, ArrowRight, X } from "lucide-react";
+import { landingPath } from "@/lib/seo";
 
 type Item = { label: string; href: string; meta?: string };
 type Result = {
@@ -18,11 +19,11 @@ type Group = { key: string; label: string; icon: typeof Search; items: Item[]; n
 
 /** Starting points shown before the student types. All are real pages with real filters. */
 const POPULAR: Item[] = [
-  { label: "MBBS colleges in Karnataka", href: "/colleges?course=mbbs&state=karnataka" },
-  { label: "B.Sc Nursing colleges in Kerala", href: "/colleges?course=bsc-nursing&state=kerala" },
-  { label: "BDS colleges in Tamil Nadu", href: "/colleges?course=bds&state=tamil-nadu" },
+  { label: "MBBS colleges in Karnataka", href: landingPath("mbbs", "karnataka") },
+  { label: "B.Sc Nursing colleges in Kerala", href: landingPath("bsc-nursing", "kerala") },
+  { label: "BDS colleges in Tamil Nadu", href: landingPath("bds", "tamil-nadu") },
   { label: "NEET UG", href: "/exam/neet-ug" },
-  { label: "B.Tech colleges in Kerala", href: "/colleges?course=btech&state=kerala" },
+  { label: "B.Tech colleges in Kerala", href: landingPath("btech", "kerala") },
   { label: "NIRF rankings", href: "/rankings" },
 ];
 

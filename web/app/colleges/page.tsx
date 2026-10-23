@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { permanentRedirect } from "next/navigation";
+import { permanentRedirect, redirect } from "next/navigation";
 import {
   LEVEL_LABELS,
   collegesHref,
@@ -10,8 +10,17 @@ import {
   searchColleges,
   type CollegeFilters,
 } from "@/lib/queries/colleges";
-import { districtLandingPath, getLandingIndex, isDistrictLandingPair, isLandingPair, landingPath, type LandingIndex } from "@/lib/queries/landing";
-import { districtSlug } from "@/lib/districts";
+import {
+  cleanListingPath,
+  districtLandingPath,
+  getLandingIndex,
+  isDistrictLandingPair,
+  isLandingPair,
+  landingPath,
+  listingHref,
+  type LandingIndex,
+} from "@/lib/queries/landing";
+import { districtSlug, normaliseDistrict } from "@/lib/districts";
 import { CollegeListing } from "@/components/colleges/listing";
 import { breadcrumbList, jsonLd } from "@/lib/seo";
 import { own } from "@/lib/params";
@@ -21,18 +30,21 @@ type Props = { searchParams: Promise<Record<string, string | string[] | undefine
 /**
  * Resolves the filters against what exists. Unknown values from the URL (a course, field, state,
  * district or level we do not have) are dropped: they filter nothing, get no chip and stay out of the canonical.
+ * A city from an older link ("Kochi", "Cochin", "ernakulam") is mapped to its official district first;
+ * `cityMapped` says so, and the page then redirects to the URL with the official name.
  */
 async function describe(raw: CollegeFilters) {
   const [facets, course] = await Promise.all([getCollegeFacets(), raw.course ? getCourseContext(raw.course) : Promise.resolve(null)]);
   const stream = facets.streams.find((s) => s.value === raw.stream);
   const state = facets.states.find((s) => s.value === raw.state);
   const cities = state ? await getCityFacets(state.value) : [];
-  const city = raw.city && cities.find((c) => c.value === raw.city) ? raw.city : undefined;
+  const known = (v: string | null | undefined) => (v && cities.some((c) => c.value === v) ? v : undefined);
+  const city = state && raw.city ? (known(raw.city) ?? known(normaliseDistrict(state.label, raw.city, { asCity: true }))) : undefined;
   const level = own(LEVEL_LABELS, raw.level);
   const f: CollegeFilters = { ...raw, stream: stream?.value, course: course?.slug, state: state?.value, city, level: level ? raw.level : undefined };
   const what = course ? `${course.short} colleges` : stream ? `${stream.label} colleges` : level ? `${level} colleges` : "Colleges";
   const where = state ? `in ${city ? `${city}, ` : ""}${state.label}` : "in India";
-  return { title: `${what} ${where}`, f, facets, course, stream, state, cities };
+  return { title: `${what} ${where}`, f, facets, course, stream, state, cities, cityMapped: !!city && city !== raw.city };
 }
 
 /**
@@ -65,12 +77,7 @@ function seoFor(f: CollegeFilters, index: LandingIndex, stateName: string | unde
   const landing = landingFor(f, index);
   const districtLanding = districtLandingFor(f, index, stateName);
   // Exactly a course (or field) and a state, and at most a district, nothing else: this listing has a clean URL.
-  const redirect =
-    !filtered && dims === 2 && districtLanding
-      ? districtLandingPath(districtLanding.dim, districtLanding.state, districtLanding.district, f.page)
-      : !extra && landing && dims === 2
-        ? landingPath(landing.dim, landing.state, f.page)
-        : null;
+  const redirect = cleanListingPath(f, index, stateName);
   if (!extra && dims <= 1) {
     return { redirect, index: true, canonical: collegesHref({ stream: f.stream, course: f.course, state: f.state, page: f.page }) };
   }
@@ -94,17 +101,21 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   const shown = f.page > 1 ? `${title} (page ${f.page})` : title;
   return {
     title: shown,
-    description: `${title}: approvals, seats and NIRF ranks from official lists (AICTE, NMC, INC, NCISM, NCH, PCI, DCI, VCI and NIRF), with free admission counselling.`,
+    description: `${title}: approvals, seats and NIRF ranks from official lists (AICTE, NMC, INC, NCISM, NCH, PCI, DCI, VCI and NIRF) and the JoSAA counselling seat matrix, with free admission counselling.`,
     alternates: { canonical: seo.redirect ?? seo.canonical },
     robots: seo.index || seo.redirect ? undefined : { index: false, follow: true },
   };
 }
 
 export default async function CollegesPage({ searchParams }: Props) {
-  const [{ title, f, facets, course, stream, state, cities }, index] = await Promise.all([describe(readCollegeFilters(await searchParams)), getLandingIndex()]);
+  const [{ title, f, facets, course, stream, state, cities, cityMapped }, index] = await Promise.all([describe(readCollegeFilters(await searchParams)), getLandingIndex()]);
   const seo = seoFor(f, index, state?.label);
   if (seo.redirect) permanentRedirect(seo.redirect);
+  // An older link naming a city or another spelling: the same listing at the official district name.
+  if (cityMapped) permanentRedirect(collegesHref(f));
   const result = await searchColleges(f, course);
+  // A page past the end (an old link after data changed) goes to the last page, which has its own canonical.
+  if (result.page !== f.page) redirect(collegesHref({ ...f, page: result.page }));
 
   // Home / Colleges / <course or field> colleges / <state>, as far as the filters go.
   const dimension = course ? { label: `${course.short} colleges`, href: collegesHref({ course: course.slug }) } : stream ? { label: `${stream.label} colleges`, href: collegesHref({ stream: stream.value }) } : null;
@@ -130,6 +141,7 @@ export default async function CollegesPage({ searchParams }: Props) {
         cities={cities}
         result={result}
         pageHref={(p) => collegesHref({ ...f, page: p })}
+        listingHref={(x) => listingHref(x, index, state?.label)}
       />
     </>
   );

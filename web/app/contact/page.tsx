@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { InfoPage } from "@/components/info-page";
 import { CONTACT } from "@/data/reference";
 
-export const metadata: Metadata = { title: "Contact us", description: "Phone, WhatsApp, email and office numbers for Study2India across Kerala." };
+export const metadata: Metadata = { title: "Contact us", description: "Phone, WhatsApp, email and office numbers for Study2India across Kerala.", alternates: { canonical: "/contact" } };
 
 export default function ContactPage() {
   return (

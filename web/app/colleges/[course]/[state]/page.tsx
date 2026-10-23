@@ -13,6 +13,7 @@ import {
   landingIntro,
   landingMeta,
   landingPath,
+  listingHref,
   resolveLanding,
   type LandingTarget,
 } from "@/lib/queries/landing";
@@ -48,7 +49,7 @@ function filtersFor(t: LandingTarget, page: number): CollegeFilters {
   };
 }
 
-/** The one-filter listing a thin pair points to: all colleges for the course (or field) in India. */
+/** The one-filter listing for the course (or field): all its colleges in India. */
 function parentHref(t: LandingTarget) {
   return t.kind === "course" ? collegesHref({ course: t.slug }) : collegesHref({ stream: t.slug });
 }
@@ -62,9 +63,10 @@ export async function generateMetadata({ params, searchParams }: Props): Promise
   return {
     title: page > 1 ? `${title} (page ${page})` : title,
     description,
-    // A landing page and each of its result pages are their own canonical; a pair below the
-    // minimum is kept out of the index and points to the course's all-India listing.
-    alternates: { canonical: data.indexable ? landingPath(data.t.slug, data.t.state.slug, page) : parentHref(data.t) },
+    // A landing page and each of its result pages are their own canonical. A pair below the
+    // minimum is noindex,follow and still self-canonical: a canonical to another page alongside
+    // noindex would send search engines mixed signals.
+    alternates: { canonical: landingPath(data.t.slug, data.t.state.slug, page) },
     robots: data.indexable ? undefined : { index: false, follow: true },
     openGraph: { title, description, url: landingPath(data.t.slug, data.t.state.slug) },
   };
@@ -160,6 +162,7 @@ export default async function LandingPage({ params, searchParams }: Props) {
         cities={cities}
         result={result}
         pageHref={(p) => landingPath(t.slug, t.state.slug, p)}
+        listingHref={(x) => listingHref(x, index, t.state.name)}
         intro={intro}
       />
       {districts.length ? (
