@@ -6,7 +6,7 @@ import * as schema from "./schema";
 type Db = MySql2Database<typeof schema>;
 const globalForDb = globalThis as unknown as { pool?: mysql.Pool; db?: Db };
 
-function getPool() {
+export function getPool() {
   const url = process.env.DATABASE_URL;
   if (!url) throw new Error("DATABASE_URL is not set. Add it to .env locally, or to the Node.js environment variables in hPanel.");
   if (!globalForDb.pool) {

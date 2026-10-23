@@ -1,15 +1,38 @@
 import { readdirSync, readFileSync, existsSync, statSync } from "node:fs";
 import path from "node:path";
 import { and, eq, sql } from "drizzle-orm";
-import { migrate } from "drizzle-orm/mysql2/migrator";
-import { getDb, rows, schema } from "@/lib/db";
+import { getDb, getPool, rows, schema } from "@/lib/db";
+import { MIGRATIONS } from "@/lib/db/migrations.generated";
 import { STATES, STATE_ALIASES, STREAMS, EXAMS, NIRF_CATEGORY_STREAM } from "@/data/reference";
 import { slugify } from "@/lib/slug";
 
 const { states, streams, courses, exams, examStreams, sources, institutions, institutionIdentifiers, institutionStreams, rankings } = schema;
 
-export async function runMigrations() {
-  await migrate(getDb(), { migrationsFolder: path.join(process.cwd(), "drizzle") });
+/**
+ * Applies the embedded migrations in order, once each, recorded in app_migrations.
+ * A named lock stops two server processes starting at once from migrating together.
+ */
+export async function runMigrations(log: (m: string) => void = console.log) {
+  const conn = await getPool().getConnection();
+  try {
+    await conn.query("create table if not exists app_migrations (tag varchar(120) primary key, applied_at timestamp not null default current_timestamp)");
+    const [lockRows] = await conn.query("select get_lock('study2india_migrate', 60) as got");
+    if (Number((lockRows as { got: number | null }[])[0]?.got) !== 1) throw new Error("Could not get the migration lock within 60 seconds");
+    try {
+      const [doneRows] = await conn.query("select tag from app_migrations");
+      const done = new Set((doneRows as { tag: string }[]).map((r) => r.tag));
+      for (const m of MIGRATIONS) {
+        if (done.has(m.tag)) continue;
+        for (const statement of m.statements) await conn.query(statement);
+        await conn.query("insert into app_migrations (tag) values (?)", [m.tag]);
+        log(`Applied migration ${m.tag}`);
+      }
+    } finally {
+      await conn.query("select release_lock('study2india_migrate')");
+    }
+  } finally {
+    conn.release();
+  }
 }
 
 const stateByName = new Map<string, string>();
@@ -155,7 +178,7 @@ export async function seedNirf(streamIds: Map<string, number>, log: (m: string) 
 
 /** Migrate, then load reference data and any official data files shipped with the app. */
 export async function bootstrap(log: (m: string) => void = console.log) {
-  await runMigrations();
+  await runMigrations(log);
   const streamIds = await seedReference();
   await seedNirf(streamIds, log);
   const [c] = await rows<{ n: number }>(sql`select count(*) as n from institutions`);

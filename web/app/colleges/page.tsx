@@ -149,7 +149,8 @@ export default async function CollegesPage({ searchParams }: Props) {
   );
 
   return (
-    <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6">
+    <div className="bg-band">
+    <div className="mx-auto max-w-7xl px-4 pb-4 pt-8 sm:px-6">
       <nav aria-label="Breadcrumb" className="text-[0.92rem] text-muted">
         <Link href="/" className="hover:underline">
           Home
@@ -171,11 +172,11 @@ export default async function CollegesPage({ searchParams }: Props) {
 
       <div className="mt-8 grid gap-10 lg:grid-cols-[280px_minmax(0,1fr)]">
         <aside aria-label="Filters">
-          <details className="rounded-xl border border-rule p-4 lg:hidden" open={false}>
+          <details className="card p-4 lg:hidden">
             <summary className="cursor-pointer font-bold">Filters{activeCount ? ` (${activeCount})` : ""}</summary>
             <div className="mt-4">{filtersForm}</div>
           </details>
-          <div className="hidden lg:block">{filtersForm}</div>
+          <div className="card sticky top-32 hidden p-5 lg:block">{filtersForm}</div>
         </aside>
 
         <section aria-label="Results">
@@ -188,22 +189,24 @@ export default async function CollegesPage({ searchParams }: Props) {
 
           {result.items.length ? (
             <>
+              <div className="space-y-4">
               {result.items.map((c, i) => (
-                <div key={c.id}>
+                <div key={c.id} className="space-y-4">
                   <CollegeCard c={c} courseShort={course?.short} />
                   {i === 4 ? (
-                    <div className="my-2 flex flex-wrap items-center justify-between gap-4 rounded-xl bg-mist px-5 py-4">
+                    <div className="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-brand/40 bg-brand-soft px-5 py-4">
                       <p>
                         <span className="font-bold">Not sure which of these fits your rank and budget?</span>{" "}
                         <span className="text-ink-soft">A counsellor can shortlist with you, free.</span>
                       </p>
-                      <Link href="/counselling" className="rounded-lg bg-brand px-4 py-2 font-bold text-ink hover:bg-[#ff9a33]">
+                      <Link href="/counselling" className="rounded-lg bg-brand px-4 py-2 font-bold text-ink hover:bg-brand-hover">
                         Talk to a counsellor
                       </Link>
                     </div>
                   ) : null}
                 </div>
               ))}
+              </div>
               {result.pageCount > 1 ? (
                 <nav aria-label="Pages" className="mt-8 flex items-center justify-between border-t border-rule pt-6">
                   {result.page > 1 ? (
@@ -234,11 +237,11 @@ export default async function CollegesPage({ searchParams }: Props) {
                 {activeCount ? " Try removing a filter, or" : ""} Ask a counsellor and we will check the options for you.
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
-                <Link href="/counselling" className="rounded-lg bg-brand px-4 py-2.5 font-bold text-ink hover:bg-[#ff9a33]">
+                <Link href="/counselling" className="rounded-lg bg-brand px-4 py-2.5 font-bold text-ink hover:bg-brand-hover">
                   Talk to a counsellor
                 </Link>
                 {activeCount ? (
-                  <Link href="/colleges" className="rounded-lg border-2 border-ink px-4 py-2 font-bold hover:bg-mist">
+                  <Link href="/colleges" className="rounded-lg border-2 border-ink px-4 py-2 font-bold hover:bg-band">
                     Clear filters
                   </Link>
                 ) : null}
@@ -247,6 +250,7 @@ export default async function CollegesPage({ searchParams }: Props) {
           )}
         </section>
       </div>
+    </div>
     </div>
   );
 }
