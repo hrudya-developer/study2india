@@ -214,13 +214,17 @@ export const DISTRICT_ALIASES: Record<string, Record<string, string>> = {
     Kadapa: "YSR Kadapa", Cuddapah: "YSR Kadapa", YSR: "YSR Kadapa", "Y.S.R.": "YSR Kadapa", "Y.S.R. Kadapa": "YSR Kadapa",
     Vishakhapatnam: "Visakhapatnam", Vizag: "Visakhapatnam",
     Konaseema: "Dr. B.R. Ambedkar Konaseema", "Ambedkar Konaseema": "Dr. B.R. Ambedkar Konaseema",
+    Ananthapuram: "Ananthapuramu",
   },
   "Arunachal Pradesh": { "Upper Dibang Valley": "Dibang Valley" },
   Assam: {
     "Kamrup Rural": "Kamrup", "Kamrup Metro": "Kamrup Metropolitan",
     Marigaon: "Morigaon", Nagoan: "Nagaon", Sibsagar: "Sivasagar", Karimganj: "Sribhumi", "North Cachar Hills": "Dima Hasao",
   },
-  Bihar: { Purnea: "Purnia", Bhabua: "Kaimur", "Purbi Champaran": "East Champaran", "Pashchim Champaran": "West Champaran" },
+  Bihar: {
+    Purnea: "Purnia", Bhabua: "Kaimur", "Purbi Champaran": "East Champaran", "Pashchim Champaran": "West Champaran",
+    Muzzafarpur: "Muzaffarpur",
+  },
   Chhattisgarh: {
     Balrampur: "Balrampur-Ramanujganj", Baster: "Bastar", Gariyaband: "Gariaband", Kawardha: "Kabirdham",
     Koria: "Korea", Koriya: "Korea", Sarguja: "Surguja", "Uttar Bastar Kanker": "Kanker", "Dakshin Bastar Dantewada": "Dantewada",
@@ -230,6 +234,8 @@ export const DISTRICT_ALIASES: Record<string, Record<string, string>> = {
     Ahmadabad: "Ahmedabad", Arvalli: "Aravalli", Aravali: "Aravalli", Chhotaudepur: "Chhota Udaipur", "Chhota Udepur": "Chhota Udaipur",
     "The Dangs": "Dang", Dangs: "Dang", Kutch: "Kachchh", Kachh: "Kachchh", Mahesana: "Mehsana", Baroda: "Vadodara",
     "Panch Mahals": "Panchmahal", Panchmahals: "Panchmahal",
+    Vadodra: "Vadodara",
+    Vododara: "Vadodara",
   },
   Haryana: {
     Gurgaon: "Gurugram", Hissar: "Hisar", Mahendergarh: "Mahendragarh", Maohindergarh: "Mahendragarh",
@@ -253,11 +259,15 @@ export const DISTRICT_ALIASES: Record<string, Record<string, string>> = {
     Davangere: "Davanagere", Dharwar: "Dharwad", Gulbarga: "Kalaburagi", Kalaburgi: "Kalaburagi",
     Mandy: "Mandya", Mysore: "Mysuru", Shimoga: "Shivamogga", Tumkur: "Tumakuru",
     Bijapur: "Vijayapura", Vijayapur: "Vijayapura", "North Canara": "Uttara Kannada",
+    Chamrajanagar: "Chamarajanagar", Chikballapur: "Chikkaballapur", Yadgiri: "Yadgir",
+    Kalburagi: "Kalaburagi",
   },
   Kerala: {
     Alapuzha: "Alappuzha", Alleppey: "Alappuzha", Calicut: "Kozhikode", Eranakulam: "Ernakulam", Iddukki: "Idukki",
     Kasaragode: "Kasaragod", Kasargod: "Kasaragod", Quilon: "Kollam", Trichur: "Thrissur", Thrussur: "Thrissur",
     Trivandrum: "Thiruvananthapuram", Palghat: "Palakkad", Cannanore: "Kannur", Thodupuzhaidukki: "Idukki",
+    Thiruvanthapuram: "Thiruvananthapuram",
+    Malapuram: "Malappuram",
   },
   "Madhya Pradesh": { Hoshangabad: "Narmadapuram", Chhattarpur: "Chhatarpur", Narsinhgpur: "Narsinghpur" },
   Maharashtra: {
@@ -284,6 +294,7 @@ export const DISTRICT_ALIASES: Record<string, Record<string, string>> = {
     Mukatsar: "Sri Muktsar Sahib", Muktsar: "Sri Muktsar Sahib", Nawanshahar: "Shahid Bhagat Singh Nagar",
     Nawanshahr: "Shahid Bhagat Singh Nagar", "SBS Nagar": "Shahid Bhagat Singh Nagar", Ropar: "Rupnagar",
     "Taran Taran": "Tarn Taran",
+    Bhatinda: "Bathinda",
   },
   Rajasthan: {
     Dungapur: "Dungarpur", Ganganagar: "Sri Ganganagar", Sriganganagar: "Sri Ganganagar", Karoli: "Karauli",
@@ -299,7 +310,8 @@ export const DISTRICT_ALIASES: Record<string, Record<string, string>> = {
     Thanjore: "Thanjavur", Thiruvallur: "Tiruvallur", Thiruvannamalai: "Tiruvannamalai", Thiruvarur: "Tiruvarur",
     Tirupur: "Tiruppur", Villuppuram: "Viluppuram", Villupuram: "Viluppuram", Viruthunagar: "Virudhunagar",
     Thoothukkudi: "Thoothukudi", Tuticorin: "Thoothukudi", Trichy: "Tiruchirappalli", Tiruchi: "Tiruchirappalli",
-    Sivagangai: "Sivaganga", Tirupattur: "Tirupathur",
+    Sivagangai: "Sivaganga", Tirupattur: "Tirupathur", Tiruchirapalli: "Tiruchirappalli",
+    Pudukottai: "Pudukkottai",
   },
   Telangana: {
     Bhadradri: "Bhadradri Kothagudem", Jogulamba: "Jogulamba Gadwal", Mahaboobnagar: "Mahabubnagar",
@@ -307,6 +319,8 @@ export const DISTRICT_ALIASES: Record<string, Record<string, string>> = {
     Rangareddi: "Ranga Reddy", "Warangal Urban": "Hanumakonda", "Warangal Rural": "Warangal",
     Hanamkonda: "Hanumakonda", Yadadri: "Yadadri Bhuvanagiri", "Yadadri Bhuvangiri": "Yadadri Bhuvanagiri",
     "Komaram Bheem Asifabad": "Kumuram Bheem Asifabad", "Komaram Bheem": "Kumuram Bheem Asifabad",
+    Mehboobnagar: "Mahabubnagar", "Jogulumba Gadwal": "Jogulamba Gadwal", "Kumuram Bheem Asifafabad": "Kumuram Bheem Asifabad", "R.R.": "Ranga Reddy",
+    Ranareddy: "Ranga Reddy",
   },
   Tripura: { Gomti: "Gomati" },
   "Uttar Pradesh": {
@@ -322,8 +336,9 @@ export const DISTRICT_ALIASES: Record<string, Record<string, string>> = {
     "Sant Ravidas Nagar": "Bhadohi", "Sant Ravi Das Nagar": "Bhadohi", Shahajanpur: "Shahjahanpur",
     Shahjanpur: "Shahjahanpur", "Siddarth Nagar": "Siddharthnagar", "Bhimnagar": "Sambhal", Kaushambhi: "Kaushambi",
     Badaun: "Budaun", Shrawasti: "Shravasti",
+    Sonebhadra: "Sonbhadra", Varansi: "Varanasi",
   },
-  Uttarakhand: { Almorah: "Almora", Pauri: "Pauri Garhwal", Tehri: "Tehri Garhwal", Hardwar: "Haridwar" },
+  Uttarakhand: { Almorah: "Almora", Pauri: "Pauri Garhwal", Tehri: "Tehri Garhwal", Hardwar: "Haridwar", Dehradum: "Dehradun" },
   "West Bengal": {
     "Koch Behar": "Cooch Behar", Coochbehar: "Cooch Behar", "Pashchim Midnapore": "Paschim Medinipur",
     "Paschim Midnapore": "Paschim Medinipur", "West Midnapore": "Paschim Medinipur", "Purba Midnapore": "Purba Medinipur",
@@ -353,29 +368,47 @@ export const DISTRICT_TOWNS: Record<string, Record<string, string>> = {
     Ongole: "Prakasam", "Prasanthi Nilayam": "Sri Sathya Sai", Puttaparthi: "Sri Sathya Sai", Proddatur: "YSR Kadapa",
     Rajahmundry: "East Godavari", Rajamahendravaram: "East Godavari", Surampalem: "Kakinada", Tekkali: "Srikakulam",
     Ibrahimpatnam: "NTR",
+    Vijaywada: "NTR", Piduguralla: "Palnadu", Kuppam: "Chittoor", Paderu: "Alluri Sitharama Raju",
+    Machilipatnam: "Krishna", Chinoutpalli: "Krishna", Guntakal: "Ananthapuramu", Nellimarla: "Vizianagaram",
   },
-  "Arunachal Pradesh": { Itanagar: "Papum Pare" },
-  Assam: { Silchar: "Cachar" },
-  Bihar: { Sasaram: "Rohtas", Hajipur: "Vaishali", Motihari: "East Champaran", Bettiah: "West Champaran" },
-  Chhattisgarh: { Bhilai: "Durg", "New Raipur": "Raipur", "Nava Raipur": "Raipur" },
-  Goa: { Ponda: "North Goa", Panaji: "North Goa", Mapusa: "North Goa", Margao: "South Goa", Madgaon: "South Goa", Cuncolim: "South Goa" },
+  "Arunachal Pradesh": { Itanagar: "Papum Pare", Naharlagun: "Papum Pare" },
+  Assam: { Silchar: "Cachar", Tezpur: "Sonitpur", Diphu: "Karbi Anglong", Beltola: "Kamrup Metropolitan" },
+  Bihar: {
+    Sasaram: "Rohtas", Hajipur: "Vaishali", Motihari: "East Champaran", Bettiah: "West Champaran",
+    "Laheria Sarai": "Darbhanga", Laheriasarai: "Darbhanga", Lehriasarai: "Darbhanga",
+  },
+  Chhattisgarh: {
+    Bhilai: "Durg", "New Raipur": "Raipur", "Nava Raipur": "Raipur", Jagdalpur: "Bastar", Kunkuri: "Jashpur",
+    Manendragarh: "Manendragarh-Chirmiri-Bharatpur",
+  },
+  Goa: {
+    Ponda: "North Goa", Panaji: "North Goa", Mapusa: "North Goa", Margao: "South Goa", Madgaon: "South Goa",
+    Cuncolim: "South Goa", Shiroda: "North Goa",
+  },
   Gujarat: {
     Nadiad: "Kheda", Siddhpur: "Patan", Vadasma: "Mehsana", "Vallabh Vidyanagar": "Anand",
     "Vallabh Vidhyanagar": "Anand", Visnagar: "Mehsana", Himmatnagar: "Sabarkantha", Sardarkrushinagar: "Banaskantha",
     "Ganpat Vidyanagar": "Mehsana",
+    Karmsad: "Anand", Godhra: "Panchmahal", Rajpipla: "Narmada", Palanpur: "Banaskantha", Bhuj: "Kachchh",
   },
-  Haryana: { Bahadurgarh: "Jhajjar", Narnaul: "Mahendragarh", Mullana: "Ambala" },
+  Haryana: {
+    Bahadurgarh: "Jhajjar", Narnaul: "Mahendragarh", Mullana: "Ambala", Nalhar: "Nuh", Agroha: "Hisar", Sadopur: "Ambala", Koriawas: "Mahendragarh",
+    Chandimandir: "Panchkula",
+  },
   "Himachal Pradesh": {
     Nalagarh: "Solan", Baddi: "Solan", Palampur: "Kangra", "Paonta Sahib": "Sirmaur", "Sunder Nagar": "Mandi",
     Sundernagar: "Mandi",
+    Nahan: "Sirmaur", Tanda: "Kangra",
   },
-  Jharkhand: { Jamshedpur: "East Singhbhum" },
+  Jharkhand: { Jamshedpur: "East Singhbhum", Jameshedpur: "East Singhbhum" },
   Karnataka: {
     Aland: "Kalaburagi", Badami: "Bagalkot", Jamkhandi: "Bagalkot", Jamakhandi: "Bagalkot", Hubballi: "Dharwad",
     Hubli: "Dharwad", Mangaluru: "Dakshina Kannada", Mangalore: "Dakshina Kannada", Manipal: "Udupi", Nitte: "Udupi",
     Surathkal: "Dakshina Kannada", Sullia: "Dakshina Kannada", Ujire: "Dakshina Kannada", Virajpet: "Kodagu",
     KGF: "Kolar", "Kolar Gold Fields": "Kolar", Athani: "Belagavi", Humnabad: "Bidar", Hosapete: "Vijayanagara",
     Hospet: "Vijayanagara", Karwar: "Uttara Kannada",
+    Devanahalli: "Bengaluru Rural", Devanhalli: "Bengaluru Rural", Harohalli: "Bengaluru South",
+    Moodbidri: "Dakshina Kannada", Moodabidri: "Dakshina Kannada",
   },
   Kerala: {
     Kochi: "Ernakulam", Cochin: "Ernakulam", Aluva: "Ernakulam", Kothamangalam: "Ernakulam", Muvattupuzha: "Ernakulam",
@@ -384,6 +417,8 @@ export const DISTRICT_TOWNS: Record<string, Record<string, string>> = {
     Chalissery: "Palakkad", Kattappana: "Idukki", Kuttikanam: "Idukki", Payyanur: "Kannur",
     Perinthalmanna: "Malappuram", Pookode: "Wayanad", Pookote: "Wayanad", Taliparamba: "Kannur",
     Thamarassery: "Kozhikode", Thodupuzha: "Idukki",
+    Tiruvalla: "Pathanamthitta", Kolenchery: "Ernakulam", Konni: "Pathanamthitta", Mangode: "Palakkad",
+    Manjeri: "Malappuram", Perintalmanna: "Malappuram",
   },
   "Madhya Pradesh": { Lalburra: "Balaghat", Lalbarra: "Balaghat", Teonthar: "Rewa", Mhow: "Indore" },
   Maharashtra: {
@@ -393,15 +428,19 @@ export const DISTRICT_TOWNS: Record<string, Record<string, string>> = {
     Miraj: "Sangli", Kamptee: "Nagpur", Kankavali: "Sindhudurg", Kopargaon: "Ahilyanagar", Kapargaon: "Ahilyanagar",
     Parner: "Ahilyanagar", Sangamner: "Ahilyanagar", Shevgaon: "Ahilyanagar", Shrigonda: "Ahilyanagar",
     Shrirampur: "Ahilyanagar", Rahuri: "Ahilyanagar", Panvel: "Raigad", Vaijapur: "Chhatrapati Sambhajinagar",
-    Karad: "Satara", Udgir: "Latur",
+    Karad: "Satara", Udgir: "Latur", Pimpri: "Pune",
+    Alibag: "Raigad", Ambernath: "Thane", Vashi: "Thane", Nerul: "Thane", Andheri: "Mumbai Suburban",
+    Juhu: "Mumbai Suburban", "Vile Parle": "Mumbai Suburban", Sion: "Mumbai City",
   },
   Meghalaya: { Shillong: "East Khasi Hills" },
   Odisha: {
     Bhubaneswar: "Khordha", Berhampur: "Ganjam", Brahmapur: "Ganjam", Rourkela: "Sundargarh",
     Paralakhemundi: "Gajapati", Gunupur: "Rayagada",
+    Baripada: "Mayurbhanj", Talcher: "Angul", Burla: "Sambalpur",
   },
   Punjab: {
-    Abohar: "Fazilka", "Dera Bassi": "Sahibzada Ajit Singh Nagar", "Mandi Gobindgarh": "Fatehgarh Sahib",
+    Abohar: "Fazilka", "New Chandigarh": "Sahibzada Ajit Singh Nagar", "Dera Bassi": "Sahibzada Ajit Singh Nagar",
+    "Mandi Gobindgarh": "Fatehgarh Sahib",
     Phagwara: "Kapurthala", Sunam: "Sangrur", "Ferozepur City": "Firozpur", Hariana: "Hoshiarpur",
   },
   Rajasthan: {
@@ -417,22 +456,34 @@ export const DISTRICT_TOWNS: Record<string, Record<string, string>> = {
     Udhagamandalam: "The Nilgiris", Orthanadu: "Thanjavur", Perundurai: "Erode", Pollachi: "Coimbatore",
     Sivakasi: "Virudhunagar", Sriperumbudur: "Kancheepuram", Tiruchengode: "Namakkal", Udumalpet: "Tiruppur",
     Udumalaipettai: "Tiruppur", Uthamapalayam: "Theni", Samayapuram: "Tiruchirappalli",
+    Maduranthagam: "Chengalpattu", Enathur: "Kancheepuram", Omandurar: "Chennai",
   },
-  Telangana: { Ibrahimpatan: "Ranga Reddy", Ibrahimpatnam: "Ranga Reddy", Korutla: "Jagtial", Narsapur: "Medak" },
+  Telangana: {
+    Ibrahimpatan: "Ranga Reddy", Ibrahimpatnam: "Ranga Reddy", Korutla: "Jagtial", Narsapur: "Medak",
+    Peerancheru: "Ranga Reddy", Aziznagar: "Ranga Reddy", Maheshwaram: "Ranga Reddy", Yenkapally: "Ranga Reddy",
+    Chevella: "Ranga Reddy", Shamshabad: "Ranga Reddy", Quthbullapur: "Medchal-Malkajgiri",
+    Bachupally: "Medchal-Malkajgiri", Narsampet: "Warangal", Narketpally: "Nalgonda", Ramagundam: "Peddapalli",
+    Patancheru: "Sangareddy",
+  },
   Tripura: { Agartala: "West Tripura", Agratala: "West Tripura" },
   "Uttar Pradesh": {
     Kanpur: "Kanpur Nagar", Khurja: "Bulandshahr", Modinagar: "Ghaziabad", Noida: "Gautam Buddha Nagar",
     "Greater Noida": "Gautam Buddha Nagar", Barkachha: "Mirzapur", Mauranipur: "Jhansi", Noorpur: "Bijnor",
+    Gajraula: "Amroha",
   },
   Uttarakhand: {
     Roorkee: "Haridwar", Kashipur: "Udham Singh Nagar", Pantnagar: "Udham Singh Nagar",
     "Srinagar Garhwal": "Pauri Garhwal",
+    Haldwani: "Nainital",
   },
   "West Bengal": {
     Durgapur: "Paschim Bardhaman", Asansol: "Paschim Bardhaman", Haldia: "Purba Medinipur", Kalyani: "Nadia",
     Kharagpur: "Paschim Medinipur", Mohanpur: "Nadia", Santiniketan: "Birbhum", Shantiniketan: "Birbhum",
+    Barasat: "North 24 Parganas", Raniganj: "Paschim Bardhaman", "Diamond Harbour": "South 24 Parganas",
+    Raiganj: "Uttar Dinajpur", Rampurhat: "Birbhum", Bolpur: "Birbhum",
   },
   "Andaman and Nicobar Islands": { "Port Blair": "South Andaman", "Sri Vijaya Puram": "South Andaman" },
+  "Dadra and Nagar Haveli and Daman and Diu": { Silvassa: "Dadra and Nagar Haveli" },
 };
 
 /**
@@ -447,7 +498,7 @@ export const AMBIGUOUS_DISTRICTS: Record<string, string[]> = {
   Manipur: ["Imphal"],
   Assam: ["Guwahati"],
   Telangana: ["Secunderabad"],
-  "Uttar Pradesh": ["Phoolpur"],
+  "Uttar Pradesh": ["Phoolpur", "Akbarpur"],
   Uttarakhand: ["Rishikesh"],
 };
 
