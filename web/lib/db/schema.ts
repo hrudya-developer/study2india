@@ -1,8 +1,10 @@
+import { sql } from "drizzle-orm";
 import {
   mysqlTable,
   mysqlEnum,
   int,
   varchar,
+  char,
   text,
   boolean,
   decimal,
@@ -247,15 +249,27 @@ export const cutoffs = mysqlTable(
       .references(() => exams.id),
     year: int("year").notNull(),
     round: varchar("round", { length: 40 }),
-    quota: varchar("quota", { length: 60 }),
+    quota: varchar("quota", { length: 100 }),
     category: varchar("category", { length: 40 }),
+    /** Programme or branch the rank applies to (JoSAA); null when the course has no branches. */
+    branch: varchar("branch", { length: 200 }),
+    /** Seat pool as the counselling body prints it (JoSAA gender pools); null when there is none. */
+    seatPool: varchar("seat_pool", { length: 60 }),
     openingRank: int("opening_rank"),
     closingRank: int("closing_rank"),
     sourceId: int("source_id")
       .notNull()
       .references(() => sources.id),
+    /**
+     * One row per offering, exam, year, round, quota, category, branch and seat pool. A unique index
+     * on the columns themselves would let rows with NULLs repeat, so the key is a hash with NULL as ''.
+     */
+    rowKey: char("row_key", { length: 64 }).generatedAlwaysAs(
+      sql`sha2(concat_ws('|', offering_id, exam_id, year, ifnull(round, ''), ifnull(quota, ''), ifnull(category, ''), ifnull(branch, ''), ifnull(seat_pool, '')), 256)`,
+      { mode: "stored" },
+    ),
   },
-  (t) => [index("cutoffs_offering_idx").on(t.offeringId)],
+  (t) => [index("cutoffs_offering_idx").on(t.offeringId), uniqueIndex("cutoffs_row_key").on(t.rowKey)],
 );
 
 export const scholarships = mysqlTable("scholarships", {

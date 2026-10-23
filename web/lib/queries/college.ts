@@ -58,7 +58,23 @@ export type CollegeDetail = {
     branches: { name: string; seats: number | null }[];
     fees: { quota: string | null; component: string; amount: string | null; basis: string | null; source: SourceRef | null }[];
   }[];
-  cutoffs: { offeringId: number; exam: string; year: number; round: string | null; quota: string | null; category: string | null; openingRank: number | null; closingRank: number | null; source: SourceRef }[];
+  /** Official opening and closing ranks, ordered by course, year (latest first), quota, category and round. */
+  cutoffs: {
+    offeringId: number;
+    course: string;
+    exam: string;
+    year: number;
+    round: string | null;
+    quota: string | null;
+    category: string | null;
+    /** Programme or branch (JoSAA); null when the course has none. */
+    branch: string | null;
+    /** Seat pool (JoSAA gender pools); null when there is none. */
+    seatPool: string | null;
+    openingRank: number | null;
+    closingRank: number | null;
+    source: SourceRef;
+  }[];
   /** National (and the home state's) entrance exams for the fields and levels this college teaches. */
   exams: CollegeExam[];
   /** Every official document behind the figures on the page. */
@@ -133,13 +149,29 @@ async function loadCollege(slug: string): Promise<CollegeDetail | null> {
       left join sources s on s.id = fe.source_id
       where o.institution_id = ${id}
     `),
-    rows<{ offering_id: number; exam: string; year: number; round: string | null; quota: string | null; category: string | null; opening_rank: number | null; closing_rank: number | null } & SrcRow>(sql`
-      select cu.offering_id, e.short_name as exam, cu.year, cu.round, cu.quota, cu.category, cu.opening_rank, cu.closing_rank,
+    rows<
+      {
+        offering_id: number;
+        course: string;
+        exam: string;
+        year: number;
+        round: string | null;
+        quota: string | null;
+        category: string | null;
+        branch: string | null;
+        seat_pool: string | null;
+        opening_rank: number | null;
+        closing_rank: number | null;
+      } & SrcRow
+    >(sql`
+      select cu.offering_id, c.short_name as course, e.short_name as exam, cu.year, cu.round, cu.quota, cu.category, cu.branch, cu.seat_pool,
+        cu.opening_rank, cu.closing_rank,
         s.publisher as s_publisher, s.title as s_title, s.url as s_url, s.retrieved_on as s_retrieved
-      from cutoffs cu join offerings o on o.id = cu.offering_id join exams e on e.id = cu.exam_id
+      from cutoffs cu join offerings o on o.id = cu.offering_id join courses c on c.id = o.course_id join exams e on e.id = cu.exam_id
       join sources s on s.id = cu.source_id
       where o.institution_id = ${id}
-      order by cu.year desc, cu.round
+      order by c.sort_order, e.sort_order, cu.year desc, cu.branch, cu.quota, cu.category, cu.seat_pool,
+        cu.round like 'Stray%', length(cu.round), cu.round
     `),
     rows<{ offering_id: number; name: string; seats: number | null } & SrcRow>(sql`
       select b.offering_id, b.name, b.seats,
@@ -254,11 +286,14 @@ async function loadCollege(slug: string): Promise<CollegeDetail | null> {
     })),
     cutoffs: cutoffRows.map((x) => ({
       offeringId: x.offering_id,
+      course: x.course,
       exam: x.exam,
       year: Number(x.year),
       round: x.round,
       quota: x.quota,
       category: x.category,
+      branch: x.branch,
+      seatPool: x.seat_pool,
       openingRank: num(x.opening_rank),
       closingRank: num(x.closing_rank),
       source: src(x)!,
