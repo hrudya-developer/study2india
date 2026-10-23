@@ -18,7 +18,10 @@ export function CollegeCard({ c, courseShort }: { c: Card; courseShort?: string 
   const facts: { icon: typeof Award; label: string; value: string | null }[] = [
     { icon: Building, label: "Ownership", value: c.ownership ? OWNERSHIP_LABELS[c.ownership] ?? c.ownership : null },
     { icon: CalendarDays, label: "Established", value: c.establishedYear ? String(c.establishedYear) : null },
-    { icon: Award, label: "NAAC grade", value: c.naacGrade },
+    // With a course picked, its intake says more than the NAAC grade, which is rarely recorded yet.
+    courseShort && c.offering
+      ? { icon: Award, label: `${courseShort} seats`, value: c.offering.seats !== null ? String(c.offering.seats) : null }
+      : { icon: Award, label: "NAAC grade", value: c.naacGrade },
   ];
 
   return (

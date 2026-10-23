@@ -5,7 +5,7 @@ import { NIRF_FILES, NMC_FILES, NMC_LINKS } from "@/lib/db/seed-data.generated";
 import { STATES, STATE_ALIASES, STREAMS, EXAMS, NIRF_CATEGORY_STREAM } from "@/data/reference";
 import { slugify } from "@/lib/slug";
 
-const { states, streams, courses, exams, examStreams, sources, institutions, institutionIdentifiers, institutionStreams, rankings, offerings } = schema;
+const { states, streams, courses, exams, examStreams, sources, institutions, institutionIdentifiers, institutionStreams, rankings, offerings, offeringBranches } = schema;
 
 /**
  * Applies the embedded migrations in order, once each, recorded in app_migrations.
@@ -191,22 +191,37 @@ export async function seedNirf(streamIds: Map<string, number>, log: (m: string) 
   }
 }
 
-/** Migrate, then load reference data and any official data files shipped with the app. */
-type NmcRow = {
-  code: string;
-  name: string;
-  state: string;
-  university: string | null;
-  management: "Government" | "Private" | "Trust";
-  established: number | null;
-  seats: number | null;
-  lop_date: string | null;
+type NmcSource = { publisher: string; title: string; url: string; retrieved: string };
+type NmcManagement = "Government" | "Private" | "Trust";
+type NmcCollege = { code: string; name: string; state: string; university: string | null; management: NmcManagement; established?: number | null };
+type NmcUgRow = NmcCollege & { seats: number | null; lop_date: string | null };
+/** One NMC course list: MBBS (one intake per college) or PG (intake per branch). */
+type NmcUgFile = { source: NmcSource; course: string; academic_year: string; rows: NmcUgRow[] };
+type NmcPgFile = {
+  source: NmcSource;
+  academic_year: string;
+  /** [NMC course type, branch name as NMC publishes it] */
+  courses: [string, string][];
+  /** PG-only institutions that are not on the MBBS list. */
+  institutions: NmcCollege[];
+  /** b: [index into courses, approved seats] */
+  rows: { code: string; b: [number, number][] }[];
 };
-type NmcFile = { source: { publisher: string; title: string; url: string; retrieved: string }; course: string; academic_year: string; rows: NmcRow[] };
 
 /** NMC lists the management type; trust-run colleges are privately managed. */
 const NMC_OWNERSHIP = { Government: "government", Private: "private", Trust: "private" } as const;
-const NMC_LOADER_VERSION = 1;
+const NMC_LOADER_VERSION = 2;
+
+/**
+ * Which of our courses an NMC PG branch belongs to, by the type NMC gives it. A few branches
+ * whose own name says they are diplomas are listed under DM or MD; the name decides those.
+ */
+function nmcPgCourse(type: string, name: string): string {
+  if (/diploma|\(D\.|Dip\./i.test(name)) return "pg-diploma-medical";
+  if (type === "DM" || type === "M.Ch.") return "dm-mch";
+  if (type === "MD" || type === "MS") return "md-ms";
+  return "pg-diploma-medical";
+}
 
 async function identifierOwner(scheme: string, value: string) {
   const [hit] = await getDb()
@@ -216,81 +231,155 @@ async function identifierOwner(scheme: string, value: string) {
   return hit?.id;
 }
 
+async function upsertSource(s: NmcSource) {
+  const db = getDb();
+  const [existing] = await db.select({ id: sources.id }).from(sources).where(eq(sources.title, s.title));
+  if (existing) {
+    await db.update(sources).set({ url: s.url, retrievedOn: s.retrieved }).where(eq(sources.id, existing.id));
+    return existing.id;
+  }
+  return (await db.insert(sources).values({ publisher: s.publisher, title: s.title, url: s.url, retrievedOn: s.retrieved }).$returningId())[0].id;
+}
+
 /**
- * Loads the National Medical Commission college lists: one institution per NMC college code,
- * with its intake for the course as an offering. Colleges NIRF already ranks are joined to the
- * same record through the hand-checked links in data/nmc/links.json.
+ * Finds the institution for an NMC college code, or creates it from the NMC details. Colleges
+ * NIRF already ranks are joined to the same record through the hand-checked links in
+ * data/nmc/links.json. Returns the id and whether it was created.
  */
+async function nmcInstitution(r: NmcCollege, sourceId: number, medical: number | undefined) {
+  const db = getDb();
+  let id = await identifierOwner("nmc", r.code);
+  if (!id && NMC_LINKS[r.code]) id = await identifierOwner("nirf", NMC_LINKS[r.code]);
+  let created = false;
+  if (!id) {
+    const name = r.name.trim().replace(/\s+/g, " ");
+    const base = slugify(name);
+    let slug = base;
+    for (let n = 2; (await db.select({ id: institutions.id }).from(institutions).where(eq(institutions.slug, slug)))[0]; n++) slug = `${base}-${n}`;
+    const [res] = await db
+      .insert(institutions)
+      .values({
+        slug,
+        name,
+        stateCode: stateCode(r.state),
+        ownership: NMC_OWNERSHIP[r.management] ?? null,
+        establishedYear: r.established ?? null,
+        affiliatingUniversity: r.university,
+        status: "published",
+        sourceId,
+      })
+      .$returningId();
+    id = res.id;
+    created = true;
+  } else {
+    // Fill only what is still empty; never overwrite a value another source set.
+    await db.execute(sql`update institutions set
+      ownership = coalesce(ownership, ${NMC_OWNERSHIP[r.management] ?? null}),
+      established_year = coalesce(established_year, ${r.established ?? null}),
+      affiliating_university = coalesce(affiliating_university, ${r.university})
+      where id = ${id}`);
+  }
+  // Being on an NMC list is the commission's permission to admit students to those courses.
+  await db.execute(sql`update institutions set approvals = case
+      when approvals is null then json_array('NMC')
+      when json_contains(approvals, '"NMC"') then approvals
+      else json_array_append(approvals, '$', 'NMC') end
+    where id = ${id}`);
+  await db.insert(institutionIdentifiers).values({ institutionId: id, scheme: "nmc", value: r.code }).onDuplicateKeyUpdate({ set: { institutionId: id } });
+  if (medical) await db.insert(institutionStreams).values({ institutionId: id, streamId: medical }).onDuplicateKeyUpdate({ set: { streamId: medical } });
+  return { id, created };
+}
+
+async function courseIdBySlug(slug: string) {
+  const [c] = await getDb().select({ id: courses.id }).from(courses).where(eq(courses.slug, slug));
+  return c?.id;
+}
+
+/** Loads the National Medical Commission lists of colleges teaching MBBS and PG courses. */
 export async function seedNmc(streamIds: Map<string, number>, log: (m: string) => void = console.log) {
   const db = getDb();
   const done = new Map((await rows<{ tag: string; hash: string }>(sql`select tag, hash from app_seeds`)).map((r) => [r.tag, r.hash]));
   const medical = streamIds.get("medical");
-  for (const file of NMC_FILES) {
+  // MBBS first: the PG list refers to most colleges by the codes the MBBS list creates.
+  const files = [...NMC_FILES].sort((a, b) => Number("courses" in a.data) - Number("courses" in b.data));
+  for (const file of files) {
     const key = `${file.hash}-${NMC_LOADER_VERSION}`;
     if (done.get(file.tag) === key) continue;
-    const data = file.data as NmcFile;
-    const [course] = await db.select({ id: courses.id }).from(courses).where(eq(courses.slug, data.course));
-    if (!course) {
-      log(`NMC ${data.course}: course not found, skipped`);
-      continue;
-    }
-    const [existing] = await db.select({ id: sources.id }).from(sources).where(eq(sources.title, data.source.title));
-    const sourceId =
-      existing?.id ??
-      (await db.insert(sources).values({ publisher: data.source.publisher, title: data.source.title, url: data.source.url, retrievedOn: data.source.retrieved }).$returningId())[0].id;
-    if (existing) await db.update(sources).set({ url: data.source.url, retrievedOn: data.source.retrieved }).where(eq(sources.id, existing.id));
+    const sourceId = await upsertSource(file.data.source);
 
-    let created = 0;
-    for (const r of data.rows) {
-      const code = stateCode(r.state);
-      const name = r.name.trim().replace(/\s+/g, " ");
-      let id = await identifierOwner("nmc", r.code);
-      if (!id && NMC_LINKS[r.code]) id = await identifierOwner("nirf", NMC_LINKS[r.code]);
-      if (!id) {
-        const base = slugify(name);
-        let slug = base;
-        for (let n = 2; (await db.select({ id: institutions.id }).from(institutions).where(eq(institutions.slug, slug)))[0]; n++) slug = `${base}-${n}`;
-        const [res] = await db
-          .insert(institutions)
-          .values({
-            slug,
-            name,
-            stateCode: code,
-            ownership: NMC_OWNERSHIP[r.management] ?? null,
-            establishedYear: r.established,
-            affiliatingUniversity: r.university,
-            status: "published",
-            sourceId,
-          })
-          .$returningId();
-        id = res.id;
-        created++;
-      } else {
-        // Fill only what is still empty; never overwrite a value another source set.
-        await db.execute(sql`update institutions set
-          ownership = coalesce(ownership, ${NMC_OWNERSHIP[r.management] ?? null}),
-          established_year = coalesce(established_year, ${r.established}),
-          affiliating_university = coalesce(affiliating_university, ${r.university})
-          where id = ${id}`);
+    if ("course" in file.data) {
+      const data = file.data as NmcUgFile;
+      const courseId = await courseIdBySlug(data.course);
+      if (!courseId) {
+        log(`NMC ${data.course}: course not found, skipped`);
+        continue;
       }
-      // Being on the NMC list is the commission's permission to admit MBBS students.
-      await db.execute(sql`update institutions set approvals = case
-          when approvals is null then json_array('NMC')
-          when json_contains(approvals, '"NMC"') then approvals
-          else json_array_append(approvals, '$', 'NMC') end
-        where id = ${id}`);
-      await db.insert(institutionIdentifiers).values({ institutionId: id, scheme: "nmc", value: r.code }).onDuplicateKeyUpdate({ set: { institutionId: id } });
-      if (medical) await db.insert(institutionStreams).values({ institutionId: id, streamId: medical }).onDuplicateKeyUpdate({ set: { streamId: medical } });
-      await db
-        .insert(offerings)
-        .values({ institutionId: id, courseId: course.id, academicYear: data.academic_year, seats: r.seats, seatsSourceId: sourceId })
-        .onDuplicateKeyUpdate({ set: { seats: r.seats, seatsSourceId: sourceId } });
+      let created = 0;
+      for (const r of data.rows) {
+        const inst = await nmcInstitution(r, sourceId, medical);
+        if (inst.created) created++;
+        await db
+          .insert(offerings)
+          .values({ institutionId: inst.id, courseId, academicYear: data.academic_year, seats: r.seats, seatsSourceId: sourceId })
+          .onDuplicateKeyUpdate({ set: { seats: r.seats, seatsSourceId: sourceId } });
+      }
+      log(`NMC ${data.course} ${data.academic_year}: ${data.rows.length} colleges loaded (${created} new)`);
+    } else {
+      const data = file.data as NmcPgFile;
+      const extra = new Map(data.institutions.map((x) => [x.code, x]));
+      const courseIds = new Map<string, number>();
+      for (const slug of ["md-ms", "dm-mch", "pg-diploma-medical"]) {
+        const cid = await courseIdBySlug(slug);
+        if (cid) courseIds.set(slug, cid);
+      }
+      let created = 0;
+      let skipped = 0;
+      let branches = 0;
+      for (const r of data.rows) {
+        let id = await identifierOwner("nmc", r.code);
+        if (!id) {
+          const info = extra.get(r.code);
+          if (!info) {
+            skipped++;
+            continue;
+          }
+          const inst = await nmcInstitution(info, sourceId, medical);
+          id = inst.id;
+          if (inst.created) created++;
+        } else if (extra.has(r.code)) {
+          await nmcInstitution(extra.get(r.code)!, sourceId, medical);
+        }
+        const byCourse = new Map<string, { name: string; seats: number }[]>();
+        for (const [ci, seats] of r.b) {
+          const [type, name] = data.courses[ci];
+          const slug = nmcPgCourse(type, name);
+          if (!byCourse.has(slug)) byCourse.set(slug, []);
+          byCourse.get(slug)!.push({ name, seats });
+        }
+        for (const [slug, list] of byCourse) {
+          const courseId = courseIds.get(slug);
+          if (!courseId) continue;
+          // Seats stay empty on the offering: NMC publishes the intake per branch only.
+          await db
+            .insert(offerings)
+            .values({ institutionId: id, courseId, academicYear: data.academic_year, seats: null, seatsSourceId: sourceId })
+            .onDuplicateKeyUpdate({ set: { seatsSourceId: sourceId } });
+          const [off] = await db
+            .select({ id: offerings.id })
+            .from(offerings)
+            .where(and(eq(offerings.institutionId, id), eq(offerings.courseId, courseId), eq(offerings.academicYear, data.academic_year)));
+          await db.delete(offeringBranches).where(and(eq(offeringBranches.offeringId, off.id), eq(offeringBranches.sourceId, sourceId)));
+          await db.insert(offeringBranches).values(list.map((b) => ({ offeringId: off.id, name: b.name, seats: b.seats, sourceId })));
+          branches += list.length;
+        }
+      }
+      log(`NMC PG ${data.academic_year}: ${data.rows.length - skipped} institutions, ${branches} branches loaded (${created} new institutions${skipped ? `, ${skipped} not matched` : ""})`);
     }
     await db.execute(sql`insert into app_seeds (tag, hash) values (${file.tag}, ${key}) on duplicate key update hash = values(hash), loaded_at = current_timestamp`);
-    log(`NMC ${data.course} ${data.academic_year}: ${data.rows.length} colleges loaded (${created} new)`);
   }
 }
 
+/** Migrate, then load reference data and any official data files shipped with the app. */
 export async function bootstrap(log: (m: string) => void = console.log) {
   await runMigrations(log);
   const streamIds = await seedReference();

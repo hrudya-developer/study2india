@@ -140,7 +140,9 @@ export async function searchColleges(f: CollegeFilters, course: CourseContext | 
     `),
     useOffering && course
       ? rows<{ institution_id: number; seats: number | null; quota: string | null; amount: string | null; basis: string | null }>(sql`
-          select o.institution_id, o.seats, fe.quota, fe.amount_inr as amount, fe.basis
+          select o.institution_id,
+            coalesce(o.seats, (select sum(b.seats) from offering_branches b where b.offering_id = o.id)) as seats,
+            fe.quota, fe.amount_inr as amount, fe.basis
           from offerings o
           join courses c on c.id = o.course_id
           left join offering_fees fe on fe.offering_id = o.id and fe.component = 'tuition'
@@ -167,7 +169,7 @@ export async function searchColleges(f: CollegeFilters, course: CourseContext | 
         .filter((k) => k.institution_id === r.id)
         .map((k) => ({ category: k.category, year: Number(k.year), rank: k.rank, rankBand: k.rank_band })),
       offering: off.length
-        ? { seats: off[0].seats, fees: off.filter((o) => o.amount !== null).map((o) => ({ quota: o.quota, amount: o.amount, basis: o.basis })) }
+        ? { seats: off[0].seats === null ? null : Number(off[0].seats), fees: off.filter((o) => o.amount !== null).map((o) => ({ quota: o.quota, amount: o.amount, basis: o.basis })) }
         : null,
     };
   });

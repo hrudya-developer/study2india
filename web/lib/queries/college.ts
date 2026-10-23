@@ -49,6 +49,8 @@ export type CollegeDetail = {
     academicYear: string | null;
     seats: number | null;
     seatsSource: SourceRef | null;
+    /** Branches with their own intake (MD General Medicine...), as the regulator lists them. */
+    branches: { name: string; seats: number | null }[];
     fees: { quota: string | null; component: string; amount: string | null; basis: string | null; source: SourceRef | null }[];
   }[];
   cutoffs: { offeringId: number; exam: string; year: number; round: string | null; quota: string | null; category: string | null; openingRank: number | null; closingRank: number | null; source: SourceRef }[];
@@ -69,7 +71,7 @@ export async function getCollege(slug: string): Promise<CollegeDetail | null> {
   if (!c) return null;
   const id = Number(c.id);
 
-  const [streamRows, rankRows, offeringRows, feeRows, cutoffRows] = await Promise.all([
+  const [streamRows, rankRows, offeringRows, feeRows, cutoffRows, branchRows] = await Promise.all([
     rows<{ slug: string; name: string }>(sql`
       select s.slug, s.name from institution_streams x join streams s on s.id = x.stream_id where x.institution_id = ${id} order by s.sort_order
     `),
@@ -102,6 +104,12 @@ export async function getCollege(slug: string): Promise<CollegeDetail | null> {
       join sources s on s.id = cu.source_id
       where o.institution_id = ${id}
       order by cu.year desc, cu.round
+    `),
+    rows<{ offering_id: number; name: string; seats: number | null }>(sql`
+      select b.offering_id, b.name, b.seats
+      from offering_branches b join offerings o on o.id = b.offering_id
+      where o.institution_id = ${id}
+      order by b.name
     `),
   ]);
 
@@ -147,6 +155,7 @@ export async function getCollege(slug: string): Promise<CollegeDetail | null> {
       academicYear: o.academic_year,
       seats: o.seats,
       seatsSource: src(o),
+      branches: branchRows.filter((b) => b.offering_id === o.id).map((b) => ({ name: b.name, seats: b.seats })),
       fees: feeRows
         .filter((f) => f.offering_id === o.id)
         .map((f) => ({ quota: f.quota, component: f.component, amount: f.amount_inr, basis: f.basis, source: src(f) })),

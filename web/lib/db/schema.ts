@@ -145,6 +145,24 @@ export const offerings = mysqlTable(
   (t) => [uniqueIndex("offerings_unique").on(t.institutionId, t.courseId, t.academicYear)],
 );
 
+/**
+ * Branches of one offering, as the regulator lists them (MD General Medicine, MS Orthopaedics...),
+ * each with its own intake. The offering itself keeps seats empty when only branch intakes are published.
+ */
+export const offeringBranches = mysqlTable(
+  "offering_branches",
+  {
+    id: id(),
+    offeringId: int("offering_id")
+      .notNull()
+      .references(() => offerings.id, { onDelete: "cascade" }),
+    name: varchar("name", { length: 255 }).notNull(),
+    seats: int("seats"),
+    sourceId: int("source_id").references(() => sources.id),
+  },
+  (t) => [uniqueIndex("offering_branches_unique").on(t.offeringId, t.name)],
+);
+
 export const offeringFees = mysqlTable("offering_fees", {
   id: id(),
   offeringId: int("offering_id")

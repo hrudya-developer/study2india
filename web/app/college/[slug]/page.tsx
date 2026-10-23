@@ -176,8 +176,36 @@ export default async function CollegePage({ params }: Props) {
                       </div>
                       <dl className="mt-3 grid grid-cols-2 gap-3 text-[0.92rem] sm:grid-cols-3">
                         <div><dt className="text-muted">Duration</dt><dd className="font-bold"><Value v={o.duration} /></dd></div>
-                        <div><dt className="text-muted">Seats{o.academicYear ? ` (${o.academicYear})` : ""}</dt><dd className="tabular font-bold"><Value v={o.seats} /></dd></div>
+                        <div>
+                          <dt className="text-muted">Seats{o.academicYear ? ` (${o.academicYear})` : ""}</dt>
+                          <dd className="tabular font-bold">
+                            {o.seats === null && o.branches.length ? (
+                              <>
+                                {o.branches.reduce((n, b) => n + (b.seats ?? 0), 0)}{" "}
+                                <span className="font-normal text-muted">across {o.branches.length} {o.branches.length === 1 ? "branch" : "branches"}</span>
+                              </>
+                            ) : (
+                              <Value v={o.seats} />
+                            )}
+                          </dd>
+                        </div>
                       </dl>
+                      {o.branches.length ? (
+                        <details className="group mt-3 rounded-lg border border-rule" open={o.branches.length <= 6}>
+                          <summary className="cursor-pointer list-none px-3 py-2 text-[0.92rem] font-bold marker:hidden hover:bg-band">
+                            <span className="group-open:hidden">Show {o.branches.length} branches and their seats</span>
+                            <span className="hidden group-open:inline">Branches and seats</span>
+                          </summary>
+                          <ul className="grid gap-x-6 border-t border-rule px-3 py-2 text-[0.9rem] sm:grid-cols-2">
+                            {o.branches.map((b) => (
+                              <li key={b.name} className="flex justify-between gap-3 border-b border-rule/60 py-1.5 last:border-0">
+                                <span className="min-w-0">{b.name}</span>
+                                <span className="tabular shrink-0 font-bold">{b.seats ?? "Not recorded"}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </details>
+                      ) : null}
                       <div className="mt-3 overflow-x-auto">
                         <table className="w-full min-w-[420px] text-left text-[0.92rem]">
                           <thead><tr className="text-muted"><th className="py-1.5 font-normal">Quota</th><th className="py-1.5 font-normal">Fee</th><th className="py-1.5 font-normal">Basis</th></tr></thead>

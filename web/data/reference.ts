@@ -78,6 +78,8 @@ export const STREAMS: StreamSeed[] = [
     courses: [
       { slug: "mbbs", name: "Bachelor of Medicine and Bachelor of Surgery", short: "MBBS", level: "ug", duration: "5.5 years including 1 year internship" },
       { slug: "md-ms", name: "Doctor of Medicine / Master of Surgery", short: "MD / MS", level: "pg", duration: "3 years" },
+      { slug: "dm-mch", name: "Doctorate of Medicine / Master of Chirurgiae (super speciality)", short: "DM / M.Ch", level: "pg", duration: null },
+      { slug: "pg-diploma-medical", name: "Postgraduate Diploma in a clinical or para-clinical subject", short: "PG Diploma (Medical)", level: "diploma", duration: null },
     ],
   },
   {

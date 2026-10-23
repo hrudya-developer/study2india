@@ -49,5 +49,13 @@ export const MIGRATIONS: { tag: string; statements: string[] }[] = [
       "CREATE INDEX `institutions_name_idx` ON `institutions` (`name`);",
       "CREATE INDEX `rankings_lookup_idx` ON `rankings` (`agency`,`year`,`category`,`rank`);"
     ]
+  },
+  {
+    "tag": "0001_stormy_harpoon",
+    "statements": [
+      "CREATE TABLE `offering_branches` (\n\t`id` int AUTO_INCREMENT NOT NULL,\n\t`offering_id` int NOT NULL,\n\t`name` varchar(255) NOT NULL,\n\t`seats` int,\n\t`source_id` int,\n\tCONSTRAINT `offering_branches_id` PRIMARY KEY(`id`),\n\tCONSTRAINT `offering_branches_unique` UNIQUE(`offering_id`,`name`)\n);",
+      "ALTER TABLE `offering_branches` ADD CONSTRAINT `offering_branches_offering_id_offerings_id_fk` FOREIGN KEY (`offering_id`) REFERENCES `offerings`(`id`) ON DELETE cascade ON UPDATE no action;",
+      "ALTER TABLE `offering_branches` ADD CONSTRAINT `offering_branches_source_id_sources_id_fk` FOREIGN KEY (`source_id`) REFERENCES `sources`(`id`) ON DELETE no action ON UPDATE no action;"
+    ]
   }
 ];
