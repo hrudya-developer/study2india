@@ -20,6 +20,11 @@ export function landingPath(dim: string, state: string, page = 1): string {
   return `/colleges/${dim}/${state}${page > 1 ? `?page=${page}` : ""}`;
 }
 
+/** The clean URL of a "<course> colleges in <district>" landing page; the district is its slug (lib/districts.ts). */
+export function districtLandingPath(dim: string, state: string, district: string, page = 1): string {
+  return `/colleges/${dim}/${state}/${district}${page > 1 ? `?page=${page}` : ""}`;
+}
+
 /** Escape a value for an XML text node; sitemap <loc> values with "&" are invalid otherwise. */
 export function xmlEscape(s: string): string {
   return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");

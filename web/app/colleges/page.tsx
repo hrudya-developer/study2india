@@ -10,7 +10,8 @@ import {
   searchColleges,
   type CollegeFilters,
 } from "@/lib/queries/colleges";
-import { getLandingIndex, isLandingPair, landingPath, type LandingIndex } from "@/lib/queries/landing";
+import { districtLandingPath, getLandingIndex, isDistrictLandingPair, isLandingPair, landingPath, type LandingIndex } from "@/lib/queries/landing";
+import { districtSlug } from "@/lib/districts";
 import { CollegeListing } from "@/components/colleges/listing";
 import { breadcrumbList, jsonLd } from "@/lib/seo";
 import { own } from "@/lib/params";
@@ -36,10 +37,11 @@ async function describe(raw: CollegeFilters) {
 
 /**
  * Which listing URLs search engines should index. The indexable set is /colleges, the one-filter
- * listings (a course, a field or a state) and the course or field in a state landing pages at
- * /colleges/<course>/<state>; each paginates with a self-referencing canonical. Everything else
- * (more filters, a sort, a search, a district) is noindex,follow with the closest indexable page
- * as canonical, so link equity flows to it without duplicate listings in the index.
+ * listings (a course, a field or a state) and the course or field in a state (or district) landing
+ * pages at /colleges/<course>/<state>[/<district>]; each paginates with a self-referencing
+ * canonical. Everything else (more filters, a sort, a search, a district without a landing page)
+ * is noindex,follow with the closest indexable page as canonical, so link equity flows to it
+ * without duplicate listings in the index.
  */
 function landingFor(f: CollegeFilters, index: LandingIndex): { kind: "course" | "stream"; dim: string; state: string } | null {
   if (!f.state) return null;
@@ -48,16 +50,33 @@ function landingFor(f: CollegeFilters, index: LandingIndex): { kind: "course" | 
   return null;
 }
 
-function seoFor(f: CollegeFilters, index: LandingIndex) {
-  const extra = !!(f.ownership.length || f.approval.length || f.level || f.city || f.ranked || f.q || f.sort !== "relevance");
+/** The district landing page (/colleges/<course>/<state>/<district>) for the filters' course or field, state and district, when it is indexable. */
+function districtLandingFor(f: CollegeFilters, index: LandingIndex, stateName: string | undefined): { dim: string; state: string; district: string } | null {
+  const landing = landingFor(f, index);
+  const district = f.city ? districtSlug(stateName, f.city) : null;
+  if (!landing || !district) return null;
+  return isDistrictLandingPair(index, landing.kind, landing.dim, landing.state, district) ? { dim: landing.dim, state: landing.state, district } : null;
+}
+
+function seoFor(f: CollegeFilters, index: LandingIndex, stateName: string | undefined) {
+  const filtered = !!(f.ownership.length || f.approval.length || f.level || f.ranked || f.q || f.sort !== "relevance");
+  const extra = filtered || !!f.city;
   const dims = [f.stream, f.course, f.state].filter(Boolean).length;
   const landing = landingFor(f, index);
-  // Exactly a course (or field) and a state, nothing else: this listing has a clean URL.
-  const redirect = !extra && landing && dims === 2 ? landingPath(landing.dim, landing.state, f.page) : null;
+  const districtLanding = districtLandingFor(f, index, stateName);
+  // Exactly a course (or field) and a state, and at most a district, nothing else: this listing has a clean URL.
+  const redirect =
+    !filtered && dims === 2 && districtLanding
+      ? districtLandingPath(districtLanding.dim, districtLanding.state, districtLanding.district, f.page)
+      : !extra && landing && dims === 2
+        ? landingPath(landing.dim, landing.state, f.page)
+        : null;
   if (!extra && dims <= 1) {
     return { redirect, index: true, canonical: collegesHref({ stream: f.stream, course: f.course, state: f.state, page: f.page }) };
   }
-  const closest = landing
+  const closest = districtLanding
+    ? districtLandingPath(districtLanding.dim, districtLanding.state, districtLanding.district)
+    : landing
     ? landingPath(landing.dim, landing.state)
     : f.course
       ? collegesHref({ course: f.course })
@@ -70,8 +89,8 @@ function seoFor(f: CollegeFilters, index: LandingIndex) {
 }
 
 export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
-  const [{ title, f }, index] = await Promise.all([describe(readCollegeFilters(await searchParams)), getLandingIndex()]);
-  const seo = seoFor(f, index);
+  const [{ title, f, state }, index] = await Promise.all([describe(readCollegeFilters(await searchParams)), getLandingIndex()]);
+  const seo = seoFor(f, index, state?.label);
   const shown = f.page > 1 ? `${title} (page ${f.page})` : title;
   return {
     title: shown,
@@ -83,7 +102,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
 
 export default async function CollegesPage({ searchParams }: Props) {
   const [{ title, f, facets, course, stream, state, cities }, index] = await Promise.all([describe(readCollegeFilters(await searchParams)), getLandingIndex()]);
-  const seo = seoFor(f, index);
+  const seo = seoFor(f, index, state?.label);
   if (seo.redirect) permanentRedirect(seo.redirect);
   const result = await searchColleges(f, course);
 
