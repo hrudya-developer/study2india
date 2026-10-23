@@ -1,6 +1,7 @@
 {
  "council": "JoSAA",
  "scheme": "josaa",
+ "kind": "counselling",
  "stream": null,
  "academic_year": "2026-27",
  "sources": [
@@ -12,7 +13,7 @@
    "prefix": ""
   }
  ],
- "note": "Every institute in the JoSAA 2026 seat matrix (academic year 2026-27) with B.Tech, B.Arch or B.Plan seats: IITs and IISc, NITs and IIEST Shibpur, IIITs and other government funded technical institutes (GFTIs). code is JoSAA's institute code and management is JoSAA's institute type (IIT, NIT, IIIT, GFTI). A program's seats add up every category (OPEN, GEN-EWS, OBC-NCL, SC, ST and their PwD seats), both seat pools (Gender-Neutral and Female-only, the female-only seats including the female supernumerary seats) and, at NITs and some GFTIs, both the home state and other state quotas; each program is a branch and the course total is the sum of its branches. 5-year dual degree (B.Tech + M.Tech, B.Tech + MBA) and integrated M.Tech programmes are kept under btech, because there is no integrated engineering course; their branch names keep JoSAA's degree, e.g. '(5 Years, Bachelor and Master of Technology (Dual Degree))'. Left out: BS, B.Sc + M.Sc, integrated M.Sc and B.Des programmes (no course for them) and IIT Delhi's Abu Dhabi campus programmes. city is the town in JoSAA's institute address, or the town in its JoSAA name where the address gives only a village or post office; pin is the PIN in the address. ownership is central for IITs, IISc, NITs and IIEST and left empty for IIITs and other GFTIs, whose ownership JoSAA does not print. same_as joins an institute to the AICTE record for the same institution (or the school or campus of it that runs these programmes) where AICTE also lists it, so its seats are not counted twice, and otherwise to its NIRF record (checked by hand).",
+ "note": "Every institute in the JoSAA 2026 seat matrix (academic year 2026-27) with B.Tech, B.Arch or B.Plan seats: IITs and IISc, NITs and IIEST Shibpur, IIITs and other government funded technical institutes (GFTIs). code is JoSAA's institute code and management is JoSAA's institute type (IIT, NIT, IIIT, GFTI). kind is counselling: these are the seats each institute offers through JoSAA, not its sanctioned intake (an institute can fill other seats outside JoSAA), so they are stored apart from any regulator's approved intake and JoSAA is not recorded as an approval. A program's seats add up every category (OPEN, GEN-EWS, OBC-NCL, SC, ST and their PwD seats), both seat pools (Gender-Neutral and Female-only, the female-only seats including the female supernumerary seats) and, at NITs and some GFTIs, both the home state and other state quotas; each program is a branch and the course total is the sum of its branches. 5-year dual degree (B.Tech + M.Tech, B.Tech + MBA) and integrated M.Tech programmes are kept under btech, because there is no integrated engineering course; their branch names keep JoSAA's degree, e.g. '(5 Years, Bachelor and Master of Technology (Dual Degree))'. Left out: BS, B.Sc + M.Sc, integrated M.Sc and B.Des programmes (no course for them) and IIT Delhi's Abu Dhabi campus programmes. city is the town in JoSAA's institute address, or the town in its JoSAA name where the address gives only a village or post office; pin is the PIN in the address. ownership is central for IITs, IISc, NITs and IIEST and left empty for IIITs and other GFTIs, whose ownership JoSAA does not print. same_as joins an institute to the AICTE record for the same institution (or the school or campus of it that runs these programmes) where AICTE also lists it, and otherwise to its NIRF record (checked by hand): scheme nirf for a NIRF institute id, or nirf-name for a NIRF rank-band row, which NIRF publishes without an id (the key is built from its name, city and state).",
  "rows": [
   {
    "code": "101",
@@ -1467,7 +1468,11 @@
       }
      ]
     }
-   ]
+   ],
+   "same_as": {
+    "scheme": "nirf-name",
+    "value": "indian-institute-of-technology-goa-ponda-goa"
+   }
   },
   {
    "code": "120",
@@ -2083,7 +2088,11 @@
       }
      ]
     }
-   ]
+   ],
+   "same_as": {
+    "scheme": "nirf-name",
+    "value": "national-institute-of-technology-agartala-agratala-tripura"
+   }
   },
   {
    "code": "206",
@@ -2325,7 +2334,11 @@
       }
      ]
     }
-   ]
+   ],
+   "same_as": {
+    "scheme": "nirf-name",
+    "value": "national-institute-of-technology-goa-cuncolim-goa"
+   }
   },
   {
    "code": "210",
@@ -2555,7 +2568,11 @@
       }
      ]
     }
-   ]
+   ],
+   "same_as": {
+    "scheme": "nirf-name",
+    "value": "national-institute-of-technology-nagaland-dimapur-nagaland"
+   }
   },
   {
    "code": "214",
@@ -2819,7 +2836,11 @@
       }
      ]
     }
-   ]
+   ],
+   "same_as": {
+    "scheme": "nirf-name",
+    "value": "national-institute-of-technology-sikkim-south-sikkim-sikkim"
+   }
   },
   {
    "code": "218",
@@ -2862,7 +2883,11 @@
       }
      ]
     }
-   ]
+   ],
+   "same_as": {
+    "scheme": "nirf-name",
+    "value": "national-institute-of-technology-arunachal-pradesh-itanagar-arunachal-pradesh"
+   }
   },
   {
    "code": "219",
@@ -3085,7 +3110,11 @@
       }
      ]
     }
-   ]
+   ],
+   "same_as": {
+    "scheme": "nirf-name",
+    "value": "national-institute-of-technology-manipur-imphal-manipur"
+   }
   },
   {
    "code": "222",
@@ -3132,7 +3161,11 @@
       }
      ]
     }
-   ]
+   ],
+   "same_as": {
+    "scheme": "nirf-name",
+    "value": "national-institute-of-technology-mizoram-aizawl-mizoram"
+   }
   },
   {
    "code": "223",
@@ -3459,7 +3492,11 @@
       }
      ]
     }
-   ]
+   ],
+   "same_as": {
+    "scheme": "nirf-name",
+    "value": "national-institute-of-technology-uttarakhand-srinagar-garhwal-uttarakhand"
+   }
   },
   {
    "code": "228",
@@ -3745,7 +3782,11 @@
       }
      ]
     }
-   ]
+   ],
+   "same_as": {
+    "scheme": "nirf-name",
+    "value": "national-institute-of-technology-andhra-pradesh-tadepalligudem-andhra-pradesh"
+   }
   },
   {
    "code": "232",
@@ -3923,7 +3964,11 @@
       }
      ]
     }
-   ]
+   ],
+   "same_as": {
+    "scheme": "nirf-name",
+    "value": "indian-institute-of-information-technology-guwahati-guwahati-assam"
+   }
   },
   {
    "code": "304",
@@ -4149,7 +4194,11 @@
       }
      ]
     }
-   ]
+   ],
+   "same_as": {
+    "scheme": "nirf-name",
+    "value": "indian-institute-of-information-technology-allahabad-prayagraj-uttar-pradesh"
+   }
   },
   {
    "code": "310",
@@ -4212,7 +4261,11 @@
       }
      ]
     }
-   ]
+   ],
+   "same_as": {
+    "scheme": "nirf-name",
+    "value": "indian-institute-of-information-technology-design-and-manufacturing-kancheepuram-chennai-tamil-nadu"
+   }
   },
   {
    "code": "311",
@@ -4247,7 +4300,11 @@
       }
      ]
     }
-   ]
+   ],
+   "same_as": {
+    "scheme": "nirf-name",
+    "value": "pandit-dwarka-prasad-mishra-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-jabalpur-a16c26cc"
+   }
   },
   {
    "code": "313",
@@ -5027,7 +5084,11 @@
       }
      ]
     }
-   ]
+   ],
+   "same_as": {
+    "scheme": "nirf-name",
+    "value": "institute-of-infrastructure-technology-research-and-management-iitram-ahmedabad-gujarat"
+   }
   },
   {
    "code": "406",
@@ -5117,7 +5178,11 @@
       }
      ]
     }
-   ]
+   ],
+   "same_as": {
+    "scheme": "nirf-name",
+    "value": "university-of-allahabad-prayagraj-uttar-pradesh"
+   }
   },
   {
    "code": "408",

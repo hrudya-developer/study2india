@@ -1,7 +1,8 @@
 import { cache } from "react";
 import { sql, type SQL } from "drizzle-orm";
 import { rows } from "@/lib/db";
-import { CURRENT_OFFERING, publisherShort } from "@/lib/queries/colleges";
+import { own } from "@/lib/params";
+import { COUNSELLING_BODIES, CURRENT_OFFERING, publisherShort } from "@/lib/queries/colleges";
 import { EXAMS } from "@/data/reference";
 
 function parseJson<T>(v: unknown, fallback: T): T {
@@ -38,6 +39,8 @@ export type CollegeDetail = {
   phone: string | null;
   email: string | null;
   approvals: string[];
+  /** Counselling bodies (JoSAA) whose seat matrix lists this institution; not approvals. */
+  counsellingBodies: string[];
   naacGrade: string | null;
   isPartner: boolean;
   updatedAt: string;
@@ -57,6 +60,11 @@ export type CollegeDetail = {
     seatsSource: SourceRef | null;
     /** Branches with their own intake (MD General Medicine...), as the regulator lists them. */
     branches: { name: string; seats: number | null }[];
+    /**
+     * Seats offered through a counselling body's seat matrix (JoSAA), every category and seat pool
+     * together. Not the approved intake: never added to seats or used in a seat total.
+     */
+    counselling: { body: string; seats: number | null; source: SourceRef; branches: { name: string; seats: number | null }[] } | null;
     fees: { quota: string | null; component: string; amount: string | null; basis: string | null; source: SourceRef | null }[];
   }[];
   /** Official opening and closing ranks, ordered by course, year (latest first), quota, category and round. */
@@ -180,7 +188,7 @@ async function loadCollege(slug: string): Promise<CollegeDetail | null> {
   if (!c) return null;
   const id = Number(c.id);
 
-  const [streamRows, rankRows, offeringRows, feeRows, cutoffRows, branchRows, examRows] = await Promise.all([
+  const [streamRows, rankRows, offeringRows, feeRows, cutoffRows, branchRows, examRows, counsellingRows, counsellingBranchRows] = await Promise.all([
     rows<{ slug: string; name: string }>(sql`
       select s.slug, s.name from institution_streams x join streams s on s.id = x.stream_id where x.institution_id = ${id} order by s.sort_order
     `),
@@ -249,6 +257,18 @@ async function loadCollege(slug: string): Promise<CollegeDetail | null> {
       group by e.id, e.slug, e.short_name, e.name, e.conducting_body, e.level, e.sort_order
       order by e.sort_order
     `),
+    rows<{ id: number; counselling_seats: number | null } & SrcRow>(sql`
+      select o.id, o.counselling_seats,
+        s.publisher as s_publisher, s.title as s_title, s.url as s_url, s.retrieved_on as s_retrieved
+      from offerings o join sources s on s.id = o.counselling_seats_source_id
+      where o.institution_id = ${id}
+    `),
+    rows<{ offering_id: number; name: string; seats: number | null }>(sql`
+      select b.offering_id, b.name, b.seats
+      from offering_counselling_branches b join offerings o on o.id = b.offering_id
+      where o.institution_id = ${id}
+      order by b.seats is null, b.seats desc, b.name
+    `),
   ]);
 
   const name = String(c.name);
@@ -286,9 +306,13 @@ async function loadCollege(slug: string): Promise<CollegeDetail | null> {
     if (!hit.usedFor.includes(use)) hit.usedFor.push(use);
     sourceMap.set(key, hit);
   };
-  addSource(src(c), "Name, location and approval");
+  const instSource = src(c);
+  addSource(instSource, instSource && own(COUNSELLING_BODIES, publisherShort(instSource.publisher)) ? "Name and location" : "Name, location and approval");
   offeringRows.forEach((o) => addSource(src(o), "Courses and seats"));
   branchRows.filter((b) => offeringRows.some((o) => o.id === b.offering_id)).forEach((b) => addSource(src(b), "Branch seats"));
+  counsellingRows
+    .filter((o) => offeringRows.some((x) => x.id === o.id))
+    .forEach((o) => addSource(src(o), `Seats through ${publisherShort(o.s_publisher ?? "")} counselling`));
   rankRows.forEach((r) => addSource(src(r), `NIRF ${r.year} ${r.category}`));
   feeRows.forEach((f) => addSource(src(f), "Fees"));
   cutoffRows.forEach((x) => addSource(src(x), "Cutoffs"));
@@ -313,6 +337,7 @@ async function loadCollege(slug: string): Promise<CollegeDetail | null> {
     phone: (c.phone as string | null) ?? null,
     email: (c.email as string | null) ?? null,
     approvals: parseJson<string[]>(c.approvals, []),
+    counsellingBodies: [...new Set(counsellingRows.filter((o) => offeringRows.some((x) => x.id === o.id)).map((o) => publisherShort(o.s_publisher ?? "")))],
     naacGrade: (c.naac_grade as string | null) ?? null,
     isPartner: !!c.is_partner,
     updatedAt: String(c.updated_at),
@@ -338,6 +363,17 @@ async function loadCollege(slug: string): Promise<CollegeDetail | null> {
       seats: num(o.seats),
       seatsSource: src(o),
       branches: branchRows.filter((b) => b.offering_id === o.id).map((b) => ({ name: b.name, seats: num(b.seats) })),
+      counselling: (() => {
+        const cr = counsellingRows.find((x) => x.id === o.id);
+        return cr
+          ? {
+              body: publisherShort(cr.s_publisher ?? ""),
+              seats: num(cr.counselling_seats),
+              source: src(cr)!,
+              branches: counsellingBranchRows.filter((b) => b.offering_id === o.id).map((b) => ({ name: b.name, seats: num(b.seats) })),
+            }
+          : null;
+      })(),
       fees: feeRows
         .filter((f) => f.offering_id === o.id)
         .map((f) => ({ quota: f.quota, component: f.component, amount: f.amount_inr, basis: f.basis, source: src(f) })),

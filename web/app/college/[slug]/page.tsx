@@ -4,7 +4,7 @@ import { notFound, permanentRedirect } from "next/navigation";
 import { MapPin, Globe, Phone, Mail, Award, ShieldCheck, ExternalLink, Building, CalendarDays, GraduationCap, Trophy, Users, BookOpen, Navigation, Scale } from "lucide-react";
 import { approvalYears, getCollege, getRedirectedSlug, getSimilarColleges, offeringSeats, type SourceRef } from "@/lib/queries/college";
 import { getSearchOptions } from "@/lib/queries/home";
-import { APPROVAL_BODIES, OWNERSHIP_LABELS, formatNumber, publisherShort } from "@/lib/queries/colleges";
+import { APPROVAL_BODIES, COUNSELLING_BODIES, OWNERSHIP_LABELS, formatNumber, publisherShort } from "@/lib/queries/colleges";
 import { CounsellingForm } from "@/components/counselling-form";
 import { districtLandingPath, getLandingIndex, isDistrictLandingPair, isLandingPair, landingPath } from "@/lib/queries/landing";
 import { districtSlug } from "@/lib/districts";
@@ -33,6 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const place = [c.city ?? c.district, c.state].filter(Boolean).join(", ");
   const facts = [
     c.approvals.length ? c.approvals.map((a) => own(APPROVAL_BODIES, a)?.badge ?? a).join(", ") : null,
+    ...c.counsellingBodies.map((b) => own(COUNSELLING_BODIES, b)?.badge ?? `${b} participating institute`),
     seatsPhrase(seatCoverage(c.offerings.map(offeringSeats))),
     c.rankings[0] ? `NIRF ${c.rankings[0].year} ${c.rankings[0].category} ${c.rankings[0].rank ? `rank ${c.rankings[0].rank}` : c.rankings[0].rankBand}` : null,
   ].filter(Boolean);
@@ -108,6 +109,11 @@ export default async function CollegePage({ params }: Props) {
   const academicYear = c.offerings.map((o) => o.academicYear).filter(Boolean).sort().at(-1) ?? null;
   const listYear = academicYear ? `, ${academicYear}` : "";
   const yearOf = approvalYears(c);
+  // Seats through counselling (the JoSAA seat matrix): shown apart from the approved intake, never added to it.
+  const counselled = c.offerings.filter((o) => o.counselling && o.counselling.seats !== null);
+  const counsellingSeats = counselled.reduce((n, o) => n + (o.counselling?.seats ?? 0), 0);
+  const counsellingBody = c.counsellingBodies.join(" and ");
+  const counsellingYear = counselled.map((o) => o.academicYear).filter(Boolean).sort().at(-1) ?? null;
   const levels = new Set(c.offerings.map((o) => o.level));
   const hasBranch = c.cutoffs.some((x) => x.branch);
   const hasSeatPool = c.cutoffs.some((x) => x.seatPool);
@@ -133,6 +139,9 @@ export default async function CollegePage({ params }: Props) {
         ? `It has ${seatsPhrase(seatCov, "recorded seats")}.`
         : null,
     seatsWithheld,
+    counselled.length
+      ? `It admits students through ${counsellingBody} counselling, with ${formatNumber(counsellingSeats)} seats in the ${counsellingYear ? `${counsellingYear} ` : ""}${counsellingBody} seat matrix${counselled.length > 1 ? ` across ${courseCount(counselled.length)}` : ""}.`
+      : null,
     best ? `It is ranked ${best.rank ? best.rank : best.rankBand} in the NIRF ${best.year} ${best.category} ranking.` : null,
     c.affiliatingUniversity ? `It is affiliated to ${c.affiliatingUniversity}.` : null,
   ].filter(Boolean);
@@ -199,14 +208,23 @@ export default async function CollegePage({ params }: Props) {
 
   const stats = [
     { icon: Trophy, label: best ? `NIRF ${best.year} ${best.category}` : "NIRF rank", value: best ? (best.rank ? `#${best.rank}` : best.rankBand) : null, empty: "Not ranked" },
-    {
-      icon: Users,
-      // "Total" only when every course has a figure; a partial sum says how many courses it covers.
-      label: `${seatCov.complete || totalSeats === null ? "Total seats" : "Seats"}${listYear}`,
-      value: totalSeats !== null ? formatNumber(totalSeats) : null,
-      empty: "Not recorded",
-      note: seatNote,
-    },
+    totalSeats === null && !seatCov.recorded && counselled.length
+      ? {
+          // No approved intake loaded: the seat matrix figure, named for what it is.
+          icon: Users,
+          label: `Seats through ${counsellingBody}${counsellingYear ? `, ${counsellingYear}` : ""}`,
+          value: formatNumber(counsellingSeats),
+          empty: "Not recorded",
+          note: "seat matrix, not approved intake",
+        }
+      : {
+          icon: Users,
+          // "Total" only when every course has a figure; a partial sum says how many courses it covers.
+          label: `${seatCov.complete || totalSeats === null ? "Total seats" : "Seats"}${listYear}`,
+          value: totalSeats !== null ? formatNumber(totalSeats) : null,
+          empty: "Not recorded",
+          note: seatNote,
+        },
     { icon: BookOpen, label: "Courses listed", value: c.offerings.length ? String(c.offerings.length) : null, empty: "Not recorded" },
     { icon: CalendarDays, label: "Established", value: c.establishedYear ? String(c.establishedYear) : null, empty: "Not recorded" },
   ];
@@ -259,6 +277,11 @@ export default async function CollegePage({ params }: Props) {
                       <ShieldCheck size={14} aria-hidden="true" />
                       {own(APPROVAL_BODIES, a)?.badge ?? `${a} approved`}
                       {own(yearOf, a) ? <span className="font-normal opacity-90">{own(yearOf, a)}</span> : null}
+                    </li>
+                  ))}
+                  {c.counsellingBodies.map((b) => (
+                    <li key={b} className="rounded border border-white/40 px-2 py-0.5 font-bold" title={own(COUNSELLING_BODIES, b)?.full}>
+                      {own(COUNSELLING_BODIES, b)?.badge ?? `${b} participating institute`}
                     </li>
                   ))}
                   {c.naacGrade ? <li className="rounded bg-white/10 px-2 py-0.5">NAAC {c.naacGrade}</li> : null}
@@ -318,6 +341,9 @@ export default async function CollegePage({ params }: Props) {
                   { icon: CalendarDays, k: "Established", v: c.establishedYear },
                   { icon: GraduationCap, k: "Affiliated to", v: c.affiliatingUniversity },
                   { icon: ShieldCheck, k: "Approved or listed by", v: c.approvals.length ? c.approvals.map((a) => own(APPROVAL_BODIES, a)?.full ?? a).join(", ") : null },
+                  ...(c.counsellingBodies.length
+                    ? [{ icon: Users, k: "Counselling", v: c.counsellingBodies.map((b) => own(COUNSELLING_BODIES, b)?.full ?? b).join(", ") }]
+                    : []),
                   { icon: Award, k: "NAAC grade", v: c.naacGrade },
                   { icon: MapPin, k: "Location", v: place || null },
                 ].map((r) => (
@@ -364,13 +390,23 @@ export default async function CollegePage({ params }: Props) {
                   </p>
                 ) : seatNote ? (
                   <p className="tabular text-ink-soft">Seats {seatNote}</p>
+                ) : counselled.length ? (
+                  <p className="tabular text-ink-soft">
+                    <b className="text-ink">{formatNumber(counsellingSeats)}</b> seats through {counsellingBody}
+                    {counsellingYear ? ` in ${counsellingYear}` : ""}
+                  </p>
                 ) : null}
               </div>
               {c.offerings.length ? (
                 <>
-                  <p className="mt-1 text-[0.92rem] text-muted">
-                    Approved intake as published by the regulator. A seat figure is the sanctioned intake, not the number of seats still open.
-                  </p>
+                  {seatCov.recorded > 0 || !counselled.length ? (
+                    <p className="mt-1 text-[0.92rem] text-muted">
+                      Approved intake as published by the regulator. A seat figure is the sanctioned intake, not the number of seats still open.
+                    </p>
+                  ) : (
+                    <p className="mt-1 text-[0.92rem] text-muted">No regulator&apos;s approved intake is loaded for this institute, so the seat column says Not recorded.</p>
+                  )}
+                  {c.counsellingBodies.map((b) => (own(COUNSELLING_BODIES, b) ? <p key={b} className="mt-1 text-[0.92rem] text-muted">{own(COUNSELLING_BODIES, b)!.note}</p> : null))}
                   <CoursesTable offerings={c.offerings} />
                 </>
               ) : (

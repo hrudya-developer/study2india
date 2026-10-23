@@ -90,6 +90,25 @@ const LINKS = {
   229: ["nirf", "U-0149"], 230: ["nirf", "U-0334"], 232: ["nirf", "U-0584"],
   // IIITs
   301: ["nirf", "U-0267"],
+  // NIRF rank-band rows (101-150 and below) carry no NIRF id. lib/bootstrap.ts gives each a "nirf-name" key, the slug
+  // of its name, city and state as NIRF prints them (nirfNameKey), and these rows join those records.
+  119: ["nirf-name", "indian-institute-of-technology-goa-ponda-goa"],
+  205: ["nirf-name", "national-institute-of-technology-agartala-agratala-tripura"], // NIRF spells the town "Agratala"
+  209: ["nirf-name", "national-institute-of-technology-goa-cuncolim-goa"],
+  213: ["nirf-name", "national-institute-of-technology-nagaland-dimapur-nagaland"], // Chumukedima, Dimapur
+  217: ["nirf-name", "national-institute-of-technology-sikkim-south-sikkim-sikkim"], // Ravangla, Namchi (South Sikkim)
+  218: ["nirf-name", "national-institute-of-technology-arunachal-pradesh-itanagar-arunachal-pradesh"], // Jote, Papum Pare, near Itanagar
+  221: ["nirf-name", "national-institute-of-technology-manipur-imphal-manipur"],
+  222: ["nirf-name", "national-institute-of-technology-mizoram-aizawl-mizoram"],
+  227: ["nirf-name", "national-institute-of-technology-uttarakhand-srinagar-garhwal-uttarakhand"],
+  231: ["nirf-name", "national-institute-of-technology-andhra-pradesh-tadepalligudem-andhra-pradesh"],
+  303: ["nirf-name", "indian-institute-of-information-technology-guwahati-guwahati-assam"],
+  309: ["nirf-name", "indian-institute-of-information-technology-allahabad-prayagraj-uttar-pradesh"],
+  310: ["nirf-name", "indian-institute-of-information-technology-design-and-manufacturing-kancheepuram-chennai-tamil-nadu"],
+  311: ["nirf-name", "pandit-dwarka-prasad-mishra-indian-institute-of-information-technology-design-and-manufacturing-iiitdm-jabalpur-a16c26cc"],
+  405: ["nirf-name", "institute-of-infrastructure-technology-research-and-management-iitram-ahmedabad-gujarat"],
+  // J.K. Institute of Applied Physics and Technology is the University of Allahabad's engineering institute; NIRF ranks the university.
+  407: ["nirf-name", "university-of-allahabad-prayagraj-uttar-pradesh"],
   // Other GFTIs: AICTE records
   402: ["aicte", "1-15782701"], // Birla Institute of Technology, Ranchi (AICTE record carries NIRF U-0202)
   403: ["aicte", "1-23741731"], // Gurukula Kangri Vishwavidyalaya Haridwar
@@ -283,6 +302,8 @@ rows.sort((a, b) => Number(a.code) - Number(b.code));
 const file = {
   council: "JoSAA",
   scheme: "josaa",
+  // A seat matrix, not an approval: the loader keeps these seats apart from a regulator's approved intake.
+  kind: "counselling",
   stream: null,
   academic_year: ACADEMIC_YEAR,
   sources: [
@@ -297,13 +318,14 @@ const file = {
   note:
     "Every institute in the JoSAA 2026 seat matrix (academic year 2026-27) with B.Tech, B.Arch or B.Plan seats: IITs and IISc, NITs and IIEST Shibpur, IIITs and other government funded technical institutes (GFTIs). " +
     "code is JoSAA's institute code and management is JoSAA's institute type (IIT, NIT, IIIT, GFTI). " +
+    "kind is counselling: these are the seats each institute offers through JoSAA, not its sanctioned intake (an institute can fill other seats outside JoSAA), so they are stored apart from any regulator's approved intake and JoSAA is not recorded as an approval. " +
     "A program's seats add up every category (OPEN, GEN-EWS, OBC-NCL, SC, ST and their PwD seats), both seat pools (Gender-Neutral and Female-only, the female-only seats including the female supernumerary seats) and, at NITs and some GFTIs, both the home state and other state quotas; " +
     "each program is a branch and the course total is the sum of its branches. " +
     "5-year dual degree (B.Tech + M.Tech, B.Tech + MBA) and integrated M.Tech programmes are kept under btech, because there is no integrated engineering course; their branch names keep JoSAA's degree, e.g. '(5 Years, Bachelor and Master of Technology (Dual Degree))'. " +
     "Left out: BS, B.Sc + M.Sc, integrated M.Sc and B.Des programmes (no course for them) and IIT Delhi's Abu Dhabi campus programmes. " +
     "city is the town in JoSAA's institute address, or the town in its JoSAA name where the address gives only a village or post office; pin is the PIN in the address. " +
     "ownership is central for IITs, IISc, NITs and IIEST and left empty for IIITs and other GFTIs, whose ownership JoSAA does not print. " +
-    "same_as joins an institute to the AICTE record for the same institution (or the school or campus of it that runs these programmes) where AICTE also lists it, so its seats are not counted twice, and otherwise to its NIRF record (checked by hand).",
+    "same_as joins an institute to the AICTE record for the same institution (or the school or campus of it that runs these programmes) where AICTE also lists it, and otherwise to its NIRF record (checked by hand): scheme nirf for a NIRF institute id, or nirf-name for a NIRF rank-band row, which NIRF publishes without an id (the key is built from its name, city and state).",
   rows,
 };
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..", "..");
@@ -320,7 +342,7 @@ for (const t of Object.values(TYPES)) {
 }
 for (const c of ["btech", "barch", "bplan"]) console.log(`${c}: ${offeringsOf(c).length} institutes, ${total(c)} seats`);
 console.log(`Left out: ${left.abroad} seats at IIT Delhi Abu Dhabi; by degree: ${[...left.degree].map(([d, n]) => `${d} ${n}`).join("; ")}`);
-console.log(`Links: ${rows.filter((r) => r.same_as?.scheme === "aicte").length} AICTE, ${rows.filter((r) => r.same_as?.scheme === "nirf").length} NIRF, ${rows.filter((r) => !r.same_as).length} none`);
+console.log(`Links: ${rows.filter((r) => r.same_as?.scheme === "aicte").length} AICTE, ${rows.filter((r) => r.same_as?.scheme === "nirf").length} NIRF, ${rows.filter((r) => r.same_as?.scheme === "nirf-name").length} NIRF rank band,${rows.filter((r) => !r.same_as).length} none`);
 const unused = Object.keys(LINKS).filter((c) => !rows.some((r) => r.code === c));
 if (unused.length) console.log(`Links with no institute written: ${unused.join(", ")}`);
 if (oddRows.length) console.log(`Female-only total below its supernumerary count, as printed: ${oddRows.join("; ")}`);

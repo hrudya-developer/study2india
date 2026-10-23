@@ -93,8 +93,34 @@ export function CoursesTable({ offerings }: { offerings: Offering[] }) {
                           {[o.academicYear, sourceShort].filter(Boolean).join(", ")}
                           {o.seats === null && o.branches.length ? ", sum of branches" : ""}
                         </span>
+                        {o.counselling ? (
+                          <span className="mt-1.5 block text-[0.82rem] leading-snug text-ink-soft">
+                            Seats through {o.counselling.body} counselling:{" "}
+                            <b className="tabular text-ink">{o.counselling.seats !== null ? formatNumber(o.counselling.seats) : "Not recorded"}</b>
+                          </span>
+                        ) : null}
                       </td>
                     </tr>,
+                    o.counselling && o.counselling.branches.length ? (
+                      <tr key={`${o.id}-c`}>
+                        <td colSpan={hasFees ? 4 : 3} className="pb-3">
+                          <details className="group rounded-lg border border-rule bg-[#fafbfd]" open={o.counselling.branches.length <= 4}>
+                            <summary className="cursor-pointer list-none px-3 py-2 text-[0.9rem] font-bold text-ink-soft marker:hidden hover:text-ink [&::-webkit-details-marker]:hidden">
+                              {o.counselling.branches.length} {o.counselling.branches.length === 1 ? "programme" : "programmes"} in the {o.counselling.body} seat matrix
+                              {o.academicYear ? `, ${o.academicYear}` : ""}
+                            </summary>
+                            <ul className="grid gap-x-6 border-t border-rule px-3 py-1.5 text-[0.9rem] sm:grid-cols-2">
+                              {o.counselling.branches.map((b, i) => (
+                                <li key={b.name + i} className="flex justify-between gap-3 border-b border-rule/70 py-1.5 last:border-0 sm:[&:nth-last-child(2):nth-child(odd)]:border-0">
+                                  <span className="min-w-0">{b.name}</span>
+                                  <span className="tabular shrink-0 font-bold">{b.seats !== null ? formatNumber(b.seats) : NR}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </details>
+                        </td>
+                      </tr>
+                    ) : null,
                     o.branches.length > 1 || (o.branches.length === 1 && o.branches[0].name !== o.courseShort) ? (
                       <tr key={`${o.id}-b`}>
                         <td colSpan={hasFees ? 4 : 3} className="pb-3">

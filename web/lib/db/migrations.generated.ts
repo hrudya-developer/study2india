@@ -81,6 +81,18 @@ export const MIGRATIONS: { tag: string; statements: string[] }[] = [
     ]
   },
   {
+    "tag": "0005_counselling_seats",
+    "statements": [
+      "CREATE TABLE `offering_counselling_branches` (\n\t`id` int AUTO_INCREMENT NOT NULL,\n\t`offering_id` int NOT NULL,\n\t`name` varchar(255) NOT NULL,\n\t`seats` int,\n\t`source_id` int,\n\tCONSTRAINT `offering_counselling_branches_id` PRIMARY KEY(`id`),\n\tCONSTRAINT `offering_counselling_branches_unique` UNIQUE(`offering_id`,`name`)\n);",
+      "ALTER TABLE `institution_identifiers` MODIFY COLUMN `value` varchar(120) NOT NULL;",
+      "ALTER TABLE `offerings` ADD `counselling_seats` int;",
+      "ALTER TABLE `offerings` ADD `counselling_seats_source_id` int;",
+      "ALTER TABLE `offering_counselling_branches` ADD CONSTRAINT `offering_counselling_branches_offering_id_offerings_id_fk` FOREIGN KEY (`offering_id`) REFERENCES `offerings`(`id`) ON DELETE cascade ON UPDATE no action;",
+      "ALTER TABLE `offering_counselling_branches` ADD CONSTRAINT `offering_counselling_branches_source_id_sources_id_fk` FOREIGN KEY (`source_id`) REFERENCES `sources`(`id`) ON DELETE no action ON UPDATE no action;",
+      "ALTER TABLE `offerings` ADD CONSTRAINT `offerings_counselling_seats_source_id_sources_id_fk` FOREIGN KEY (`counselling_seats_source_id`) REFERENCES `sources`(`id`) ON DELETE no action ON UPDATE no action;"
+    ]
+  },
+  {
     "tag": "0006_slug_redirects",
     "statements": [
       "CREATE TABLE `slug_redirects` (\n\t`old_slug` varchar(120) NOT NULL,\n\t`institution_id` int NOT NULL,\n\t`created_at` timestamp NOT NULL DEFAULT (now()),\n\tCONSTRAINT `slug_redirects_old_slug` PRIMARY KEY(`old_slug`)\n);",

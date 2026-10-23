@@ -29,6 +29,19 @@ export const APPROVAL_BODIES: Record<string, { label: string; badge: string; ful
   VCI: { label: "VCI", badge: "VCI recognised", full: "Veterinary Council of India" },
 };
 
+/**
+ * Counselling bodies whose seat matrices we load. Taking part in one is not an approval: the seats are
+ * the share of an institute's seats filled through that counselling, shown apart from approved intake.
+ */
+export const COUNSELLING_BODIES: Record<string, { badge: string; full: string; note: string }> = {
+  JoSAA: {
+    badge: "JoSAA participating institute",
+    full: "Joint Seat Allocation Authority (JoSAA)",
+    note:
+      "Seats through JoSAA counselling are the institute's seats in the JoSAA seat matrix: every category, both seat pools (gender-neutral and female-only, the female-only figure including female supernumerary seats) and, where they apply, both home state and other state quotas. They are the seats filled through JoSAA, not the sanctioned intake.",
+  },
+};
+
 export const LEVEL_LABELS: Record<string, string> = {
   ug: "Undergraduate",
   pg: "Postgraduate",
@@ -122,6 +135,7 @@ function parseJson<T>(v: unknown, fallback: T): T {
 export function publisherShort(publisher: string): string {
   const p = publisher.toLowerCase();
   if (p.startsWith("nirf")) return "NIRF";
+  for (const [code, b] of Object.entries(COUNSELLING_BODIES)) if (p.startsWith(b.full.toLowerCase().replace(/ \(.*$/, ""))) return code;
   for (const [code, b] of Object.entries(APPROVAL_BODIES)) if (p.startsWith(b.full.toLowerCase())) return code;
   return publisher;
 }

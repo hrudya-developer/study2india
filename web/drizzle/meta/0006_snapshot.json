@@ -2,7 +2,7 @@
   "version": "5",
   "dialect": "mysql",
   "id": "6887936c-ff1d-43cb-8294-7e0a6423bd59",
-  "prevId": "efe85056-bfed-4bab-be69-c2e217627635",
+  "prevId": "b6d798e8-44c2-4aa9-a772-bdd5a60eb91b",
   "tables": {
     "courses": {
       "name": "courses",
@@ -554,7 +554,7 @@
         },
         "value": {
           "name": "value",
-          "type": "varchar(60)",
+          "type": "varchar(120)",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
@@ -1080,6 +1080,94 @@
       "uniqueConstraints": {},
       "checkConstraint": {}
     },
+    "offering_counselling_branches": {
+      "name": "offering_counselling_branches",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "offering_id": {
+          "name": "offering_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "seats": {
+          "name": "seats",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "source_id": {
+          "name": "source_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "offering_counselling_branches_unique": {
+          "name": "offering_counselling_branches_unique",
+          "columns": [
+            "offering_id",
+            "name"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {
+        "offering_counselling_branches_offering_id_offerings_id_fk": {
+          "name": "offering_counselling_branches_offering_id_offerings_id_fk",
+          "tableFrom": "offering_counselling_branches",
+          "tableTo": "offerings",
+          "columnsFrom": [
+            "offering_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "offering_counselling_branches_source_id_sources_id_fk": {
+          "name": "offering_counselling_branches_source_id_sources_id_fk",
+          "tableFrom": "offering_counselling_branches",
+          "tableTo": "sources",
+          "columnsFrom": [
+            "source_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "offering_counselling_branches_id": {
+          "name": "offering_counselling_branches_id",
+          "columns": [
+            "id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
     "offering_fees": {
       "name": "offering_fees",
       "columns": {
@@ -1218,6 +1306,20 @@
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
+        },
+        "counselling_seats": {
+          "name": "counselling_seats",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "counselling_seats_source_id": {
+          "name": "counselling_seats_source_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
         }
       },
       "indexes": {
@@ -1264,6 +1366,19 @@
           "tableTo": "sources",
           "columnsFrom": [
             "seats_source_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "offerings_counselling_seats_source_id_sources_id_fk": {
+          "name": "offerings_counselling_seats_source_id_sources_id_fk",
+          "tableFrom": "offerings",
+          "tableTo": "sources",
+          "columnsFrom": [
+            "counselling_seats_source_id"
           ],
           "columnsTo": [
             "id"

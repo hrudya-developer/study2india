@@ -1,5 +1,7 @@
 import { createHash } from "node:crypto";
 import { and, eq, sql, type SQL } from "drizzle-orm";
+import type { MySqlDatabase } from "drizzle-orm/mysql-core";
+import type { MySql2PreparedQueryHKT, MySql2QueryResultHKT } from "drizzle-orm/mysql2";
 import { getDb, getPool, rows, schema } from "@/lib/db";
 import { MIGRATIONS } from "@/lib/db/migrations.generated";
 import { NIRF_FILES, NMC_FILES, NMC_LINKS, COUNCIL_FILES } from "@/lib/db/seed-data.generated";
@@ -20,7 +22,7 @@ import { AMBIGUOUS_DISTRICTS, CITIES_SPANNING_DISTRICTS, DISTRICTS, DISTRICT_ALI
 import { seedReferenceExtras } from "@/lib/seed/reference-extras";
 import { seedCutoffs } from "@/lib/seed/cutoffs";
 
-const { states, streams, courses, exams, examStreams, sources, institutions, institutionIdentifiers, institutionStreams, rankings, offerings, offeringBranches } = schema;
+const { states, streams, courses, exams, examStreams, sources, institutions, institutionIdentifiers, institutionStreams, rankings, offerings, offeringBranches, offeringCounsellingBranches } = schema;
 
 /**
  * Applies the embedded migrations in order, once each, recorded in app_migrations.
@@ -121,29 +123,47 @@ type NirfFile = {
  * The first of base, base-2, base-3... that no institution uses and that is not an old slug kept
  * as a redirect, so a URL that once named one college never starts showing another.
  */
-async function freeSlug(base: string) {
+async function freeSlug(base: string, db: Exec = getDb()) {
   let slug = base;
-  for (let n = 2; (await rows(sql`select 1 from institutions where slug = ${slug} union all select 1 from slug_redirects where old_slug = ${slug} limit 1`)).length; n++) {
+  const taken = async (s: string) =>
+    ((await db.execute(sql`select 1 from institutions where slug = ${s} union all select 1 from slug_redirects where old_slug = ${s} limit 1`)) as unknown as [unknown[]])[0].length > 0;
+  for (let n = 2; await taken(slug); n++) {
     slug = `${base}-${n}`;
   }
   return slug;
 }
 
+/** Identifier scheme for NIRF rows published without an institute id (the rank-band rows, 101-150 and below). */
+export const NIRF_NAME_SCHEME = "nirf-name";
+
+const cleanName = (name: string) => name.trim().replace(/\s+/g, " ");
+const cleanCity = (city: string | null | undefined) => (city?.trim() && !/^select city$/i.test(city.trim()) ? city.trim() : null);
+
+/**
+ * A stable identifier for a NIRF row that has no institute id: the slug of its name, city and state as
+ * NIRF prints them, e.g. "national-institute-of-technology-goa-cuncolim-goa". Other lists link to such a
+ * record with same_as { scheme: "nirf-name", value }. A key longer than the column keeps 111 characters
+ * of the slug and adds a hash of the whole, so two long names cannot share one.
+ */
+export function nirfNameKey(r: Pick<NirfRow, "name" | "city" | "state">): string {
+  const code = stateCode(r.state);
+  const state = STATES.find((s) => s.code === code)?.name ?? r.state ?? "";
+  const full = slugify(`${cleanName(r.name)} ${cleanCity(r.city) ?? ""} ${state}`, 1000);
+  return full.length <= 120 ? full : `${full.slice(0, 111)}-${createHash("sha256").update(full).digest("hex").slice(0, 8)}`;
+}
+
 async function findOrCreateInstitution(r: NirfRow, sourceId: number) {
   const db = getDb();
   const nirfId = r.institute_id?.trim() || null;
-  if (nirfId) {
-    const [hit] = await db
-      .select({ id: institutionIdentifiers.institutionId })
-      .from(institutionIdentifiers)
-      .where(and(eq(institutionIdentifiers.scheme, "nirf"), eq(institutionIdentifiers.value, nirfId)));
-    if (hit) return hit.id;
-  }
+  // Rows without a NIRF id get a synthetic one, so other lists can link to them and a reload finds them.
+  const ident = nirfId ? { scheme: "nirf", value: nirfId } : { scheme: NIRF_NAME_SCHEME, value: nirfNameKey(r) };
+  const known = await identifierOwner(ident.scheme, ident.value);
+  if (known) return known;
   const code = stateCode(r.state);
-  const name = r.name.trim().replace(/\s+/g, " ");
+  const name = cleanName(r.name);
   // Same name, state and city: several institutions share a name ("Government Dental College"),
   // so the city is part of the match.
-  const city = r.city?.trim() && !/^select city$/i.test(r.city.trim()) ? r.city.trim() : null;
+  const city = cleanCity(r.city);
   const [byName] = await db
     .select({ id: institutions.id })
     .from(institutions)
@@ -164,17 +184,15 @@ async function findOrCreateInstitution(r: NirfRow, sourceId: number) {
       .$returningId();
     id = res.id;
   }
-  if (nirfId) {
-    await db
-      .insert(institutionIdentifiers)
-      .values({ institutionId: id, scheme: "nirf", value: nirfId })
-      .onDuplicateKeyUpdate({ set: { institutionId: id } });
-  }
+  await db
+    .insert(institutionIdentifiers)
+    .values({ institutionId: id, ...ident })
+    .onDuplicateKeyUpdate({ set: { institutionId: id } });
   return id;
 }
 
-/** Bump when the loading logic changes, so every file is loaded again once. */
-const LOADER_VERSION = 2;
+/** Bump when the loading logic changes, so every file is loaded again once. 3: nirf-name identifiers. */
+const LOADER_VERSION = 3;
 
 /**
  * Loads the official NIRF files built into the app (see scripts/embed-migrations.mjs).
@@ -249,16 +267,18 @@ function nmcPgCourse(type: string, name: string): string {
   return "pg-diploma-medical";
 }
 
-async function identifierOwner(scheme: string, value: string) {
-  const [hit] = await getDb()
+/** The database, or a transaction on it: the loaders' helpers run inside either. */
+type Exec = MySqlDatabase<MySql2QueryResultHKT, MySql2PreparedQueryHKT, typeof schema>;
+
+async function identifierOwner(scheme: string, value: string, db: Exec = getDb()) {
+  const [hit] = await db
     .select({ id: institutionIdentifiers.institutionId })
     .from(institutionIdentifiers)
     .where(and(eq(institutionIdentifiers.scheme, scheme), eq(institutionIdentifiers.value, value)));
   return hit?.id;
 }
 
-async function upsertSource(s: NmcSource) {
-  const db = getDb();
+async function upsertSource(s: NmcSource, db: Exec = getDb()) {
   const [existing] = await db.select({ id: sources.id }).from(sources).where(eq(sources.title, s.title));
   if (existing) {
     await db.update(sources).set({ url: s.url, retrievedOn: s.retrieved }).where(eq(sources.id, existing.id));
@@ -436,6 +456,13 @@ type CouncilFile = {
   council: string;
   /** Identifier scheme for the council's college codes. */
   scheme: string;
+  /**
+   * "regulator" (the default): the list is a regulator's approval, and its seats are the approved intake
+   * (offerings.seats, offering_branches). "counselling": a counselling body's seat matrix (JoSAA), whose
+   * seats are only the share filled through that counselling; they go to offerings.counselling_seats and
+   * offering_counselling_branches, never over a regulator's figure, and the body is not an approval.
+   */
+  kind?: "regulator" | "counselling";
   /** Field for every college in the file; null when each course's own field applies. */
   stream: string | null;
   academic_year: string;
@@ -443,7 +470,11 @@ type CouncilFile = {
   sources: (NmcSource & { prefix: string })[];
   rows: CouncilRow[];
 };
-const COUNCIL_LOADER_VERSION = 4;
+/** 5: counselling lists, nirf-name links, merges that keep everything, one transaction per file. */
+const COUNCIL_LOADER_VERSION = 5;
+
+/** Fills a field of the kept record only when it is empty; never overwrites a value it already has. */
+const MERGE_FIELDS = ["ownership", "established_year", "affiliating_university", "address", "city", "district", "state_code", "pin", "website", "phone", "email", "naac_grade"] as const;
 
 /**
  * Lists whose rows carry an address but neither a district nor a town column, so the town and
@@ -459,10 +490,13 @@ function addressPlace(council: string, r: CouncilRow): TextPlace | null {
 
 /**
  * Moves everything recorded against one institution onto another and removes the first. Used when
- * a hand-checked link shows two records are the same institution.
+ * a hand-checked link shows two records are the same institution. Empty fields of the kept record
+ * are filled from the other, approvals are joined, and an offering of the same course and year on
+ * both is merged into one: its branches, counselling branches, fees and cutoffs move across and an
+ * empty seat figure is filled from the other. Rows already on the kept record (a ranking, a stream,
+ * a branch of the same name) stay as they are.
  */
-async function mergeInstitution(fromId: number, intoId: number) {
-  const db = getDb();
+async function mergeInstitution(fromId: number, intoId: number, db: Exec) {
   // The removed record's slug, and any old slugs that already led to it, now lead to the record it
   // was merged into, so published links answer with a redirect instead of a 404. Re-pointing first
   // means a redirect always names a live record and chains never form.
@@ -470,108 +504,205 @@ async function mergeInstitution(fromId: number, intoId: number) {
   await db.execute(sql`insert into slug_redirects (old_slug, institution_id)
     select slug, ${intoId} from institutions where id = ${fromId}
     on duplicate key update institution_id = values(institution_id)`);
+  const fill = MERGE_FIELDS.map((f) => sql`i.${sql.raw(f)} = coalesce(i.${sql.raw(f)}, f.${sql.raw(f)})`);
+  await db.execute(sql`update institutions i join institutions f on f.id = ${fromId} set ${sql.join(fill, sql`, `)} where i.id = ${intoId}`);
+  const [appr] = (await db.execute(sql`select approvals from institutions where id = ${fromId}`)) as unknown as [{ approvals: unknown }[]];
+  const raw = appr[0]?.approvals;
+  const fromApprovals: string[] = typeof raw === "string" ? JSON.parse(raw) : Array.isArray(raw) ? (raw as string[]) : [];
+  for (const a of fromApprovals) {
+    await db.execute(sql`update institutions set approvals = case
+        when approvals is null then json_array(${a})
+        when json_contains(approvals, json_quote(${a})) then approvals
+        else json_array_append(approvals, '$', ${a}) end
+      where id = ${intoId}`);
+  }
+
+  // Offerings of the same course and year on both records become one.
+  const pairs = (await db.execute(sql`
+    select f.id as from_id, t.id as into_id,
+      f.seats as f_seats, f.seats_source_id as f_seats_source, t.seats as t_seats,
+      f.counselling_seats as f_cs, f.counselling_seats_source_id as f_cs_source, t.counselling_seats as t_cs
+    from offerings f join offerings t on t.institution_id = ${intoId} and t.course_id = f.course_id and t.academic_year <=> f.academic_year
+    where f.institution_id = ${fromId}`)) as unknown as [
+    { from_id: number; into_id: number; f_seats: number | null; f_seats_source: number | null; t_seats: number | null; f_cs: number | null; f_cs_source: number | null; t_cs: number | null }[],
+  ];
+  for (const p of pairs[0]) {
+    if (p.t_seats === null && p.f_seats !== null) {
+      await db.execute(sql`update offerings set seats = ${p.f_seats}, seats_source_id = ${p.f_seats_source} where id = ${p.into_id}`);
+    } else {
+      await db.execute(sql`update offerings set seats_source_id = coalesce(seats_source_id, ${p.f_seats_source}) where id = ${p.into_id}`);
+    }
+    if (p.t_cs === null && p.f_cs !== null) {
+      await db.execute(sql`update offerings set counselling_seats = ${p.f_cs}, counselling_seats_source_id = ${p.f_cs_source} where id = ${p.into_id}`);
+    }
+    await db.execute(sql`update ignore offering_branches set offering_id = ${p.into_id} where offering_id = ${p.from_id}`);
+    await db.execute(sql`update ignore offering_counselling_branches set offering_id = ${p.into_id} where offering_id = ${p.from_id}`);
+    await db.execute(sql`update offering_fees set offering_id = ${p.into_id} where offering_id = ${p.from_id}`);
+    await db.execute(sql`update ignore cutoffs set offering_id = ${p.into_id} where offering_id = ${p.from_id}`);
+    await db.execute(sql`delete from offerings where id = ${p.from_id}`);
+  }
+
   await db.execute(sql`update ignore institution_identifiers set institution_id = ${intoId} where institution_id = ${fromId}`);
   await db.execute(sql`update ignore institution_streams set institution_id = ${intoId} where institution_id = ${fromId}`);
   await db.execute(sql`update ignore rankings set institution_id = ${intoId} where institution_id = ${fromId}`);
-  await db.execute(sql`update ignore offerings set institution_id = ${intoId} where institution_id = ${fromId}`);
+  await db.execute(sql`update offerings set institution_id = ${intoId} where institution_id = ${fromId}`);
   await db.execute(sql`delete from institutions where id = ${fromId}`);
 }
 
 /**
  * Loads college lists published by other regulators (NCISM, and others in the same format):
- * one institution per council code, with the intake for each course as an offering.
+ * one institution per council code, with the intake for each course as an offering. A counselling
+ * body's seat matrix (kind "counselling", JoSAA) loads the same way, but its seats are kept apart
+ * from the approved intake (see CouncilFile.kind). Each file loads in one transaction, so a failure
+ * leaves nothing half written, and loading the same file again changes nothing.
  */
 export async function seedCouncils(streamIds: Map<string, number>, log: (m: string) => void = console.log) {
-  const db = getDb();
   const done = new Map((await rows<{ tag: string; hash: string }>(sql`select tag, hash from app_seeds`)).map((r) => [r.tag, r.hash]));
-  for (const file of COUNCIL_FILES) {
+  const courseStreamRows = await getDb().select({ id: courses.id, slug: courses.slug, streamId: courses.streamId }).from(courses);
+  // Regulators first, counselling lists last: a counselling list then only fills what no regulator gave,
+  // whichever lists a database had loaded before.
+  const files = [...COUNCIL_FILES].sort((a, b) => Number(a.data.kind === "counselling") - Number(b.data.kind === "counselling"));
+  let loaded = 0;
+  for (const file of files) {
     const key = `${file.hash}-${COUNCIL_LOADER_VERSION}`;
     if (done.get(file.tag) === key) continue;
+    loaded++;
     const data = file.data as CouncilFile;
+    const counselling = data.kind === "counselling";
     const streamId = data.stream ? streamIds.get(data.stream) : undefined;
     const courseStreams = new Map<number, number>();
-    if (!data.stream) for (const c of await getDb().select({ id: courses.id, streamId: courses.streamId }).from(courses)) courseStreams.set(c.id, c.streamId);
-    const sourceIds = new Map<string, number>();
-    for (const s of data.sources) sourceIds.set(s.prefix, await upsertSource(s));
-    const courseIds = new Map<string, number | undefined>();
-    let created = 0;
-    let offeringsLoaded = 0;
-    for (const r of data.rows) {
-      const sourceId = sourceIds.get(r.source ?? data.sources.find((s) => r.code.startsWith(s.prefix))?.prefix ?? data.sources[0].prefix)!;
-      const year = r.academic_year ?? data.academic_year;
-      const code = stateCode(r.state);
-      // Every district written goes through the normaliser: the official name, or null when the
-      // council's value cannot be placed in one district (the raw text stays in data/councils).
-      // A list that prints only an address (NCH) gives its town and district from the address.
-      const fromAddress = addressPlace(data.council, r);
-      const district = normaliseDistrict(code, r.district) ?? normaliseDistrict(code, r.city, { asCity: true }) ?? fromAddress?.district ?? null;
-      const city = r.city ?? fromAddress?.city ?? null;
-      let id = await identifierOwner(data.scheme, r.code);
-      if (r.same_as) {
-        const target = await identifierOwner(r.same_as.scheme, r.same_as.value);
-        if (target && id && target !== id) {
-          await mergeInstitution(id, target);
-          id = target;
-        } else if (target && !id) {
-          id = target;
+    if (!data.stream) for (const c of courseStreamRows) courseStreams.set(c.id, c.streamId);
+    const courseIds = new Map<string, number | undefined>(courseStreamRows.map((c) => [c.slug, c.id]));
+    const counts = await getDb().transaction(async (db) => {
+      const sourceIds = new Map<string, number>();
+      for (const s of data.sources) sourceIds.set(s.prefix, await upsertSource(s, db));
+      const fileSources = sql.join([...new Set(sourceIds.values())].map((x) => sql`${x}`), sql`, `);
+      if (counselling) {
+        // A counselling body is not an approval, and its seats are never the approved intake: undo what an
+        // earlier loader wrote that way, then clear this list's counselling seats so the reload below is the
+        // whole of them (rows dropped from the list do not linger).
+        await db.execute(sql`update institutions set approvals = json_remove(approvals, json_unquote(json_search(approvals, 'one', ${data.council})))
+          where json_contains(approvals, json_quote(${data.council}))`);
+        await db.execute(sql`delete from offering_branches where source_id in (${fileSources})`);
+        await db.execute(sql`update offerings set seats = null, seats_source_id = null where seats_source_id in (${fileSources})`);
+        await db.execute(sql`delete from offering_counselling_branches where source_id in (${fileSources})`);
+        await db.execute(sql`update offerings set counselling_seats = null, counselling_seats_source_id = null where counselling_seats_source_id in (${fileSources})`);
+      }
+      let created = 0;
+      let offeringsLoaded = 0;
+      const unlinked: string[] = [];
+      for (const r of data.rows) {
+        const sourceId = sourceIds.get(r.source ?? data.sources.find((s) => r.code.startsWith(s.prefix))?.prefix ?? data.sources[0].prefix)!;
+        const year = r.academic_year ?? data.academic_year;
+        const code = stateCode(r.state);
+        // Every district written goes through the normaliser: the official name, or null when the
+        // council's value cannot be placed in one district (the raw text stays in data/councils).
+        // A list that prints only an address (NCH) gives its town and district from the address.
+        const fromAddress = addressPlace(data.council, r);
+        const district = normaliseDistrict(code, r.district) ?? normaliseDistrict(code, r.city, { asCity: true }) ?? fromAddress?.district ?? null;
+        const city = r.city ?? fromAddress?.city ?? null;
+        let id = await identifierOwner(data.scheme, r.code, db);
+        if (r.same_as) {
+          const target = await identifierOwner(r.same_as.scheme, r.same_as.value, db);
+          if (!target) unlinked.push(`${r.code} -> ${r.same_as.scheme} ${r.same_as.value}`);
+          if (target && id && target !== id) {
+            await mergeInstitution(id, target, db);
+            id = target;
+          } else if (target && !id) {
+            id = target;
+            await db.insert(institutionIdentifiers).values({ institutionId: id, scheme: data.scheme, value: r.code });
+          }
+        }
+        if (!id) {
+          const name = r.name.trim().replace(/\s+/g, " ");
+          // Many council colleges share a name ("Govt. Ayurved Mahavidhalaya"); the district tells them apart.
+          // The slug keeps the council's own spelling, so slugs match those of databases loaded earlier.
+          const own = slugify(name);
+          const base = r.district && !own.endsWith(slugify(r.district)) ? slugify(`${name} ${r.district}`) : own;
+          const slug = await freeSlug(base, db);
+          const [res] = await db
+            .insert(institutions)
+            .values({ slug, name, address: r.address, district, city, pin: r.pin && /^\d{6}$/.test(r.pin) ? r.pin : null, stateCode: code, ownership: r.ownership ?? null, affiliatingUniversity: r.university ?? null, status: "published", sourceId })
+            .$returningId();
+          id = res.id;
+          created++;
           await db.insert(institutionIdentifiers).values({ institutionId: id, scheme: data.scheme, value: r.code });
+        } else {
+          await db.execute(sql`update institutions set
+            ownership = coalesce(ownership, ${r.ownership ?? null}),
+            address = coalesce(address, ${r.address}),
+            district = coalesce(district, ${district}),
+            city = coalesce(nullif(city, ''), ${city}),
+            pin = coalesce(pin, ${r.pin && /^\d{6}$/.test(r.pin) ? r.pin : null}),
+            affiliating_university = coalesce(affiliating_university, ${r.university ?? null})
+            where id = ${id}`);
+        }
+        if (!counselling) {
+          await db.execute(sql`update institutions set approvals = case
+              when approvals is null then json_array(${data.council})
+              when json_contains(approvals, json_quote(${data.council})) then approvals
+              else json_array_append(approvals, '$', ${data.council}) end
+            where id = ${id}`);
+        }
+        if (streamId) await db.insert(institutionStreams).values({ institutionId: id, streamId }).onDuplicateKeyUpdate({ set: { streamId } });
+        for (const o of r.offerings) {
+          const courseId = courseIds.get(o.course);
+          if (!courseId) continue;
+          const cs = courseStreams.get(courseId);
+          if (cs) await db.insert(institutionStreams).values({ institutionId: id, streamId: cs }).onDuplicateKeyUpdate({ set: { streamId: cs } });
+          if (counselling) {
+            // Only the counselling columns: the approved intake (seats) another list gave stays as it is.
+            await db
+              .insert(offerings)
+              .values({ institutionId: id, courseId, academicYear: year, seats: null, counsellingSeats: o.seats, counsellingSeatsSourceId: sourceId })
+              .onDuplicateKeyUpdate({ set: { counsellingSeats: o.seats, counsellingSeatsSourceId: sourceId } });
+          } else {
+            await db
+              .insert(offerings)
+              .values({ institutionId: id, courseId, academicYear: year, seats: o.seats, seatsSourceId: sourceId })
+              .onDuplicateKeyUpdate({ set: { seats: o.seats, seatsSourceId: sourceId } });
+          }
+          if (o.branches?.length) {
+            const [off] = await db
+              .select({ id: offerings.id })
+              .from(offerings)
+              .where(and(eq(offerings.institutionId, id), eq(offerings.courseId, courseId), eq(offerings.academicYear, year)));
+            const table = counselling ? offeringCounsellingBranches : offeringBranches;
+            await db.delete(table).where(and(eq(table.offeringId, off.id), eq(table.sourceId, sourceId)));
+            // A branch of the same name another list already gave this offering keeps that list's figure.
+            await db
+              .insert(table)
+              .values(o.branches.map((b) => ({ offeringId: off.id, name: b.name, seats: b.seats, sourceId })))
+              .onDuplicateKeyUpdate({ set: { name: sql`name` } });
+          }
+          offeringsLoaded++;
         }
       }
-      if (!id) {
-        const name = r.name.trim().replace(/\s+/g, " ");
-        // Many council colleges share a name ("Govt. Ayurved Mahavidhalaya"); the district tells them apart.
-        // The slug keeps the council's own spelling, so slugs match those of databases loaded earlier.
-        const own = slugify(name);
-        const base = r.district && !own.endsWith(slugify(r.district)) ? slugify(`${name} ${r.district}`) : own;
-        const slug = await freeSlug(base);
-        const [res] = await db
-          .insert(institutions)
-          .values({ slug, name, address: r.address, district, city, pin: r.pin && /^\d{6}$/.test(r.pin) ? r.pin : null, stateCode: code, ownership: r.ownership ?? null, affiliatingUniversity: r.university ?? null, status: "published", sourceId })
-          .$returningId();
-        id = res.id;
-        created++;
-        await db.insert(institutionIdentifiers).values({ institutionId: id, scheme: data.scheme, value: r.code });
-      } else {
-        await db.execute(sql`update institutions set
-          ownership = coalesce(ownership, ${r.ownership ?? null}),
-          address = coalesce(address, ${r.address}),
-          district = coalesce(district, ${district}),
-          city = coalesce(nullif(city, ''), ${city}),
-          pin = coalesce(pin, ${r.pin && /^\d{6}$/.test(r.pin) ? r.pin : null}),
-          affiliating_university = coalesce(affiliating_university, ${r.university ?? null})
-          where id = ${id}`);
-      }
-      await db.execute(sql`update institutions set approvals = case
-          when approvals is null then json_array(${data.council})
-          when json_contains(approvals, json_quote(${data.council})) then approvals
-          else json_array_append(approvals, '$', ${data.council}) end
-        where id = ${id}`);
-      if (streamId) await db.insert(institutionStreams).values({ institutionId: id, streamId }).onDuplicateKeyUpdate({ set: { streamId } });
-      for (const o of r.offerings) {
-        if (!courseIds.has(o.course)) courseIds.set(o.course, await courseIdBySlug(o.course));
-        const courseId = courseIds.get(o.course);
-        if (!courseId) continue;
-        const cs = courseStreams.get(courseId);
-        if (cs) await db.insert(institutionStreams).values({ institutionId: id, streamId: cs }).onDuplicateKeyUpdate({ set: { streamId: cs } });
-        await db
-          .insert(offerings)
-          .values({ institutionId: id, courseId, academicYear: year, seats: o.seats, seatsSourceId: sourceId })
-          .onDuplicateKeyUpdate({ set: { seats: o.seats, seatsSourceId: sourceId } });
-        if (o.branches?.length) {
-          const [off] = await db
-            .select({ id: offerings.id })
-            .from(offerings)
-            .where(and(eq(offerings.institutionId, id), eq(offerings.courseId, courseId), eq(offerings.academicYear, year)));
-          await db.delete(offeringBranches).where(and(eq(offeringBranches.offeringId, off.id), eq(offeringBranches.sourceId, sourceId)));
-          // A branch another list already gave for this offering (AICTE's intake, then JoSAA's
-          // seat matrix for the same B.Tech) keeps the first list's figure instead of failing the load.
-          await db.insert(offeringBranches).ignore().values(o.branches.map((b) => ({ offeringId: off.id, name: b.name, seats: b.seats, sourceId })));
-        }
-        offeringsLoaded++;
-      }
+      await db.execute(sql`insert into app_seeds (tag, hash) values (${file.tag}, ${key}) on duplicate key update hash = values(hash), loaded_at = current_timestamp`);
+      return { created, offeringsLoaded, unlinked };
+    });
+    log(
+      `${data.council} ${data.academic_year}: ${data.rows.length} colleges, ${counts.offeringsLoaded} course ${counselling ? "seat matrices" : "intakes"} loaded (${counts.created} new)` +
+        (counts.unlinked.length ? `; same_as not found, loaded as their own record: ${counts.unlinked.join(", ")}` : ""),
+    );
+  }
+  if (loaded) await sortApprovals(files);
+}
+
+/**
+ * Puts every institution's approvals in one order (NMC, then the council lists in load order), so the
+ * order does not depend on which lists a database had loaded before.
+ */
+async function sortApprovals(files: typeof COUNCIL_FILES) {
+  const order = ["NMC", ...files.filter((f) => f.data.kind !== "counselling").map((f) => (f.data as CouncilFile).council)];
+  const rank = (a: string) => (order.indexOf(a) < 0 ? order.length : order.indexOf(a));
+  const list = await rows<{ id: number; approvals: unknown }>(sql`select id, approvals from institutions where json_length(approvals) > 1`);
+  for (const r of list) {
+    const current: string[] = typeof r.approvals === "string" ? JSON.parse(r.approvals) : (r.approvals as string[]);
+    const sorted = [...current].sort((a, b) => rank(a) - rank(b) || a.localeCompare(b));
+    if (sorted.join("\u0000") !== current.join("\u0000")) {
+      await getDb().execute(sql`update institutions set approvals = json_array(${sql.join(sorted.map((a) => sql`${a}`), sql`, `)}) where id = ${r.id}`);
     }
-    await db.execute(sql`insert into app_seeds (tag, hash) values (${file.tag}, ${key}) on duplicate key update hash = values(hash), loaded_at = current_timestamp`);
-    log(`${data.council} ${data.academic_year}: ${data.rows.length} colleges, ${offeringsLoaded} course intakes loaded (${created} new)`);
   }
 }
 

@@ -128,7 +128,8 @@ export const institutionIdentifiers = mysqlTable(
       .notNull()
       .references(() => institutions.id, { onDelete: "cascade" }),
     scheme: varchar("scheme", { length: 20 }).notNull(),
-    value: varchar("value", { length: 60 }).notNull(),
+    /** NIRF band rows carry no NIRF id; they get a "nirf-name" key built from name, city and state (lib/bootstrap.ts). */
+    value: varchar("value", { length: 120 }).notNull(),
   },
   (t) => [primaryKey({ columns: [t.scheme, t.value] }), index("identifiers_institution_idx").on(t.institutionId)],
 );
@@ -158,8 +159,15 @@ export const offerings = mysqlTable(
       .notNull()
       .references(() => courses.id),
     academicYear: varchar("academic_year", { length: 9 }),
+    /** Approved (sanctioned) intake, only ever from a regulator's list (AICTE, NMC, INC...). */
     seats: int("seats"),
     seatsSourceId: int("seats_source_id").references(() => sources.id),
+    /**
+     * Seats offered through a counselling body's seat matrix (JoSAA): its share of the seats, every
+     * category and seat pool together. Kept apart from seats because it is not the sanctioned intake.
+     */
+    counsellingSeats: int("counselling_seats"),
+    counsellingSeatsSourceId: int("counselling_seats_source_id").references(() => sources.id),
   },
   (t) => [uniqueIndex("offerings_unique").on(t.institutionId, t.courseId, t.academicYear)],
 );
@@ -180,6 +188,21 @@ export const offeringBranches = mysqlTable(
     sourceId: int("source_id").references(() => sources.id),
   },
   (t) => [uniqueIndex("offering_branches_unique").on(t.offeringId, t.name)],
+);
+
+/** Programmes of one offering as a counselling seat matrix lists them (JoSAA), each with its seats there. */
+export const offeringCounsellingBranches = mysqlTable(
+  "offering_counselling_branches",
+  {
+    id: id(),
+    offeringId: int("offering_id")
+      .notNull()
+      .references(() => offerings.id, { onDelete: "cascade" }),
+    name: varchar("name", { length: 255 }).notNull(),
+    seats: int("seats"),
+    sourceId: int("source_id").references(() => sources.id),
+  },
+  (t) => [uniqueIndex("offering_counselling_branches_unique").on(t.offeringId, t.name)],
 );
 
 export const offeringFees = mysqlTable("offering_fees", {

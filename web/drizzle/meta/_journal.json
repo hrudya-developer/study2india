@@ -38,6 +38,13 @@
       "breakpoints": true
     },
     {
+      "idx": 5,
+      "version": "5",
+      "when": 1792788326572,
+      "tag": "0005_counselling_seats",
+      "breakpoints": true
+    },
+    {
       "idx": 6,
       "version": "5",
       "when": 1792788401885,

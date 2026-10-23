@@ -1,4 +1,4 @@
-export function slugify(input: string): string {
+export function slugify(input: string, maxLength = 90): string {
   return input
     .normalize("NFKD")
     .replace(/[̀-ͯ]/g, "")
@@ -6,5 +6,5 @@ export function slugify(input: string): string {
     .replace(/&/g, " and ")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "")
-    .slice(0, 90);
+    .slice(0, maxLength);
 }
