@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 const base = (process.env.SITE_URL ?? "https://study2india.com").replace(/\/$/, "");
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const fixed = ["", "/colleges", "/courses", "/exams", "/rankings", "/scholarships", "/counselling", "/about", "/contact", "/how-we-check-data"].map((p) => ({
+  const fixed = ["", "/colleges", "/courses", "/exams", "/rankings", "/scholarships", "/counselling", "/predictor", "/predictor/neet", "/about", "/contact", "/how-we-check-data"].map((p) => ({
     url: `${base}${p}`,
     changeFrequency: "weekly" as const,
     priority: p === "" ? 1 : 0.7,

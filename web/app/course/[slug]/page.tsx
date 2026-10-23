@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Clock, GraduationCap, Target, Layers, ExternalLink } from "lucide-react";
 import { getCourse } from "@/lib/queries/catalog";
+import { own } from "@/lib/params";
 import { getSearchOptions } from "@/lib/queries/home";
 import { PageHero } from "@/components/page-hero";
 import { CounsellingForm } from "@/components/counselling-form";
@@ -11,6 +12,9 @@ import { CourseKeyNumbers, CourseOwnership, CourseRankedColleges, CourseSpeciali
 export const dynamic = "force-dynamic";
 
 type Props = { params: Promise<{ slug: string }> };
+
+/** Courses the NEET UG predictor covers, with the link that opens it on that course. */
+const NEET_PREDICTOR: Record<string, string> = { mbbs: "/predictor/neet", bds: "/predictor/neet?course=bds", "bsc-nursing": "/predictor/neet?course=bsc-nursing" };
 
 const LEVEL_LABEL: Record<string, string> = { ug: "Undergraduate", pg: "Postgraduate", diploma: "Diploma", doctorate: "Doctorate", certificate: "Certificate", integrated: "Integrated" };
 
@@ -31,6 +35,7 @@ export default async function CoursePage({ params }: Props) {
   const c = await getCourse((await params).slug);
   if (!c) notFound();
   const options = await getSearchOptions();
+  const predictor = own(NEET_PREDICTOR, c.slug);
 
   const facts = [
     { icon: GraduationCap, k: "Level", v: LEVEL_LABEL[c.level] ?? c.level },
@@ -56,6 +61,20 @@ export default async function CoursePage({ params }: Props) {
         <div className="mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:px-6 lg:grid-cols-[minmax(0,1fr)_340px]">
           <div className="min-w-0 space-y-6">
             <CourseKeyNumbers short={c.short} slug={c.slug} stats={c.stats} />
+
+            {predictor ? (
+              <section aria-labelledby="h-predictor" className="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-brand/40 bg-brand-soft px-5 py-4">
+                <div className="min-w-0">
+                  <h2 id="h-predictor" className="text-lg font-bold">
+                    Which {c.short} colleges can your NEET UG rank get?
+                  </h2>
+                  <p className="text-[0.95rem] text-ink-soft">Free predictor from MCC All India counselling closing ranks, round by round. No sign-up.</p>
+                </div>
+                <Link href={predictor} className="inline-flex items-center gap-1.5 rounded-lg bg-brand px-4 py-2 font-bold text-ink hover:bg-brand-hover">
+                  <Target size={17} aria-hidden="true" /> Open the predictor
+                </Link>
+              </section>
+            ) : null}
 
             <section className="card p-5 sm:p-6">
               <h2 className="text-2xl font-bold">Course at a glance</h2>

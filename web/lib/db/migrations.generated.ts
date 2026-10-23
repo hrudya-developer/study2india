@@ -73,5 +73,11 @@ export const MIGRATIONS: { tag: string; statements: string[] }[] = [
       "ALTER TABLE `cutoffs` ADD `row_key` char(64) GENERATED ALWAYS AS (sha2(concat_ws('|', offering_id, exam_id, year, ifnull(round, ''), ifnull(quota, ''), ifnull(category, ''), ifnull(branch, ''), ifnull(seat_pool, '')), 256)) STORED;",
       "ALTER TABLE `cutoffs` ADD CONSTRAINT `cutoffs_row_key` UNIQUE(`row_key`);"
     ]
+  },
+  {
+    "tag": "0004_cutoff_predictor_idx",
+    "statements": [
+      "CREATE INDEX `cutoffs_predictor_idx` ON `cutoffs` (`exam_id`,`year`,`category`,`quota`,`offering_id`,`round`,`closing_rank`);"
+    ]
   }
 ];
