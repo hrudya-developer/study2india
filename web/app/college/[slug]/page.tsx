@@ -12,6 +12,8 @@ import { absoluteUrl, breadcrumbList, isWebUrl, jsonLd as toJsonLd } from "@/lib
 import { SourceStamp } from "@/components/source-stamp";
 import { SectionNav } from "@/components/college/section-nav";
 import { CoursesTable } from "@/components/college/courses-table";
+import { CutoffFilters } from "@/components/college/cutoff-filters";
+import { QUOTA_NAMES, cutoffView } from "@/lib/cutoff-view";
 import { ShortlistButton } from "@/components/colleges/shortlist-button";
 import { initials } from "@/components/college-card";
 import { own } from "@/lib/params";
@@ -19,7 +21,7 @@ import { seatCoverage, seatCoverageNote, type SeatCoverage } from "@/lib/coverag
 
 export const dynamic = "force-dynamic";
 
-type Props = { params: Promise<{ slug: string }> };
+type Props = { params: Promise<{ slug: string }>; searchParams: Promise<Record<string, string | string[] | undefined>> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
@@ -67,6 +69,7 @@ function Stamp({ s }: { s: SourceRef | null }) {
 
 /** "Medical Counselling Committee (MCC), ..." -> "MCC"; otherwise the regulator code or the name. */
 function shortPublisher(publisher: string) {
+  if (/^Joint Seat Allocation Authority/i.test(publisher)) return "JoSAA";
   return publisher.match(/\(([A-Za-z]{2,10})\)/)?.[1] ?? publisherShort(publisher);
 }
 
@@ -84,7 +87,7 @@ const SECTIONS = [
   { id: "sources", label: "Sources" },
 ];
 
-export default async function CollegePage({ params }: Props) {
+export default async function CollegePage({ params, searchParams }: Props) {
   const { slug } = await params;
   const c = await getCollege(slug);
   if (!c) {
@@ -119,6 +122,18 @@ export default async function CollegePage({ params }: Props) {
   const hasSeatPool = c.cutoffs.some((x) => x.seatPool);
   const cutoffExams = new Set(c.cutoffs.map((x) => x.exam));
   const cutoffSources = [...new Map(c.cutoffs.map((x) => [`${x.source.publisher}|${x.source.title ?? ""}`, x.source])).values()];
+  // Large tables (JoSAA institutes) open on one round, seat pool and category, with filters to change them.
+  const cutoffAction = `/college/${c.slug}#cutoffs`;
+  const cut = cutoffView(c.cutoffs, await searchParams);
+  // A column the filters pin to one value says nothing row by row; the line above the table names it.
+  const cutCols = {
+    round: !cut.selected.round,
+    category: !cut.selected.category,
+    seatPool: hasSeatPool && !cut.selected.pool,
+    source: cutoffSources.length > 1,
+  };
+  const jeeExams = [...new Set(c.cutoffs.filter((x) => x.examSlug === "jee-advanced" || x.examSlug === "jee-main").map((x) => x.exam))];
+  const cutoffQuotaCodes = cut.options.quotas.filter((q) => QUOTA_NAMES[q]);
   const mapsQuery = encodeURIComponent([c.name, c.address ?? place].filter(Boolean).join(", "));
 
   // A plain summary written only from the recorded facts.
@@ -517,47 +532,86 @@ export default async function CollegePage({ params }: Props) {
                   <p className="mt-3 text-[0.85rem] text-muted">These are the main exams for the fields this college teaches, not a list of exams it has confirmed.</p>
                 </>
               ) : null}
-              <h3 className="mt-6 text-lg font-bold">Cutoffs</h3>
+              <h3 id="cutoffs" className="mt-6 scroll-mt-[160px] text-lg font-bold">
+                Cutoffs
+              </h3>
               {c.cutoffs.length ? (
                 <>
                   <p className="mt-2 max-w-[70ch] text-[0.92rem] text-ink-soft">
                     The first and last rank allotted a seat here in each counselling round, from the counselling body&apos;s own allotment lists. Ranks
                     change every year, so treat them as a guide, not a promise.
                   </p>
-                  <div className="mt-3 max-h-[520px] overflow-auto rounded-xl border border-rule">
+                  {jeeExams.length ? (
+                    <p className="mt-2 max-w-[70ch] text-[0.92rem] text-ink-soft">
+                      These are {jeeExams.join(" and ")} ranks as JoSAA published them
+                      {jeeExams.length > 1 ? " (JEE Advanced for IIT seats, JEE Main for the others)" : ""}. OPEN rows give the common rank list (CRL)
+                      rank; EWS, OBC-NCL, SC, ST and PwD rows give the rank within that category, as JoSAA prints it.
+                      {cutoffQuotaCodes.length ? ` Quotas: ${cutoffQuotaCodes.map((q) => `${q} ${QUOTA_NAMES[q]}`).join(", ")}.` : ""}
+                      {c.preparatoryCutoffs
+                        ? ` ${formatNumber(c.preparatoryCutoffs)} ${c.preparatoryCutoffs === 1 ? "rank" : "ranks"} on JoSAA's separate preparatory rank list (printed with a P) are left out, as they cannot be compared with these.`
+                        : ""}
+                    </p>
+                  ) : null}
+                  {cut.filterable ? <CutoffFilters action={cutoffAction} view={cut} /> : null}
+                  {cut.filterable ? (
+                    <p className="mt-3 text-[0.9rem] text-ink-soft" aria-live="polite">
+                      Showing <b className="text-ink">{formatNumber(cut.rows.length)}</b> of {formatNumber(cut.total)} rows
+                      {(() => {
+                        const s = cut.selected;
+                        const parts = [
+                          s.year !== null && cut.options.years.length > 1 ? String(s.year) : null,
+                          s.round || null,
+                          s.pool ? `${s.pool} seats` : null,
+                          s.quotas.length
+                            ? `${s.quotas.length > 1 ? `${s.quotas.slice(0, -1).join(", ")} and ${s.quotas.at(-1)} quotas` : `${s.quotas[0]} quota`}`
+                            : null,
+                          s.category ? `${s.category} category` : null,
+                          s.branch || null,
+                        ].filter(Boolean);
+                        return parts.length ? `: ${parts.join(", ")}` : ": all rounds, seat pools, quotas and categories";
+                      })()}
+                      .
+                    </p>
+                  ) : null}
+                  {cut.rows.length ? (
+                  <div className="mt-3 max-h-[620px] overflow-auto rounded-xl border border-rule">
                     <table className="w-full min-w-[640px] text-left text-[0.88rem]">
                       <thead className="sticky top-0 bg-band">
                         <tr className="text-[0.75rem] uppercase tracking-wide text-muted">
                           <th scope="col" className="px-3 py-2 font-bold">Course</th>
                           {hasBranch ? <th scope="col" className="px-3 py-2 font-bold">Branch</th> : null}
                           <th scope="col" className="px-3 py-2 font-bold">Quota</th>
-                          <th scope="col" className="px-3 py-2 font-bold">Category</th>
-                          {hasSeatPool ? <th scope="col" className="px-3 py-2 font-bold">Seat pool</th> : null}
-                          <th scope="col" className="px-3 py-2 font-bold">Round</th>
+                          {cutCols.category ? <th scope="col" className="px-3 py-2 font-bold">Category</th> : null}
+                          {cutCols.seatPool ? <th scope="col" className="px-3 py-2 font-bold">Seat pool</th> : null}
+                          {cutCols.round ? <th scope="col" className="px-3 py-2 font-bold">Round</th> : null}
                           <th scope="col" className="px-3 py-2 text-right font-bold">Opening</th>
                           <th scope="col" className="px-3 py-2 text-right font-bold">Closing</th>
                           <th scope="col" className="px-3 py-2 font-bold">Year</th>
-                          <th scope="col" className="px-3 py-2 font-bold">Source</th>
+                          {cutCols.source ? <th scope="col" className="px-3 py-2 font-bold">Source</th> : null}
                         </tr>
                       </thead>
                       <tbody>
-                        {c.cutoffs.map((x, i) => (
+                        {cut.rows.map((x, i) => (
                           <tr key={i} className="border-t border-rule align-top">
                             <td className="px-3 py-1.5">
                               {x.course}
                               {cutoffExams.size > 1 ? <span className="block text-[0.78rem] text-muted">{x.exam}</span> : null}
                             </td>
                             {hasBranch ? <td className="px-3 py-1.5">{x.branch ?? ""}</td> : null}
-                            <td className="px-3 py-1.5">
+                            <td className="px-3 py-1.5" title={x.quota ? QUOTA_NAMES[x.quota] : undefined}>
                               <Value v={x.quota} />
                             </td>
-                            <td className="px-3 py-1.5">
-                              <Value v={x.category} />
-                            </td>
-                            {hasSeatPool ? <td className="px-3 py-1.5">{x.seatPool ?? ""}</td> : null}
-                            <td className="px-3 py-1.5 whitespace-nowrap">
-                              <Value v={x.round} />
-                            </td>
+                            {cutCols.category ? (
+                              <td className="px-3 py-1.5">
+                                <Value v={x.category} />
+                              </td>
+                            ) : null}
+                            {cutCols.seatPool ? <td className="px-3 py-1.5">{x.seatPool ?? ""}</td> : null}
+                            {cutCols.round ? (
+                              <td className="px-3 py-1.5 whitespace-nowrap">
+                                <Value v={x.round} />
+                              </td>
+                            ) : null}
                             <td className="tabular px-3 py-1.5 text-right">
                               <Value v={x.openingRank === null ? null : formatNumber(x.openingRank)} />
                             </td>
@@ -565,6 +619,7 @@ export default async function CollegePage({ params }: Props) {
                               <Value v={x.closingRank === null ? null : formatNumber(x.closingRank)} />
                             </td>
                             <td className="tabular px-3 py-1.5">{x.year}</td>
+                            {cutCols.source ? (
                             <td className="px-3 py-1.5">
                               {x.source.url ? (
                                 <a
@@ -580,11 +635,20 @@ export default async function CollegePage({ params }: Props) {
                                 shortPublisher(x.source.publisher)
                               )}
                             </td>
+                            ) : null}
                           </tr>
                         ))}
                       </tbody>
                     </table>
                   </div>
+                  ) : (
+                    <p className="mt-3 rounded-lg bg-band px-4 py-3 text-[0.95rem] text-ink-soft">
+                      No ranks match these filters.{" "}
+                      <Link href={cutoffAction} className="font-bold text-ink underline underline-offset-2">
+                        Back to the default view
+                      </Link>
+                    </p>
+                  )}
                   <div className="mt-3 flex flex-wrap gap-2">
                     {cutoffSources.map((s) => (
                       <Stamp key={`${s.publisher}|${s.title}`} s={s} />
