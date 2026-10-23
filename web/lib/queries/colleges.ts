@@ -157,7 +157,7 @@ export async function searchColleges(f: CollegeFilters, course: CourseContext | 
     where.push(sql`exists (select 1 from offerings o join courses c on c.id = o.course_id where o.institution_id = i.id and c.level = ${f.level})`);
   }
   if (f.state) where.push(sql`st.slug = ${f.state}`);
-  if (f.state && f.city) where.push(sql`coalesce(i.city, i.district) = ${f.city}`);
+  if (f.state && f.city) where.push(sql`i.district = ${f.city}`);
   const owners = f.ownership.filter((o) => own(OWNERSHIP_LABELS, o));
   if (owners.length) where.push(sql`i.ownership in (${sql.join(owners.map((o) => sql`${o}`), sql`, `)})`);
   const bodies = f.approval.filter((a) => own(APPROVAL_BODIES, a));
@@ -441,8 +441,10 @@ export function getCollegeFacets(): Promise<CollegeFacets> {
 }
 
 /**
- * Districts or cities within a state, as the regulators spell them. Only slugs from the states
- * table are queried and memoised, so arbitrary ?state= values cannot grow the memo.
+ * Districts within a state, by their official names (institutions.district is written only
+ * through normaliseDistrict, so each district appears once; colleges whose district could not be
+ * placed are left out of this list). Only slugs from the states table are queried and memoised,
+ * so arbitrary ?state= values cannot grow the memo.
  */
 export async function getCityFacets(stateSlug: string): Promise<FacetOption[]> {
   const { states } = await getCollegeFacets();
@@ -451,10 +453,10 @@ export async function getCityFacets(stateSlug: string): Promise<FacetOption[]> {
   const hit = memo.cityFacets.get(stateSlug);
   if (hit && Date.now() - hit.at < FACET_TTL_MS) return hit.value;
   const value = rows<{ city: string; n: unknown }>(sql`
-    select coalesce(i.city, i.district) as city, count(*) as n
+    select i.district as city, count(*) as n
     from institutions i join states st on st.code = i.state_code
-    where i.status = 'published' and st.slug = ${stateSlug} and coalesce(i.city, i.district) is not null
-    group by city order by city
+    where i.status = 'published' and st.slug = ${stateSlug} and i.district is not null
+    group by i.district order by i.district
   `).then((list) => list.map((c) => ({ value: c.city, label: c.city, count: Number(c.n) })));
   memo.cityFacets.set(stateSlug, { at: Date.now(), value });
   value.catch(() => memo.cityFacets?.delete(stateSlug));
