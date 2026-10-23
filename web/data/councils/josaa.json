@@ -1,0 +1,7046 @@
+{
+ "council": "JoSAA",
+ "scheme": "josaa",
+ "stream": null,
+ "academic_year": "2026-27",
+ "sources": [
+  {
+   "publisher": "Joint Seat Allocation Authority (JoSAA)",
+   "title": "JoSAA 2026 seat matrix (IITs, IISc, NITs, IIEST, IIITs and other GFTIs) and institute addresses",
+   "url": "https://josaa.admissions.nic.in/applicant/seatmatrix/seatmatrixinfo.aspx",
+   "retrieved": "2026-10-24",
+   "prefix": ""
+  }
+ ],
+ "note": "Every institute in the JoSAA 2026 seat matrix (academic year 2026-27) with B.Tech, B.Arch or B.Plan seats: IITs and IISc, NITs and IIEST Shibpur, IIITs and other government funded technical institutes (GFTIs). code is JoSAA's institute code and management is JoSAA's institute type (IIT, NIT, IIIT, GFTI). A program's seats add up every category (OPEN, GEN-EWS, OBC-NCL, SC, ST and their PwD seats), both seat pools (Gender-Neutral and Female-only, the female-only seats including the female supernumerary seats) and, at NITs and some GFTIs, both the home state and other state quotas; each program is a branch and the course total is the sum of its branches. 5-year dual degree (B.Tech + M.Tech, B.Tech + MBA) and integrated M.Tech programmes are kept under btech, because there is no integrated engineering course; their branch names keep JoSAA's degree, e.g. '(5 Years, Bachelor and Master of Technology (Dual Degree))'. Left out: BS, B.Sc + M.Sc, integrated M.Sc and B.Des programmes (no course for them) and IIT Delhi's Abu Dhabi campus programmes. city is the town in JoSAA's institute address, or the town in its JoSAA name where the address gives only a village or post office; pin is the PIN in the address. ownership is central for IITs, IISc, NITs and IIEST and left empty for IIITs and other GFTIs, whose ownership JoSAA does not print. same_as joins an institute to the AICTE record for the same institution (or the school or campus of it that runs these programmes) where AICTE also lists it, so its seats are not counted twice, and otherwise to its NIRF record (checked by hand).",
+ "rows": [
+  {
+   "code": "101",
+   "name": "Indian Institute of Technology Bhubaneswar",
+   "address": "Indian Institute of Technology Bhubaneswar (IITBBS), Argul, Khurda, Odisha, PIN: 752050",
+   "district": null,
+   "city": "Bhubaneswar",
+   "pin": "752050",
+   "state": "Odisha",
+   "management": "IIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 502,
+     "branches": [
+      {
+       "name": "Civil Engineering",
+       "seats": 105
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 84
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 76
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 57
+      },
+      {
+       "name": "Engineering Physics",
+       "seats": 20
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 20
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 105
+      },
+      {
+       "name": "Metallurgical and Materials Engineering",
+       "seats": 35
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0355"
+   }
+  },
+  {
+   "code": "102",
+   "name": "Indian Institute of Technology Bombay",
+   "address": "IIT Bombay, Powai, Mumbai 400076, Maharashtra, India",
+   "district": null,
+   "city": "Mumbai",
+   "pin": "400076",
+   "state": "Maharashtra",
+   "management": "IIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 1245,
+     "branches": [
+      {
+       "name": "Aerospace Engineering",
+       "seats": 73
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 125
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 146
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 199
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 112
+      },
+      {
+       "name": "Electrical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 91
+      },
+      {
+       "name": "Energy Engineering",
+       "seats": 47
+      },
+      {
+       "name": "Engineering Physics",
+       "seats": 58
+      },
+      {
+       "name": "Environmental Science and Engineering",
+       "seats": 46
+      },
+      {
+       "name": "Industrial Engineering and Operations Research",
+       "seats": 40
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 203
+      },
+      {
+       "name": "Metallurgical Engineering and Materials Science",
+       "seats": 105
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0306"
+   }
+  },
+  {
+   "code": "103",
+   "name": "Indian Institute of Technology Mandi",
+   "address": "Kamand Campus, VPO Kamand, Distt. Mandi - 175075 Himachal Pradesh India",
+   "district": null,
+   "city": "Mandi",
+   "pin": "175075",
+   "state": "Himachal Pradesh",
+   "management": "IIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 610,
+     "branches": [
+      {
+       "name": "Agricultural Engineering with Data Analytics",
+       "seats": 30
+      },
+      {
+       "name": "B.Tech in General Engineering",
+       "seats": 30
+      },
+      {
+       "name": "B.Tech in Materials Science and Engineering",
+       "seats": 30
+      },
+      {
+       "name": "B.Tech in Mathematics and Computing",
+       "seats": 40
+      },
+      {
+       "name": "B.Tech in Microelectronics & VLSI",
+       "seats": 30
+      },
+      {
+       "name": "Bio Engineering",
+       "seats": 30
+      },
+      {
+       "name": "Chemical Engineering with Data Analytics",
+       "seats": 30
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 50
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 90
+      },
+      {
+       "name": "Data Science and Artificial Intelligence",
+       "seats": 60
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 70
+      },
+      {
+       "name": "Engineering Physics",
+       "seats": 30
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Quantum Science and Engineering",
+       "seats": 30
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0184"
+   }
+  },
+  {
+   "code": "104",
+   "name": "Indian Institute of Technology Delhi",
+   "address": "Indian Institute of Technology Delhi, Hauz Khas, New Delhi-110 016",
+   "district": null,
+   "city": "New Delhi",
+   "pin": "110016",
+   "state": "Delhi",
+   "management": "IIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 1169,
+     "branches": [
+      {
+       "name": "Biotechnology and Biochemical Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 75
+      },
+      {
+       "name": "Chemical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 46
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 110
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 99
+      },
+      {
+       "name": "Computer Science and Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 37
+      },
+      {
+       "name": "Design",
+       "seats": 20
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 110
+      },
+      {
+       "name": "Electrical Engineering (Power and Automation)",
+       "seats": 54
+      },
+      {
+       "name": "Energy Engineering",
+       "seats": 40
+      },
+      {
+       "name": "Engineering and Computational Mechanics",
+       "seats": 40
+      },
+      {
+       "name": "Engineering Physics",
+       "seats": 63
+      },
+      {
+       "name": "Materials Engineering",
+       "seats": 40
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 89
+      },
+      {
+       "name": "Mathematics and Computing (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 33
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 85
+      },
+      {
+       "name": "Production and Industrial Engineering",
+       "seats": 83
+      },
+      {
+       "name": "Textile Technology",
+       "seats": 85
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "I-1074"
+   }
+  },
+  {
+   "code": "105",
+   "name": "Indian Institute of Technology Indore",
+   "address": "Indian Institute of Technology Indore Simrol, Khandwa Road Pin code 453 552, Indore (MP) India",
+   "district": null,
+   "city": "Indore",
+   "pin": "453552",
+   "state": "Madhya Pradesh",
+   "management": "IIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 540,
+     "branches": [
+      {
+       "name": "Biomedical Engineering and Data Science",
+       "seats": 30
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 40
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 53
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 82
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 85
+      },
+      {
+       "name": "Engineering Physics",
+       "seats": 20
+      },
+      {
+       "name": "Environmental Economics and Sustainable Engineering",
+       "seats": 30
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 40
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 87
+      },
+      {
+       "name": "Metallurgical Engineering and Materials Science",
+       "seats": 53
+      },
+      {
+       "name": "Space Science and Engineering",
+       "seats": 20
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0273"
+   }
+  },
+  {
+   "code": "106",
+   "name": "Indian Institute of Technology Kharagpur",
+   "address": "Kharagpur West Bengal India - 721302",
+   "district": null,
+   "city": "Kharagpur",
+   "pin": "721302",
+   "state": "West Bengal",
+   "management": "IIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 1590,
+     "branches": [
+      {
+       "name": "Aerospace Engineering",
+       "seats": 70
+      },
+      {
+       "name": "Agricultural and Food Engineering",
+       "seats": 93
+      },
+      {
+       "name": "Artificial Intelligence",
+       "seats": 50
+      },
+      {
+       "name": "Biomedical Engineering",
+       "seats": 30
+      },
+      {
+       "name": "Biotechnology and Biochemical Engineering",
+       "seats": 70
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 115
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 119
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 140
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 113
+      },
+      {
+       "name": "Electronics and Electrical Communication Engineering",
+       "seats": 150
+      },
+      {
+       "name": "Industrial and Systems Engineering",
+       "seats": 72
+      },
+      {
+       "name": "Instrumentation Engineering",
+       "seats": 44
+      },
+      {
+       "name": "Manufacturing Science and Engineering",
+       "seats": 66
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 172
+      },
+      {
+       "name": "Metallurgical and Materials Engineering",
+       "seats": 93
+      },
+      {
+       "name": "Mining Engineering",
+       "seats": 113
+      },
+      {
+       "name": "Ocean Engineering and Naval Architecture",
+       "seats": 80
+      }
+     ]
+    },
+    {
+     "course": "barch",
+     "seats": 40,
+     "branches": [
+      {
+       "name": "Architecture",
+       "seats": 40
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0573"
+   }
+  },
+  {
+   "code": "107",
+   "name": "Indian Institute of Technology Hyderabad",
+   "address": "Kandi-502284, Sangareddy, Telangana, India",
+   "district": null,
+   "city": "Hyderabad",
+   "pin": "502284",
+   "state": "Telangana",
+   "management": "IIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 705,
+     "branches": [
+      {
+       "name": "Artificial Intelligence",
+       "seats": 50
+      },
+      {
+       "name": "Biomedical Engineering",
+       "seats": 35
+      },
+      {
+       "name": "Biotechnology and Bioinformatics",
+       "seats": 35
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 50
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 65
+      },
+      {
+       "name": "Computational Engineering",
+       "seats": 30
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 70
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 70
+      },
+      {
+       "name": "Electrical Engineering (IC Design and Technology)",
+       "seats": 35
+      },
+      {
+       "name": "Engineering Physics",
+       "seats": 40
+      },
+      {
+       "name": "Engineering Science",
+       "seats": 45
+      },
+      {
+       "name": "Industrial Chemistry",
+       "seats": 35
+      },
+      {
+       "name": "Materials Science and Metallurgical Engineering",
+       "seats": 40
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 35
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 70
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0013"
+   }
+  },
+  {
+   "code": "108",
+   "name": "Indian Institute of Technology Jodhpur",
+   "address": "NH 62 Nagaur Road, Karwad 342030, Jodhpur, Rajasthan",
+   "district": null,
+   "city": "Jodhpur",
+   "pin": "342030",
+   "state": "Rajasthan",
+   "management": "IIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 650,
+     "branches": [
+      {
+       "name": "Aerospace Engineering",
+       "seats": 50
+      },
+      {
+       "name": "Artificial Intelligence and Data Science",
+       "seats": 90
+      },
+      {
+       "name": "Bio Engineering",
+       "seats": 50
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 50
+      },
+      {
+       "name": "Civil and Infrastructure Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 90
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Electronics Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Materials Engineering",
+       "seats": 50
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 90
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0395"
+   }
+  },
+  {
+   "code": "109",
+   "name": "Indian Institute of Technology Kanpur",
+   "address": "JEE Office, DOAA Building, IIT Kanpur, Kalyanpur, Kanpur, Uttar Pradesh 208016, India",
+   "district": null,
+   "city": "Kanpur",
+   "pin": "208016",
+   "state": "Uttar Pradesh",
+   "management": "IIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 959,
+     "branches": [
+      {
+       "name": "Aerospace Engineering",
+       "seats": 69
+      },
+      {
+       "name": "Biological Sciences and Bioengineering",
+       "seats": 53
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 104
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 148
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 129
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 192
+      },
+      {
+       "name": "Intelligent Systems",
+       "seats": 30
+      },
+      {
+       "name": "Materials Science and Engineering",
+       "seats": 85
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 149
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "I-1075"
+   }
+  },
+  {
+   "code": "110",
+   "name": "Indian Institute of Technology Madras",
+   "address": "IIT Madras P.O., Chennai 600036, INDIA",
+   "district": null,
+   "city": "Chennai",
+   "pin": "600036",
+   "state": "Tamil Nadu",
+   "management": "IIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 1056,
+     "branches": [
+      {
+       "name": "Aerospace Engineering",
+       "seats": 54
+      },
+      {
+       "name": "Aerospace Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 9
+      },
+      {
+       "name": "Artificial Intelligence and Data Analytics",
+       "seats": 50
+      },
+      {
+       "name": "Biological Engineering",
+       "seats": 30
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 104
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 111
+      },
+      {
+       "name": "Computational Engineering and Mechanics",
+       "seats": 40
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 87
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 154
+      },
+      {
+       "name": "Engineering Design (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 64
+      },
+      {
+       "name": "Engineering Physics",
+       "seats": 42
+      },
+      {
+       "name": "Instrumentation and Biomedical Engineering",
+       "seats": 40
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 144
+      },
+      {
+       "name": "Metallurgical and Materials Engineering",
+       "seats": 54
+      },
+      {
+       "name": "Naval Architecture and Ocean Engineering",
+       "seats": 73
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0456"
+   }
+  },
+  {
+   "code": "111",
+   "name": "Indian Institute of Technology Gandhinagar",
+   "address": "Palaj, Gandhinagar - 382055, India",
+   "district": null,
+   "city": "Gandhinagar",
+   "pin": "382055",
+   "state": "Gujarat",
+   "management": "IIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 360,
+     "branches": [
+      {
+       "name": "Artificial Intelligence",
+       "seats": 40
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 50
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 40
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 50
+      },
+      {
+       "name": "Integrated Circuit Design & Technology",
+       "seats": 30
+      },
+      {
+       "name": "Materials Engineering",
+       "seats": 40
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 50
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0139"
+   }
+  },
+  {
+   "code": "112",
+   "name": "Indian Institute of Technology Patna",
+   "address": "Indian Institute of Technology Patna, Bihta, Patna - 801106 (Bihar)",
+   "district": null,
+   "city": "Patna",
+   "pin": "801106",
+   "state": "Bihar",
+   "management": "IIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 787,
+     "branches": [
+      {
+       "name": "Artificial Intelligence and Data Science",
+       "seats": 50
+      },
+      {
+       "name": "B. Tech in CE. - M. Tech. in Geotechnical Engineering (5 Years, B.Tech. + M.Tech./MS (Dual Degree))",
+       "seats": 10
+      },
+      {
+       "name": "B. Tech in CE. - M. Tech. in Structural Engineering (5 Years, B.Tech. + M.Tech./MS (Dual Degree))",
+       "seats": 10
+      },
+      {
+       "name": "B. Tech. (CSE) and M.Tech in CSE (5 Years, B.Tech. + M.Tech./MS (Dual Degree))",
+       "seats": 10
+      },
+      {
+       "name": "B. Tech. (ECE) -M. Tech. in VLSI (5 Years, B.Tech. + M.Tech./MS (Dual Degree))",
+       "seats": 10
+      },
+      {
+       "name": "B. Tech. (EEE)-M. Tech. in (Power &. Control) (5 Years, B.Tech. + M.Tech./MS (Dual Degree))",
+       "seats": 10
+      },
+      {
+       "name": "B. Tech. (Mathematics & Computing) M. Tech. in (Mathematics & Computing) (5 Years, B.Tech. + M.Tech./MS (Dual Degree))",
+       "seats": 10
+      },
+      {
+       "name": "B. Tech. (ME) - M. Tech. in Mechatronics (5 Years, B.Tech. + M.Tech./MS (Dual Degree))",
+       "seats": 10
+      },
+      {
+       "name": "B.Tech (Artificial Intelligence and Data Science) - MBA in Digital Business Management (IIM Bodh Gaya) (5 Years, Bachelor of Technology and MBA (Dual Degree))",
+       "seats": 5
+      },
+      {
+       "name": "B.Tech (Chemical Engineering) - MBA in Hospital and Health Care Management (IIM Bodh Gaya) (5 Years, Bachelor of Technology and MBA (Dual Degree))",
+       "seats": 5
+      },
+      {
+       "name": "B.Tech (Chemical Science and Technology) - MBA in Hospital and Health Care Management (IIM Bodh Gaya) (5 Years, Bachelor of Technology and MBA (Dual Degree))",
+       "seats": 5
+      },
+      {
+       "name": "B.Tech (Civil Engineering) - MBA (IIM Bodh Gaya) (5 Years, Bachelor of Technology and MBA (Dual Degree))",
+       "seats": 6
+      },
+      {
+       "name": "B.Tech (Computer Science and Engineering) - MBA in Digital Business Management (IIM Bodh Gaya) (5 Years, Bachelor of Technology and MBA (Dual Degree))",
+       "seats": 5
+      },
+      {
+       "name": "B.Tech (Electrical and Electronics Engineering) - MBA (IIM Bodh Gaya) (5 Years, Bachelor of Technology and MBA (Dual Degree))",
+       "seats": 6
+      },
+      {
+       "name": "B.Tech (Electronics and Communication Engineering) - MBA in Hospital and Healthcare Management (IIM Bodh Gaya) (5 Years, Bachelor of Technology and MBA (Dual Degree))",
+       "seats": 5
+      },
+      {
+       "name": "B.Tech (Engineering Physics) - MBA (IIM Bodh Gaya) (5 Years, Bachelor of Technology and MBA (Dual Degree))",
+       "seats": 6
+      },
+      {
+       "name": "B.Tech (Mathematics and Computing) - MBA in Digital Business Management (IIM Bodh Gaya) (5 Years, Bachelor of Technology and MBA (Dual Degree))",
+       "seats": 5
+      },
+      {
+       "name": "B.Tech (Mechanical Engineering) - MBA (IIM Mumbai) (5 Years, Bachelor of Technology and MBA (Dual Degree))",
+       "seats": 15
+      },
+      {
+       "name": "B.Tech (Metallurgical and Materials Engineering) - MBA (IIM Bodh Gaya) (5 Years, Bachelor of Technology and MBA (Dual Degree))",
+       "seats": 6
+      },
+      {
+       "name": "B.Tech. in Electronics and Communication Engineering and M.Tech. in Communication Systems (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 10
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 70
+      },
+      {
+       "name": "Chemical Science and Technology",
+       "seats": 40
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 70
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 86
+      },
+      {
+       "name": "Electrical and Electronics Engineering",
+       "seats": 50
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 50
+      },
+      {
+       "name": "Engineering Physics",
+       "seats": 40
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 50
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 86
+      },
+      {
+       "name": "Metallurgical and Materials Engineering",
+       "seats": 46
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0064"
+   }
+  },
+  {
+   "code": "113",
+   "name": "Indian Institute of Technology Roorkee",
+   "address": "Indian Institute of Technology Roorkee Roorkee Haridwar-247667 Uttarakhand India",
+   "district": null,
+   "city": "Roorkee",
+   "pin": "247667",
+   "state": "Uttarakhand",
+   "management": "IIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 1179,
+     "branches": [
+      {
+       "name": "Biosciences and Bioengineering",
+       "seats": 46
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 117
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 154
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 109
+      },
+      {
+       "name": "Data Science and Artificial Intelligence",
+       "seats": 40
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 165
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 109
+      },
+      {
+       "name": "Energy Engineering",
+       "seats": 20
+      },
+      {
+       "name": "Engineering Physics",
+       "seats": 50
+      },
+      {
+       "name": "Geological Technology (5 Years, Integrated Master of Technology)",
+       "seats": 38
+      },
+      {
+       "name": "Geophysical Technology (5 Years, Integrated Master of Technology)",
+       "seats": 41
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 150
+      },
+      {
+       "name": "Metallurgical and Materials Engineering",
+       "seats": 82
+      },
+      {
+       "name": "Production and Industrial Engineering",
+       "seats": 58
+      }
+     ]
+    },
+    {
+     "course": "barch",
+     "seats": 30,
+     "branches": [
+      {
+       "name": "Architecture",
+       "seats": 30
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0560"
+   }
+  },
+  {
+   "code": "114",
+   "name": "Indian Institute of Technology (ISM) Dhanbad",
+   "address": "Indian Institute of Technology (Indian School of Mines),Dhanbad 826004, Jharkhand, India",
+   "district": null,
+   "city": "Dhanbad",
+   "pin": "826004",
+   "state": "Jharkhand",
+   "management": "IIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 1170,
+     "branches": [
+      {
+       "name": "B.Tech Mining Engineering and MBA in Logistic and Supply Chain Management (IIM Mumbai) (5 Years, Bachelor of Technology and MBA (Dual Degree))",
+       "seats": 60
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 55
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 70
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 145
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 130
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 130
+      },
+      {
+       "name": "Engineering Physics",
+       "seats": 32
+      },
+      {
+       "name": "Environmental Engineering",
+       "seats": 50
+      },
+      {
+       "name": "Geological Engineering",
+       "seats": 21
+      },
+      {
+       "name": "Geophysical Technology",
+       "seats": 21
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 75
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 130
+      },
+      {
+       "name": "Mineral and Metallurgical Engineering",
+       "seats": 45
+      },
+      {
+       "name": "Mining Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Mining Machinery Engineering",
+       "seats": 56
+      },
+      {
+       "name": "Petroleum Engineering",
+       "seats": 90
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0205"
+   }
+  },
+  {
+   "code": "115",
+   "name": "Indian Institute of Technology Ropar",
+   "address": "IIT Ropar, Rupnagar 140001, Punjab",
+   "district": null,
+   "city": "Rupnagar",
+   "pin": "140001",
+   "state": "Punjab",
+   "management": "IIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 696,
+     "branches": [
+      {
+       "name": "Artificial Intelligence and Data Engineering",
+       "seats": 100
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 35
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 35
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 120
+      },
+      {
+       "name": "Digital Agriculture",
+       "seats": 20
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 120
+      },
+      {
+       "name": "Electrical Engineering (Integrated Circuit Design and Technology)",
+       "seats": 20
+      },
+      {
+       "name": "Engineering Physics",
+       "seats": 25
+      },
+      {
+       "name": "Engineering Science",
+       "seats": 30
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 80
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 83
+      },
+      {
+       "name": "Metallurgical and Materials Engineering",
+       "seats": 28
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0378"
+   }
+  },
+  {
+   "code": "116",
+   "name": "Indian Institute of Technology (BHU) Varanasi",
+   "address": "Uttar Pradesh 221005",
+   "district": null,
+   "city": "Varanasi",
+   "pin": "221005",
+   "state": "Uttar Pradesh",
+   "management": "IIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 1563,
+     "branches": [
+      {
+       "name": "Biochemical Engineering",
+       "seats": 25
+      },
+      {
+       "name": "Biomedical Engineering",
+       "seats": 21
+      },
+      {
+       "name": "Ceramic Engineering",
+       "seats": 75
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 170
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 160
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 155
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 150
+      },
+      {
+       "name": "Electronics Engineering",
+       "seats": 155
+      },
+      {
+       "name": "Engineering Physics",
+       "seats": 40
+      },
+      {
+       "name": "Industrial Chemistry",
+       "seats": 24
+      },
+      {
+       "name": "Materials Science and Technology",
+       "seats": 28
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 65
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 190
+      },
+      {
+       "name": "Metallurgical Engineering",
+       "seats": 110
+      },
+      {
+       "name": "Mining Engineering",
+       "seats": 120
+      },
+      {
+       "name": "Pharmaceutical Engineering & Technology",
+       "seats": 75
+      }
+     ]
+    },
+    {
+     "course": "barch",
+     "seats": 26,
+     "branches": [
+      {
+       "name": "Architecture",
+       "seats": 26
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0701"
+   }
+  },
+  {
+   "code": "117",
+   "name": "Indian Institute of Technology Guwahati",
+   "address": "Guwahati - 781039, Assam, India",
+   "district": null,
+   "city": "Guwahati",
+   "pin": "781039",
+   "state": "Assam",
+   "management": "IIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 962,
+     "branches": [
+      {
+       "name": "Biosciences and Bioengineering",
+       "seats": 74
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 92
+      },
+      {
+       "name": "Chemical Science and Technology",
+       "seats": 60
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 117
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 114
+      },
+      {
+       "name": "Data Science and Artificial Intelligence",
+       "seats": 60
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 104
+      },
+      {
+       "name": "Electronics and Electrical Engineering",
+       "seats": 62
+      },
+      {
+       "name": "Energy Engineering",
+       "seats": 20
+      },
+      {
+       "name": "Engineering Physics",
+       "seats": 68
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 72
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 119
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0053"
+   }
+  },
+  {
+   "code": "118",
+   "name": "Indian Institute of Technology Bhilai",
+   "address": "IIT Bhilai, Kutelabhata, Durg, Chhattisgarh, 491002, India.",
+   "district": null,
+   "city": "Bhilai",
+   "pin": "491002",
+   "state": "Chhattisgarh",
+   "management": "IIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 329,
+     "branches": [
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 61
+      },
+      {
+       "name": "Data Science and Artificial Intelligence",
+       "seats": 44
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 44
+      },
+      {
+       "name": "Materials Science and Metallurgical Engineering",
+       "seats": 30
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Mechatronics Engineering",
+       "seats": 30
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0946"
+   }
+  },
+  {
+   "code": "119",
+   "name": "Indian Institute of Technology Goa",
+   "address": "IIT Goa, Goa Engineering College Campus, Farmagudi, Ponda- 403401, Goa, India",
+   "district": null,
+   "city": "Ponda",
+   "pin": "403401",
+   "state": "Goa",
+   "management": "IIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 165,
+     "branches": [
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 45
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 45
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 30
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 45
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "120",
+   "name": "Indian Institute of Technology Palakkad",
+   "address": "Indian Institute of Technology Palakkad, Nila Campus, Kanjikode West, Palakkad 678623, Kerala",
+   "district": null,
+   "city": "Palakkad",
+   "pin": "678623",
+   "state": "Kerala",
+   "management": "IIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 280,
+     "branches": [
+      {
+       "name": "Civil Engineering",
+       "seats": 50
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 50
+      },
+      {
+       "name": "Data Science and Engineering",
+       "seats": 50
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 50
+      },
+      {
+       "name": "Materials Engineering",
+       "seats": 30
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 50
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0878"
+   }
+  },
+  {
+   "code": "121",
+   "name": "Indian Institute of Technology Tirupati",
+   "address": "Indian Institute of Technology Tirupati Yerpedu – Venkatagiri Road, Yerpedu Post, Tirupati District, A.P - 517619",
+   "district": null,
+   "city": "Tirupati",
+   "pin": "517619",
+   "state": "Andhra Pradesh",
+   "management": "IIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 254,
+     "branches": [
+      {
+       "name": "Chemical Engineering",
+       "seats": 39
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 39
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 53
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Engineering Physics",
+       "seats": 10
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 53
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0844"
+   }
+  },
+  {
+   "code": "122",
+   "name": "Indian Institute of Technology Jammu",
+   "address": "Indian Institute of Technology Jammu Jagti, PO Nagrota, NH-44 Jammu - 181 221 J&K, India",
+   "district": null,
+   "city": "Jammu",
+   "pin": "181221",
+   "state": "Jammu and Kashmir",
+   "management": "IIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 380,
+     "branches": [
+      {
+       "name": "Chemical Engineering",
+       "seats": 40
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 40
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 50
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 40
+      },
+      {
+       "name": "Engineering Physics",
+       "seats": 35
+      },
+      {
+       "name": "Materials and Metallurgical Engineering",
+       "seats": 40
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 50
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 40
+      },
+      {
+       "name": "Unified Engineering",
+       "seats": 45
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0906"
+   }
+  },
+  {
+   "code": "123",
+   "name": "Indian Institute of Technology Dharwad",
+   "address": "Indian Institute of Technology Dharwad Permanent Campus(PC), Chikkamalligawad, Dharwad PIN: 580011, Karnataka.",
+   "district": null,
+   "city": "Dharwad",
+   "pin": "580011",
+   "state": "Karnataka",
+   "management": "IIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 325,
+     "branches": [
+      {
+       "name": "Chemical and Biochemical Engineering",
+       "seats": 30
+      },
+      {
+       "name": "Civil and Infrastructure Engineering",
+       "seats": 30
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 65
+      },
+      {
+       "name": "Electrical and Electronics Engineering",
+       "seats": 30
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 45
+      },
+      {
+       "name": "Engineering Physics",
+       "seats": 30
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 30
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 65
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0899"
+   }
+  },
+  {
+   "code": "124",
+   "name": "Indian Institute of Science, Bangalore",
+   "address": "C V Raman Avenue Bangalore Karnataka Pin code 560012 India",
+   "district": null,
+   "city": "Bengaluru",
+   "pin": "560012",
+   "state": "Karnataka",
+   "management": "IIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 125,
+     "branches": [
+      {
+       "name": "Aerospace Engineering",
+       "seats": 25
+      },
+      {
+       "name": "B.Tech in Materials Science and Engineering",
+       "seats": 25
+      },
+      {
+       "name": "B.Tech in Mathematics and Computing",
+       "seats": 50
+      },
+      {
+       "name": "Mechanics and Computing",
+       "seats": 25
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0220"
+   }
+  },
+  {
+   "code": "201",
+   "name": "Dr. B R Ambedkar National Institute of Technology, Jalandhar",
+   "address": "NIT Jalandhar - 144008, India",
+   "district": null,
+   "city": "Jalandhar",
+   "pin": "144008",
+   "state": "Punjab",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 1103,
+     "branches": [
+      {
+       "name": "Artificial Intelligence",
+       "seats": 30
+      },
+      {
+       "name": "Bio Technology",
+       "seats": 50
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 70
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 80
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 158
+      },
+      {
+       "name": "Data Science and Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 85
+      },
+      {
+       "name": "Electronics and VLSI Engineering",
+       "seats": 30
+      },
+      {
+       "name": "Industrial and Production Engineering",
+       "seats": 70
+      },
+      {
+       "name": "Information Technology",
+       "seats": 90
+      },
+      {
+       "name": "Instrumentation and Control Engineering",
+       "seats": 90
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 50
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 110
+      },
+      {
+       "name": "Textile Technology",
+       "seats": 70
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0374"
+   }
+  },
+  {
+   "code": "202",
+   "name": "Malaviya National Institute of Technology Jaipur",
+   "address": "Jawaharlal Nehru Marg, Malviya Nagar, Jaipur, Rajasthan- 302017",
+   "district": null,
+   "city": "Jaipur",
+   "pin": "302017",
+   "state": "Rajasthan",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 871,
+     "branches": [
+      {
+       "name": "Artificial Intelligence and Data Engineering",
+       "seats": 40
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 115
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 115
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 117
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 117
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 117
+      },
+      {
+       "name": "Engineering Physics",
+       "seats": 30
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 30
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 116
+      },
+      {
+       "name": "Metallurgical and Materials Engineering",
+       "seats": 74
+      }
+     ]
+    },
+    {
+     "course": "barch",
+     "seats": 77,
+     "branches": [
+      {
+       "name": "Architecture",
+       "seats": 77
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0410"
+   }
+  },
+  {
+   "code": "203",
+   "name": "Maulana Azad National Institute of Technology Bhopal",
+   "address": "Link Road No.3 Bhopal (M.P.) India – 462003",
+   "district": null,
+   "city": "Bhopal",
+   "pin": "462003",
+   "state": "Madhya Pradesh",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 1051,
+     "branches": [
+      {
+       "name": "B. Tech. and M. Tech. in Engineering and Computational Mechanics (Dual Degree) (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 30
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 71
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 101
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 229
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 102
+      },
+      {
+       "name": "Electrical Engineering with E Mobility",
+       "seats": 30
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 173
+      },
+      {
+       "name": "Energy and Electrical Vehicle Engineering",
+       "seats": 30
+      },
+      {
+       "name": "Materials and Metallurgical Engineering",
+       "seats": 71
+      },
+      {
+       "name": "Mathematics and Data Science (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 30
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 184
+      }
+     ]
+    },
+    {
+     "course": "barch",
+     "seats": 100,
+     "branches": [
+      {
+       "name": "Architecture",
+       "seats": 100
+      }
+     ]
+    },
+    {
+     "course": "bplan",
+     "seats": 52,
+     "branches": [
+      {
+       "name": "Planning",
+       "seats": 52
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0284"
+   }
+  },
+  {
+   "code": "204",
+   "name": "Motilal Nehru National Institute of Technology Allahabad",
+   "address": "Motilal Nehru National Institute of Technology Allahabad, Teliyarganj, Prayagraj, Uttar Pradesh, India. Pin Code:211004.",
+   "district": null,
+   "city": "Prayagraj",
+   "pin": "211004",
+   "state": "Uttar Pradesh",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 1164,
+     "branches": [
+      {
+       "name": "Bio Technology",
+       "seats": 60
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 121
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 325
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 103
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 182
+      },
+      {
+       "name": "Engineering and Computational Mechanics",
+       "seats": 30
+      },
+      {
+       "name": "Materials Engineering",
+       "seats": 30
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 30
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 223
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0530"
+   }
+  },
+  {
+   "code": "205",
+   "name": "National Institute of Technology Agartala",
+   "address": "P.O.:NATIONAL INSTITUTE OF TECHNOLOGY,AGARTALA Barjala, Jirania, TRIPURA (W) Pin: 799046",
+   "district": null,
+   "city": "Agartala",
+   "pin": "799046",
+   "state": "Tripura",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 1040,
+     "branches": [
+      {
+       "name": "Biotechnology and Biochemical Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 90
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 120
+      },
+      {
+       "name": "Computational Mathematics (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 25
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 180
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 120
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 120
+      },
+      {
+       "name": "Electronics and Instrumentation Engineering",
+       "seats": 90
+      },
+      {
+       "name": "Engineering Physics (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 25
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 120
+      },
+      {
+       "name": "Production Engineering",
+       "seats": 90
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "206",
+   "name": "National Institute of Technology Calicut",
+   "address": "NIT Campus (P.O), Kozhikode, Kerala, PIN - 673601",
+   "district": null,
+   "city": "Kozhikode",
+   "pin": "673601",
+   "state": "Kerala",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 1253,
+     "branches": [
+      {
+       "name": "B. Tech. (Mathematics & Computing) M. Tech. in (Mathematics & Computing) (5 Years, B.Tech. + M.Tech./MS (Dual Degree))",
+       "seats": 40
+      },
+      {
+       "name": "Bio Technology",
+       "seats": 37
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 116
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 172
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 175
+      },
+      {
+       "name": "Electrical and Electronics Engineering",
+       "seats": 172
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 172
+      },
+      {
+       "name": "Energy Engineering",
+       "seats": 40
+      },
+      {
+       "name": "Engineering Physics",
+       "seats": 37
+      },
+      {
+       "name": "Materials Science and Engineering",
+       "seats": 30
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 203
+      },
+      {
+       "name": "Production Engineering",
+       "seats": 59
+      }
+     ]
+    },
+    {
+     "course": "barch",
+     "seats": 59,
+     "branches": [
+      {
+       "name": "Architecture",
+       "seats": 59
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0263"
+   }
+  },
+  {
+   "code": "207",
+   "name": "National Institute of Technology Delhi",
+   "address": "National Institute of Technology Delhi Plot No. FA7, Zone P1, GT Karnal Road, Delhi-110036",
+   "district": null,
+   "city": "Delhi",
+   "pin": "110036",
+   "state": "Delhi",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 374,
+     "branches": [
+      {
+       "name": "Aerospace Engineering",
+       "seats": 24
+      },
+      {
+       "name": "Artificial Intelligence and Data Science",
+       "seats": 20
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 25
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 120
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 40
+      },
+      {
+       "name": "VLSI Design and Technology",
+       "seats": 25
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0622"
+   }
+  },
+  {
+   "code": "208",
+   "name": "National Institute of Technology Durgapur",
+   "address": "Mahatma Gandhi Avenue, Durgapur, West Bengal, India, PIN 713209",
+   "district": null,
+   "city": "Durgapur",
+   "pin": "713209",
+   "state": "West Bengal",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 950,
+     "branches": [
+      {
+       "name": "B.Tech in Mathematics and Computing",
+       "seats": 60
+      },
+      {
+       "name": "Bio Technology",
+       "seats": 75
+      },
+      {
+       "name": "Biotechnology (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 7
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 75
+      },
+      {
+       "name": "Chemical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 7
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 80
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 187
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 100
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 97
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 187
+      },
+      {
+       "name": "Metallurgical and Materials Engineering",
+       "seats": 75
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0577"
+   }
+  },
+  {
+   "code": "209",
+   "name": "National Institute of Technology Goa",
+   "address": "Kottamoll Plateau, Cuncolim Municipal Area, Salcete Taluka, South Goa District, Goa - 403703",
+   "district": null,
+   "city": "Cuncolim",
+   "pin": "403703",
+   "state": "Goa",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 224,
+     "branches": [
+      {
+       "name": "Civil Engineering",
+       "seats": 37
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 50
+      },
+      {
+       "name": "Electrical and Electronics Engineering",
+       "seats": 50
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 50
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 37
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "210",
+   "name": "National Institute of Technology Hamirpur",
+   "address": "National Institute of Technology Hamirpur, HIMACHAL PRADESH, PIN - 177005, INDIA",
+   "district": null,
+   "city": "Hamirpur",
+   "pin": "177005",
+   "state": "Himachal Pradesh",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 886,
+     "branches": [
+      {
+       "name": "Chemical Engineering",
+       "seats": 76
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 123
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 124
+      },
+      {
+       "name": "Computer Science and Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 28
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 125
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 117
+      },
+      {
+       "name": "Electronics and Communication Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 28
+      },
+      {
+       "name": "Engineering Physics",
+       "seats": 50
+      },
+      {
+       "name": "Materials Science and Engineering",
+       "seats": 40
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 50
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 125
+      }
+     ]
+    },
+    {
+     "course": "barch",
+     "seats": 58,
+     "branches": [
+      {
+       "name": "Architecture",
+       "seats": 58
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0189"
+   }
+  },
+  {
+   "code": "211",
+   "name": "National Institute of Technology Karnataka, Surathkal",
+   "address": "P.O: Srinivasnagar, Mangalore - 575 025, Karnataka, India",
+   "district": null,
+   "city": "Surathkal",
+   "pin": "575025",
+   "state": "Karnataka",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 960,
+     "branches": [
+      {
+       "name": "Artificial Intelligence",
+       "seats": 58
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 58
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 115
+      },
+      {
+       "name": "Computational and Data Science",
+       "seats": 30
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 115
+      },
+      {
+       "name": "Electrical and Electronics Engineering",
+       "seats": 116
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 116
+      },
+      {
+       "name": "Information Technology",
+       "seats": 58
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 174
+      },
+      {
+       "name": "Metallurgical and Materials Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Mining Engineering",
+       "seats": 60
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0237"
+   }
+  },
+  {
+   "code": "212",
+   "name": "National Institute of Technology Meghalaya",
+   "address": "National Institute of Technology Meghalaya Saitsohpen Sohra, East Khasi Hills, Meghalaya, India- 793108",
+   "district": null,
+   "city": "Sohra",
+   "pin": "793108",
+   "state": "Meghalaya",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 190,
+     "branches": [
+      {
+       "name": "Civil Engineering",
+       "seats": 38
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 37
+      },
+      {
+       "name": "Electrical and Electronics Engineering",
+       "seats": 39
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 38
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 38
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0619"
+   }
+  },
+  {
+   "code": "213",
+   "name": "National Institute of Technology Nagaland",
+   "address": "Chumukedima, Dimapur, Nagaland - 797 103",
+   "district": null,
+   "city": "Chumukedima",
+   "pin": "797103",
+   "state": "Nagaland",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 201,
+     "branches": [
+      {
+       "name": "Civil Engineering",
+       "seats": 33
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 34
+      },
+      {
+       "name": "Electrical and Electronics Engineering",
+       "seats": 35
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 33
+      },
+      {
+       "name": "Electronics and Instrumentation Engineering",
+       "seats": 33
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 33
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "214",
+   "name": "National Institute of Technology Patna",
+   "address": "Ashok Rajpath, Patna, Bihar, PIN - 800005",
+   "district": null,
+   "city": "Patna",
+   "pin": "800005",
+   "state": "Bihar",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 983,
+     "branches": [
+      {
+       "name": "Artificial Intelligence and Data Science",
+       "seats": 75
+      },
+      {
+       "name": "Chemical Technology (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 25
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 116
+      },
+      {
+       "name": "Civil Engineering with Specialization in Construction Technology and Management (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 12
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 151
+      },
+      {
+       "name": "Computer Science and Engineering with Specialization in Cyber Security (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 22
+      },
+      {
+       "name": "Computer Science and Engineering with Specialization in Data Science (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 23
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 116
+      },
+      {
+       "name": "Electrical Engineering with Specialization In Power System Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 23
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 100
+      },
+      {
+       "name": "Electronics and Communication Engineering with Specialization in Microelectronics and VLSI System Design (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 22
+      },
+      {
+       "name": "Electronics Engineering (VLSI Design and Technology)",
+       "seats": 80
+      },
+      {
+       "name": "Material Science and Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 25
+      },
+      {
+       "name": "Mathematics and Computing Technology (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 26
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 117
+      },
+      {
+       "name": "Mechanical Engineering with Specialization in Manufacturing and Industrial Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 24
+      },
+      {
+       "name": "Mechatronics and Automation Engineering",
+       "seats": 26
+      }
+     ]
+    },
+    {
+     "course": "barch",
+     "seats": 40,
+     "branches": [
+      {
+       "name": "Architecture",
+       "seats": 40
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0072"
+   }
+  },
+  {
+   "code": "215",
+   "name": "National Institute of Technology Puducherry",
+   "address": "National Institute of Technology Puducherry, Thiruvettakudy, Karaikal, Puducherry-609609. India.",
+   "district": null,
+   "city": "Karaikal",
+   "pin": "609609",
+   "state": "Puducherry",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 275,
+     "branches": [
+      {
+       "name": "Civil Engineering",
+       "seats": 45
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Electrical and Electronics Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 50
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0621"
+   }
+  },
+  {
+   "code": "216",
+   "name": "National Institute of Technology Raipur",
+   "address": "G.E. Road, Raipur, Chhatisgarh - 492010, INDIA",
+   "district": null,
+   "city": "Raipur",
+   "pin": "492010",
+   "state": "Chhattisgarh",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 1119,
+     "branches": [
+      {
+       "name": "Bio Medical Engineering",
+       "seats": 80
+      },
+      {
+       "name": "Bio Technology",
+       "seats": 79
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 79
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 97
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 114
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 115
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 114
+      },
+      {
+       "name": "Information Technology",
+       "seats": 114
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 115
+      },
+      {
+       "name": "Metallurgical and Materials Engineering",
+       "seats": 115
+      },
+      {
+       "name": "Mining Engineering",
+       "seats": 97
+      }
+     ]
+    },
+    {
+     "course": "barch",
+     "seats": 40,
+     "branches": [
+      {
+       "name": "Architecture",
+       "seats": 40
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0092"
+   }
+  },
+  {
+   "code": "217",
+   "name": "National Institute of Technology Sikkim",
+   "address": "Barfung Block, Ravangla Sub-Division, Namchi, Sikkim - 737 139",
+   "district": null,
+   "city": "Ravangla",
+   "pin": "737139",
+   "state": "Sikkim",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 190,
+     "branches": [
+      {
+       "name": "Artificial Intelligence and Machine Learning",
+       "seats": 30
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 30
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 40
+      },
+      {
+       "name": "Electrical and Electronics Engineering",
+       "seats": 30
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 30
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 30
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "218",
+   "name": "National Institute of Technology Arunachal Pradesh",
+   "address": "Jote, Papumpare, 791113",
+   "district": null,
+   "city": "Jote",
+   "pin": "791113",
+   "state": "Arunachal Pradesh",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 254,
+     "branches": [
+      {
+       "name": "Biosciences and Bioengineering",
+       "seats": 20
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 50
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 50
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 42
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 50
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 42
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "219",
+   "name": "National Institute of Technology, Jamshedpur",
+   "address": "NIT Campus, P.O.RIT Jamshedpur 831014, Jharkhand, India",
+   "district": null,
+   "city": "Jamshedpur",
+   "pin": "831014",
+   "state": "Jharkhand",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 751,
+     "branches": [
+      {
+       "name": "Civil Engineering",
+       "seats": 99
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 116
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 114
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 116
+      },
+      {
+       "name": "Engineering and Computational Mechanics",
+       "seats": 30
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 115
+      },
+      {
+       "name": "Metallurgical and Materials Engineering",
+       "seats": 99
+      },
+      {
+       "name": "Production and Industrial Engineering",
+       "seats": 62
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0207"
+   }
+  },
+  {
+   "code": "220",
+   "name": "National Institute of Technology, Kurukshetra",
+   "address": "National Institute of Technology, Kurukshetra - 136119, Haryana (India)",
+   "district": null,
+   "city": "Kurukshetra",
+   "pin": "136119",
+   "state": "Haryana",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 1107,
+     "branches": [
+      {
+       "name": "Artificial Intelligence and Data Science",
+       "seats": 60
+      },
+      {
+       "name": "Artificial Intelligence and Machine Learning",
+       "seats": 60
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 108
+      },
+      {
+       "name": "Civil Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 12
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 108
+      },
+      {
+       "name": "Computer Science and Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 12
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 108
+      },
+      {
+       "name": "Electrical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 12
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 108
+      },
+      {
+       "name": "Electronics and Communication Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 12
+      },
+      {
+       "name": "Industrial Internet of Things",
+       "seats": 60
+      },
+      {
+       "name": "Information Technology",
+       "seats": 60
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 57
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 108
+      },
+      {
+       "name": "Mechanical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 12
+      },
+      {
+       "name": "Microelectronics & VLSI Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Production and Industrial Engineering",
+       "seats": 40
+      },
+      {
+       "name": "ROBOTICS & AUTOMATION",
+       "seats": 50
+      },
+      {
+       "name": "SUSTAINABLE ENERGY TECHNOLOGIES",
+       "seats": 60
+      }
+     ]
+    },
+    {
+     "course": "barch",
+     "seats": 40,
+     "branches": [
+      {
+       "name": "Architecture",
+       "seats": 40
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0172"
+   }
+  },
+  {
+   "code": "221",
+   "name": "National Institute of Technology, Manipur",
+   "address": "Langol, Imphal-795004, Manipur (INDIA)",
+   "district": null,
+   "city": "Imphal",
+   "pin": "795004",
+   "state": "Manipur",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 276,
+     "branches": [
+      {
+       "name": "Civil Engineering",
+       "seats": 38
+      },
+      {
+       "name": "Civil Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 10
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 74
+      },
+      {
+       "name": "Computer Science and Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 10
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 38
+      },
+      {
+       "name": "Electrical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 10
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 38
+      },
+      {
+       "name": "Electronics and Communication Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 10
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 38
+      },
+      {
+       "name": "Mechanical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "222",
+   "name": "National Institute of Technology, Mizoram",
+   "address": "Chaltlang, Aizawl-796012, Mizoram, India",
+   "district": null,
+   "city": "Aizawl",
+   "pin": "796012",
+   "state": "Mizoram",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 190,
+     "branches": [
+      {
+       "name": "Chemical Science and Technology",
+       "seats": 10
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 34
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 34
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 34
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 34
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 10
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 34
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "223",
+   "name": "National Institute of Technology, Rourkela",
+   "address": "National Institute of Technology Rourkela - 769008",
+   "district": null,
+   "city": "Rourkela",
+   "pin": "769008",
+   "state": "Odisha",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 1001,
+     "branches": [
+      {
+       "name": "Artificial Intelligence",
+       "seats": 45
+      },
+      {
+       "name": "B.Tech in Mathematics and Computing",
+       "seats": 28
+      },
+      {
+       "name": "Bio Medical Engineering",
+       "seats": 35
+      },
+      {
+       "name": "Bio Technology",
+       "seats": 35
+      },
+      {
+       "name": "Ceramic Engineering",
+       "seats": 40
+      },
+      {
+       "name": "Ceramic Engineering and M.Tech Industrial Ceramic (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 13
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 63
+      },
+      {
+       "name": "Chemical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 12
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 72
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 113
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 113
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 56
+      },
+      {
+       "name": "Electronics and Instrumentation Engineering",
+       "seats": 56
+      },
+      {
+       "name": "Engineering Physics",
+       "seats": 26
+      },
+      {
+       "name": "Food Process Engineering",
+       "seats": 30
+      },
+      {
+       "name": "Industrial Design",
+       "seats": 28
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 113
+      },
+      {
+       "name": "Metallurgical and Materials Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Metallurgical and Materials Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 13
+      },
+      {
+       "name": "Mining Engineering",
+       "seats": 38
+      },
+      {
+       "name": "Mining Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 12
+      }
+     ]
+    },
+    {
+     "course": "barch",
+     "seats": 20,
+     "branches": [
+      {
+       "name": "Architecture",
+       "seats": 20
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0357"
+   }
+  },
+  {
+   "code": "224",
+   "name": "National Institute of Technology, Silchar",
+   "address": "National Institute of Technology Silchar Cachar, Assam. Pin Code: 788010",
+   "district": null,
+   "city": "Silchar",
+   "pin": "788010",
+   "state": "Assam",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 903,
+     "branches": [
+      {
+       "name": "Civil Engineering",
+       "seats": 157
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 161
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 162
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 162
+      },
+      {
+       "name": "Electronics and Instrumentation Engineering",
+       "seats": 100
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 161
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0055"
+   }
+  },
+  {
+   "code": "225",
+   "name": "National Institute of Technology, Srinagar",
+   "address": "HAZRATBAL, SRINAGAR, JAMMU and KASHMIR 190006, INDIA",
+   "district": null,
+   "city": "Srinagar",
+   "pin": "190006",
+   "state": "Jammu and Kashmir",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 899,
+     "branches": [
+      {
+       "name": "Chemical Engineering",
+       "seats": 80
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 170
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 130
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 105
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 100
+      },
+      {
+       "name": "Information Technology",
+       "seats": 129
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 105
+      },
+      {
+       "name": "Metallurgical and Materials Engineering",
+       "seats": 80
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0197"
+   }
+  },
+  {
+   "code": "226",
+   "name": "National Institute of Technology, Tiruchirappalli",
+   "address": "Tanjore Main Road, National Highway 67, Tiruchirappalli - 620015, Tamil Nadu, India.",
+   "district": null,
+   "city": "Tiruchirappalli",
+   "pin": "620015",
+   "state": "Tamil Nadu",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 981,
+     "branches": [
+      {
+       "name": "Chemical Engineering",
+       "seats": 79
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 118
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 119
+      },
+      {
+       "name": "Electrical and Electronics Engineering",
+       "seats": 116
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 117
+      },
+      {
+       "name": "Instrumentation and Control Engineering",
+       "seats": 117
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 118
+      },
+      {
+       "name": "Metallurgical and Materials Engineering",
+       "seats": 79
+      },
+      {
+       "name": "Production Engineering",
+       "seats": 118
+      }
+     ]
+    },
+    {
+     "course": "barch",
+     "seats": 57,
+     "branches": [
+      {
+       "name": "Architecture",
+       "seats": 57
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0467"
+   }
+  },
+  {
+   "code": "227",
+   "name": "National Institute of Technology, Uttarakhand",
+   "address": "National Institute of Technology Uttarakhand-Srinagar Campus, Srinagar(Garwhal)- 246174",
+   "district": null,
+   "city": "Srinagar (Garhwal)",
+   "pin": "246174",
+   "state": "Uttarakhand",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 200,
+     "branches": [
+      {
+       "name": "Civil Engineering",
+       "seats": 36
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 52
+      },
+      {
+       "name": "Electrical and Electronics Engineering",
+       "seats": 36
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 40
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 36
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "228",
+   "name": "National Institute of Technology, Warangal",
+   "address": "National Institute of Technology, Warangal, Hanumakonda (Dist.), Telangana - 506004",
+   "district": null,
+   "city": "Warangal",
+   "pin": "506004",
+   "state": "Telangana",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 992,
+     "branches": [
+      {
+       "name": "Bio Technology",
+       "seats": 71
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 97
+      },
+      {
+       "name": "Chemical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 12
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 109
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 134
+      },
+      {
+       "name": "Computer Science and Engineering (Artificial Intelligence & Data Science)",
+       "seats": 56
+      },
+      {
+       "name": "Electrical and Electronics Engineering",
+       "seats": 115
+      },
+      {
+       "name": "Electrical and Electronics Engineering (Electric Mobility)",
+       "seats": 30
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 99
+      },
+      {
+       "name": "Electronics and Communication Engineering (VLSI Design and Technology)",
+       "seats": 40
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 29
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 129
+      },
+      {
+       "name": "Metallurgical and Materials Engineering",
+       "seats": 59
+      },
+      {
+       "name": "Metallurgical and Materials Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 12
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0025"
+   }
+  },
+  {
+   "code": "229",
+   "name": "Sardar Vallabhbhai National Institute of Technology, Surat",
+   "address": "Ichchhanath, Surat-395007, Gujarat",
+   "district": null,
+   "city": "Surat",
+   "pin": "395007",
+   "state": "Gujarat",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 1250,
+     "branches": [
+      {
+       "name": "Artificial Intelligence",
+       "seats": 120
+      },
+      {
+       "name": "Artificial Intelligence (5 Years, Integrated B. Tech. and M. Tech.)",
+       "seats": 60
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 130
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 130
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 130
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 130
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 140
+      },
+      {
+       "name": "Electronics and VLSI Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Engineering Physics",
+       "seats": 30
+      },
+      {
+       "name": "Industrial Chemistry",
+       "seats": 30
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 30
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 260
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0149"
+   }
+  },
+  {
+   "code": "230",
+   "name": "Visvesvaraya National Institute of Technology, Nagpur",
+   "address": "South Ambazari Road, Nagpur, Maharashtra, PIN - 440010",
+   "district": null,
+   "city": "Nagpur",
+   "pin": "440010",
+   "state": "Maharashtra",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 1065,
+     "branches": [
+      {
+       "name": "Chemical Engineering",
+       "seats": 115
+      },
+      {
+       "name": "Chemical Technology (Bioprocess Technology)",
+       "seats": 30
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 115
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 115
+      },
+      {
+       "name": "Computer Science and Engineering (Artificial Intelligence and Data Science)",
+       "seats": 60
+      },
+      {
+       "name": "Electrical and Electronics Engineering",
+       "seats": 115
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 115
+      },
+      {
+       "name": "Electronics Engineering (VLSI Design and Technology)",
+       "seats": 60
+      },
+      {
+       "name": "Engineering Physics",
+       "seats": 30
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 30
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 115
+      },
+      {
+       "name": "Metallurgical and Materials Engineering",
+       "seats": 115
+      },
+      {
+       "name": "Mining Engineering",
+       "seats": 50
+      }
+     ]
+    },
+    {
+     "course": "barch",
+     "seats": 78,
+     "branches": [
+      {
+       "name": "Architecture",
+       "seats": 78
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0334"
+   }
+  },
+  {
+   "code": "231",
+   "name": "National Institute of Technology, Andhra Pradesh",
+   "address": "Near National Highway No. 16, Kadakatla, Tadepalligudem – 534101, West Godavari District, Andhra Pradesh, India.",
+   "district": null,
+   "city": "Tadepalligudem",
+   "pin": "534101",
+   "state": "Andhra Pradesh",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 480,
+     "branches": [
+      {
+       "name": "Bio Technology",
+       "seats": 30
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 30
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 90
+      },
+      {
+       "name": "Electrical and Electronics Engineering",
+       "seats": 90
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 90
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Metallurgical and Materials Engineering",
+       "seats": 30
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "232",
+   "name": "Indian Institute of Engineering Science and Technology, Shibpur",
+   "address": "Indian Institute of Engineering Science and Technology, Shibpur P.O. Botanic Garden, Howrah 711 103, INDIA",
+   "district": null,
+   "city": "Howrah",
+   "pin": "711103",
+   "state": "West Bengal",
+   "management": "NIT",
+   "ownership": "central",
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 826,
+     "branches": [
+      {
+       "name": "Aerospace Engineering",
+       "seats": 51
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 155
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 102
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 102
+      },
+      {
+       "name": "Electronics and Telecommunication Engineering",
+       "seats": 70
+      },
+      {
+       "name": "Information Technology",
+       "seats": 102
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 40
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 102
+      },
+      {
+       "name": "Metallurgy and Materials Engineering",
+       "seats": 51
+      },
+      {
+       "name": "Mining Engineering",
+       "seats": 51
+      }
+     ]
+    },
+    {
+     "course": "barch",
+     "seats": 24,
+     "branches": [
+      {
+       "name": "Architecture",
+       "seats": 24
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0584"
+   }
+  },
+  {
+   "code": "301",
+   "name": "Atal Bihari Vajpayee Indian Institute of Information Technology & Management Gwalior",
+   "address": "Morena Link Road, 474015, Gwalior, Madhya Pradesh",
+   "district": null,
+   "city": "Gwalior",
+   "pin": "474015",
+   "state": "Madhya Pradesh",
+   "management": "IIIT",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 360,
+     "branches": [
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 90
+      },
+      {
+       "name": "Electrical and Electronics Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Integrated B. Tech.(IT) and M. Tech (IT) (5 Years, Integrated B. Tech. and M. Tech.)",
+       "seats": 90
+      },
+      {
+       "name": "Integrated B. Tech.(IT) and MBA (5 Years, Integrated B. Tech. and MBA)",
+       "seats": 60
+      },
+      {
+       "name": "Mathematics and Scientific Computing",
+       "seats": 60
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0267"
+   }
+  },
+  {
+   "code": "302",
+   "name": "Indian Institute of Information Technology (IIIT)Kota, Rajasthan",
+   "address": "IIIT Kota, SPL-269, RIICO Industrial Area, Kuber Extension, Ranpur, Kota – 325003, Rajasthan",
+   "district": null,
+   "city": "Kota",
+   "pin": "325003",
+   "state": "Rajasthan",
+   "management": "IIIT",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 330,
+     "branches": [
+      {
+       "name": "Artificial Intelligence and Data Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 180
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 90
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "303",
+   "name": "Indian Institute of Information Technology Guwahati",
+   "address": "Bongora, Guwahati 781015",
+   "district": null,
+   "city": "Guwahati",
+   "pin": "781015",
+   "state": "Assam",
+   "management": "IIIT",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 334,
+     "branches": [
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 165
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 89
+      },
+      {
+       "name": "Electronics Communication and Artificial Intelligence",
+       "seats": 80
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "304",
+   "name": "Indian Institute of Information Technology(IIIT) Kalyani, West Bengal",
+   "address": "WEBEL IT Park Campus, Near Buddha Park, P.O. Kalyani, Dist. Nadia - 741235, West Bengal",
+   "district": null,
+   "city": "Kalyani",
+   "pin": "741235",
+   "state": "West Bengal",
+   "management": "IIIT",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 237,
+     "branches": [
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 128
+      },
+      {
+       "name": "Computer Science and Engineering (Artificial Intelligence & Data Science)",
+       "seats": 22
+      },
+      {
+       "name": "Computer Science and Engineering (Cyber Security)",
+       "seats": 22
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 65
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "305",
+   "name": "Indian Institute of Information Technology(IIIT) Kilohrad, Sonepat, Haryana",
+   "address": "Indian Institute of Information Technology (IIIT) Sonepat, SBIT Campus, Meerut Road, Pallri, Sonepat-131001",
+   "district": null,
+   "city": "Sonepat",
+   "pin": "131001",
+   "state": "Haryana",
+   "management": "IIIT",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 300,
+     "branches": [
+      {
+       "name": "Computer Science & Engineering (Data Science and Analytics)",
+       "seats": 60
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 120
+      },
+      {
+       "name": "Computer Science and Engineering (Artificial Intelligence)",
+       "seats": 60
+      },
+      {
+       "name": "Information Technology",
+       "seats": 60
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "306",
+   "name": "Indian Institute of Information Technology(IIIT) Una, Himachal Pradesh",
+   "address": "Indian Institute of Information Technology, Una Saloh, Una (HP) - 177209",
+   "district": null,
+   "city": "Una",
+   "pin": "177209",
+   "state": "Himachal Pradesh",
+   "management": "IIIT",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 294,
+     "branches": [
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 156
+      },
+      {
+       "name": "Computer Science and Engineering (Cyber Security)",
+       "seats": 30
+      },
+      {
+       "name": "Computer Science and Engineering (Data Science)",
+       "seats": 30
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 78
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "307",
+   "name": "Indian Institute of Information Technology (IIIT), Sri City, Chittoor",
+   "address": "630 Gnan Marg, Sri City, Tirupati District, PIN-517646, Andhra Pradesh, India.",
+   "district": null,
+   "city": "Sri City",
+   "pin": "517646",
+   "state": "Andhra Pradesh",
+   "management": "IIIT",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 438,
+     "branches": [
+      {
+       "name": "Artificial Intelligence and Data Science",
+       "seats": 66
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 276
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 96
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "308",
+   "name": "Indian Institute of Information Technology(IIIT), Vadodara, Gujrat",
+   "address": "C/O BLOCK NO.9, Government Engineering College, Sector-28, Gandhinagar, GUJARAT, 382 028",
+   "district": null,
+   "city": "Gandhinagar",
+   "pin": "382028",
+   "state": "Gujarat",
+   "management": "IIIT",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 690,
+     "branches": [
+      {
+       "name": "Applied and Computational Physics",
+       "seats": 60
+      },
+      {
+       "name": "Artificial Intelligence",
+       "seats": 60
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 240
+      },
+      {
+       "name": "Computer Science and Engineering (Cyber Security)",
+       "seats": 90
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 120
+      },
+      {
+       "name": "Information Technology",
+       "seats": 60
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 60
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "309",
+   "name": "Indian Institute of Information Technology, Allahabad",
+   "address": "Devghat, Jhalwa, Allahabad, Uttar Pradesh 211015",
+   "district": null,
+   "city": "Prayagraj",
+   "pin": "211015",
+   "state": "Uttar Pradesh",
+   "management": "IIIT",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 461,
+     "branches": [
+      {
+       "name": "B. Tech. Information Technology-Business Informatics (IT- BIn) - Master of Business Administration (MBA) (5 Years, Bachelor of Technology and MBA (Dual Degree))",
+       "seats": 22
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 121
+      },
+      {
+       "name": "Electronics and Communication Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 11
+      },
+      {
+       "name": "Information Technology",
+       "seats": 242
+      },
+      {
+       "name": "Information Technology (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 25
+      },
+      {
+       "name": "Information Technology-Business Informatics",
+       "seats": 40
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "310",
+   "name": "Indian Institute of Information Technology, Design & Manufacturing, Kancheepuram",
+   "address": "IIITDM Kancheepuram Vandalur-Kelambakkam Road, Chennai: 600127.",
+   "district": null,
+   "city": "Chennai",
+   "pin": "600127",
+   "state": "Tamil Nadu",
+   "management": "IIIT",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 602,
+     "branches": [
+      {
+       "name": "B.Tech in Mechanical Engineering and M.Tech in AI and Robotics (5 Years, B.Tech. + M.Tech./MS (Dual Degree))",
+       "seats": 45
+      },
+      {
+       "name": "B.Tech. in Electronics and Communication Engineering and M.Tech. in Communication Systems (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 20
+      },
+      {
+       "name": "B.Tech. in Electronics and Communication Engineering and M.Tech. in Microelectronics and VLSI Systems (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 21
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 84
+      },
+      {
+       "name": "Computer Science and Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 69
+      },
+      {
+       "name": "Computer Science and Engineering with Major in Artificial Intelligence",
+       "seats": 46
+      },
+      {
+       "name": "Design Engineering",
+       "seats": 24
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 126
+      },
+      {
+       "name": "Engineering Physics",
+       "seats": 18
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 88
+      },
+      {
+       "name": "Smart Manufacturing",
+       "seats": 61
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "311",
+   "name": "Pt. Dwarka Prasad Mishra Indian Institute of Information Technology, Design & Manufacture Jabalpur",
+   "address": "Dumna Airport Road, P.O.: Khamaria, Jabalpur - 482 005, Madhya Pradesh, India",
+   "district": null,
+   "city": "Jabalpur",
+   "pin": "482005",
+   "state": "Madhya Pradesh",
+   "management": "IIIT",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 550,
+     "branches": [
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 275
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 137
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 69
+      },
+      {
+       "name": "Smart Manufacturing",
+       "seats": 69
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "313",
+   "name": "INDIAN INSTITUTE OF INFORMATION TECHNOLOGY SENAPATI MANIPUR",
+   "address": "Indian Institute of Information Technology Senapati Manipur, Mantripukhri, Imphal 795002, Manipur",
+   "district": null,
+   "city": "Imphal",
+   "pin": "795002",
+   "state": "Manipur",
+   "management": "IIIT",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 550,
+     "branches": [
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 110
+      },
+      {
+       "name": "Computer Science and Engineering with specialization in Artificial Intelligence and Data Science",
+       "seats": 110
+      },
+      {
+       "name": "Computer Science and Engineering with specialization in Cyber Security",
+       "seats": 55
+      },
+      {
+       "name": "Computer Science and Engineering with specialization in Quantum Technologies",
+       "seats": 55
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 110
+      },
+      {
+       "name": "Electronics and Communication Engineering with specialization in VLSI and Embedded Systems",
+       "seats": 110
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "314",
+   "name": "Indian Institute of Information Technology Tiruchirappalli",
+   "address": "IIIT Tiruchirappalli, Sethurapatti, Tiruchirappalli, Tamil Nadu. Pincode : 620012.",
+   "district": null,
+   "city": "Tiruchirappalli",
+   "pin": "620012",
+   "state": "Tamil Nadu",
+   "management": "IIIT",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 300,
+     "branches": [
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 75
+      },
+      {
+       "name": "Computer Science and Engineering (Artificial Intelligence & Data Science)",
+       "seats": 75
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 75
+      },
+      {
+       "name": "Electronics and Communication Engineering (VLSI Design)",
+       "seats": 75
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "315",
+   "name": "Indian Institute of Information Technology Lucknow",
+   "address": "Indian Institute of Information Technology, Lucknow Chak Ganjaria, Mastemau, Lucknow - 226002",
+   "district": null,
+   "city": "Lucknow",
+   "pin": "226002",
+   "state": "Uttar Pradesh",
+   "management": "IIIT",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 240,
+     "branches": [
+      {
+       "name": "Computer Science",
+       "seats": 60
+      },
+      {
+       "name": "Computer Science and Artificial Intelligence",
+       "seats": 60
+      },
+      {
+       "name": "Computer Science and Business",
+       "seats": 60
+      },
+      {
+       "name": "Information Technology",
+       "seats": 60
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "316",
+   "name": "Indian Institute of Information Technology(IIIT) Dharwad",
+   "address": "IIIT Dharwad Campus, Ittigatti Road, Near Sattur Colony, Dharwad 580009.",
+   "district": null,
+   "city": "Dharwad",
+   "pin": "580009",
+   "state": "Karnataka",
+   "management": "IIIT",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 606,
+     "branches": [
+      {
+       "name": "Artificial Intelligence and Computing",
+       "seats": 102
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 240
+      },
+      {
+       "name": "Data Science and Artificial Intelligence",
+       "seats": 144
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 120
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "317",
+   "name": "Indian Institute of Information Technology Design & Manufacturing Kurnool, Andhra Pradesh",
+   "address": "Indian Institute of Information Technology Design and Manufacturing Kurnool, Dinnedevarapadu,Jaganathagattu Kurnool, Andhra Pradesh – 518008",
+   "district": null,
+   "city": "Kurnool",
+   "pin": "518008",
+   "state": "Andhra Pradesh",
+   "management": "IIIT",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 354,
+     "branches": [
+      {
+       "name": "Artificial Intelligence and Data Science",
+       "seats": 76
+      },
+      {
+       "name": "Artificial Intelligence and Data Science (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 10
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 79
+      },
+      {
+       "name": "Computer Science and Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 10
+      },
+      {
+       "name": "Electronics and Communication Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 12
+      },
+      {
+       "name": "Electronics and Communication Engineering with specialization in Design and Manufacturing",
+       "seats": 73
+      },
+      {
+       "name": "Mechanical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 12
+      },
+      {
+       "name": "Mechanical Engineering with specialization in Design and Manufacturing",
+       "seats": 82
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "318",
+   "name": "Indian Institute of Information Technology(IIIT) Kottayam",
+   "address": "Indian Institute of Information Technology Kottayam, Valavoor.P.O, Pala, Kottayam-686635, Kerala,India.",
+   "district": null,
+   "city": "Kottayam",
+   "pin": "686635",
+   "state": "Kerala",
+   "management": "IIIT",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 576,
+     "branches": [
+      {
+       "name": "B.Tech in Mathematics and Computing",
+       "seats": 59
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 340
+      },
+      {
+       "name": "Computer Science and Engineering with specialization in Artificial Intelligence and Data Science",
+       "seats": 59
+      },
+      {
+       "name": "Computer Science and Engineering with specialization in Cyber Security",
+       "seats": 59
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 59
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "319",
+   "name": "Indian Institute of Information Technology (IIIT) Ranchi",
+   "address": "A-403, Admin Office, IIIT Ranchi, ARTTC BSNL Campus, Getlatu, Near Jumar River Bridge, P.O.: Neori Vikas Vidyalaya SO, Hazaribagh Road, Ranchi,Pin: 835217 (Jharkhand)",
+   "district": null,
+   "city": "Ranchi",
+   "pin": "835217",
+   "state": "Jharkhand",
+   "management": "IIIT",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 320,
+     "branches": [
+      {
+       "name": "B.Tech in Mathematics and Computing",
+       "seats": 50
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 120
+      },
+      {
+       "name": "Computer Science and Engineering (with Specialization of Data Science and Artificial Intelligence) (4 Years, B. Tech / B. Tech (Hons.))",
+       "seats": 30
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 90
+      },
+      {
+       "name": "Electronics and Communication Engineering (with Specialization of Embedded Systems and Internet of Things) (4 Years, B. Tech / B. Tech (Hons.))",
+       "seats": 30
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "320",
+   "name": "Indian Institute of Information Technology (IIIT) Nagpur",
+   "address": "Survey.No. 140,141/1 Behind Br. Sheshrao Wankhade Shetkari Sahkari Soot Girni, Village - Waranga, PO - Dongargaon (Butibori), District - Nagpur (Maharashtra) – 441108",
+   "district": null,
+   "city": "Nagpur",
+   "pin": "441108",
+   "state": "Maharashtra",
+   "management": "IIIT",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 648,
+     "branches": [
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 216
+      },
+      {
+       "name": "Computer Science Engineering (Artificial lntelligence and Machine Learning)",
+       "seats": 72
+      },
+      {
+       "name": "Computer Science Engineering (Data Science and Analytics)",
+       "seats": 72
+      },
+      {
+       "name": "Computer Science Engineering (Human Computer lnteraction and Gaming Technology)",
+       "seats": 72
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 144
+      },
+      {
+       "name": "Electronics and Communication Engineering (Internet of Things)",
+       "seats": 72
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "321",
+   "name": "Indian Institute of Information Technology (IIIT) Pune",
+   "address": "Gat No - 5 & 6, Vill - Nanoli-Tarf Chakan, PO - Talegaon, Tah, Dist, Maval, Maharashtra 410507",
+   "district": null,
+   "city": "Pune",
+   "pin": "410507",
+   "state": "Maharashtra",
+   "management": "IIIT",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 674,
+     "branches": [
+      {
+       "name": "Artificial Intelligence and Data Science",
+       "seats": 99
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 326
+      },
+      {
+       "name": "Cyber Security",
+       "seats": 65
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 119
+      },
+      {
+       "name": "Microelectronics and VLSI Design",
+       "seats": 65
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "322",
+   "name": "Indian Institute of Information Technology Bhagalpur",
+   "address": "Indian Institute of Information Technology Bhagalpur (IIIT Bhagalpur), Sabour, Bhagalpur, Bihar 813210",
+   "district": null,
+   "city": "Bhagalpur",
+   "pin": "813210",
+   "state": "Bihar",
+   "management": "IIIT",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 474,
+     "branches": [
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 165
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 132
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 83
+      },
+      {
+       "name": "Mechatronics and Automation Engineering",
+       "seats": 94
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "323",
+   "name": "Indian Institute of Information Technology Bhopal",
+   "address": "Indian Institute of Information Technology Bhopal C/O Maulana Azad National Institute of Technology (MANIT) Bhopal Link Road Number 3, Near Kali Mata Mandir, Bhopal, Madhya Pradesh 462003",
+   "district": null,
+   "city": "Bhopal",
+   "pin": "462003",
+   "state": "Madhya Pradesh",
+   "management": "IIIT",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 1188,
+     "branches": [
+      {
+       "name": "B.Tech in Mathematics and Computing",
+       "seats": 90
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 288
+      },
+      {
+       "name": "Computer Science and Engineering (Artificial Intelligence)",
+       "seats": 90
+      },
+      {
+       "name": "Computer Science and Engineering (Cyber Physical System)",
+       "seats": 90
+      },
+      {
+       "name": "Computer Science and Engineering (Cyber Security)",
+       "seats": 90
+      },
+      {
+       "name": "Computer Science and Engineering (Data Science)",
+       "seats": 90
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 180
+      },
+      {
+       "name": "Information Technology",
+       "seats": 180
+      },
+      {
+       "name": "Physics and Computational Engineering",
+       "seats": 90
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "324",
+   "name": "Indian Institute of Information Technology Surat",
+   "address": "Kholvad Campus Kamrej Surat - 394190 Gujarat",
+   "district": null,
+   "city": "Surat",
+   "pin": "394190",
+   "state": "Gujarat",
+   "management": "IIIT",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 384,
+     "branches": [
+      {
+       "name": "B.Tech in Mathematics and Computing",
+       "seats": 36
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 150
+      },
+      {
+       "name": "Computer Science and Engineering (Artificial Intelligence and Machine Learning)",
+       "seats": 54
+      },
+      {
+       "name": "Computer Science and Engineering (Cyber Security)",
+       "seats": 54
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 90
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "325",
+   "name": "Indian Institute of Information Technology, Agartala",
+   "address": "IIIT AGARTALA, MENTORED BY NIT AGARTALA, BARJALA, JIRANIA, AGARTALA-799046",
+   "district": null,
+   "city": "Agartala",
+   "pin": "799046",
+   "state": "Tripura",
+   "management": "IIIT",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 100,
+     "branches": [
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 100
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "326",
+   "name": "Indian institute of information technology, Raichur, Karnataka",
+   "address": "Indian Institute of Information Technology Raichur, Government Engineering College Yermarus Campus, Raichur 584135.",
+   "district": null,
+   "city": "Raichur",
+   "pin": "584135",
+   "state": "Karnataka",
+   "management": "IIIT",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 220,
+     "branches": [
+      {
+       "name": "Artificial Intelligence and Data Science",
+       "seats": 80
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 80
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 60
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "327",
+   "name": "Indian Institute of Information Technology, Vadodara International Campus Diu (IIITVICD)",
+   "address": "IIIT Vadodara - International Campus Diu (IIITV-ICD), Education Hub, Kevdi - Diu (U.T) -362520",
+   "district": null,
+   "city": "Diu",
+   "pin": "362520",
+   "state": "Dadra and Nagar Haveli and Daman and Diu",
+   "management": "IIIT",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 288,
+     "branches": [
+      {
+       "name": "Artificial Intelligence",
+       "seats": 60
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 108
+      },
+      {
+       "name": "Computer Science and Engineering (Cyber Security)",
+       "seats": 60
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 60
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "401",
+   "name": "Assam University, Silchar",
+   "address": "Assam University, Silchar Dist - Cachar Assam, India Pin - 788 011",
+   "district": null,
+   "city": "Silchar",
+   "pin": "788011",
+   "state": "Assam",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 165,
+     "branches": [
+      {
+       "name": "Agricultural Engineering",
+       "seats": 45
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 60
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0050"
+   }
+  },
+  {
+   "code": "402",
+   "name": "Birla Institute of Technology, Mesra, Ranchi",
+   "address": "Birla Institute of Technology Mesra, Ranchi - 835215 (Jharkhand)",
+   "district": null,
+   "city": "Ranchi",
+   "pin": "835215",
+   "state": "Jharkhand",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 1304,
+     "branches": [
+      {
+       "name": "Bio Technology",
+       "seats": 40
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 162
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 82
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 247
+      },
+      {
+       "name": "Computer Science and Engineering (Artificial Intelligence and Machine Learning)",
+       "seats": 81
+      },
+      {
+       "name": "Electrical and Electronics Engineering",
+       "seats": 162
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 247
+      },
+      {
+       "name": "Food Engineering and Technology",
+       "seats": 40
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 162
+      },
+      {
+       "name": "Production and Industrial Engineering",
+       "seats": 81
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-15782701"
+   }
+  },
+  {
+   "code": "403",
+   "name": "Gurukula Kangri Vishwavidyalaya, Haridwar",
+   "address": "Registrar,Gurukula Kangri Vishwavidayalaya, P.O Gurukula Kangri,Haridwar-249404",
+   "district": null,
+   "city": "Haridwar",
+   "pin": "249404",
+   "state": "Uttarakhand",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 612,
+     "branches": [
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 230
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 115
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 115
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 115
+      },
+      {
+       "name": "ROBOTICS & AUTOMATION",
+       "seats": 37
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-23741731"
+   }
+  },
+  {
+   "code": "404",
+   "name": "Indian Institute of Carpet Technology, Bhadohi",
+   "address": "Chauri Road, Bhadohi - 221401 (UP)(Under the aegis of Development Commissioner (Handicrafts), Ministry of Textiles, Govt. of India)",
+   "district": null,
+   "city": "Bhadohi",
+   "pin": "221401",
+   "state": "Uttar Pradesh",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 36,
+     "branches": [
+      {
+       "name": "Carpet and Textile Technology",
+       "seats": 36
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-462578871"
+   }
+  },
+  {
+   "code": "405",
+   "name": "Institute of Infrastructure, Technology, Research and Management-Ahmedabad",
+   "address": "Institute of Infrastructure Technology Research and Management (IITRAM), Near Khokhara Circle, Maninagar (East), Ahmedabad,380026, Gujarat",
+   "district": null,
+   "city": "Ahmedabad",
+   "pin": "380026",
+   "state": "Gujarat",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 192,
+     "branches": [
+      {
+       "name": "Civil Engineering",
+       "seats": 54
+      },
+      {
+       "name": "Computer Engineering",
+       "seats": 42
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 48
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 48
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "406",
+   "name": "School of Studies of Engineering and Technology, Guru Ghasidas Vishwavidyalaya, Bilaspur",
+   "address": "School of Studies of Engineering and Technology, Guru Ghasidas Vishwavidyalaya(A Central University), Bilaspur(Chhattisgarh)-495009.",
+   "district": null,
+   "city": "Bilaspur",
+   "pin": "495009",
+   "state": "Chhattisgarh",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 690,
+     "branches": [
+      {
+       "name": "Animation and VFX",
+       "seats": 60
+      },
+      {
+       "name": "Artificial Intelligence and Data Science",
+       "seats": 60
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 90
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 90
+      },
+      {
+       "name": "Industrial and Production Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Information Technology",
+       "seats": 90
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 60
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-20043220"
+   }
+  },
+  {
+   "code": "407",
+   "name": "J.K. Institute of Applied Physics & Technology, Department of Electronics & Communication, University of Allahabad- Allahabad",
+   "address": "Department of Electronics & Communication, J.K. Institute of Applied Physics & Technology, Science Faculty, University of Allahabad, Allahabad (Prayagraj)- 211002, Uttar Pradesh, India",
+   "district": null,
+   "city": "Prayagraj",
+   "pin": "211002",
+   "state": "Uttar Pradesh",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 86,
+     "branches": [
+      {
+       "name": "Computer Science and Engineering with Major in Artificial Intelligence",
+       "seats": 30
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 56
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "408",
+   "name": "National Institute of Electronics and Information Technology, Aurangabad (Maharashtra)",
+   "address": "Dr. B.A.M. University Campus, Aurangabad - Maharashtra",
+   "district": null,
+   "city": "Aurangabad",
+   "pin": null,
+   "state": "Maharashtra",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 120,
+     "branches": [
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Electronic Engineering",
+       "seats": 60
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-421286153"
+   }
+  },
+  {
+   "code": "409",
+   "name": "National Institute of Advanced Manufacturing Technology, Ranchi",
+   "address": "National Institute of Advanced Manufacturing Technology (Formerly, NIFFT) Hatia, Ranchi - 834003, Jharkhand, INDIA.",
+   "district": null,
+   "city": "Ranchi",
+   "pin": "834003",
+   "state": "Jharkhand",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 293,
+     "branches": [
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 80
+      },
+      {
+       "name": "Metallurgical and Materials Engineering",
+       "seats": 83
+      },
+      {
+       "name": "Production and Industrial Engineering",
+       "seats": 70
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-3359504004"
+   }
+  },
+  {
+   "code": "410",
+   "name": "Sant Longowal Institute of Engineering and Technology",
+   "address": "Longowal – 148106, Distt. Sangrur (Pb.), India",
+   "district": null,
+   "city": "Longowal",
+   "pin": "148106",
+   "state": "Punjab",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 625,
+     "branches": [
+      {
+       "name": "Artificial Intelligence and Data Science",
+       "seats": 38
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 47
+      },
+      {
+       "name": "Chemical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 30
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 38
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 95
+      },
+      {
+       "name": "Computer Science and Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 30
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 47
+      },
+      {
+       "name": "Electrical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 30
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 47
+      },
+      {
+       "name": "Food Technology",
+       "seats": 47
+      },
+      {
+       "name": "Instrumentation and Control Engineering",
+       "seats": 47
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 99
+      },
+      {
+       "name": "Mechanical Engineering (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 30
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-515991181"
+   }
+  },
+  {
+   "code": "411",
+   "name": "Mizoram University, Aizawl",
+   "address": "Mizoram University, Tanhril, Aizawl, Mizoram, P.O Box No. 190 Pin -796004",
+   "district": null,
+   "city": "Aizawl",
+   "pin": "796004",
+   "state": "Mizoram",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 85,
+     "branches": [
+      {
+       "name": "Civil Engineering",
+       "seats": 17
+      },
+      {
+       "name": "Computer Engineering",
+       "seats": 17
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 17
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 17
+      },
+      {
+       "name": "Information Technology",
+       "seats": 17
+      }
+     ]
+    },
+    {
+     "course": "barch",
+     "seats": 11,
+     "branches": [
+      {
+       "name": "Architecture",
+       "seats": 11
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0345"
+   }
+  },
+  {
+   "code": "412",
+   "name": "School of Engineering, Tezpur University, Napaam, Tezpur",
+   "address": "School of Engineering Tezpur University Napaam, Tezpur 784028, Assam",
+   "district": null,
+   "city": "Tezpur",
+   "pin": "784028",
+   "state": "Assam",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 163,
+     "branches": [
+      {
+       "name": "B.Tech. (Civil Engineering) - MBA (5 Years, Bachelor of Technology and MBA (Dual Degree))",
+       "seats": 5
+      },
+      {
+       "name": "B.Tech. (Computer Science and Engineering) - MBA (5 Years, Bachelor of Technology and MBA (Dual Degree))",
+       "seats": 5
+      },
+      {
+       "name": "B.Tech. (Elctrical Engineering) - MBA (5 Years, Bachelor of Technology and MBA (Dual Degree))",
+       "seats": 5
+      },
+      {
+       "name": "B.Tech. (Electronics and Communication Engineering) - MBA (5 Years, Bachelor of Technology and MBA (Dual Degree))",
+       "seats": 5
+      },
+      {
+       "name": "B.Tech. (Food Engineering and Technology) - MBA (5 Years, Bachelor of Technology and MBA (Dual Degree))",
+       "seats": 5
+      },
+      {
+       "name": "B.Tech. (Mechanical Engineering) - MBA (5 Years, Bachelor of Technology and MBA (Dual Degree))",
+       "seats": 5
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 25
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 25
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 13
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 25
+      },
+      {
+       "name": "Food Engineering and Technology",
+       "seats": 20
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 25
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-786387751"
+   }
+  },
+  {
+   "code": "413",
+   "name": "School of Planning & Architecture, Bhopal",
+   "address": "Neelbad Road,Bhopal Indore Bypass Road Bhauri, Bhopal - 462030",
+   "district": null,
+   "city": "Bhopal",
+   "pin": "462030",
+   "state": "Madhya Pradesh",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "barch",
+     "seats": 94,
+     "branches": [
+      {
+       "name": "Architecture",
+       "seats": 94
+      }
+     ]
+    },
+    {
+     "course": "bplan",
+     "seats": 38,
+     "branches": [
+      {
+       "name": "Planning",
+       "seats": 38
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0626"
+   }
+  },
+  {
+   "code": "414",
+   "name": "School of Planning & Architecture, New Delhi",
+   "address": "4, Block-B, I P Estate New Delhi-110002",
+   "district": null,
+   "city": "New Delhi",
+   "pin": "110002",
+   "state": "Delhi",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "barch",
+     "seats": 132,
+     "branches": [
+      {
+       "name": "Architecture",
+       "seats": 132
+      }
+     ]
+    },
+    {
+     "course": "bplan",
+     "seats": 43,
+     "branches": [
+      {
+       "name": "Planning",
+       "seats": 43
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0116"
+   }
+  },
+  {
+   "code": "415",
+   "name": "School of Planning & Architecture: Vijayawada",
+   "address": "School of Planning and Architecture Vijayawada, Survey No.4/4, ITI Road, Vijayawada- 520008, Andhra Pradesh.",
+   "district": null,
+   "city": "Vijayawada",
+   "pin": "520008",
+   "state": "Andhra Pradesh",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "barch",
+     "seats": 94,
+     "branches": [
+      {
+       "name": "Architecture",
+       "seats": 94
+      }
+     ]
+    },
+    {
+     "course": "bplan",
+     "seats": 38,
+     "branches": [
+      {
+       "name": "Planning",
+       "seats": 38
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0627"
+   }
+  },
+  {
+   "code": "416",
+   "name": "Shri Mata Vaishno Devi University, Katra, Jammu & Kashmir",
+   "address": "Shri Mata Vaishno Devi University Kakryal, Katra 182 320 (J&K), INDIA",
+   "district": null,
+   "city": "Katra",
+   "pin": "182320",
+   "state": "Jammu and Kashmir",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 360,
+     "branches": [
+      {
+       "name": "B.Tech in Mathematics and Computing",
+       "seats": 30
+      },
+      {
+       "name": "Bio Technology",
+       "seats": 10
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 30
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 90
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 40
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 90
+      },
+      {
+       "name": "Food Technology",
+       "seats": 20
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 20
+      },
+      {
+       "name": "Robotics and AI",
+       "seats": 30
+      }
+     ]
+    },
+    {
+     "course": "barch",
+     "seats": 10,
+     "branches": [
+      {
+       "name": "Architecture",
+       "seats": 10
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-40782250"
+   }
+  },
+  {
+   "code": "420",
+   "name": "International Institute of Information Technology, Naya Raipur",
+   "address": "IIIT Naya Raipur, Plot No. 7, Sector 24, Atal Nagar, Raipur – 493 661, Chhattisgarh",
+   "district": null,
+   "city": "Naya Raipur",
+   "pin": "493661",
+   "state": "Chhattisgarh",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 119,
+     "branches": [
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 40
+      },
+      {
+       "name": "Data Science and Artificial Intelligence",
+       "seats": 39
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 40
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-7487752281"
+   }
+  },
+  {
+   "code": "421",
+   "name": "University of Hyderabad",
+   "address": "University of Hyderabad Central University P.O, Prof C R Rao Road, Gachibowli, Hyderabad-500046",
+   "district": null,
+   "city": "Hyderabad",
+   "pin": "500046",
+   "state": "Telangana",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 120,
+     "branches": [
+      {
+       "name": "Computer Science and Engineering (5 Years, Integrated Master of Technology)",
+       "seats": 60
+      },
+      {
+       "name": "Materials Engineering (5 Years, Integrated Master of Technology)",
+       "seats": 60
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-1313769821"
+   }
+  },
+  {
+   "code": "422",
+   "name": "Punjab Engineering College, Chandigarh",
+   "address": "Punjab Engineering College (Deemed to be University), Sector 12 Chandigarh 160012",
+   "district": null,
+   "city": "Chandigarh",
+   "pin": "160012",
+   "state": "Chandigarh",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 926,
+     "branches": [
+      {
+       "name": "Aerospace Engineering",
+       "seats": 32
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 126
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 126
+      },
+      {
+       "name": "Computer Science Engineering (Artificial Intelligence) (4 Years, B. Tech / B. Tech (Hons.))",
+       "seats": 32
+      },
+      {
+       "name": "Computer Science Engineering (Data Science) (4 Years, B. Tech / B. Tech (Hons.))",
+       "seats": 61
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 126
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 126
+      },
+      {
+       "name": "Electronics Engineering (VLSI Design and Technology)",
+       "seats": 32
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 32
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 127
+      },
+      {
+       "name": "Metallurgical and Materials Engineering",
+       "seats": 64
+      },
+      {
+       "name": "Production and Industrial Engineering",
+       "seats": 42
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-2519066781"
+   }
+  },
+  {
+   "code": "423",
+   "name": "Jawaharlal Nehru University, Delhi",
+   "address": "School of Engineering, Jawaharlal Nehru University, New Mehrauli Road, New Delhi-110067",
+   "district": null,
+   "city": "New Delhi",
+   "pin": "110067",
+   "state": "Delhi",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 126,
+     "branches": [
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 63
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 63
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-9440312900"
+   }
+  },
+  {
+   "code": "424",
+   "name": "International Institute of Information Technology, Bhubaneswar",
+   "address": "IIIT BHUBANESWAR, GOTHAPATNA, PO: MALIPADA BHUBANESWAR - 751 003. INDIA",
+   "district": null,
+   "city": "Bhubaneswar",
+   "pin": "751003",
+   "state": "Odisha",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 223,
+     "branches": [
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 112
+      },
+      {
+       "name": "Electrical and Electronics Engineering",
+       "seats": 37
+      },
+      {
+       "name": "Electronics and Telecommunication Engineering",
+       "seats": 37
+      },
+      {
+       "name": "Information Technology",
+       "seats": 37
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-31041611"
+   }
+  },
+  {
+   "code": "425",
+   "name": "Central institute of Technology Kokrajar, Assam",
+   "address": "Central Institute of Technology, P.O. & Dist. Kokrajhar BTAD, Assam - 783370",
+   "district": null,
+   "city": "Kokrajhar",
+   "pin": "783370",
+   "state": "Assam",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 24,
+     "branches": [
+      {
+       "name": "Civil Engineering",
+       "seats": 5
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 7
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 4
+      },
+      {
+       "name": "Food Engineering and Technology",
+       "seats": 5
+      },
+      {
+       "name": "Instrumentation Engineering",
+       "seats": 3
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-4629663461"
+   }
+  },
+  {
+   "code": "426",
+   "name": "Puducherry Technological University, Puducherry",
+   "address": "Pillaichavady, East Coast Road, Puducherry-605014",
+   "district": null,
+   "city": "Puducherry",
+   "pin": "605014",
+   "state": "Puducherry",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 281,
+     "branches": [
+      {
+       "name": "Artificial Intelligence and Data Science",
+       "seats": 30
+      },
+      {
+       "name": "Chemical Engineering",
+       "seats": 8
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 39
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 69
+      },
+      {
+       "name": "Electrical and Electronics Engineering",
+       "seats": 9
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 69
+      },
+      {
+       "name": "Electronics and Instrumentation Engineering",
+       "seats": 9
+      },
+      {
+       "name": "Information Technology",
+       "seats": 9
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 9
+      },
+      {
+       "name": "Mechatronics Engineering",
+       "seats": 30
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-7842176"
+   }
+  },
+  {
+   "code": "427",
+   "name": "Ghani Khan Choudhary Institute of Engineering and Technology, Malda, West Bengal",
+   "address": "Narayanpur, Malda. PIN -732141 West Bengal, INDIA",
+   "district": null,
+   "city": "Malda",
+   "pin": "732141",
+   "state": "West Bengal",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 201,
+     "branches": [
+      {
+       "name": "Civil and Environmental Engineering",
+       "seats": 44
+      },
+      {
+       "name": "Computer Science Engineering (Artificial lntelligence and Machine Learning)",
+       "seats": 41
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 39
+      },
+      {
+       "name": "Food Technology",
+       "seats": 37
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 40
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-808250151"
+   }
+  },
+  {
+   "code": "428",
+   "name": "Central University of Rajasthan, Rajasthan",
+   "address": "N.H.8, Bandarsindari, Kishangarh, Dist. Ajmer 305817",
+   "district": null,
+   "city": "Kishangarh",
+   "pin": "305817",
+   "state": "Rajasthan",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 90,
+     "branches": [
+      {
+       "name": "Bio Medical Engineering",
+       "seats": 30
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 30
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 30
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-419599491"
+   }
+  },
+  {
+   "code": "430",
+   "name": "National Institute of Food Technology Entrepreneurship and Management, Kundli",
+   "address": "National Institute of Food Technology Entrepreneurship and Management (NIFTEM),Kundli Plot No. 97, Sector 56, HSIIDC, Industrial Estate, Kundli-131028 Sonipat, Haryana",
+   "district": null,
+   "city": "Kundli",
+   "pin": "131028",
+   "state": "Haryana",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 90,
+     "branches": [
+      {
+       "name": "Food Technology and Management",
+       "seats": 90
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "S-8898"
+   }
+  },
+  {
+   "code": "431",
+   "name": "National Institute of Food Technology Entrepreneurship and Management, Thanjavur",
+   "address": "National Institute of Food Technology, Entrepreneurship and Management - Thanjavur (NIFTEM-T) Ministry of Food Processing Industries, Government of India, Thanjavur - 613 005, Tamil Nadu",
+   "district": null,
+   "city": "Thanjavur",
+   "pin": "613005",
+   "state": "Tamil Nadu",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 90,
+     "branches": [
+      {
+       "name": "Food Technology",
+       "seats": 90
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-2197135511"
+   }
+  },
+  {
+   "code": "432",
+   "name": "North Eastern Regional Institute of Science and Technology, Nirjuli-791109 (Itanagar),Arunachal Pradesh",
+   "address": "NORTH EASTERN REGIONAL INSTITUTE OF SCIENCE AND TECHNOLOGY (NERIST), ITANAGAR P.O-NIRJULI DISTRICT: PAPRUM PARE ARUNACHAL PRADESH-791109",
+   "district": null,
+   "city": "Nirjuli",
+   "pin": "791109",
+   "state": "Arunachal Pradesh",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 16,
+     "branches": [
+      {
+       "name": "Agricultural Engineering",
+       "seats": 2
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 2
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 6
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 2
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 2
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 2
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-514072491"
+   }
+  },
+  {
+   "code": "433",
+   "name": "Indian Institute of Handloom Technology(IIHT), Varanasi",
+   "address": "INDIAN INSTITUTE OF HANDLOOM TECHNOLOGY (IIHT), CHOWKAGHAT, VARANASI - (U.P.) PIN- 221 002",
+   "district": null,
+   "city": "Varanasi",
+   "pin": "221002",
+   "state": "Uttar Pradesh",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 33,
+     "branches": [
+      {
+       "name": "Handloom and Textile Technology",
+       "seats": 33
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-581901631"
+   }
+  },
+  {
+   "code": "434",
+   "name": "Chhattisgarh Swami Vivekanada Technical University, Bhilai (CSVTU Bhilai)",
+   "address": "Newai, Bhilai, Distt-Durg Chhattisgarh 491107",
+   "district": null,
+   "city": "Bhilai",
+   "pin": "491107",
+   "state": "Chhattisgarh",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 150,
+     "branches": [
+      {
+       "name": "Civil Engineering",
+       "seats": 30
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 30
+      },
+      {
+       "name": "Computer Science Engineering (Artificial Intelligence) (4 Years, B. Tech / B. Tech (Hons.))",
+       "seats": 45
+      },
+      {
+       "name": "Computer Science Engineering (Data Science) (4 Years, B. Tech / B. Tech (Hons.))",
+       "seats": 45
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-43364768257"
+   }
+  },
+  {
+   "code": "435",
+   "name": "Institute of Chemical Technology, Mumbai: Indian Oil Odisha Campus, Bhubaneswar",
+   "address": "Institute of Chemical Technology Mumbai, IndianOil Odisha Campus (IOC), IIT Kharagpur Extension Centre, Samantapuri Mouza, Gajapati Nagar, Bhubaneswar, Odisha, 751013.",
+   "district": null,
+   "city": "Bhubaneswar",
+   "pin": "751013",
+   "state": "Odisha",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 66,
+     "branches": [
+      {
+       "name": "Chemical Engineering (5 Years, Integrated Masters in Technology)",
+       "seats": 66
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-3751674141"
+   }
+  },
+  {
+   "code": "436",
+   "name": "North-Eastern Hill University, Shillong",
+   "address": "North-Eastern Hill University Umshing-Mawkynroh, Shillong 793022 Meghalaya",
+   "district": null,
+   "city": "Shillong",
+   "pin": "793022",
+   "state": "Meghalaya",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 80,
+     "branches": [
+      {
+       "name": "Biomedical Engineering",
+       "seats": 20
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 20
+      },
+      {
+       "name": "Energy Engineering",
+       "seats": 20
+      },
+      {
+       "name": "Information Technology",
+       "seats": 20
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-3358485801"
+   }
+  },
+  {
+   "code": "437",
+   "name": "Central University of Jammu",
+   "address": "P.O. Rahya Suchani (Bagla), District Samba, Jammu and Kashmir-181143, India",
+   "district": null,
+   "city": null,
+   "pin": "181143",
+   "state": "Jammu and Kashmir",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 300,
+     "branches": [
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Computer Science and Engineering with specialization in Cyber Security",
+       "seats": 60
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Electronics and Communication Engineering (Avionics)",
+       "seats": 60
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 60
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "438",
+   "name": "Institute of Engineering and Technology, Dr. H. S. Gour University. Sagar (A Central University)",
+   "address": "University Road, Sagar, Madhya Pradesh, 470003",
+   "district": null,
+   "city": "Sagar",
+   "pin": "470003",
+   "state": "Madhya Pradesh",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 360,
+     "branches": [
+      {
+       "name": "Aeronautical Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Dairy Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Fashion and Apparel Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Food Engineering and Technology",
+       "seats": 60
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-11337053201"
+   }
+  },
+  {
+   "code": "439",
+   "name": "Central University of Haryana",
+   "address": "Central University of Haryana, Jant-Pali, Mahendergarh, Haryana, Pin - 123031",
+   "district": null,
+   "city": "Mahendergarh",
+   "pin": "123031",
+   "state": "Haryana",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 210,
+     "branches": [
+      {
+       "name": "Civil Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Printing and Packaging Technology",
+       "seats": 30
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-7468045221"
+   }
+  },
+  {
+   "code": "440",
+   "name": "Birla Institute of Technology, Deoghar Off-Campus",
+   "address": "BIT Mesra, Deoghar Campus, P O Jasidih, Dist. Deoghar 814142, Jharkhand",
+   "district": null,
+   "city": "Deoghar",
+   "pin": "814142",
+   "state": "Jharkhand",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 304,
+     "branches": [
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 113
+      },
+      {
+       "name": "Computer Science and Engineering (Artificial Intelligence and Machine Learning)",
+       "seats": 38
+      },
+      {
+       "name": "Electrical and Electronics Engineering",
+       "seats": 38
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 77
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 38
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-2184583431"
+   }
+  },
+  {
+   "code": "441",
+   "name": "Birla Institute of Technology, Patna Off-Campus",
+   "address": "Birla Institute of Technology, Patna Off-Campus Post: B.V.College, Near: JPNI Airport Patna-800014 Bihar, India",
+   "district": null,
+   "city": "Patna",
+   "pin": "800014",
+   "state": "Bihar",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 426,
+     "branches": [
+      {
+       "name": "Civil Engineering",
+       "seats": 71
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 71
+      },
+      {
+       "name": "Computer Science and Engineering (Artificial Intelligence and Machine Learning)",
+       "seats": 71
+      },
+      {
+       "name": "Electrical and Electronics Engineering",
+       "seats": 71
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 71
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 71
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-786232601"
+   }
+  },
+  {
+   "code": "442",
+   "name": "Indian Institute of Handloom Technology, Salem",
+   "address": "Foulkes Compound, Thillai Nagar, Salem, 636001",
+   "district": null,
+   "city": "Salem",
+   "pin": "636001",
+   "state": "Tamil Nadu",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 30,
+     "branches": [
+      {
+       "name": "Handloom and Textile Technology",
+       "seats": 30
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-2501353871"
+   }
+  },
+  {
+   "code": "443",
+   "name": "Gati Shakti Vishwavidyalaya, Vadodara",
+   "address": "GATI SHAKTI VISHWAVIDYALAYA GSV Campus, Lalbaug Vadodara 390004",
+   "district": null,
+   "city": "Vadodara",
+   "pin": "390004",
+   "state": "Gujarat",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 397,
+     "branches": [
+      {
+       "name": "B.Tech in Artificial Intelligenece and Data Science (Transportation and Logistics)",
+       "seats": 61
+      },
+      {
+       "name": "B.Tech in Aviation Engineering",
+       "seats": 40
+      },
+      {
+       "name": "B.Tech in Civil Engineering (Rail Engineering)",
+       "seats": 64
+      },
+      {
+       "name": "B.Tech in Electrical Engineering (Rail Engineering)",
+       "seats": 63
+      },
+      {
+       "name": "B.Tech in Electronics & Communication Engineering (Rail Engineering)",
+       "seats": 65
+      },
+      {
+       "name": "B.Tech in Mechanical Engineering (Rail Engineering)",
+       "seats": 68
+      },
+      {
+       "name": "Maritime Engineering",
+       "seats": 36
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "444",
+   "name": "CU Jharkhand",
+   "address": "Central University of Jharkhand Village Cheri-Manatu Ranchi Jharkhand",
+   "district": null,
+   "city": "Ranchi",
+   "pin": null,
+   "state": "Jharkhand",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 84,
+     "branches": [
+      {
+       "name": "Civil Engineering",
+       "seats": 21
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 21
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 21
+      },
+      {
+       "name": "Metallurgical and Materials Engineering",
+       "seats": 21
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "445",
+   "name": "National Institute of Electronics and Information Technology, Ropar (Punjab)",
+   "address": "Birla Farms, Bada Phull, Rupnagar (Ropar) - 140001 (Punjab)",
+   "district": null,
+   "city": "Rupnagar",
+   "pin": "140001",
+   "state": "Punjab",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 120,
+     "branches": [
+      {
+       "name": "B.Tech in CSE (AI and ML)",
+       "seats": 60
+      },
+      {
+       "name": "Electronics and Communication Engineering (VLSI Design and Technology)",
+       "seats": 60
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-43863071505"
+   }
+  },
+  {
+   "code": "446",
+   "name": "National Institute of Electronics and Information Technology, Patna (Bihar)",
+   "address": "Near IIT Patna, Amhara, Bihta, Patna, (Bihar)-801106",
+   "district": null,
+   "city": "Patna",
+   "pin": "801106",
+   "state": "Bihar",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 60,
+     "branches": [
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 60
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-44079805523"
+   }
+  },
+  {
+   "code": "447",
+   "name": "National Institute of Electronics and Information Technology, Ajmer (Rajasthan)",
+   "address": "Village - Kohda, Kota Road, Tehsil - Kekri, District - Ajmer, Pin-305408 (Rajasthan)",
+   "district": null,
+   "city": "Ajmer",
+   "pin": "305408",
+   "state": "Rajasthan",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 60,
+     "branches": [
+      {
+       "name": "Computer Science and Engineering (Internet of Things, Cyber Security including Block Chain Technology)",
+       "seats": 60
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-11528176391"
+   }
+  },
+  {
+   "code": "448",
+   "name": "National Institute of Electronics and Information Technology, Gorakhpur (UP)",
+   "address": "Deoria Road, Gorakhpur-273010",
+   "district": null,
+   "city": "Gorakhpur",
+   "pin": "273010",
+   "state": "Uttar Pradesh",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 120,
+     "branches": [
+      {
+       "name": "B. Tech in Electronics and Communication Engineering with minor in Wearable Electronics",
+       "seats": 60
+      },
+      {
+       "name": "Computer Science and Engineering with minor in AI and ML",
+       "seats": 60
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-27916062"
+   }
+  },
+  {
+   "code": "449",
+   "name": "Rajiv Gandhi National Aviation University, Fursatganj, Amethi (UP)",
+   "address": "Rajiv Gandhi National Aviation University, Near Fursatganj Airfield, Fursatganj, Amethi, Uttar Pradesh, 229302",
+   "district": null,
+   "city": "Fursatganj",
+   "pin": "229302",
+   "state": "Uttar Pradesh",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 180,
+     "branches": [
+      {
+       "name": "Aerospace Engineering",
+       "seats": 60
+      },
+      {
+       "name": "Artificial Intelligence & Data Science - Aviation Systems",
+       "seats": 60
+      },
+      {
+       "name": "Electronics and Communication Engineering (Avionics)",
+       "seats": 60
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "450",
+   "name": "Islamic University of Science and Technology Kashmir",
+   "address": "1 University Avenue, Awantipora, Pulwama Pin 192122 Jammu and Kashmir GPO (Srinagar) Post Box No. 89",
+   "district": null,
+   "city": "Awantipora",
+   "pin": "192122",
+   "state": "Jammu and Kashmir",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 66,
+     "branches": [
+      {
+       "name": "Electrical Engineering",
+       "seats": 66
+      }
+     ]
+    },
+    {
+     "course": "barch",
+     "seats": 20,
+     "branches": [
+      {
+       "name": "Architecture",
+       "seats": 20
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-465756641"
+   }
+  },
+  {
+   "code": "451",
+   "name": "Shri G. S. Institute of Technology and Science Indore",
+   "address": "23 Sir M. Visvesvaraya Marg, Indore, Madhya Pradesh 452003",
+   "district": null,
+   "city": "Indore",
+   "pin": "452003",
+   "state": "Madhya Pradesh",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 43,
+     "branches": [
+      {
+       "name": "Biomedical Engineering",
+       "seats": 3
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 4
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 6
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 5
+      },
+      {
+       "name": "Electronics and Instrumentation Engineering",
+       "seats": 5
+      },
+      {
+       "name": "Electronics and Telecommunication Engineering",
+       "seats": 5
+      },
+      {
+       "name": "Industrial and Production Engineering",
+       "seats": 4
+      },
+      {
+       "name": "Information Technology",
+       "seats": 6
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 5
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-10540411"
+   }
+  },
+  {
+   "code": "452",
+   "name": "National Institute of Technical Teachers Training and Research Bhopal",
+   "address": "Shamla Hills, Bhopal - 462 002 (M.P.), India",
+   "district": null,
+   "city": "Bhopal",
+   "pin": "462002",
+   "state": "Madhya Pradesh",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 324,
+     "branches": [
+      {
+       "name": "Artificial Intelligence and Machine Learning",
+       "seats": 72
+      },
+      {
+       "name": "Civil Engineering",
+       "seats": 36
+      },
+      {
+       "name": "Digital Manufacturing and IoT",
+       "seats": 36
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 36
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 72
+      },
+      {
+       "name": "Mechanical Engineering",
+       "seats": 36
+      },
+      {
+       "name": "ROBOTICS & AUTOMATION",
+       "seats": 36
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-445643061"
+   }
+  },
+  {
+   "code": "453",
+   "name": "Central University of Karnataka",
+   "address": "Kadaganchi, Aland Road, Kalaburagi, Dist. - 585 367",
+   "district": null,
+   "city": "Kalaburagi",
+   "pin": "585367",
+   "state": "Karnataka",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 120,
+     "branches": [
+      {
+       "name": "Computer Science and Engineering (Artificial Intelligence and Machine Learning)",
+       "seats": 34
+      },
+      {
+       "name": "Electrical Engineering",
+       "seats": 34
+      },
+      {
+       "name": "Electronics and Communication Engineering",
+       "seats": 34
+      },
+      {
+       "name": "Mathematics and Computing",
+       "seats": 18
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-43710627998"
+   }
+  },
+  {
+   "code": "454",
+   "name": "National Institute of Electronics and Information Technology, Agartala",
+   "address": "NIELIT Agartala Centre R.K. Nagar, Khayerpur, P.S-Bodhjungnagar, Agartala, West Tripura, PIN 799008 Tripura, IN",
+   "district": null,
+   "city": "Agartala",
+   "pin": "799008",
+   "state": "Tripura",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 60,
+     "branches": [
+      {
+       "name": "B.Tech in CSE (AI and ML)",
+       "seats": 60
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-3405873631"
+   }
+  },
+  {
+   "code": "455",
+   "name": "National Institute of Electronics and Information Technology, Aizawl",
+   "address": "Aizawl Industrial Estate, Zuangtui, Aizawl-796017",
+   "district": null,
+   "city": "Aizawl",
+   "pin": "796017",
+   "state": "Mizoram",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 60,
+     "branches": [
+      {
+       "name": "Computer Science and Engineering (Artificial Intelligence and Machine Learning)",
+       "seats": 30
+      },
+      {
+       "name": "Internet of Things (IoT)",
+       "seats": 30
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-648003051"
+   }
+  },
+  {
+   "code": "456",
+   "name": "National Institute of Electronics and Information Technology, Imphal",
+   "address": "Akampat P.O.Box-104, Imphal Manipur -795001",
+   "district": null,
+   "city": "Imphal",
+   "pin": "795001",
+   "state": "Manipur",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 60,
+     "branches": [
+      {
+       "name": "B.Tech in CSE (AI and ML)",
+       "seats": 60
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-2863798081"
+   }
+  },
+  {
+   "code": "457",
+   "name": "National Institute of Electronics and Information Technology, Calicut",
+   "address": "NIELIT Calicut Post Box No. 5, P. O. NIT Campus, CALICUT 673601 Kerala",
+   "district": null,
+   "city": "Kozhikode",
+   "pin": "673601",
+   "state": "Kerala",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 30,
+     "branches": [
+      {
+       "name": "B.Tech in CSE (AI and ML)",
+       "seats": 30
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-8247181"
+   }
+  },
+  {
+   "code": "458",
+   "name": "National Institute of Electronics and Information Technology, Kohima",
+   "address": "Meriema, New High Court Road, Kohima 797001, Nagaland.",
+   "district": null,
+   "city": "Kohima",
+   "pin": "797001",
+   "state": "Nagaland",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 30,
+     "branches": [
+      {
+       "name": "B.Tech in CSE (AI and ML)",
+       "seats": 30
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "459",
+   "name": "National Institute of Electronics and Information Technology, Srinagar",
+   "address": "SIDCO Electronics Complex, Old Airport Road Rangreth Srinagar-191132",
+   "district": null,
+   "city": "Srinagar",
+   "pin": "191132",
+   "state": "Jammu and Kashmir",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 60,
+     "branches": [
+      {
+       "name": "B.Tech in CSE (AI and ML)",
+       "seats": 60
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-498139141"
+   }
+  },
+  {
+   "code": "460",
+   "name": "Central University of Punjab, Bathinda",
+   "address": "VPO-Ghudda, Bathinda Punjab, India- 151401",
+   "district": null,
+   "city": "Bathinda",
+   "pin": "151401",
+   "state": "Punjab",
+   "management": "GFTI",
+   "ownership": null,
+   "offerings": [
+    {
+     "course": "btech",
+     "seats": 64,
+     "branches": [
+      {
+       "name": "Artificial Intelligence and Machine Learning (5 Years, Bachelor and Master of Technology (Dual Degree))",
+       "seats": 32
+      },
+      {
+       "name": "Computer Science and Engineering",
+       "seats": 32
+      }
+     ]
+    }
+   ],
+   "same_as": {
+    "scheme": "aicte",
+    "value": "1-1590439441"
+   }
+  }
+ ]
+}
