@@ -389,6 +389,9 @@ type CouncilRow = {
   management: string | null;
   ownership: (typeof schema.institutions.$inferInsert)["ownership"] | null;
   offerings: { course: string; seats: number | null; branches?: { name: string; seats: number | null }[] }[];
+  /** For a file that carries more than one year's list: this row's year and source prefix. */
+  academic_year?: string;
+  source?: string;
   /** The same institution under another list's code, checked by hand; loaded onto that record. */
   same_as?: { scheme: string; value: string };
 };
@@ -402,7 +405,7 @@ type CouncilFile = {
   sources: (NmcSource & { prefix: string })[];
   rows: CouncilRow[];
 };
-const COUNCIL_LOADER_VERSION = 2;
+const COUNCIL_LOADER_VERSION = 3;
 
 /**
  * Moves everything recorded against one institution onto another and removes the first. Used when
@@ -435,7 +438,8 @@ export async function seedCouncils(streamIds: Map<string, number>, log: (m: stri
     let created = 0;
     let offeringsLoaded = 0;
     for (const r of data.rows) {
-      const sourceId = sourceIds.get(data.sources.find((s) => r.code.startsWith(s.prefix))?.prefix ?? data.sources[0].prefix)!;
+      const sourceId = sourceIds.get(r.source ?? data.sources.find((s) => r.code.startsWith(s.prefix))?.prefix ?? data.sources[0].prefix)!;
+      const year = r.academic_year ?? data.academic_year;
       let id = await identifierOwner(data.scheme, r.code);
       if (r.same_as) {
         const target = await identifierOwner(r.same_as.scheme, r.same_as.value);
@@ -450,7 +454,8 @@ export async function seedCouncils(streamIds: Map<string, number>, log: (m: stri
       if (!id) {
         const name = r.name.trim().replace(/\s+/g, " ");
         // Many council colleges share a name ("Govt. Ayurved Mahavidhalaya"); the district tells them apart.
-        const base = slugify(r.district ? `${name} ${r.district}` : name);
+        const own = slugify(name);
+        const base = r.district && !own.endsWith(slugify(r.district)) ? slugify(`${name} ${r.district}`) : own;
         let slug = base;
         for (let n = 2; (await db.select({ id: institutions.id }).from(institutions).where(eq(institutions.slug, slug)))[0]; n++) slug = `${base}-${n}`;
         const [res] = await db
@@ -479,13 +484,13 @@ export async function seedCouncils(streamIds: Map<string, number>, log: (m: stri
         if (!courseId) continue;
         await db
           .insert(offerings)
-          .values({ institutionId: id, courseId, academicYear: data.academic_year, seats: o.seats, seatsSourceId: sourceId })
+          .values({ institutionId: id, courseId, academicYear: year, seats: o.seats, seatsSourceId: sourceId })
           .onDuplicateKeyUpdate({ set: { seats: o.seats, seatsSourceId: sourceId } });
         if (o.branches?.length) {
           const [off] = await db
             .select({ id: offerings.id })
             .from(offerings)
-            .where(and(eq(offerings.institutionId, id), eq(offerings.courseId, courseId), eq(offerings.academicYear, data.academic_year)));
+            .where(and(eq(offerings.institutionId, id), eq(offerings.courseId, courseId), eq(offerings.academicYear, year)));
           await db.delete(offeringBranches).where(and(eq(offeringBranches.offeringId, off.id), eq(offeringBranches.sourceId, sourceId)));
           await db.insert(offeringBranches).values(o.branches.map((b) => ({ offeringId: off.id, name: b.name, seats: b.seats, sourceId })));
         }

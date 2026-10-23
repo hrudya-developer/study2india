@@ -94,11 +94,16 @@ export const STREAMS: StreamSeed[] = [
   {
     slug: "nursing",
     name: "Nursing",
-    summary: "B.Sc, M.Sc and post basic nursing",
+    summary: "ANM, GNM, B.Sc, M.Sc, post basic and nurse practitioner programmes",
     courses: [
+      { slug: "anm", name: "Auxiliary Nurse Midwifery", short: "ANM", level: "diploma", duration: "2 years" },
+      { slug: "gnm", name: "General Nursing and Midwifery", short: "GNM", level: "diploma", duration: "3 years" },
       { slug: "bsc-nursing", name: "Bachelor of Science in Nursing", short: "B.Sc Nursing", level: "ug", duration: "4 years" },
       { slug: "post-basic-bsc-nursing", name: "Post Basic B.Sc Nursing", short: "P.B. B.Sc Nursing", level: "ug", duration: "2 years" },
       { slug: "msc-nursing", name: "Master of Science in Nursing", short: "M.Sc Nursing", level: "pg", duration: "2 years" },
+      { slug: "post-basic-diploma-nursing", name: "Post Basic Diploma in a nursing speciality", short: "Post Basic Diploma (Nursing)", level: "diploma", duration: null },
+      { slug: "nurse-practitioner", name: "Nurse Practitioner programmes (critical care, midwifery and others)", short: "Nurse Practitioner", level: "diploma", duration: null },
+      { slug: "phd-nursing", name: "Doctor of Philosophy in Nursing", short: "PhD Nursing", level: "doctorate", duration: null },
     ],
   },
   {
