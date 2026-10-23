@@ -1,64 +1,89 @@
 import { sql } from "drizzle-orm";
-import { db } from "@/lib/db";
+import { rows } from "@/lib/db";
 
 export type HomeCounts = {
   institutions: number;
   rankingEntries: number;
   courses: number;
   exams: number;
+  streams: number;
   lastChecked: string | null;
 };
 
+const n = (v: unknown) => Number(v ?? 0);
+
 export async function getHomeCounts(): Promise<HomeCounts> {
-  const rows = await db.execute<{
-    institutions: number;
-    ranking_entries: number;
-    courses: number;
-    exams: number;
-    last_checked: string | null;
-  }>(sql`
+  const [r] = await rows<Record<string, unknown>>(sql`
     select
-      (select count(*)::int from institutions where status = 'published') as institutions,
-      (select count(*)::int from rankings) as ranking_entries,
-      (select count(*)::int from courses) as courses,
-      (select count(*)::int from exams) as exams,
-      (select max(retrieved_on)::text from sources) as last_checked
+      (select count(*) from institutions where status = 'published') as institutions,
+      (select count(*) from rankings) as ranking_entries,
+      (select count(*) from courses) as courses,
+      (select count(*) from exams) as exams,
+      (select count(*) from streams) as streams,
+      (select max(retrieved_on) from sources) as last_checked
   `);
-  const r = rows[0];
   return {
-    institutions: r.institutions,
-    rankingEntries: r.ranking_entries,
-    courses: r.courses,
-    exams: r.exams,
-    lastChecked: r.last_checked,
+    institutions: n(r.institutions),
+    rankingEntries: n(r.ranking_entries),
+    courses: n(r.courses),
+    exams: n(r.exams),
+    streams: n(r.streams),
+    lastChecked: (r.last_checked as string | null) ?? null,
   };
 }
+
+export type CourseLite = {
+  slug: string;
+  short: string;
+  name: string;
+  level: string;
+  duration: string | null;
+  streamSlug: string;
+  streamName: string;
+};
 
 export type StreamSummary = {
   slug: string;
   name: string;
   summary: string | null;
   institutions: number;
-  courses: { slug: string; short: string }[];
+  courses: CourseLite[];
 };
 
-export async function getStreams(): Promise<StreamSummary[]> {
-  const rows = await db.execute<{
-    slug: string;
-    name: string;
-    summary: string | null;
-    institutions: number;
-    courses: { slug: string; short: string }[] | null;
-  }>(sql`
-    select s.slug, s.name, s.summary,
-      (select count(*)::int from institution_streams i join institutions x on x.id = i.institution_id
-        where i.stream_id = s.id and x.status = 'published') as institutions,
-      (select json_agg(json_build_object('slug', c.slug, 'short', c.short_name) order by c.sort_order)
-        from courses c where c.stream_id = s.id) as courses
-    from streams s
-    order by s.sort_order
+export async function getAllCourses(): Promise<CourseLite[]> {
+  const list = await rows<{ slug: string; short_name: string; name: string; level: string; duration_text: string | null; stream_slug: string; stream_name: string }>(sql`
+    select c.slug, c.short_name, c.name, c.level, c.duration_text, s.slug as stream_slug, s.name as stream_name
+    from courses c join streams s on s.id = c.stream_id
+    order by s.sort_order, c.sort_order
   `);
-  return rows.map((r) => ({ ...r, courses: r.courses ?? [] }));
+  return list.map((c) => ({
+    slug: c.slug,
+    short: c.short_name,
+    name: c.name,
+    level: c.level,
+    duration: c.duration_text,
+    streamSlug: c.stream_slug,
+    streamName: c.stream_name,
+  }));
+}
+
+export async function getStreams(): Promise<StreamSummary[]> {
+  const [list, courseList] = await Promise.all([
+    rows<{ slug: string; name: string; summary: string | null; institutions: unknown }>(sql`
+      select s.slug, s.name, s.summary,
+        (select count(*) from institution_streams x join institutions i on i.id = x.institution_id
+          where x.stream_id = s.id and i.status = 'published') as institutions
+      from streams s order by s.sort_order
+    `),
+    getAllCourses(),
+  ]);
+  return list.map((s) => ({
+    slug: s.slug,
+    name: s.name,
+    summary: s.summary,
+    institutions: n(s.institutions),
+    courses: courseList.filter((c) => c.streamSlug === s.slug),
+  }));
 }
 
 export type RankingRow = {
@@ -79,12 +104,11 @@ export type RankingList = {
   rows: RankingRow[];
 };
 
-/** Order the home page tabs: the streams students ask about most come first. */
 const TAB_ORDER = ["Overall", "Medical", "Engineering", "Management", "Dental", "Pharmacy", "Law", "Architecture", "Agriculture", "University", "Universities", "College", "Colleges"];
 
 export async function getTopRankings(limit = 10): Promise<RankingList[]> {
-  const latest = await db.execute<{ category: string; year: number }>(sql`
-    select category, max(year)::int as year from rankings where agency = 'NIRF' group by category
+  const latest = await rows<{ category: string; year: number }>(sql`
+    select category, max(year) as year from rankings where agency = 'NIRF' group by category
   `);
   const wanted = latest
     .filter((l) => TAB_ORDER.includes(l.category))
@@ -92,19 +116,8 @@ export async function getTopRankings(limit = 10): Promise<RankingList[]> {
 
   const lists: RankingList[] = [];
   for (const { category, year } of wanted) {
-    const rows = await db.execute<{
-      rank: number | null;
-      rank_band: string | null;
-      score: string | null;
-      slug: string;
-      name: string;
-      city: string | null;
-      state: string | null;
-      url: string | null;
-      retrieved_on: string;
-    }>(sql`
-      select r.rank, r.rank_band, r.score::text as score, i.slug, i.name, i.city, st.name as state,
-        s.url, s.retrieved_on::text as retrieved_on
+    const list = await rows<{ rank: number | null; rank_band: string | null; score: string | null; slug: string; name: string; city: string | null; state: string | null; url: string | null; retrieved_on: string }>(sql`
+      select r.rank, r.rank_band, r.score, i.slug, i.name, i.city, st.name as state, s.url, s.retrieved_on
       from rankings r
       join institutions i on i.id = r.institution_id
       left join states st on st.code = i.state_code
@@ -113,13 +126,13 @@ export async function getTopRankings(limit = 10): Promise<RankingList[]> {
       order by r.rank asc
       limit ${limit}
     `);
-    if (!rows.length) continue;
+    if (!list.length) continue;
     lists.push({
       category,
-      year,
-      sourceUrl: rows[0].url?.split(" ")[0] ?? null,
-      retrievedOn: rows[0].retrieved_on,
-      rows: rows.map((r) => ({ rank: r.rank, rankBand: r.rank_band, score: r.score, slug: r.slug, name: r.name, city: r.city, state: r.state })),
+      year: Number(year),
+      sourceUrl: list[0].url?.split(" ")[0] ?? null,
+      retrievedOn: list[0].retrieved_on,
+      rows: list.map((r) => ({ rank: r.rank, rankBand: r.rank_band, score: r.score, slug: r.slug, name: r.name, city: r.city, state: r.state })),
     });
   }
   return lists;
@@ -128,13 +141,14 @@ export async function getTopRankings(limit = 10): Promise<RankingList[]> {
 export type StateCount = { slug: string; name: string; institutions: number };
 
 export async function getStateCounts(): Promise<StateCount[]> {
-  return db.execute<StateCount>(sql`
-    select st.slug, st.name, count(i.id)::int as institutions
+  const list = await rows<{ slug: string; name: string; institutions: unknown }>(sql`
+    select st.slug, st.name, count(i.id) as institutions
     from states st
-    join institutions i on i.state_code = st.code and i.status = 'published'
+    left join institutions i on i.state_code = st.code and i.status = 'published'
     group by st.slug, st.name
     order by institutions desc, st.name
-  `) as unknown as Promise<StateCount[]>;
+  `);
+  return list.map((s) => ({ slug: s.slug, name: s.name, institutions: n(s.institutions) }));
 }
 
 export type ExamSummary = {
@@ -148,39 +162,31 @@ export type ExamSummary = {
 };
 
 export async function getExams(): Promise<ExamSummary[]> {
-  const rows = await db.execute<{
-    slug: string;
-    short_name: string;
-    name: string;
-    conducting_body: string;
-    level: string;
-    official_url: string | null;
-    streams: string[] | null;
-  }>(sql`
-    select e.slug, e.short_name, e.name, e.conducting_body, e.level, e.official_url,
-      (select array_agg(s.name order by s.sort_order) from exam_streams es join streams s on s.id = es.stream_id where es.exam_id = e.id) as streams
-    from exams e order by e.sort_order
-  `);
-  return rows.map((r) => ({
-    slug: r.slug,
-    short: r.short_name,
-    name: r.name,
-    body: r.conducting_body,
-    level: r.level,
-    url: r.official_url,
-    streams: r.streams ?? [],
+  const [list, links] = await Promise.all([
+    rows<{ id: number; slug: string; short_name: string; name: string; conducting_body: string; level: string; official_url: string | null }>(sql`
+      select id, slug, short_name, name, conducting_body, level, official_url from exams order by sort_order
+    `),
+    rows<{ exam_id: number; name: string }>(sql`
+      select es.exam_id, s.name from exam_streams es join streams s on s.id = es.stream_id order by s.sort_order
+    `),
+  ]);
+  return list.map((e) => ({
+    slug: e.slug,
+    short: e.short_name,
+    name: e.name,
+    body: e.conducting_body,
+    level: e.level,
+    url: e.official_url,
+    streams: links.filter((l) => l.exam_id === e.id).map((l) => l.name),
   }));
 }
 
 export type Option = { value: string; label: string };
 
 export async function getSearchOptions(): Promise<{ courses: Option[]; states: Option[] }> {
-  const courses = await db.execute<{ slug: string; short_name: string }>(sql`
-    select c.slug, c.short_name from courses c join streams s on s.id = c.stream_id order by s.sort_order, c.sort_order
-  `);
-  const states = await db.execute<{ slug: string; name: string }>(sql`select slug, name from states order by name`);
+  const [courseList, stateList] = await Promise.all([getAllCourses(), rows<{ slug: string; name: string }>(sql`select slug, name from states order by name`)]);
   return {
-    courses: courses.map((c) => ({ value: c.slug, label: c.short_name })),
-    states: states.map((s) => ({ value: s.slug, label: s.name })),
+    courses: courseList.map((c) => ({ value: c.slug, label: c.short })),
+    states: stateList.map((s) => ({ value: s.slug, label: s.name })),
   };
 }

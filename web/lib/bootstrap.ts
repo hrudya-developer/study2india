@@ -1,0 +1,163 @@
+import { readdirSync, readFileSync, existsSync, statSync } from "node:fs";
+import path from "node:path";
+import { and, eq, sql } from "drizzle-orm";
+import { migrate } from "drizzle-orm/mysql2/migrator";
+import { getDb, rows, schema } from "@/lib/db";
+import { STATES, STATE_ALIASES, STREAMS, EXAMS, NIRF_CATEGORY_STREAM } from "@/data/reference";
+import { slugify } from "@/lib/slug";
+
+const { states, streams, courses, exams, examStreams, sources, institutions, institutionIdentifiers, institutionStreams, rankings } = schema;
+
+export async function runMigrations() {
+  await migrate(getDb(), { migrationsFolder: path.join(process.cwd(), "drizzle") });
+}
+
+const stateByName = new Map<string, string>();
+for (const s of STATES) stateByName.set(s.name.toLowerCase(), s.code);
+for (const [alias, code] of Object.entries(STATE_ALIASES)) stateByName.set(alias, code);
+
+export function stateCode(name: string | null | undefined): string | null {
+  if (!name) return null;
+  const key = name.trim().toLowerCase().replace(/\s+/g, " ");
+  return stateByName.get(key) ?? stateByName.get(key.replace(/&/g, "and")) ?? null;
+}
+
+async function idBySlug(table: typeof streams | typeof exams, slug: string): Promise<number> {
+  const [row] = await getDb().select({ id: table.id }).from(table).where(eq(table.slug, slug));
+  return row.id;
+}
+
+/** States, fields of study, courses and exams. Safe to run on every start. */
+export async function seedReference() {
+  const db = getDb();
+  for (const s of STATES) {
+    await db
+      .insert(states)
+      .values({ code: s.code, slug: slugify(s.name), name: s.name, isUnionTerritory: !!s.ut })
+      .onDuplicateKeyUpdate({ set: { name: s.name, slug: slugify(s.name), isUnionTerritory: !!s.ut } });
+  }
+
+  const streamIds = new Map<string, number>();
+  for (const [i, st] of STREAMS.entries()) {
+    await db
+      .insert(streams)
+      .values({ slug: st.slug, name: st.name, summary: st.summary, sortOrder: i })
+      .onDuplicateKeyUpdate({ set: { name: st.name, summary: st.summary, sortOrder: i } });
+    const sid = await idBySlug(streams, st.slug);
+    streamIds.set(st.slug, sid);
+    for (const [j, c] of st.courses.entries()) {
+      const values = { name: c.name, shortName: c.short, streamId: sid, level: c.level, durationText: c.duration, sortOrder: j };
+      await db.insert(courses).values({ slug: c.slug, ...values }).onDuplicateKeyUpdate({ set: values });
+    }
+  }
+
+  for (const [i, e] of EXAMS.entries()) {
+    const values = { name: e.name, shortName: e.short, conductingBody: e.body, level: e.level, officialUrl: e.url, sortOrder: i };
+    await db.insert(exams).values({ slug: e.slug, ...values }).onDuplicateKeyUpdate({ set: values });
+    const eid = await idBySlug(exams, e.slug);
+    await db.delete(examStreams).where(eq(examStreams.examId, eid));
+    for (const s of e.streams) {
+      const sid = streamIds.get(s);
+      if (sid) await db.insert(examStreams).values({ examId: eid, streamId: sid }).onDuplicateKeyUpdate({ set: { streamId: sid } });
+    }
+  }
+  return streamIds;
+}
+
+type NirfRow = {
+  institute_id?: string | null;
+  name: string;
+  city?: string | null;
+  state?: string | null;
+  score?: number | string | null;
+  rank?: number | null;
+  rank_band?: string | null;
+};
+type NirfFile = {
+  source: { publisher: string; url: string | string[]; retrieved: string };
+  year: number;
+  category: string;
+  rows: NirfRow[];
+};
+
+async function findOrCreateInstitution(r: NirfRow, sourceId: number) {
+  const db = getDb();
+  const nirfId = r.institute_id?.trim() || null;
+  if (nirfId) {
+    const [hit] = await db
+      .select({ id: institutionIdentifiers.institutionId })
+      .from(institutionIdentifiers)
+      .where(and(eq(institutionIdentifiers.scheme, "nirf"), eq(institutionIdentifiers.value, nirfId)));
+    if (hit) return hit.id;
+  }
+  const code = stateCode(r.state);
+  const name = r.name.trim().replace(/\s+/g, " ");
+  const [byName] = await db
+    .select({ id: institutions.id })
+    .from(institutions)
+    .where(and(eq(institutions.name, name), code ? eq(institutions.stateCode, code) : sql`1 = 1`));
+  let id = byName?.id;
+  if (!id) {
+    const base = slugify(`${name} ${r.city ?? ""}`);
+    let slug = base;
+    for (let n = 2; (await db.select({ id: institutions.id }).from(institutions).where(eq(institutions.slug, slug)))[0]; n++) slug = `${base}-${n}`;
+    const [res] = await db
+      .insert(institutions)
+      .values({ slug, name, city: r.city?.trim() || null, stateCode: code, status: "published", sourceId })
+      .$returningId();
+    id = res.id;
+  }
+  if (nirfId) {
+    await db
+      .insert(institutionIdentifiers)
+      .values({ institutionId: id, scheme: "nirf", value: nirfId })
+      .onDuplicateKeyUpdate({ set: { institutionId: id } });
+  }
+  return id;
+}
+
+/** Loads every official NIRF file found in data/nirf/<year>/. Safe to re-run. */
+export async function seedNirf(streamIds: Map<string, number>, log: (m: string) => void = console.log) {
+  const db = getDb();
+  const root = path.join(process.cwd(), "data", "nirf");
+  if (!existsSync(root)) return;
+  for (const year of readdirSync(root).filter((d) => statSync(path.join(root, d)).isDirectory())) {
+    const dir = path.join(root, year);
+    for (const file of readdirSync(dir).filter((f) => f.endsWith(".json") && !f.startsWith("_"))) {
+      const data = JSON.parse(readFileSync(path.join(dir, file), "utf8")) as NirfFile;
+      const url = Array.isArray(data.source.url) ? data.source.url.join(" ") : data.source.url;
+      const title = `NIRF India Rankings ${data.year}: ${data.category}`;
+      const [existing] = await db.select({ id: sources.id }).from(sources).where(eq(sources.title, title));
+      const sourceId =
+        existing?.id ??
+        (await db.insert(sources).values({ publisher: data.source.publisher, title, url, retrievedOn: data.source.retrieved }).$returningId())[0].id;
+      const streamSlug = NIRF_CATEGORY_STREAM[data.category] ?? null;
+      const streamId = streamSlug ? streamIds.get(streamSlug) : undefined;
+      let count = 0;
+      for (const r of data.rows) {
+        if (!r.name) continue;
+        const instId = await findOrCreateInstitution(r, sourceId);
+        const score = r.score === null || r.score === undefined || r.score === "" ? null : String(r.score);
+        const values = { rank: r.rank ?? null, rankBand: r.rank_band ?? null, score, sourceId };
+        await db
+          .insert(rankings)
+          .values({ institutionId: instId, agency: "NIRF", year: data.year, category: data.category, ...values })
+          .onDuplicateKeyUpdate({ set: values });
+        if (streamId) {
+          await db.insert(institutionStreams).values({ institutionId: instId, streamId }).onDuplicateKeyUpdate({ set: { streamId } });
+        }
+        count++;
+      }
+      log(`NIRF ${data.year} ${data.category}: ${count} rows`);
+    }
+  }
+}
+
+/** Migrate, then load reference data and any official data files shipped with the app. */
+export async function bootstrap(log: (m: string) => void = console.log) {
+  await runMigrations();
+  const streamIds = await seedReference();
+  await seedNirf(streamIds, log);
+  const [c] = await rows<{ n: number }>(sql`select count(*) as n from institutions`);
+  log(`Database ready: ${STATES.length} states, ${STREAMS.length} fields, ${EXAMS.length} exams, ${c?.n ?? 0} institutions`);
+}

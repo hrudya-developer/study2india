@@ -4,7 +4,7 @@ import { CounsellingForm } from "@/components/counselling-form";
 import { RankingTabs } from "@/components/ranking-tabs";
 import { CONTACT } from "@/data/reference";
 
-export const revalidate = 600;
+export const dynamic = "force-dynamic";
 
 function formatCount(n: number) {
   return n.toLocaleString("en-IN");
