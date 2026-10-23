@@ -301,6 +301,8 @@ function filters(input: PredictorInput, meta: PredictorMeta): SQL[] | null {
   const where: SQL[] = [
     sql`cu.exam_id = ${meta.examId}`,
     sql`cu.year = ${meta.year}`,
+    // Ranks on a preparatory rank list (JoSAA "P") are not comparable with ordinary ranks.
+    sql`cu.preparatory is null`,
     sql`cu.category in (${sql.join(categories.map((c) => sql`${c}`), sql`, `)})`,
     sql`cu.quota in (${sql.join(quotaNames.map((q) => sql`${q}`), sql`, `)})`,
     sql`c.slug = ${input.course}`,

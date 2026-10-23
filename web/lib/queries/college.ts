@@ -71,7 +71,9 @@ export type CollegeDetail = {
   cutoffs: {
     offeringId: number;
     course: string;
+    /** Exam short name (JEE Main) and slug (jee-main). */
     exam: string;
+    examSlug: string;
     year: number;
     round: string | null;
     quota: string | null;
@@ -84,6 +86,8 @@ export type CollegeDetail = {
     closingRank: number | null;
     source: SourceRef;
   }[];
+  /** Rows left out of `cutoffs` because a rank is on a preparatory rank list (JoSAA "P" ranks), not comparable with ordinary ranks. */
+  preparatoryCutoffs: number;
   /** National (and the home state's) entrance exams for the fields and levels this college teaches. */
   exams: CollegeExam[];
   /** Every official document behind the figures on the page. */
@@ -220,6 +224,7 @@ async function loadCollege(slug: string): Promise<CollegeDetail | null> {
         offering_id: number;
         course: string;
         exam: string;
+        exam_slug: string;
         year: number;
         round: string | null;
         quota: string | null;
@@ -228,10 +233,11 @@ async function loadCollege(slug: string): Promise<CollegeDetail | null> {
         seat_pool: string | null;
         opening_rank: number | null;
         closing_rank: number | null;
+        preparatory: string | null;
       } & SrcRow
     >(sql`
-      select cu.offering_id, c.short_name as course, e.short_name as exam, cu.year, cu.round, cu.quota, cu.category, cu.branch, cu.seat_pool,
-        cu.opening_rank, cu.closing_rank,
+      select cu.offering_id, c.short_name as course, e.short_name as exam, e.slug as exam_slug, cu.year, cu.round, cu.quota, cu.category, cu.branch, cu.seat_pool,
+        cu.opening_rank, cu.closing_rank, cu.preparatory,
         s.publisher as s_publisher, s.title as s_title, s.url as s_url, s.retrieved_on as s_retrieved
       from cutoffs cu join offerings o on o.id = cu.offering_id join courses c on c.id = o.course_id join exams e on e.id = cu.exam_id
       join sources s on s.id = cu.source_id
@@ -315,7 +321,10 @@ async function loadCollege(slug: string): Promise<CollegeDetail | null> {
     .forEach((o) => addSource(src(o), `Seats through ${publisherShort(o.s_publisher ?? "")} counselling`));
   rankRows.forEach((r) => addSource(src(r), `NIRF ${r.year} ${r.category}`));
   feeRows.forEach((f) => addSource(src(f), "Fees"));
-  cutoffRows.forEach((x) => addSource(src(x), "Cutoffs"));
+  // Preparatory-list ranks (JoSAA "P") never sit beside ordinary ranks; the page only counts them.
+  const preparatoryCutoffs = cutoffRows.filter((x) => x.preparatory !== null).length;
+  const cutoffList = cutoffRows.filter((x) => x.preparatory === null);
+  cutoffList.forEach((x) => addSource(src(x), "Cutoffs"));
 
   const num = (v: unknown) => (v === null || v === undefined ? null : Number(v));
 
@@ -378,10 +387,11 @@ async function loadCollege(slug: string): Promise<CollegeDetail | null> {
         .filter((f) => f.offering_id === o.id)
         .map((f) => ({ quota: f.quota, component: f.component, amount: f.amount_inr, basis: f.basis, source: src(f) })),
     })),
-    cutoffs: cutoffRows.map((x) => ({
+    cutoffs: cutoffList.map((x) => ({
       offeringId: x.offering_id,
       course: x.course,
       exam: x.exam,
+      examSlug: x.exam_slug,
       year: Number(x.year),
       round: x.round,
       quota: x.quota,
@@ -392,6 +402,7 @@ async function loadCollege(slug: string): Promise<CollegeDetail | null> {
       closingRank: num(x.closing_rank),
       source: src(x)!,
     })),
+    preparatoryCutoffs,
     exams,
     sources: [...sourceMap.values()],
   };

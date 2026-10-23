@@ -99,5 +99,12 @@ export const MIGRATIONS: { tag: string; statements: string[] }[] = [
       "ALTER TABLE `slug_redirects` ADD CONSTRAINT `slug_redirects_institution_id_institutions_id_fk` FOREIGN KEY (`institution_id`) REFERENCES `institutions`(`id`) ON DELETE cascade ON UPDATE no action;",
       "CREATE INDEX `slug_redirects_institution_idx` ON `slug_redirects` (`institution_id`);"
     ]
+  },
+  {
+    "tag": "0007_cutoff_preparatory",
+    "statements": [
+      "ALTER TABLE `cutoffs` ADD `preparatory` varchar(8);",
+      "ALTER TABLE `cutoffs` MODIFY COLUMN `row_key` char(64) GENERATED ALWAYS AS (sha2(concat_ws('|', offering_id, exam_id, year, ifnull(round, ''), ifnull(quota, ''), ifnull(category, ''), ifnull(branch, ''), ifnull(seat_pool, ''), preparatory), 256)) STORED;"
+    ]
   }
 ];

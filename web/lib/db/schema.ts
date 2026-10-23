@@ -297,15 +297,22 @@ export const cutoffs = mysqlTable(
     seatPool: varchar("seat_pool", { length: 60 }),
     openingRank: int("opening_rank"),
     closingRank: int("closing_rank"),
+    /**
+     * Set when a rank is on JoSAA's separate preparatory rank list (printed with a "P"), which is not
+     * comparable with ordinary ranks: "both", or "opening" / "closing" when only that one is. Null for
+     * ordinary rows. College pages and predictors leave these rows out.
+     */
+    preparatory: varchar("preparatory", { length: 8 }),
     sourceId: int("source_id")
       .notNull()
       .references(() => sources.id),
     /**
-     * One row per offering, exam, year, round, quota, category, branch and seat pool. A unique index
-     * on the columns themselves would let rows with NULLs repeat, so the key is a hash with NULL as ''.
+     * One row per offering, exam, year, round, quota, category, branch, seat pool and rank list. A
+     * unique index on the columns themselves would let rows with NULLs repeat, so the key is a hash
+     * with NULL as ''. concat_ws skips a NULL preparatory, so ordinary rows keep their earlier key.
      */
     rowKey: char("row_key", { length: 64 }).generatedAlwaysAs(
-      sql`sha2(concat_ws('|', offering_id, exam_id, year, ifnull(round, ''), ifnull(quota, ''), ifnull(category, ''), ifnull(branch, ''), ifnull(seat_pool, '')), 256)`,
+      sql`sha2(concat_ws('|', offering_id, exam_id, year, ifnull(round, ''), ifnull(quota, ''), ifnull(category, ''), ifnull(branch, ''), ifnull(seat_pool, ''), preparatory), 256)`,
       { mode: "stored" },
     ),
   },
