@@ -174,7 +174,7 @@ export async function searchColleges(f: CollegeFilters, course: CourseContext | 
         ? sql`${bestRank} is null, ${bestRank} asc, i.name asc`
         : f.sort === "seats"
           ? sql`${seats} is null, ${seats} desc, i.name asc`
-          : sql`i.is_partner desc, ${bestRank} is null, ${bestRank} asc, ${seats} desc, i.name asc`;
+          : sql`${bestRank} is null, ${bestRank} asc, ${seats} desc, i.name asc`;
 
   const [[total], base] = await Promise.all([
     rows<{ n: unknown }>(sql`

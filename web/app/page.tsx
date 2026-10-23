@@ -406,7 +406,7 @@ export default async function HomePage() {
             { icon: Compass, title: "Free counselling", text: "A counsellor helps you shortlist colleges and plan counselling rounds.", href: "/counselling" },
             { icon: BadgeIndianRupee, title: "Scholarships", text: "Government, university and trust scholarships you may be eligible for.", href: "/scholarships" },
             { icon: Target, title: "College predictor", text: "Colleges that match your NEET, KEAM or JEE rank, from official closing ranks.", href: null },
-            { icon: GitCompareArrows, title: "Compare colleges", text: "Seats, rankings and approvals side by side.", href: null },
+            { icon: GitCompareArrows, title: "Compare colleges", text: "Seats, rankings and approvals side by side.", href: "/colleges/compare" },
           ].map((t) => {
             const body = (
               <>
