@@ -29,11 +29,16 @@ const POPULAR: Item[] = [
 const RECENT_KEY = "s2i-recent-searches";
 const cache = new Map<string, Result>();
 
+/** A same-site path only: one leading "/", not "//host" or "/\host", which browsers treat as another site. */
+function isLocalHref(href: unknown): href is string {
+  return typeof href === "string" && href.startsWith("/") && !href.startsWith("//") && !href.startsWith("/\\");
+}
+
 function readRecent(): Item[] {
   try {
     const raw = window.localStorage.getItem(RECENT_KEY);
     const list = raw ? (JSON.parse(raw) as Item[]) : [];
-    return Array.isArray(list) ? list.filter((x) => x && typeof x.label === "string" && typeof x.href === "string" && x.href.startsWith("/")).slice(0, 4) : [];
+    return Array.isArray(list) ? list.filter((x) => x && typeof x.label === "string" && isLocalHref(x.href)).slice(0, 4) : [];
   } catch {
     return [];
   }
@@ -278,6 +283,7 @@ export function SearchBox({ id, variant = "hero", defaultValue = "", placeholder
             id={id}
             name="q"
             type="text"
+            maxLength={80}
             inputMode="search"
             enterKeyHint="search"
             autoComplete="off"

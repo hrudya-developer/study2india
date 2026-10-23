@@ -7,6 +7,7 @@ import { CompareFromShortlist } from "@/components/colleges/shortlist-view";
 import { COMPARE_MAX } from "@/components/colleges/limits";
 import { ShortlistButton } from "@/components/colleges/shortlist-button";
 import { own } from "@/lib/params";
+import { seatCoverage, seatCoverageNote } from "@/lib/coverage";
 
 type Props = { searchParams: Promise<Record<string, string | string[] | undefined>> };
 
@@ -84,10 +85,17 @@ export default async function ComparePage({ searchParams }: Props) {
       },
     },
     {
-      label: "Total seats",
+      label: "Approved seats",
       cell: (c) => {
-        const seats = c.offerings.map(offeringSeats).filter((n): n is number => n !== null);
-        return seats.length ? <b className="tabular text-[1.1rem]">{formatNumber(seats.reduce((a, b) => a + b, 0))}</b> : NR;
+        // A sum shows only when at least half of the courses have a figure, and says so when some are missing.
+        const seats = seatCoverage(c.offerings.map(offeringSeats));
+        const note = seatCoverageNote(seats);
+        return (
+          <>
+            {seats.total !== null ? <b className="tabular text-[1.1rem]">{formatNumber(seats.total)}</b> : NR}
+            {note ? <span className="tabular block text-[0.85rem] text-muted">{note}</span> : null}
+          </>
+        );
       },
     },
     {

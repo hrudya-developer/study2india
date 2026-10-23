@@ -2,6 +2,7 @@ import Link from "next/link";
 import { MapPin, Trophy } from "lucide-react";
 import { type CollegeCard as Card, OWNERSHIP_LABELS, APPROVAL_BODIES, FEE_BASIS_LABELS, formatInr, formatNumber } from "@/lib/queries/colleges";
 import { ShortlistButton } from "@/components/colleges/shortlist-button";
+import { seatCoverageNote } from "@/lib/coverage";
 
 export function initials(name: string) {
   return (
@@ -21,6 +22,28 @@ function rankText(r: { rank: number | null; rankBand: string | null }) {
 
 const VISIBLE_COURSES = 4;
 
+/**
+ * Credits the lists behind the figures the card shows: the seat figures' own lists (an NMC or INC
+ * list, not the record's first source) and the NIRF year of the rank badge. Falls back to the
+ * record's source when the card shows neither.
+ */
+function creditLine(c: Card, rankYear: number | null): { text: string; title: string } | null {
+  const parts: string[] = [];
+  const titles: string[] = [];
+  if (c.seatSources.length) {
+    parts.push(`Seats: ${c.seatSources.map((s) => `${s.short}${s.year ? ` ${s.year}` : ""}`).join(", ")}`);
+    titles.push(...c.seatSources.map((s) => s.publisher));
+  }
+  if (rankYear !== null) {
+    parts.push(`${parts.length ? "rank" : "Rank"}: NIRF ${rankYear}`);
+    titles.push("National Institutional Ranking Framework");
+  }
+  if (parts.length) return { text: parts.join("; "), title: [...new Set(titles)].join(", ") };
+  if (!c.source) return null;
+  const year = c.source.short === "NIRF" ? "" : c.academicYear ? ` list ${c.academicYear}` : "";
+  return { text: `Data from ${c.source.short}${year}`, title: c.source.publisher };
+}
+
 export function CollegeCard({ c, courseSlug, courseShort }: { c: Card; courseSlug?: string; courseShort?: string }) {
   const place = [c.city, c.state].filter(Boolean).join(", ");
   const fee = c.offering?.fees?.find((f) => f.amount);
@@ -31,6 +54,8 @@ export function CollegeCard({ c, courseSlug, courseShort }: { c: Card; courseSlu
   const courses = courseSlug ? [...c.courses].sort((a, b) => Number(b.slug === courseSlug) - Number(a.slug === courseSlug)) : c.courses;
   const shown = courses.slice(0, VISIBLE_COURSES);
   const more = courses.length - shown.length;
+  const seatNote = seatCoverageNote(c.seats);
+  const credit = creditLine(c, best ? best.year : null);
 
   return (
     <article className="card overflow-hidden">
@@ -95,8 +120,13 @@ export function CollegeCard({ c, courseSlug, courseShort }: { c: Card; courseSlu
                 Courses and seats{c.academicYear ? `, ${c.academicYear}` : ""}
               </p>
               <p className="text-[0.88rem] text-ink-soft">
-                Total intake{" "}
-                <span className="tabular font-bold text-ink">{c.totalSeats !== null ? formatNumber(c.totalSeats) : "Not recorded"}</span>
+                {c.seats.complete ? "Total intake" : "Intake"}{" "}
+                {c.seats.total !== null ? (
+                  <span className="tabular font-bold text-ink">{formatNumber(c.seats.total)}</span>
+                ) : (
+                  <span className="italic text-muted">Not recorded</span>
+                )}
+                {seatNote ? <span className="tabular text-muted"> {c.seats.total !== null ? seatNote : `(${seatNote})`}</span> : null}
               </p>
             </div>
             <ul className="mt-2 flex flex-wrap gap-1.5">
@@ -130,10 +160,9 @@ export function CollegeCard({ c, courseSlug, courseShort }: { c: Card; courseSlu
       </div>
 
       <div className="flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-rule px-4 py-3 sm:px-5">
-        {c.source ? (
-          <p className="basis-full text-[0.8rem] text-verified sm:mr-auto sm:basis-auto" title={c.source.publisher}>
-            Data from {c.source.short}
-            {c.source.short === "NIRF" ? (best ? ` ${best.year}` : "") : c.academicYear ? ` list ${c.academicYear}` : ""}
+        {credit ? (
+          <p className="basis-full text-[0.8rem] text-verified sm:mr-auto sm:basis-auto" title={credit.title}>
+            {credit.text}
           </p>
         ) : (
           <span className="hidden sm:mr-auto sm:block" />

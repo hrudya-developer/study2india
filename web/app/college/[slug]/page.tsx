@@ -12,6 +12,7 @@ import { CoursesTable } from "@/components/college/courses-table";
 import { ShortlistButton } from "@/components/colleges/shortlist-button";
 import { initials } from "@/components/college-card";
 import { own } from "@/lib/params";
+import { seatCoverage, seatCoverageNote, type SeatCoverage } from "@/lib/coverage";
 
 export const dynamic = "force-dynamic";
 
@@ -21,10 +22,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const c = await getCollege((await params).slug);
   if (!c) return { title: "College not found" };
   const place = [c.city ?? c.district, c.state].filter(Boolean).join(", ");
-  const seats = c.offerings.map(offeringSeats).filter((n): n is number => n !== null);
   const facts = [
     c.approvals.length ? c.approvals.map((a) => own(APPROVAL_BODIES, a)?.badge ?? a).join(", ") : null,
-    seats.length ? `${formatNumber(seats.reduce((a, b) => a + b, 0))} seats across ${c.offerings.length} courses` : null,
+    seatsPhrase(seatCoverage(c.offerings.map(offeringSeats))),
     c.rankings[0] ? `NIRF ${c.rankings[0].year} ${c.rankings[0].category} ${c.rankings[0].rank ? `rank ${c.rankings[0].rank}` : c.rankings[0].rankBand}` : null,
   ].filter(Boolean);
   return {
@@ -32,6 +32,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: `${c.name}${place ? ` in ${place}` : ""}. ${facts.join(". ")}${facts.length ? ". " : ""}Official sources only, with free admission counselling.`,
     alternates: { canonical: `/college/${c.slug}` },
   };
+}
+
+const courseCount = (n: number) => `${formatNumber(n)} ${n === 1 ? "course" : "courses"}`;
+
+/**
+ * The seat figure as a phrase that never passes a partial sum off as the full intake:
+ * "3,210 seats across 11 courses" only when every course has a figure, "3,210 seats in 7 of 11
+ * courses (4 not recorded)" when most do, and no total when fewer than half do.
+ */
+function seatsPhrase(s: SeatCoverage, word = "seats"): string | null {
+  if (!s.recorded) return null;
+  if (s.total === null) return `${courseCount(s.courses)}, seats recorded for ${formatNumber(s.recorded)}`;
+  return `${formatNumber(s.total)} ${word} ${s.complete ? `across ${courseCount(s.courses)}` : seatCoverageNote(s)}`;
 }
 
 function Value({ v }: { v: string | number | null | undefined }) {
@@ -70,8 +83,10 @@ export default async function CollegePage({ params }: Props) {
   const latestRanks = c.rankings.filter((r) => r.year === latestYear);
   // The Overall rank is the one students compare across colleges; otherwise the best category rank.
   const best = latestRanks.find((r) => r.category === "Overall") ?? [...latestRanks].sort((a, b) => (a.rank ?? 9999) - (b.rank ?? 9999))[0];
-  const seatList = c.offerings.map(offeringSeats).filter((n): n is number => n !== null);
-  const totalSeats = seatList.length ? seatList.reduce((a, b) => a + b, 0) : null;
+  const seatCov = seatCoverage(c.offerings.map(offeringSeats));
+  // Null when fewer than half of the courses have a figure; otherwise the sum of the recorded ones.
+  const totalSeats = seatCov.total;
+  const seatNote = seatCoverageNote(seatCov);
   const academicYear = c.offerings.map((o) => o.academicYear).filter(Boolean).sort().at(-1) ?? null;
   const listYear = academicYear ? `, ${academicYear}` : "";
   const yearOf = approvalYears(c);
@@ -84,13 +99,18 @@ export default async function CollegePage({ params }: Props) {
       ? ownership.toLowerCase()
       : `${ownership.toLowerCase()} institution`
     : "institution";
+  const seatsWithheld =
+    totalSeats === null && seatCov.recorded > 0
+      ? `Seat figures are recorded for only ${formatNumber(seatCov.recorded)} of ${courseCount(seatCov.courses)}, so no total is shown.`
+      : null;
   const summary = [
     `${c.name} is ${/^[aeiou]/i.test(kind) ? "an" : "a"} ${kind}${shortPlace ? ` in ${shortPlace}` : ""}${c.establishedYear ? `, established in ${c.establishedYear}` : ""}.`,
     c.approvals.length
-      ? `It appears in the ${c.approvals.join(" and ")} list${c.approvals.length > 1 ? "s" : ""}${academicYear ? ` for ${academicYear}` : ""}${totalSeats !== null ? "," : ""}${totalSeats !== null ? ` with ${formatNumber(totalSeats)} approved seats across ${c.offerings.length} ${c.offerings.length === 1 ? "course" : "courses"}` : ""}.`
+      ? `It appears in the ${c.approvals.join(" and ")} list${c.approvals.length > 1 ? "s" : ""}${academicYear ? ` for ${academicYear}` : ""}${totalSeats !== null ? `, with ${seatsPhrase(seatCov, "approved seats")}` : ""}.`
       : totalSeats !== null
-        ? `It has ${formatNumber(totalSeats)} recorded seats across ${c.offerings.length} courses.`
+        ? `It has ${seatsPhrase(seatCov, "recorded seats")}.`
         : null,
+    seatsWithheld,
     best ? `It is ranked ${best.rank ? best.rank : best.rankBand} in the NIRF ${best.year} ${best.category} ranking.` : null,
     c.affiliatingUniversity ? `It is affiliated to ${c.affiliatingUniversity}.` : null,
   ].filter(Boolean);
@@ -114,7 +134,14 @@ export default async function CollegePage({ params }: Props) {
 
   const stats = [
     { icon: Trophy, label: best ? `NIRF ${best.year} ${best.category}` : "NIRF rank", value: best ? (best.rank ? `#${best.rank}` : best.rankBand) : null, empty: "Not ranked" },
-    { icon: Users, label: `Total seats${listYear}`, value: totalSeats !== null ? formatNumber(totalSeats) : null, empty: "Not recorded" },
+    {
+      icon: Users,
+      // "Total" only when every course has a figure; a partial sum says how many courses it covers.
+      label: `${seatCov.complete || totalSeats === null ? "Total seats" : "Seats"}${listYear}`,
+      value: totalSeats !== null ? formatNumber(totalSeats) : null,
+      empty: "Not recorded",
+      note: seatNote,
+    },
     { icon: BookOpen, label: "Courses listed", value: c.offerings.length ? String(c.offerings.length) : null, empty: "Not recorded" },
     { icon: CalendarDays, label: "Established", value: c.establishedYear ? String(c.establishedYear) : null, empty: "Not recorded" },
   ];
@@ -201,6 +228,7 @@ export default async function CollegePage({ params }: Props) {
                   {s.label}
                 </dt>
                 <dd className={`tabular mt-0.5 ${s.value ? "text-[1.35rem] font-extrabold" : "text-[1rem] italic text-[#c9cbe6]"}`}>{s.value ?? s.empty}</dd>
+                {"note" in s && s.note ? <dd className="tabular text-[0.78rem] leading-snug text-[#c9cbe6]">{s.note}</dd> : null}
               </div>
             ))}
           </dl>
@@ -265,8 +293,10 @@ export default async function CollegePage({ params }: Props) {
                 </h2>
                 {totalSeats !== null ? (
                   <p className="tabular text-ink-soft">
-                    <b className="text-ink">{formatNumber(totalSeats)}</b> seats{listYear ? ` in ${academicYear}` : ""}
+                    <b className="text-ink">{formatNumber(totalSeats)}</b> seats{seatNote ? ` ${seatNote}` : listYear ? ` in ${academicYear}` : ""}
                   </p>
+                ) : seatNote ? (
+                  <p className="tabular text-ink-soft">Seats {seatNote}</p>
                 ) : null}
               </div>
               {c.offerings.length ? (

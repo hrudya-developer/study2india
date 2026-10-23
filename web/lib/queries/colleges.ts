@@ -1,6 +1,7 @@
 import { sql, type SQL } from "drizzle-orm";
 import { rows } from "@/lib/db";
 import { own } from "@/lib/params";
+import { seatCoverage, type SeatCoverage } from "@/lib/coverage";
 
 export const OWNERSHIP_LABELS: Record<string, string> = {
   government: "Government",
@@ -79,9 +80,12 @@ export type CollegeCard = {
   rankings: { category: string; year: number; rank: number | null; rankBand: string | null }[];
   /** Current intake, latest academic year per course, largest first. */
   courses: CardCourse[];
-  totalSeats: number | null;
+  /** Course-wise intake coverage; its total is null when fewer than half of the courses have a figure. */
+  seats: SeatCoverage;
   academicYear: string | null;
   source: { publisher: string; short: string } | null;
+  /** The lists the recorded seat figures come from (the offerings' seat sources), with each list's latest academic year. */
+  seatSources: { publisher: string; short: string; year: string | null }[];
   /** The picked course's row, when the list is filtered by course. */
   offering: {
     seats: number | null;
@@ -167,7 +171,6 @@ export async function searchColleges(f: CollegeFilters, course: CourseContext | 
   }
 
   const whereSql = sql.join(where, sql` and `);
-  const page = Math.max(1, f.page);
   const bestRank = sql`(select min(r.rank) from rankings r where r.institution_id = i.id and r.rank is not null)`;
   const seats =
     useOffering && course
@@ -182,39 +185,38 @@ export async function searchColleges(f: CollegeFilters, course: CourseContext | 
           ? sql`${seats} is null, ${seats} desc, i.name asc`
           : sql`${bestRank} is null, ${bestRank} asc, ${seats} desc, i.name asc`;
 
-  const [[total], base] = await Promise.all([
-    rows<{ n: unknown }>(sql`
-      select count(*) as n from institutions i left join states st on st.code = i.state_code where ${whereSql}
-    `),
-    rows<{
-      id: number;
-      slug: string;
-      name: string;
-      city: string | null;
-      state: string | null;
-      ownership: string | null;
-      established_year: number | null;
-      affiliating_university: string | null;
-      approvals: unknown;
-      naac_grade: string | null;
-      is_partner: number | boolean;
-      publisher: string | null;
-    }>(sql`
-      select i.id, i.slug, i.name, coalesce(i.city, i.district) as city, st.name as state, i.ownership, i.established_year,
-        i.affiliating_university, i.approvals, i.naac_grade, i.is_partner, s.publisher
-      from institutions i
-      left join states st on st.code = i.state_code
-      left join sources s on s.id = i.source_id
-      where ${whereSql}
-      order by ${order}
-      limit ${PAGE_SIZE} offset ${(page - 1) * PAGE_SIZE}
-    `),
-  ]);
-
-  // A page past the end (from an old or edited link) shows the last page instead of an empty list.
+  // Count first so a page past the end (from an old or edited link) is clamped to the last page
+  // before the listing query runs, instead of running the listing twice.
+  const [total] = await rows<{ n: unknown }>(sql`
+    select count(*) as n from institutions i left join states st on st.code = i.state_code where ${whereSql}
+  `);
   const count = Number(total?.n ?? 0);
   const pageCount = Math.max(1, Math.ceil(count / PAGE_SIZE));
-  if (page > pageCount) return searchColleges({ ...f, page: pageCount }, course);
+  const page = Math.min(Math.max(1, f.page), pageCount);
+
+  const base = await rows<{
+    id: number;
+    slug: string;
+    name: string;
+    city: string | null;
+    state: string | null;
+    ownership: string | null;
+    established_year: number | null;
+    affiliating_university: string | null;
+    approvals: unknown;
+    naac_grade: string | null;
+    is_partner: number | boolean;
+    publisher: string | null;
+  }>(sql`
+    select i.id, i.slug, i.name, coalesce(i.city, i.district) as city, st.name as state, i.ownership, i.established_year,
+      i.affiliating_university, i.approvals, i.naac_grade, i.is_partner, s.publisher
+    from institutions i
+    left join states st on st.code = i.state_code
+    left join sources s on s.id = i.source_id
+    where ${whereSql}
+    order by ${order}
+    limit ${PAGE_SIZE} offset ${(page - 1) * PAGE_SIZE}
+  `);
 
   const ids = base.map((b) => b.id);
   const idList = ids.length ? sql.join(ids.map((x) => sql`${x}`), sql`, `) : sql`0`;
@@ -231,10 +233,11 @@ export async function searchColleges(f: CollegeFilters, course: CourseContext | 
       select x.institution_id, s.name from institution_streams x join streams s on s.id = x.stream_id
       where x.institution_id in (${idList}) order by s.sort_order
     `),
-    rows<{ institution_id: number; slug: string; short_name: string; level: string; academic_year: string | null; seats: unknown; branches: unknown }>(sql`
+    rows<{ institution_id: number; slug: string; short_name: string; level: string; academic_year: string | null; seats: unknown; branches: unknown; publisher: string | null }>(sql`
       select o.institution_id, c.slug, c.short_name, c.level, o.academic_year, ${OFFERING_SEATS} as seats,
-        (select count(*) from offering_branches b where b.offering_id = o.id) as branches
+        (select count(*) from offering_branches b where b.offering_id = o.id) as branches, s.publisher
       from offerings o join courses c on c.id = o.course_id
+      left join sources s on s.id = o.seats_source_id
       where o.institution_id in (${idList}) and ${CURRENT_OFFERING}
     `),
     useOffering && course
@@ -254,10 +257,17 @@ export async function searchColleges(f: CollegeFilters, course: CourseContext | 
     const off = offeringRows.filter((o) => o.institution_id === r.id);
     const courses = courseRows
       .filter((c) => c.institution_id === r.id)
-      .map((c) => ({ slug: c.slug, short: c.short_name, level: c.level, seats: num(c.seats), branches: Number(c.branches), year: c.academic_year }))
+      .map((c) => ({ slug: c.slug, short: c.short_name, level: c.level, seats: num(c.seats), branches: Number(c.branches), year: c.academic_year, publisher: c.publisher }))
       .sort((a, b) => (b.seats ?? -1) - (a.seats ?? -1));
-    const known = courses.filter((c) => c.seats !== null);
     const years = courses.map((c) => c.year).filter((y): y is string => !!y).sort();
+    const seatSources = new Map<string, { publisher: string; short: string; year: string | null }>();
+    for (const c of courses) {
+      if (c.seats === null || !c.publisher) continue;
+      const short = publisherShort(c.publisher);
+      const hit = seatSources.get(short);
+      if (!hit) seatSources.set(short, { publisher: c.publisher, short, year: c.year });
+      else if (c.year && (!hit.year || c.year > hit.year)) hit.year = c.year;
+    }
     return {
       id: r.id,
       slug: r.slug,
@@ -275,9 +285,10 @@ export async function searchColleges(f: CollegeFilters, course: CourseContext | 
         .filter((k) => k.institution_id === r.id)
         .map((k) => ({ category: k.category, year: Number(k.year), rank: k.rank, rankBand: k.rank_band })),
       courses: courses.map(({ slug, short, level, seats, branches }) => ({ slug, short, level, seats, branches })),
-      totalSeats: known.length ? known.reduce((n, c) => n + (c.seats ?? 0), 0) : null,
+      seats: seatCoverage(courses.map((c) => c.seats)),
       academicYear: years.length ? years[years.length - 1] : null,
       source: r.publisher ? { publisher: r.publisher, short: publisherShort(r.publisher) } : null,
+      seatSources: [...seatSources.values()],
       offering: off.length
         ? {
             // One current row per course; fee rows repeat it once per quota, so read the first.

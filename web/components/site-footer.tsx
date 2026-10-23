@@ -25,6 +25,9 @@ const SOURCES = [
   { short: "INC", name: "Indian Nursing Council", url: "https://www.indiannursingcouncil.org" },
   { short: "NCISM", name: "National Commission for Indian System of Medicine", url: "https://ncismindia.org" },
   { short: "NCH", name: "National Commission for Homoeopathy", url: "https://www.nch.org.in" },
+  { short: "PCI", name: "Pharmacy Council of India", url: "https://pci.gov.in/en/approved-institute/" },
+  { short: "DCI", name: "Dental Council of India", url: "https://dciindia.gov.in/CollegeSearch.aspx" },
+  { short: "VCI", name: "Veterinary Council of India", url: "https://vci.dahd.gov.in/list-of-college" },
   { short: "NIRF", name: "National Institutional Ranking Framework", url: "https://www.nirfindia.org" },
 ];
 

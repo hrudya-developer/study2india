@@ -4,6 +4,10 @@ import { rows } from "@/lib/db";
 import { getAllCourses, getExams, type CourseLite, type ExamSummary } from "@/lib/queries/home";
 import { OWNERSHIP_LABELS } from "@/lib/queries/colleges";
 import { EXAMS } from "@/data/reference";
+import { mostlyRecorded } from "@/lib/coverage";
+
+/** The coverage rule lives in lib/coverage; re-exported for the course pages that import it from here. */
+export { mostlyRecorded };
 
 /** Exams that admit to a course: the exam's own course list when it has one, otherwise its fields. */
 function examsForCourse(exams: ExamSummary[], c: CourseLite) {
@@ -12,15 +16,6 @@ function examsForCourse(exams: ExamSummary[], c: CourseLite) {
     const seed = bySlug.get(e.slug);
     return seed?.courses ? seed.courses.includes(c.slug) : e.streams.includes(c.streamName);
   });
-}
-
-/**
- * The site's coverage rule for a figure that only some colleges have: a total or count is shown
- * only when at least half of the colleges have the value recorded. Below that the figure would
- * mostly reflect what is missing, so pages show "Not recorded" and how many colleges have it.
- */
-export function mostlyRecorded(recorded: number, total: number) {
-  return total > 0 && recorded * 2 >= total;
 }
 
 export type CourseStateRow = {
