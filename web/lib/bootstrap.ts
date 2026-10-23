@@ -389,6 +389,8 @@ type CouncilRow = {
   management: string | null;
   ownership: (typeof schema.institutions.$inferInsert)["ownership"] | null;
   offerings: { course: string; seats: number | null; branches?: { name: string; seats: number | null }[] }[];
+  /** Affiliating university as the council lists it. */
+  university?: string | null;
   /** For a file that carries more than one year's list: this row's year and source prefix. */
   academic_year?: string;
   source?: string;
@@ -399,13 +401,14 @@ type CouncilFile = {
   council: string;
   /** Identifier scheme for the council's college codes. */
   scheme: string;
-  stream: string;
+  /** Field for every college in the file; null when each course's own field applies. */
+  stream: string | null;
   academic_year: string;
   /** One source per list; prefix picks the source for a college code. */
   sources: (NmcSource & { prefix: string })[];
   rows: CouncilRow[];
 };
-const COUNCIL_LOADER_VERSION = 3;
+const COUNCIL_LOADER_VERSION = 4;
 
 /**
  * Moves everything recorded against one institution onto another and removes the first. Used when
@@ -431,7 +434,9 @@ export async function seedCouncils(streamIds: Map<string, number>, log: (m: stri
     const key = `${file.hash}-${COUNCIL_LOADER_VERSION}`;
     if (done.get(file.tag) === key) continue;
     const data = file.data as CouncilFile;
-    const streamId = streamIds.get(data.stream);
+    const streamId = data.stream ? streamIds.get(data.stream) : undefined;
+    const courseStreams = new Map<number, number>();
+    if (!data.stream) for (const c of await getDb().select({ id: courses.id, streamId: courses.streamId }).from(courses)) courseStreams.set(c.id, c.streamId);
     const sourceIds = new Map<string, number>();
     for (const s of data.sources) sourceIds.set(s.prefix, await upsertSource(s));
     const courseIds = new Map<string, number | undefined>();
@@ -460,7 +465,7 @@ export async function seedCouncils(streamIds: Map<string, number>, log: (m: stri
         for (let n = 2; (await db.select({ id: institutions.id }).from(institutions).where(eq(institutions.slug, slug)))[0]; n++) slug = `${base}-${n}`;
         const [res] = await db
           .insert(institutions)
-          .values({ slug, name, address: r.address, district: r.district, stateCode: stateCode(r.state), ownership: r.ownership ?? null, status: "published", sourceId })
+          .values({ slug, name, address: r.address, district: r.district, stateCode: stateCode(r.state), ownership: r.ownership ?? null, affiliatingUniversity: r.university ?? null, status: "published", sourceId })
           .$returningId();
         id = res.id;
         created++;
@@ -469,7 +474,8 @@ export async function seedCouncils(streamIds: Map<string, number>, log: (m: stri
         await db.execute(sql`update institutions set
           ownership = coalesce(ownership, ${r.ownership ?? null}),
           address = coalesce(address, ${r.address}),
-          district = coalesce(district, ${r.district})
+          district = coalesce(district, ${r.district}),
+          affiliating_university = coalesce(affiliating_university, ${r.university ?? null})
           where id = ${id}`);
       }
       await db.execute(sql`update institutions set approvals = case
@@ -482,6 +488,8 @@ export async function seedCouncils(streamIds: Map<string, number>, log: (m: stri
         if (!courseIds.has(o.course)) courseIds.set(o.course, await courseIdBySlug(o.course));
         const courseId = courseIds.get(o.course);
         if (!courseId) continue;
+        const cs = courseStreams.get(courseId);
+        if (cs) await db.insert(institutionStreams).values({ institutionId: id, streamId: cs }).onDuplicateKeyUpdate({ set: { streamId: cs } });
         await db
           .insert(offerings)
           .values({ institutionId: id, courseId, academicYear: year, seats: o.seats, seatsSourceId: sourceId })

@@ -188,6 +188,8 @@ export const STREAMS: StreamSeed[] = [
     courses: [
       { slug: "barch", name: "Bachelor of Architecture", short: "B.Arch", level: "ug", duration: "5 years" },
       { slug: "march", name: "Master of Architecture", short: "M.Arch", level: "pg", duration: "2 years" },
+      { slug: "bplan", name: "Bachelor of Planning", short: "B.Plan", level: "ug", duration: "4 years" },
+      { slug: "mplan", name: "Master of Planning", short: "M.Plan", level: "pg", duration: "2 years" },
     ],
   },
   {
@@ -223,6 +225,8 @@ export const STREAMS: StreamSeed[] = [
     courses: [
       { slug: "ba", name: "Bachelor of Arts", short: "BA", level: "ug", duration: "3 to 4 years" },
       { slug: "ma", name: "Master of Arts", short: "MA", level: "pg", duration: "2 years" },
+      { slug: "bfa", name: "Bachelor of Fine Arts", short: "BFA", level: "ug", duration: null },
+      { slug: "mfa", name: "Master of Fine Arts", short: "MFA", level: "pg", duration: "2 years" },
     ],
   },
   {
@@ -255,6 +259,8 @@ export const STREAMS: StreamSeed[] = [
     summary: "Hospitality and hotel administration",
     courses: [
       { slug: "bsc-hha", name: "B.Sc Hospitality and Hotel Administration", short: "B.Sc HHA", level: "ug", duration: "3 years" },
+      { slug: "bhmct", name: "Bachelor of Hotel Management and Catering Technology", short: "BHMCT", level: "ug", duration: "4 years" },
+      { slug: "diploma-hotel-management", name: "Diploma in Hotel Management and Catering Technology", short: "Diploma (Hotel Mgmt)", level: "diploma", duration: null },
     ],
   },
   {
@@ -275,24 +281,26 @@ export type ExamSeed = {
   level: "National" | "State" | "University";
   url: string | null;
   streams: string[];
+  /** Courses the exam admits to, where that is narrower than its fields. */
+  courses?: string[];
 };
 
 export const EXAMS: ExamSeed[] = [
-  { slug: "neet-ug", short: "NEET UG", name: "National Eligibility cum Entrance Test (UG)", body: "National Testing Agency", level: "National", url: "https://neet.nta.nic.in", streams: ["medical", "dental", "ayush", "veterinary", "nursing"] },
-  { slug: "neet-pg", short: "NEET PG", name: "National Eligibility cum Entrance Test (PG)", body: "National Board of Examinations in Medical Sciences", level: "National", url: "https://natboard.edu.in", streams: ["medical"] },
-  { slug: "neet-mds", short: "NEET MDS", name: "National Eligibility cum Entrance Test (MDS)", body: "National Board of Examinations in Medical Sciences", level: "National", url: "https://natboard.edu.in", streams: ["dental"] },
-  { slug: "jee-main", short: "JEE Main", name: "Joint Entrance Examination (Main)", body: "National Testing Agency", level: "National", url: "https://jeemain.nta.nic.in", streams: ["engineering", "architecture"] },
-  { slug: "jee-advanced", short: "JEE Advanced", name: "Joint Entrance Examination (Advanced)", body: "Indian Institutes of Technology", level: "National", url: "https://jeeadv.ac.in", streams: ["engineering", "architecture"] },
-  { slug: "gate", short: "GATE", name: "Graduate Aptitude Test in Engineering", body: "IISc Bangalore and IITs (organising institute rotates)", level: "National", url: null, streams: ["engineering"] },
-  { slug: "keam", short: "KEAM", name: "Kerala Engineering Architecture Medical", body: "Commissioner for Entrance Examinations, Kerala", level: "State", url: "https://cee.kerala.gov.in", streams: ["engineering", "medical", "dental", "ayush", "agriculture", "veterinary", "pharmacy", "architecture"] },
-  { slug: "kcet", short: "KCET", name: "Karnataka Common Entrance Test", body: "Karnataka Examinations Authority", level: "State", url: "https://cetonline.karnataka.gov.in/kea/", streams: ["engineering", "agriculture", "pharmacy", "veterinary"] },
-  { slug: "cuet-ug", short: "CUET UG", name: "Common University Entrance Test (UG)", body: "National Testing Agency", level: "National", url: "https://cuet.nta.nic.in", streams: ["science", "commerce", "arts", "management", "computer-applications"] },
-  { slug: "cat", short: "CAT", name: "Common Admission Test", body: "Indian Institutes of Management", level: "National", url: "https://iimcat.ac.in", streams: ["management"] },
-  { slug: "clat", short: "CLAT", name: "Common Law Admission Test", body: "Consortium of National Law Universities", level: "National", url: "https://consortiumofnlus.ac.in", streams: ["law"] },
-  { slug: "nata", short: "NATA", name: "National Aptitude Test in Architecture", body: "Council of Architecture", level: "National", url: "https://www.nata.in", streams: ["architecture"] },
-  { slug: "uceed", short: "UCEED", name: "Undergraduate Common Entrance Examination for Design", body: "IIT Bombay", level: "National", url: "https://www.uceed.iitb.ac.in", streams: ["design"] },
-  { slug: "nchm-jee", short: "NCHM JEE", name: "National Council for Hotel Management Joint Entrance Examination", body: "National Testing Agency", level: "National", url: null, streams: ["hotel-management"] },
-  { slug: "gpat", short: "GPAT", name: "Graduate Pharmacy Aptitude Test", body: "National Board of Examinations in Medical Sciences", level: "National", url: "https://natboard.edu.in", streams: ["pharmacy"] },
+  { slug: "neet-ug", short: "NEET UG", name: "National Eligibility cum Entrance Test (UG)", body: "National Testing Agency", level: "National", url: "https://neet.nta.nic.in", streams: ["medical", "dental", "ayush", "veterinary", "nursing"], courses: ["mbbs", "bds", "bams", "bhms", "bums", "bsms", "bnys", "bvsc-ah"] },
+  { slug: "neet-pg", short: "NEET PG", name: "National Eligibility cum Entrance Test (PG)", body: "National Board of Examinations in Medical Sciences", level: "National", url: "https://natboard.edu.in", streams: ["medical"], courses: ["md-ms", "pg-diploma-medical"] },
+  { slug: "neet-mds", short: "NEET MDS", name: "National Eligibility cum Entrance Test (MDS)", body: "National Board of Examinations in Medical Sciences", level: "National", url: "https://natboard.edu.in", streams: ["dental"], courses: ["mds"] },
+  { slug: "jee-main", short: "JEE Main", name: "Joint Entrance Examination (Main)", body: "National Testing Agency", level: "National", url: "https://jeemain.nta.nic.in", streams: ["engineering", "architecture"], courses: ["btech", "barch"] },
+  { slug: "jee-advanced", short: "JEE Advanced", name: "Joint Entrance Examination (Advanced)", body: "Indian Institutes of Technology", level: "National", url: "https://jeeadv.ac.in", streams: ["engineering", "architecture"], courses: ["btech"] },
+  { slug: "gate", short: "GATE", name: "Graduate Aptitude Test in Engineering", body: "IISc Bangalore and IITs (organising institute rotates)", level: "National", url: null, streams: ["engineering"], courses: ["mtech"] },
+  { slug: "keam", short: "KEAM", name: "Kerala Engineering Architecture Medical", body: "Commissioner for Entrance Examinations, Kerala", level: "State", url: "https://cee.kerala.gov.in", streams: ["engineering", "medical", "dental", "ayush", "agriculture", "veterinary", "pharmacy", "architecture"], courses: ["btech", "barch", "b-pharm"] },
+  { slug: "kcet", short: "KCET", name: "Karnataka Common Entrance Test", body: "Karnataka Examinations Authority", level: "State", url: "https://cetonline.karnataka.gov.in/kea/", streams: ["engineering", "agriculture", "pharmacy", "veterinary"], courses: ["btech", "b-pharm", "bsc-agriculture"] },
+  { slug: "cuet-ug", short: "CUET UG", name: "Common University Entrance Test (UG)", body: "National Testing Agency", level: "National", url: "https://cuet.nta.nic.in", streams: ["science", "commerce", "arts", "management", "computer-applications"], courses: ["bsc", "bcom", "ba", "bba", "bca"] },
+  { slug: "cat", short: "CAT", name: "Common Admission Test", body: "Indian Institutes of Management", level: "National", url: "https://iimcat.ac.in", streams: ["management"], courses: ["mba", "pgdm"] },
+  { slug: "clat", short: "CLAT", name: "Common Law Admission Test", body: "Consortium of National Law Universities", level: "National", url: "https://consortiumofnlus.ac.in", streams: ["law"], courses: ["ba-llb", "llm"] },
+  { slug: "nata", short: "NATA", name: "National Aptitude Test in Architecture", body: "Council of Architecture", level: "National", url: "https://www.nata.in", streams: ["architecture"], courses: ["barch"] },
+  { slug: "uceed", short: "UCEED", name: "Undergraduate Common Entrance Examination for Design", body: "IIT Bombay", level: "National", url: "https://www.uceed.iitb.ac.in", streams: ["design"], courses: ["bdes"] },
+  { slug: "nchm-jee", short: "NCHM JEE", name: "National Council for Hotel Management Joint Entrance Examination", body: "National Testing Agency", level: "National", url: null, streams: ["hotel-management"], courses: ["bsc-hha"] },
+  { slug: "gpat", short: "GPAT", name: "Graduate Pharmacy Aptitude Test", body: "National Board of Examinations in Medical Sciences", level: "National", url: "https://natboard.edu.in", streams: ["pharmacy"], courses: ["m-pharm"] },
 ];
 
 /** NIRF ranking categories mapped to our streams (null = cross-stream list). */

@@ -34,7 +34,9 @@ export default async function CoursePage({ params }: Props) {
     { icon: GraduationCap, k: "Level", v: LEVEL_LABEL[c.level] ?? c.level },
     { icon: Clock, k: "Duration", v: c.duration },
     { icon: Target, k: "Entrance exams", v: c.exams.length ? c.exams.map((e) => e.short).join(", ") : null },
-    { icon: Building2, k: `${c.streamName} colleges listed`, v: c.institutions ? c.institutions.toLocaleString("en-IN") : null },
+    c.offeredBy
+      ? { icon: Building2, k: `Colleges offering ${c.short}`, v: c.offeredBy.toLocaleString("en-IN") }
+      : { icon: Building2, k: `${c.streamName} colleges listed`, v: c.institutions ? c.institutions.toLocaleString("en-IN") : null },
   ];
 
   return (

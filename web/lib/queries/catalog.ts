@@ -1,10 +1,22 @@
 import { sql } from "drizzle-orm";
 import { rows } from "@/lib/db";
 import { getAllCourses, getExams, type CourseLite, type ExamSummary } from "@/lib/queries/home";
+import { EXAMS } from "@/data/reference";
+
+/** Exams that admit to a course: the exam's own course list when it has one, otherwise its fields. */
+function examsForCourse(exams: ExamSummary[], c: CourseLite) {
+  const bySlug = new Map(EXAMS.map((e) => [e.slug, e]));
+  return exams.filter((e) => {
+    const seed = bySlug.get(e.slug);
+    return seed?.courses ? seed.courses.includes(c.slug) : e.streams.includes(c.streamName);
+  });
+}
 
 export type CourseDetail = CourseLite & {
   eligibility: string | null;
   institutions: number;
+  /** Institutions with a recorded offering of this course. */
+  offeredBy: number;
   exams: ExamSummary[];
   related: CourseLite[];
 };
@@ -13,8 +25,10 @@ export async function getCourse(slug: string): Promise<CourseDetail | null> {
   const [all, exams] = await Promise.all([getAllCourses(), getExams()]);
   const c = all.find((x) => x.slug === slug);
   if (!c) return null;
-  const [extra] = await rows<{ eligibility_text: string | null; institutions: unknown }>(sql`
+  const [extra] = await rows<{ eligibility_text: string | null; institutions: unknown; offered_by: unknown }>(sql`
     select c.eligibility_text,
+      (select count(distinct o.institution_id) from offerings o join institutions i on i.id = o.institution_id
+        where o.course_id = c.id and i.status = 'published') as offered_by,
       (select count(*) from institution_streams x join institutions i on i.id = x.institution_id
         join streams s on s.id = x.stream_id where s.slug = ${c.streamSlug} and i.status = 'published') as institutions
     from courses c where c.slug = ${slug}
@@ -23,7 +37,8 @@ export async function getCourse(slug: string): Promise<CourseDetail | null> {
     ...c,
     eligibility: extra?.eligibility_text ?? null,
     institutions: Number(extra?.institutions ?? 0),
-    exams: exams.filter((e) => e.streams.includes(c.streamName)),
+    offeredBy: Number(extra?.offered_by ?? 0),
+    exams: examsForCourse(exams, c),
     related: all.filter((x) => x.streamSlug === c.streamSlug && x.slug !== slug),
   };
 }
