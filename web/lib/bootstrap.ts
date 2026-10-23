@@ -384,6 +384,9 @@ type CouncilRow = {
   name: string;
   address: string | null;
   district: string | null;
+  /** Town and 6-digit PIN, when the council prints them. */
+  city?: string | null;
+  pin?: string | null;
   state: string;
   /** The council's own wording for the management type. */
   management: string | null;
@@ -465,7 +468,7 @@ export async function seedCouncils(streamIds: Map<string, number>, log: (m: stri
         for (let n = 2; (await db.select({ id: institutions.id }).from(institutions).where(eq(institutions.slug, slug)))[0]; n++) slug = `${base}-${n}`;
         const [res] = await db
           .insert(institutions)
-          .values({ slug, name, address: r.address, district: r.district, stateCode: stateCode(r.state), ownership: r.ownership ?? null, affiliatingUniversity: r.university ?? null, status: "published", sourceId })
+          .values({ slug, name, address: r.address, district: r.district, city: r.city ?? null, pin: r.pin && /^\d{6}$/.test(r.pin) ? r.pin : null, stateCode: stateCode(r.state), ownership: r.ownership ?? null, affiliatingUniversity: r.university ?? null, status: "published", sourceId })
           .$returningId();
         id = res.id;
         created++;
@@ -475,6 +478,8 @@ export async function seedCouncils(streamIds: Map<string, number>, log: (m: stri
           ownership = coalesce(ownership, ${r.ownership ?? null}),
           address = coalesce(address, ${r.address}),
           district = coalesce(district, ${r.district}),
+          city = coalesce(city, ${r.city ?? null}),
+          pin = coalesce(pin, ${r.pin && /^\d{6}$/.test(r.pin) ? r.pin : null}),
           affiliating_university = coalesce(affiliating_university, ${r.university ?? null})
           where id = ${id}`);
       }
