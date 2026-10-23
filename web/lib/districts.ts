@@ -1,4 +1,5 @@
 import { STATES } from "@/data/reference";
+import { slugify } from "@/lib/slug";
 import { AMBIGUOUS_DISTRICTS, CITIES_SPANNING_DISTRICTS, DISTRICTS, DISTRICT_ALIASES, DISTRICT_TOWNS } from "@/data/districts";
 
 /**
@@ -126,4 +127,36 @@ export function normaliseDistrict(state: string | null | undefined, raw: string 
 export function isOfficialDistrict(state: string | null | undefined, value: string | null | undefined): boolean {
   const name = stateName(state);
   return !!(name && value && DISTRICTS[name]?.includes(value));
+}
+
+/*
+ * District slugs for the "<course> colleges in <district>" landing pages. A slug is the official
+ * name through slugify. Names are taken in code point order, so if two names in a state ever
+ * slugified alike the later one would get "-2" (none do today). The mapping depends only on
+ * data/districts.ts, so it is the same on every build and start.
+ */
+const slugIndex = new Map<string, { bySlug: Map<string, string>; byName: Map<string, string> }>();
+for (const [state, list] of Object.entries(DISTRICTS)) {
+  const bySlug = new Map<string, string>();
+  const byName = new Map<string, string>();
+  for (const d of [...list].sort((a, b) => (a < b ? -1 : a > b ? 1 : 0))) {
+    const base = slugify(d) || "district";
+    let slug = base;
+    for (let n = 2; bySlug.has(slug); n++) slug = `${base}-${n}`;
+    bySlug.set(slug, d);
+    byName.set(d, slug);
+  }
+  slugIndex.set(state, { bySlug, byName });
+}
+
+/** The URL slug of an official district name in a state (state name or code); null when it is not one. */
+export function districtSlug(state: string | null | undefined, district: string | null | undefined): string | null {
+  const name = stateName(state);
+  return (name && district && slugIndex.get(name)?.byName.get(district)) || null;
+}
+
+/** The official district name for a slug in a state (state name or code); null for an unknown slug. */
+export function districtFromSlug(state: string | null | undefined, slug: string | null | undefined): string | null {
+  const name = stateName(state);
+  return (name && slug && slugIndex.get(name)?.bySlug.get(slug)) || null;
 }

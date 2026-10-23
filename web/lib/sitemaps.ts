@@ -2,15 +2,31 @@ import type { MetadataRoute } from "next";
 import { sql } from "drizzle-orm";
 import { rows } from "@/lib/db";
 import { getCollegeFacets } from "@/lib/queries/colleges";
-import { getLandingIndex, landingPages } from "@/lib/queries/landing";
+import { districtLandingPages, getLandingIndex, landingPages } from "@/lib/queries/landing";
 import { absoluteUrl, xmlEscape } from "@/lib/seo";
 
 /**
  * The site's sitemaps. /sitemap.xml is an index of child sitemaps served at /sitemap/<id>.xml:
- * static pages, courses, exams, listing landing pages and published colleges, split into
- * chunks well under the 50,000 URL and 50MB limits.
+ * static pages, courses, exams, listing landing pages, district landing pages and published
+ * colleges, split into chunks well under the 50,000 URL and 50MB limits.
  */
 export const COLLEGES_PER_SITEMAP = 40000;
+/** District landing pages per sitemap: "landing-districts", then "landing-districts-2" and on if ever needed. */
+export const DISTRICT_LANDINGS_PER_SITEMAP = 40000;
+
+const districtChunkId = (n: number) => (n === 1 ? "landing-districts" : `landing-districts-${n}`);
+
+/** The 1-based chunk number of a district landing sitemap id, or null for any other id. */
+function districtChunk(id: string): number | null {
+  if (id === "landing-districts") return 1;
+  const m = /^landing-districts-(\d+)$/.exec(id);
+  return m && Number(m[1]) >= 2 ? Number(m[1]) : null;
+}
+
+async function districtChunkPages(n: number) {
+  const start = (n - 1) * DISTRICT_LANDINGS_PER_SITEMAP;
+  return districtLandingPages(await getLandingIndex()).slice(start, start + DISTRICT_LANDINGS_PER_SITEMAP);
+}
 
 const STATIC_PAGES = ["/", "/colleges", "/courses", "/exams", "/rankings", "/scholarships", "/counselling", "/about", "/contact", "/how-we-check-data", "/privacy"];
 
@@ -50,12 +66,25 @@ function latest(dates: (string | null)[]): Date | undefined {
 /** The child sitemap ids, in index order. Falls back to a single colleges chunk when the database is unreachable. */
 export async function sitemapIds(): Promise<string[]> {
   let chunks = 1;
+  let districtChunks = 1;
   try {
     chunks = Math.max(1, Math.ceil((await getColleges()).length / COLLEGES_PER_SITEMAP));
   } catch {
     // The colleges sitemap will be empty until the database is back; the ids stay valid.
   }
-  return ["pages", "courses", "exams", "landing", ...Array.from({ length: chunks }, (_, i) => `colleges-${i + 1}`)];
+  try {
+    districtChunks = Math.max(1, Math.ceil((await getLandingIndex()).districtPages / DISTRICT_LANDINGS_PER_SITEMAP));
+  } catch {
+    // As above: one (empty) district sitemap until the database is back.
+  }
+  return [
+    "pages",
+    "courses",
+    "exams",
+    "landing",
+    ...Array.from({ length: districtChunks }, (_, i) => districtChunkId(i + 1)),
+    ...Array.from({ length: chunks }, (_, i) => `colleges-${i + 1}`),
+  ];
 }
 
 const entry = (path: string, lastModified?: Date): MetadataRoute.Sitemap[number] => ({
@@ -85,6 +114,8 @@ export async function sitemapEntries(id: string): Promise<MetadataRoute.Sitemap>
       ];
       return [...single.map((p) => entry(p)), ...landingPages(index).map((l) => entry(l.path, toDate(l.lastmod)))];
     }
+    const d = districtChunk(id);
+    if (d) return (await districtChunkPages(d)).map((l) => entry(l.path, toDate(l.lastmod)));
     const m = /^colleges-(\d+)$/.exec(id);
     if (m) {
       const start = (Number(m[1]) - 1) * COLLEGES_PER_SITEMAP;
@@ -106,6 +137,8 @@ export async function sitemapLastModified(id: string): Promise<Date | undefined>
       return latest((await getColleges()).slice(start, start + COLLEGES_PER_SITEMAP).map((c) => c.updated_at));
     }
     if (id === "landing") return latest(landingPages(await getLandingIndex()).map((l) => l.lastmod));
+    const d = districtChunk(id);
+    if (d) return latest((await districtChunkPages(d)).map((l) => l.lastmod));
   } catch {
     // No lastmod is fine.
   }

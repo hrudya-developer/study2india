@@ -5,6 +5,8 @@ import { cache } from "react";
 import { PAGE_SIZE, collegesHref, getCityFacets, getCollegeFacets, getCourseContext, readCollegeFilters, searchColleges, formatNumber, type CollegeFilters } from "@/lib/queries/colleges";
 import {
   LANDING_MIN_COLLEGES,
+  districtLandingPath,
+  districtsFor,
   getLandingIndex,
   getLandingStats,
   isLandingPair,
@@ -100,6 +102,9 @@ export default async function LandingPage({ params, searchParams }: Props) {
     .sort((a, b) => b.colleges - a.colleges || a.name.localeCompare(b.name))
     .slice(0, 12);
 
+  // Districts of this state with a page of their own for the course, alphabetical.
+  const districts = districtsFor(index, t.kind, t.slug, t.state.slug).filter((d) => d.indexable);
+
   const sentences = landingIntro(t, stats);
   const from = (result.page - 1) * PAGE_SIZE + 1;
   const graph = [
@@ -157,6 +162,28 @@ export default async function LandingPage({ params, searchParams }: Props) {
         pageHref={(p) => landingPath(t.slug, t.state.slug, p)}
         intro={intro}
       />
+      {districts.length ? (
+        <section aria-labelledby="by-district" className="bg-band">
+          <div className="mx-auto max-w-7xl px-4 pb-10 sm:px-6">
+            <h2 id="by-district" className="text-xl font-bold">
+              {t.label} colleges in {t.state.name} by district
+            </h2>
+            <ul className="mt-3 flex flex-wrap gap-2">
+              {districts.map((d) => (
+                <li key={d.slug}>
+                  <Link
+                    href={districtLandingPath(t.slug, t.state.slug, d.slug)}
+                    className="inline-flex min-h-9 items-center gap-1.5 rounded-full border border-rule bg-paper px-3 text-[0.9rem] text-ink-soft hover:border-brand hover:text-ink"
+                  >
+                    {d.name}
+                    <span className="tabular text-[0.8rem] text-muted">{formatNumber(d.colleges)}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : null}
       {otherStates.length ? (
         <section aria-labelledby="other-states" className="bg-band">
           <div className="mx-auto max-w-7xl px-4 pb-12 sm:px-6">

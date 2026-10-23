@@ -6,7 +6,8 @@ import { approvalYears, getCollege, getSimilarColleges, offeringSeats, type Sour
 import { getSearchOptions } from "@/lib/queries/home";
 import { APPROVAL_BODIES, OWNERSHIP_LABELS, formatNumber, publisherShort } from "@/lib/queries/colleges";
 import { CounsellingForm } from "@/components/counselling-form";
-import { getLandingIndex, isLandingPair, landingPath } from "@/lib/queries/landing";
+import { districtLandingPath, getLandingIndex, isDistrictLandingPair, isLandingPair, landingPath } from "@/lib/queries/landing";
+import { districtSlug } from "@/lib/districts";
 import { absoluteUrl, breadcrumbList, isWebUrl, jsonLd as toJsonLd } from "@/lib/seo";
 import { SourceStamp } from "@/components/source-stamp";
 import { SectionNav } from "@/components/college/section-nav";
@@ -156,12 +157,25 @@ export default async function CollegePage({ params }: Props) {
     ),
   ];
 
-  // "<course> colleges in <state>" landing pages for the courses this college offers.
+  // "<course> colleges in <district>" and "<course> colleges in <state>" landing pages for the
+  // courses this college offers; district pages only for the college's own district.
+  const offered = [...new Map(c.offerings.map((o) => [o.courseSlug, o.courseShort])).entries()];
+  const ownDistrict = c.stateSlug ? districtSlug(c.state, c.district) : null;
+  const districtLinks =
+    c.stateSlug && ownDistrict
+      ? offered
+          .filter(([course]) => isDistrictLandingPair(landingIndex, "course", course, c.stateSlug as string, ownDistrict))
+          .slice(0, 8)
+          .map(([course, short]) => ({ href: districtLandingPath(course, c.stateSlug as string, ownDistrict), label: `${short} colleges in ${c.district}` }))
+      : [];
   const landingLinks = c.stateSlug
-    ? [...new Map(c.offerings.map((o) => [o.courseSlug, o.courseShort])).entries()]
-        .filter(([course]) => isLandingPair(landingIndex, "course", course, c.stateSlug as string))
-        .slice(0, 16)
-        .map(([course, short]) => ({ href: landingPath(course, c.stateSlug as string), label: `${short} colleges in ${c.state}` }))
+    ? [
+        ...districtLinks,
+        ...offered
+          .filter(([course]) => isLandingPair(landingIndex, "course", course, c.stateSlug as string))
+          .slice(0, 16)
+          .map(([course, short]) => ({ href: landingPath(course, c.stateSlug as string), label: `${short} colleges in ${c.state}` })),
+      ]
     : [];
 
   const stats = [
@@ -618,7 +632,7 @@ export default async function CollegePage({ params }: Props) {
             {landingLinks.length ? (
               <nav aria-labelledby="h-course-states" className="card p-5">
                 <h2 id="h-course-states" className="text-lg font-bold">
-                  Other colleges in {c.state} for these courses
+                  Other colleges in {districtLinks.length ? `${c.district} and ${c.state}` : c.state} for these courses
                 </h2>
                 <ul className="mt-3 flex flex-wrap gap-2">
                   {landingLinks.map((l) => (
