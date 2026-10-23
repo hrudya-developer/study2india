@@ -111,6 +111,7 @@ export const STREAMS: StreamSeed[] = [
       { slug: "bums", name: "Bachelor of Unani Medicine and Surgery", short: "BUMS", level: "ug", duration: "5.5 years including 1 year internship" },
       { slug: "bsms", name: "Bachelor of Siddha Medicine and Surgery", short: "BSMS", level: "ug", duration: "5.5 years including 1 year internship" },
       { slug: "bnys", name: "Bachelor of Naturopathy and Yogic Sciences", short: "BNYS", level: "ug", duration: "5.5 years including 1 year internship" },
+      { slug: "ayush-pg", name: "MD / MS in Ayurveda, Unani or Siddha", short: "MD / MS (AYUSH)", level: "pg", duration: "3 years" },
     ],
   },
   {

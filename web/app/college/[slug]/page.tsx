@@ -15,7 +15,7 @@ type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const c = await getCollege((await params).slug);
   if (!c) return { title: "College not found" };
-  const place = [c.city, c.state].filter(Boolean).join(", ");
+  const place = [c.city ?? c.district, c.state].filter(Boolean).join(", ");
   return {
     title: `${c.name}${place ? `, ${place}` : ""}: courses, fees, rankings`,
     description: `${c.name}${place ? ` in ${place}` : ""}. Courses, fees, seats, rankings and admission details from official sources, with free admission counselling.`,
@@ -297,7 +297,7 @@ export default async function CollegePage({ params }: Props) {
             <section id="contact" className="card scroll-mt-40 p-5 sm:p-6">
               <h2 className="text-2xl font-bold">Contact and location</h2>
               <dl className="mt-4 space-y-3">
-                <div className="flex gap-3"><MapPin size={18} className="mt-0.5 shrink-0 text-muted" aria-hidden="true" /><dt className="sr-only">Address</dt><dd><Value v={[c.address, c.city, c.state, c.pin].filter(Boolean).join(", ") || null} /></dd></div>
+                <div className="flex gap-3"><MapPin size={18} className="mt-0.5 shrink-0 text-muted" aria-hidden="true" /><dt className="sr-only">Address</dt><dd><Value v={c.address ?? ([c.city, c.state, c.pin].filter(Boolean).join(", ") || null)} /></dd></div>
                 <div className="flex gap-3"><Globe size={18} className="mt-0.5 shrink-0 text-muted" aria-hidden="true" /><dt className="sr-only">Website</dt><dd>{c.website ? <a href={c.website} target="_blank" rel="noopener" className="font-bold underline">{c.website.replace(/^https?:\/\//, "")}</a> : <Value v={null} />}</dd></div>
                 <div className="flex gap-3"><Phone size={18} className="mt-0.5 shrink-0 text-muted" aria-hidden="true" /><dt className="sr-only">Phone</dt><dd><Value v={c.phone} /></dd></div>
                 <div className="flex gap-3"><Mail size={18} className="mt-0.5 shrink-0 text-muted" aria-hidden="true" /><dt className="sr-only">Email</dt><dd><Value v={c.email} /></dd></div>

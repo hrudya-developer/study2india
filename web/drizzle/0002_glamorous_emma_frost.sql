@@ -1,0 +1,1 @@
+ALTER TABLE `institutions` MODIFY COLUMN `ownership` enum('government','private','deemed','central','state_university','autonomous','public_private','aided');

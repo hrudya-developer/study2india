@@ -57,5 +57,11 @@ export const MIGRATIONS: { tag: string; statements: string[] }[] = [
       "ALTER TABLE `offering_branches` ADD CONSTRAINT `offering_branches_offering_id_offerings_id_fk` FOREIGN KEY (`offering_id`) REFERENCES `offerings`(`id`) ON DELETE cascade ON UPDATE no action;",
       "ALTER TABLE `offering_branches` ADD CONSTRAINT `offering_branches_source_id_sources_id_fk` FOREIGN KEY (`source_id`) REFERENCES `sources`(`id`) ON DELETE no action ON UPDATE no action;"
     ]
+  },
+  {
+    "tag": "0002_glamorous_emma_frost",
+    "statements": [
+      "ALTER TABLE `institutions` MODIFY COLUMN `ownership` enum('government','private','deemed','central','state_university','autonomous','public_private','aided');"
+    ]
   }
 ];

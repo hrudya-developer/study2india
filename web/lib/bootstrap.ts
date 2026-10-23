@@ -1,7 +1,7 @@
 import { and, eq, sql } from "drizzle-orm";
 import { getDb, getPool, rows, schema } from "@/lib/db";
 import { MIGRATIONS } from "@/lib/db/migrations.generated";
-import { NIRF_FILES, NMC_FILES, NMC_LINKS } from "@/lib/db/seed-data.generated";
+import { NIRF_FILES, NMC_FILES, NMC_LINKS, COUNCIL_FILES } from "@/lib/db/seed-data.generated";
 import { STATES, STATE_ALIASES, STREAMS, EXAMS, NIRF_CATEGORY_STREAM } from "@/data/reference";
 import { slugify } from "@/lib/slug";
 
@@ -379,12 +379,98 @@ export async function seedNmc(streamIds: Map<string, number>, log: (m: string) =
   }
 }
 
+type CouncilRow = {
+  code: string;
+  name: string;
+  address: string | null;
+  district: string | null;
+  state: string;
+  /** The council's own wording for the management type. */
+  management: string | null;
+  ownership: (typeof schema.institutions.$inferInsert)["ownership"] | null;
+  offerings: { course: string; seats: number | null }[];
+};
+type CouncilFile = {
+  council: string;
+  /** Identifier scheme for the council's college codes. */
+  scheme: string;
+  stream: string;
+  academic_year: string;
+  /** One source per list; prefix picks the source for a college code. */
+  sources: (NmcSource & { prefix: string })[];
+  rows: CouncilRow[];
+};
+const COUNCIL_LOADER_VERSION = 1;
+
+/**
+ * Loads college lists published by other regulators (NCISM, and others in the same format):
+ * one institution per council code, with the intake for each course as an offering.
+ */
+export async function seedCouncils(streamIds: Map<string, number>, log: (m: string) => void = console.log) {
+  const db = getDb();
+  const done = new Map((await rows<{ tag: string; hash: string }>(sql`select tag, hash from app_seeds`)).map((r) => [r.tag, r.hash]));
+  for (const file of COUNCIL_FILES) {
+    const key = `${file.hash}-${COUNCIL_LOADER_VERSION}`;
+    if (done.get(file.tag) === key) continue;
+    const data = file.data as CouncilFile;
+    const streamId = streamIds.get(data.stream);
+    const sourceIds = new Map<string, number>();
+    for (const s of data.sources) sourceIds.set(s.prefix, await upsertSource(s));
+    const courseIds = new Map<string, number | undefined>();
+    let created = 0;
+    let offeringsLoaded = 0;
+    for (const r of data.rows) {
+      const sourceId = sourceIds.get(data.sources.find((s) => r.code.startsWith(s.prefix))?.prefix ?? data.sources[0].prefix)!;
+      let id = await identifierOwner(data.scheme, r.code);
+      if (!id) {
+        const name = r.name.trim().replace(/\s+/g, " ");
+        // Many council colleges share a name ("Govt. Ayurved Mahavidhalaya"); the district tells them apart.
+        const base = slugify(r.district ? `${name} ${r.district}` : name);
+        let slug = base;
+        for (let n = 2; (await db.select({ id: institutions.id }).from(institutions).where(eq(institutions.slug, slug)))[0]; n++) slug = `${base}-${n}`;
+        const [res] = await db
+          .insert(institutions)
+          .values({ slug, name, address: r.address, district: r.district, stateCode: stateCode(r.state), ownership: r.ownership ?? null, status: "published", sourceId })
+          .$returningId();
+        id = res.id;
+        created++;
+        await db.insert(institutionIdentifiers).values({ institutionId: id, scheme: data.scheme, value: r.code });
+      } else {
+        await db.execute(sql`update institutions set
+          ownership = coalesce(ownership, ${r.ownership ?? null}),
+          address = coalesce(address, ${r.address}),
+          district = coalesce(district, ${r.district})
+          where id = ${id}`);
+      }
+      await db.execute(sql`update institutions set approvals = case
+          when approvals is null then json_array(${data.council})
+          when json_contains(approvals, json_quote(${data.council})) then approvals
+          else json_array_append(approvals, '$', ${data.council}) end
+        where id = ${id}`);
+      if (streamId) await db.insert(institutionStreams).values({ institutionId: id, streamId }).onDuplicateKeyUpdate({ set: { streamId } });
+      for (const o of r.offerings) {
+        if (!courseIds.has(o.course)) courseIds.set(o.course, await courseIdBySlug(o.course));
+        const courseId = courseIds.get(o.course);
+        if (!courseId) continue;
+        await db
+          .insert(offerings)
+          .values({ institutionId: id, courseId, academicYear: data.academic_year, seats: o.seats, seatsSourceId: sourceId })
+          .onDuplicateKeyUpdate({ set: { seats: o.seats, seatsSourceId: sourceId } });
+        offeringsLoaded++;
+      }
+    }
+    await db.execute(sql`insert into app_seeds (tag, hash) values (${file.tag}, ${key}) on duplicate key update hash = values(hash), loaded_at = current_timestamp`);
+    log(`${data.council} ${data.academic_year}: ${data.rows.length} colleges, ${offeringsLoaded} course intakes loaded (${created} new)`);
+  }
+}
+
 /** Migrate, then load reference data and any official data files shipped with the app. */
 export async function bootstrap(log: (m: string) => void = console.log) {
   await runMigrations(log);
   const streamIds = await seedReference();
   await seedNirf(streamIds, log);
   await seedNmc(streamIds, log);
+  await seedCouncils(streamIds, log);
   const [c] = await rows<{ n: number }>(sql`select count(*) as n from institutions`);
   log(`Database ready: ${STATES.length} states, ${STREAMS.length} fields, ${EXAMS.length} exams, ${c?.n ?? 0} institutions`);
 }

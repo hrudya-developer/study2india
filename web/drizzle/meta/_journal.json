@@ -15,6 +15,13 @@
       "when": 1792752972525,
       "tag": "0001_stormy_harpoon",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1792753731749,
+      "tag": "0002_glamorous_emma_frost",
+      "breakpoints": true
     }
   ]
 }

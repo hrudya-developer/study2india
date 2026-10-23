@@ -21,7 +21,7 @@ import {
  */
 
 const STATUS = ["draft", "needs_review", "verified", "published"] as const;
-const OWNERSHIP = ["government", "private", "deemed", "central", "state_university", "autonomous", "public_private"] as const;
+const OWNERSHIP = ["government", "private", "deemed", "central", "state_university", "autonomous", "public_private", "aided"] as const;
 const LEVEL = ["ug", "pg", "diploma", "doctorate", "certificate", "integrated"] as const;
 const FEE_BASIS = ["per_year", "whole_course", "per_semester", "one_time"] as const;
 const DATE_STATUS = ["announced", "tentative", "not_announced"] as const;

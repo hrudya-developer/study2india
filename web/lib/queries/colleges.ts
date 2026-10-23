@@ -9,6 +9,7 @@ export const OWNERSHIP_LABELS: Record<string, string> = {
   state_university: "State university",
   autonomous: "Autonomous",
   public_private: "Public private partnership",
+  aided: "Government aided",
 };
 
 export const PAGE_SIZE = 20;
@@ -86,7 +87,7 @@ export async function searchColleges(f: CollegeFilters, course: CourseContext | 
   if (f.ranked) where.push(sql`exists (select 1 from rankings r where r.institution_id = i.id)`);
   if (f.q) {
     const like = `%${f.q.replace(/[%_\\]/g, "")}%`;
-    where.push(sql`(i.name like ${like} or i.city like ${like})`);
+    where.push(sql`(i.name like ${like} or i.city like ${like} or i.district like ${like})`);
   }
 
   const whereSql = sql.join(where, sql` and `);
@@ -115,7 +116,7 @@ export async function searchColleges(f: CollegeFilters, course: CourseContext | 
     naac_grade: string | null;
     is_partner: number | boolean;
   }>(sql`
-    select i.id, i.slug, i.name, i.city, st.name as state, i.ownership, i.established_year, i.approvals, i.naac_grade, i.is_partner
+    select i.id, i.slug, i.name, coalesce(i.city, i.district) as city, st.name as state, i.ownership, i.established_year, i.approvals, i.naac_grade, i.is_partner
     from institutions i
     left join states st on st.code = i.state_code
     where ${whereSql}
