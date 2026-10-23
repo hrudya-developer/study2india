@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getCollegeFacets, getCourseContext, searchColleges, OWNERSHIP_LABELS, type CollegeFilters } from "@/lib/queries/colleges";
+import { getCollegeFacets, getCourseContext, searchColleges, type CollegeFilters } from "@/lib/queries/colleges";
 import { getStreams } from "@/lib/queries/home";
 import { CollegeCard } from "@/components/college-card";
 import { one, pageNumber, qs, type SearchParams } from "@/lib/params";
@@ -251,4 +251,3 @@ export default async function CollegesPage({ searchParams }: Props) {
   );
 }
 
-export { OWNERSHIP_LABELS };
