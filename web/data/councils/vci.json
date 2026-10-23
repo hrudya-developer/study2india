@@ -1,0 +1,2167 @@
+{
+ "council": "VCI",
+ "scheme": "vci",
+ "stream": "veterinary",
+ "academic_year": "2026-27",
+ "sources": [
+  {
+   "publisher": "Veterinary Council of India",
+   "title": "VCI list of recognised veterinary colleges, First Schedule to the IVC Act, 1984 (as on 22.10.2026)",
+   "url": "https://vci.dahd.gov.in/sites/default/files/CollegeList/list%20of%20Recognzied%20vety.%20colleges%20(as%20on%2022.10.26).pdf",
+   "retrieved": "2026-10-23",
+   "prefix": "R"
+  },
+  {
+   "publisher": "Veterinary Council of India",
+   "title": "VCI list of provisionally recognised veterinary colleges where LOP or renewal of LOP has been issued (as on 22.10.2026)",
+   "url": "https://vci.dahd.gov.in/sites/default/files/CollegeList/List%20of%20Provisionally%20recognized%20vety.%20colleges%20(as%20on%2022.10.26).pdf",
+   "retrieved": "2026-10-23",
+   "prefix": "P"
+  },
+  {
+   "publisher": "Veterinary Council of India",
+   "title": "VCI list of recognised veterinary colleges with seats approved by the Central Government",
+   "url": "https://www.vci.dahd.gov.in/sites/default/files/News%20update/ListofRecognizedVeterinaryColleges.pdf",
+   "retrieved": "2026-10-23",
+   "prefix": "S"
+  },
+  {
+   "publisher": "Veterinary Council of India",
+   "title": "Minutes of the Special Meeting of the Veterinary Council of India (12.03.2026)",
+   "url": "https://www.vci.dahd.gov.in/sites/default/files/MoM/Special%20VCI%20Meeting-12.3.26.pdf",
+   "retrieved": "2026-10-23",
+   "prefix": "M1"
+  },
+  {
+   "publisher": "Veterinary Council of India",
+   "title": "Minutes of the Special Meeting of the Veterinary Council of India (25.03.2026)",
+   "url": "https://www.vci.dahd.gov.in/sites/default/files/MoM/Special%20VCI%20Minutes%20(25.3.26).pdf",
+   "retrieved": "2026-10-23",
+   "prefix": "M2"
+  },
+  {
+   "publisher": "Veterinary Council of India",
+   "title": "Minutes of the 91st Meeting of the Veterinary Council of India (08.06.2026)",
+   "url": "https://www.vci.dahd.gov.in/sites/default/files/MoM/91%20VCI%20Minutes%20(08.6.26).pdf",
+   "retrieved": "2026-10-23",
+   "prefix": "M3"
+  }
+ ],
+ "note": "Every college in VCI's list of recognised veterinary colleges (First Schedule to the Indian Veterinary Council Act, 1984) and its list of provisionally recognised colleges with a Letter of Permission, both as on 22.10.2026. VCI publishes no college codes, so each college is keyed by a hash of its state, name and town. B.V.Sc. & A.H. seats for recognised colleges are the 'Seats Approved by Central Govt.' in VCI's seats list, which is undated but covers the same 73 colleges; every college's 15% VCI quota in the 2026-27 counselling bulletin (https://www.vci.dahd.gov.in/sites/default/files/News%20update/CompositIBAY2026-27.pdf, Annexure 2, 858 seats in 64 colleges) is within rounding of 15% of those seats, except Ayodhya and Meerut (100 approved seats, quota 12). That quota is kept as vci_quota_seats. VCI prints no seats for provisionally recognised colleges: where a VCI meeting recommended the LOP for a stated number of annual admissions, that number is used and the minutes are the source; the rest stay null. recognised_from is the date from which VCI recognises the degree ('granted on or after'). VCI publishes no college-wise M.V.Sc. list, so no M.V.Sc. intake is recorded. College of Veterinary Science and Animal Husbandry, Jalukie is printed under Mizoram (Central Agricultural University) but is in Nagaland. same_as links the college to the NIRF record for the same institution (checked by hand); constituent colleges are not linked to their parent universities.",
+ "rows": [
+  {
+   "code": "vci-298449100e",
+   "name": "NTR College of Veterinary Science, Gannavaram",
+   "address": null,
+   "district": "Gannavaram",
+   "state": "Andhra Pradesh",
+   "management": null,
+   "ownership": "government",
+   "university": "Sri Venkateswara Veterinary University, Tirupati",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 1,
+   "listed_as": "NTR College of Veterinary Science, Gannavaram",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-17ab0cc67d",
+   "name": "College of Veterinary Science, Proddatur",
+   "address": null,
+   "district": "Proddatur",
+   "state": "Andhra Pradesh",
+   "management": null,
+   "ownership": "government",
+   "university": "Sri Venkateswara Veterinary University, Tirupati",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 2,
+   "listed_as": "College of Veterinary Science, Proddatur",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-182077382c",
+   "name": "College of Veterinary Science, Tirupati",
+   "address": null,
+   "district": "Tirupati",
+   "state": "Andhra Pradesh",
+   "management": null,
+   "ownership": "government",
+   "university": "Sri Venkateswara Veterinary University, Tirupati",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 3,
+   "listed_as": "College of Veterinary Science, Tirupati",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-eed903d8ac",
+   "name": "College of Veterinary Science, Guwahati",
+   "address": null,
+   "district": "Guwahati",
+   "state": "Assam",
+   "management": null,
+   "ownership": "government",
+   "university": "Assam Agricultural University, Jorhat",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 4,
+   "listed_as": "College of Veterinary Science, Guwahati",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-ef89cff4b8",
+   "name": "Lakhimpur College of Veterinary Science",
+   "address": null,
+   "district": "Lakhimpur",
+   "state": "Assam",
+   "management": null,
+   "ownership": "government",
+   "university": "Assam Agricultural University, Jorhat",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 5,
+   "listed_as": "Lakhimpur College of Veterinary Science, Assam",
+   "recognised_from": null,
+   "vci_quota_seats": 6,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 40
+    }
+   ]
+  },
+  {
+   "code": "vci-9adcf32a1c",
+   "name": "Bihar Veterinary College, Patna",
+   "address": null,
+   "district": "Patna",
+   "state": "Bihar",
+   "management": null,
+   "ownership": "government",
+   "university": "Bihar Animal Science University, Patna, Bihar",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 6,
+   "listed_as": "Bihar Veterinary College, Patna",
+   "recognised_from": null,
+   "vci_quota_seats": 11,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 75
+    }
+   ]
+  },
+  {
+   "code": "vci-2654f4ed28",
+   "name": "College of Veterinary Science & Animal Husbandry, Durg",
+   "address": null,
+   "district": "Durg",
+   "state": "Chhattisgarh",
+   "management": null,
+   "ownership": "government",
+   "university": "Dau Shri Vasudev Chandrakar Kamdhenu Vishwavidyalaya, Anjora, Durg",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 7,
+   "listed_as": "College of Veterinary Science & Animal Husbandry, Durg",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-30d5ed98f4",
+   "name": "College of Veterinary Science and Animal Husbandry, Anand",
+   "address": null,
+   "district": "Anand",
+   "state": "Gujarat",
+   "management": null,
+   "ownership": "government",
+   "university": "Kamdhenu University, Gandhinagar, Gujarat",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 8,
+   "listed_as": "College of Veterinary Science and Animal Husbandry, Anand",
+   "recognised_from": null,
+   "vci_quota_seats": 11,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 75
+    }
+   ]
+  },
+  {
+   "code": "vci-7439b5dc74",
+   "name": "College of Veterinary Science and Animal Husbandry, Junagadh",
+   "address": null,
+   "district": "Junagadh",
+   "state": "Gujarat",
+   "management": null,
+   "ownership": "government",
+   "university": "Kamdhenu University, Gandhinagar, Gujarat",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 9,
+   "listed_as": "College of Veterinary Science and Animal Husbandry, Junagadh",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-ca1094f73c",
+   "name": "College of Veterinary Science and Animal Husbandry, Navsari",
+   "address": null,
+   "district": "Navsari",
+   "state": "Gujarat",
+   "management": null,
+   "ownership": "government",
+   "university": "Kamdhenu University, Gandhinagar, Gujarat",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 10,
+   "listed_as": "College of Veterinary Science and Animal Husbandry, Navsari",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-54d574f1da",
+   "name": "College of Veterinary Science and Animal Husbandry, Sardarkrushinagar",
+   "address": null,
+   "district": "Sardarkrushinagar",
+   "state": "Gujarat",
+   "management": null,
+   "ownership": "government",
+   "university": "Kamdhenu University, Gandhinagar, Gujarat",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 11,
+   "listed_as": "College of Veterinary Science and Animal Husbandry, Sardarkrushinagar",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-652bce48cf",
+   "name": "College of Veterinary Science, Hisar",
+   "address": null,
+   "district": "Hisar",
+   "state": "Haryana",
+   "management": null,
+   "ownership": "government",
+   "university": "Lala Lajpat Rai University of Veterinary and Animal Sciences, Hisar",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 12,
+   "listed_as": "College of Veterinary Science, Hisar",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-a939dd5e26",
+   "name": "International Institute of Veterinary Education and Research, Rohtak",
+   "address": null,
+   "district": "Rohtak",
+   "state": "Haryana",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Lala Lajpat Rai University of Veterinary and Animal Sciences, Hisar",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 13,
+   "listed_as": "International Institute of Veterinary Education and Research, Rohtak",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-7b30fef057",
+   "name": "RPS College of Veterinary Sciences",
+   "address": "Satnali Road, Balana, Dist. Mahendergah, Haryana",
+   "district": "Mahendergarh",
+   "state": "Haryana",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Lala Lajpat Rai University of Veterinary and Animal Sciences, Hisar",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 14,
+   "listed_as": "RPS College of Veterinary Sciences, Satnali Road, Balana, Dist. Mahendergah, Haryana",
+   "recognised_from": "2027-06-30",
+   "vci_quota_seats": null,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-dafd334ec0",
+   "name": "M.R. College of Veterinary Science and Research Centre, Jhajjar",
+   "address": null,
+   "district": "Jhajjar",
+   "state": "Haryana",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Lala Lajpat Rai University of Veterinary and Animal Sciences, Hisar",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 15,
+   "listed_as": "M.R. College of Veterinary Science and Research Centre, Jhajjar",
+   "recognised_from": "2027-06-30",
+   "vci_quota_seats": null,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-c9e4f6f99f",
+   "name": "Sanskaram College of Veterinary & Animal Science, Jhajjar",
+   "address": null,
+   "district": "Jhajjar",
+   "state": "Haryana",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Sanskaram University, Jhajjar",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 16,
+   "listed_as": "Sanskaram College of Veterinary & Animal Science, Jhajjar, Haryana",
+   "recognised_from": "2027-06-30",
+   "vci_quota_seats": null,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-604bd82eed",
+   "name": "Dr. G.C. Negi College of Veterinary and Animal Sciences, Palampur",
+   "address": null,
+   "district": "Palampur",
+   "state": "Himachal Pradesh",
+   "management": null,
+   "ownership": "government",
+   "university": "CSK Himachal Pradesh Krishi Vishwavidyalaya, Palampur",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 17,
+   "listed_as": "Dr. G.C. Negi College of Veterinary and Animal Sciences, Palampur",
+   "recognised_from": null,
+   "vci_quota_seats": 11,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 75
+    }
+   ]
+  },
+  {
+   "code": "vci-82c688206e",
+   "name": "Faculty of Veterinary Sciences & Animal Husbandry, Jammu",
+   "address": null,
+   "district": "Jammu",
+   "state": "Jammu and Kashmir",
+   "management": null,
+   "ownership": "government",
+   "university": "Sher-e Kashmir University of Agricultural Sciences & Technology, Jammu",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 18,
+   "listed_as": "Faculty of Veterinary Sciences & Animal Husbandry, Jammu",
+   "recognised_from": null,
+   "vci_quota_seats": 13,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 88
+    }
+   ]
+  },
+  {
+   "code": "vci-4c6cc3adc4",
+   "name": "Faculty of Veterinary Sciences & Animal Husbandry, Srinagar",
+   "address": null,
+   "district": "Srinagar",
+   "state": "Jammu and Kashmir",
+   "management": null,
+   "ownership": "government",
+   "university": "Sher-e Kashmir University of Agricultural Sciences & Technology, Kashmir",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 19,
+   "listed_as": "Faculty of Veterinary Sciences & Animal Husbandry, Srinagar, Kashmir",
+   "recognised_from": null,
+   "vci_quota_seats": 11,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 75
+    }
+   ]
+  },
+  {
+   "code": "vci-60c3ddba8a",
+   "name": "Ranchi College of Veterinary Science and Animal Husbandry, Ranchi",
+   "address": null,
+   "district": "Ranchi",
+   "state": "Jharkhand",
+   "management": null,
+   "ownership": "government",
+   "university": "Birsa Agricultural University, Ranchi",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 20,
+   "listed_as": "Ranchi College of Veterinary Science and Animal Husbandry, Ranchi",
+   "recognised_from": null,
+   "vci_quota_seats": 11,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 75
+    }
+   ]
+  },
+  {
+   "code": "vci-03817a963d",
+   "name": "Veterinary College Hebbal, Bangalore",
+   "address": null,
+   "district": "Bangalore",
+   "state": "Karnataka",
+   "management": null,
+   "ownership": "government",
+   "university": "Karnataka Veterinary, Animal & Fisheries Sciences University, Bidar",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 21,
+   "listed_as": "Veterinary College Hebbal, Bangalore",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-4cf7a8aed6",
+   "name": "Veterinary College Nandinagar, Bidar",
+   "address": null,
+   "district": "Bidar",
+   "state": "Karnataka",
+   "management": null,
+   "ownership": "government",
+   "university": "Karnataka Veterinary, Animal & Fisheries Sciences University, Bidar",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 22,
+   "listed_as": "Veterinary College Nandinagar, Bidar",
+   "recognised_from": null,
+   "vci_quota_seats": 11,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 75
+    }
+   ]
+  },
+  {
+   "code": "vci-00188f0ce9",
+   "name": "Veterinary College, Hassan",
+   "address": null,
+   "district": "Hassan",
+   "state": "Karnataka",
+   "management": null,
+   "ownership": "government",
+   "university": "Karnataka Veterinary, Animal & Fisheries Sciences University, Bidar",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 23,
+   "listed_as": "Veterinary College, Hassan",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-4e8fa0b3a7",
+   "name": "Veterinary College, Shimoga",
+   "address": null,
+   "district": "Shimoga",
+   "state": "Karnataka",
+   "management": null,
+   "ownership": "government",
+   "university": "Karnataka Veterinary, Animal & Fisheries Sciences University, Bidar",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 24,
+   "listed_as": "Veterinary College, Shimoga",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-adfb74bbdf",
+   "name": "Veterinary College, Gadag",
+   "address": null,
+   "district": "Gadag",
+   "state": "Karnataka",
+   "management": null,
+   "ownership": "government",
+   "university": "Karnataka Veterinary, Animal & Fisheries Sciences University, Bidar",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 25,
+   "listed_as": "Veterinary College, Gadag",
+   "recognised_from": null,
+   "vci_quota_seats": 12,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-48e467c4ef",
+   "name": "College of Veterinary & Animal Sciences, Thrissur",
+   "address": null,
+   "district": "Thrissur",
+   "state": "Kerala",
+   "management": null,
+   "ownership": "government",
+   "university": "Kerala Veterinary and Animal Science University, Pookote",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 26,
+   "listed_as": "College of Veterinary & Animal Sciences, Thrissur",
+   "recognised_from": null,
+   "vci_quota_seats": 19,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 125
+    }
+   ]
+  },
+  {
+   "code": "vci-2cd0382da3",
+   "name": "College of Veterinary and Animal Sciences, Pookote",
+   "address": null,
+   "district": "Pookote",
+   "state": "Kerala",
+   "management": null,
+   "ownership": "government",
+   "university": "Kerala Veterinary and Animal Science University, Pookote",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 27,
+   "listed_as": "College of Veterinary and Animal Sciences, Pookote",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-131c17ad45",
+   "name": "College of Veterinary Science & Animal Husbandry, Jabalpur",
+   "address": null,
+   "district": "Jabalpur",
+   "state": "Madhya Pradesh",
+   "management": null,
+   "ownership": "government",
+   "university": "Nanaji Deshmukh Veterinary Science University, Jabalpur",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 28,
+   "listed_as": "College of Veterinary Science & Animal Husbandry, Jabalpur",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-50652a78c6",
+   "name": "College of Veterinary Science & Animal Husbandry, Mhow",
+   "address": null,
+   "district": "Mhow",
+   "state": "Madhya Pradesh",
+   "management": null,
+   "ownership": "government",
+   "university": "Nanaji Deshmukh Veterinary Science University, Jabalpur",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 29,
+   "listed_as": "College of Veterinary Science & Animal Husbandry, Mhow",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-666c138504",
+   "name": "College of Veterinary Science & Animal Husbandry, Rewa",
+   "address": null,
+   "district": "Rewa",
+   "state": "Madhya Pradesh",
+   "management": null,
+   "ownership": "government",
+   "university": "Nanaji Deshmukh Veterinary Science University, Jabalpur",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 30,
+   "listed_as": "College of Veterinary Science & Animal Husbandry, Rewa",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-e0ea5e7305",
+   "name": "Mumbai Veterinary College, Mumbai",
+   "address": null,
+   "district": "Mumbai",
+   "state": "Maharashtra",
+   "management": null,
+   "ownership": "government",
+   "university": "Maharashtra Animal & Fishery Sciences University, Nagpur",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 31,
+   "listed_as": "Mumbai Veterinary College, Mumbai",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-bdb6bd6576",
+   "name": "Nagpur Veterinary College, Nagpur",
+   "address": null,
+   "district": "Nagpur",
+   "state": "Maharashtra",
+   "management": null,
+   "ownership": "government",
+   "university": "Maharashtra Animal & Fishery Sciences University, Nagpur",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 32,
+   "listed_as": "Nagpur Veterinary College, Nagpur",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-cfa6d1607a",
+   "name": "College of Veterinary & Animal Sciences, Parbhani",
+   "address": null,
+   "district": "Parbhani",
+   "state": "Maharashtra",
+   "management": null,
+   "ownership": "government",
+   "university": "Maharashtra Animal & Fishery Sciences University, Nagpur",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 33,
+   "listed_as": "College of Veterinary & Animal Sciences, Parbhani",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-86c0a92511",
+   "name": "K.N.P. College of Veterinary Sciences, Satara",
+   "address": null,
+   "district": "Satara",
+   "state": "Maharashtra",
+   "management": null,
+   "ownership": "government",
+   "university": "Maharashtra Animal & Fishery Sciences University, Nagpur",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 34,
+   "listed_as": "K.N.P. College of Veterinary Sciences, Satara",
+   "recognised_from": null,
+   "vci_quota_seats": 11,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 75
+    }
+   ]
+  },
+  {
+   "code": "vci-05f9926a33",
+   "name": "College of Veterinary & Animal Sciences, Udgir",
+   "address": null,
+   "district": "Udgir",
+   "state": "Maharashtra",
+   "management": null,
+   "ownership": "government",
+   "university": "Maharashtra Animal & Fishery Sciences University, Nagpur",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 35,
+   "listed_as": "College of Veterinary & Animal Sciences, Udgir",
+   "recognised_from": null,
+   "vci_quota_seats": 12,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-2966ee7628",
+   "name": "College of Veterinary Science & Animal Husbandry, Aizawl",
+   "address": null,
+   "district": "Aizawl",
+   "state": "Mizoram",
+   "management": null,
+   "ownership": "government",
+   "university": "Central Agricultural University, Imphal",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 36,
+   "listed_as": "College of Veterinary Science & Animal Husbandry, Aizawl, Mizoram",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-1be8e8cae8",
+   "name": "College of Veterinary Science and Animal Husbandry, Jalukie",
+   "address": "Jalukie, Peren, Nagaland",
+   "district": "Peren",
+   "state": "Nagaland",
+   "management": null,
+   "ownership": "government",
+   "university": "Central Agricultural University, Imphal",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 37,
+   "listed_as": "College of Veterinary Science and Animal Husbandry, Jalukie, Peren, Nagaland",
+   "recognised_from": null,
+   "vci_quota_seats": 5,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 37
+    }
+   ]
+  },
+  {
+   "code": "vci-8e370f7a0a",
+   "name": "College of Veterinary Science and Animal Husbandry, Bhubaneswar",
+   "address": null,
+   "district": "Bhubaneswar",
+   "state": "Odisha",
+   "management": null,
+   "ownership": "government",
+   "university": "Orissa University of Agriculture & Technology, Bhubaneswar",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 38,
+   "listed_as": "College of Veterinary Science and Animal Husbandry, Bhubaneswar",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-2f6008e8a7",
+   "name": "Institute of Veterinary Science & Animal Husbandry, Campus-IV",
+   "address": null,
+   "district": null,
+   "state": "Odisha",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Siksha 'O' Anusandhan Deemed to be University",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 39,
+   "listed_as": "Institute of Veterinary Science & Animal Husbandry, Campus-IV",
+   "recognised_from": "2028-04-30",
+   "vci_quota_seats": null,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-b5b3bd4a2e",
+   "name": "School of Veterinary and Animal Sciences, Gajapati",
+   "address": null,
+   "district": "Gajapati",
+   "state": "Odisha",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Centurion University of Technology and Management, Odisha",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 40,
+   "listed_as": "School of Veterinary and Animal Sciences, Gajapati, Odisha",
+   "recognised_from": "2029-01-31",
+   "vci_quota_seats": null,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-2e249e40a5",
+   "name": "Rajiv Gandhi Institute of Veterinary Education and Research, Puducherry",
+   "address": null,
+   "district": "Puducherry",
+   "state": "Puducherry",
+   "management": null,
+   "ownership": "government",
+   "university": "Pondicherry University, Puducherry",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 41,
+   "listed_as": "Rajiv Gandhi Institute of Veterinary Education and Research, Puducherry",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-b4426e7d9b",
+   "name": "College of Veterinary Science, Ludhiana",
+   "address": null,
+   "district": "Ludhiana",
+   "state": "Punjab",
+   "management": null,
+   "ownership": "government",
+   "university": "Guru Angad Dev Veterinary and Animal Sciences University",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 42,
+   "listed_as": "College of Veterinary Science, Ludhiana",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-5d2ec107c9",
+   "name": "Khalsa College of Veterinary and Animal Sciences, Amritsar",
+   "address": null,
+   "district": "Amritsar",
+   "state": "Punjab",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Guru Angad Dev Veterinary and Animal Sciences University",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 43,
+   "listed_as": "Khalsa College of Veterinary and Animal Sciences, Amritsar",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-f2ec3af31c",
+   "name": "College of Veterinary Science, Rampura Phul",
+   "address": "Rampura Phul, Bathinda",
+   "district": "Bathinda",
+   "state": "Punjab",
+   "management": null,
+   "ownership": "government",
+   "university": "Guru Angad Dev Veterinary and Animal Sciences University",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 44,
+   "listed_as": "College of Veterinary Science, Rampura Phul, Bathinda",
+   "recognised_from": "2025-11-20",
+   "vci_quota_seats": 12,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-4558e9d6dc",
+   "name": "College of Veterinary and Animal Science, Bikaner",
+   "address": null,
+   "district": "Bikaner",
+   "state": "Rajasthan",
+   "management": null,
+   "ownership": "government",
+   "university": "Rajasthan University of Veterinary & Animal Sciences, Bikaner",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 45,
+   "listed_as": "College of Veterinary and Animal Science, Bikaner",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-e3356d2596",
+   "name": "Mahatma Jyotiba Fule College of Veterinary & Animal Science, Chomu",
+   "address": "Chomu, Jaipur",
+   "district": "Jaipur",
+   "state": "Rajasthan",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Rajasthan University of Veterinary & Animal Sciences, Bikaner",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 46,
+   "listed_as": "Mahatma Jyotiba Fule College of Veterinary & Animal Science, Chomu, Jaipur",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-3988031a9f",
+   "name": "Apollo College of Veterinary Medicine, Jaipur",
+   "address": null,
+   "district": "Jaipur",
+   "state": "Rajasthan",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Rajasthan University of Veterinary & Animal Sciences, Bikaner",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 47,
+   "listed_as": "Apollo College of Veterinary Medicine, Jaipur",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-84ed97c3b0",
+   "name": "Post Graduate Institute of Veterinary Education and Research, Jaipur",
+   "address": null,
+   "district": "Jaipur",
+   "state": "Rajasthan",
+   "management": null,
+   "ownership": "government",
+   "university": "Rajasthan University of Veterinary & Animal Sciences, Bikaner",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 48,
+   "listed_as": "Post Graduate Institute of Veterinary Education and Research, Jaipur",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-5fa7446698",
+   "name": "College of Veterinary and Animal Science, Navania",
+   "address": "Navania, Udaipur",
+   "district": "Udaipur",
+   "state": "Rajasthan",
+   "management": null,
+   "ownership": "government",
+   "university": "Rajasthan University of Veterinary & Animal Sciences, Bikaner",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 49,
+   "listed_as": "College of Veterinary and Animal Science, Navania, Udaipur",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-fba5795193",
+   "name": "Arawali Veterinary College, Sikar",
+   "address": null,
+   "district": "Sikar",
+   "state": "Rajasthan",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Rajasthan University of Veterinary & Animal Sciences, Bikaner",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 50,
+   "listed_as": "Arawali Veterinary College, Sikar",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-9f319ee820",
+   "name": "M.B. Veterinary College, Dungarpur",
+   "address": null,
+   "district": "Dungarpur",
+   "state": "Rajasthan",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Rajasthan University of Veterinary & Animal Sciences, Bikaner",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 51,
+   "listed_as": "M.B. Veterinary College, Dungarpur, Rajasthan",
+   "recognised_from": "2026-06-10",
+   "vci_quota_seats": 12,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-0927a31963",
+   "name": "Shourabh College of Veterinary Science, Hindaun City",
+   "address": "Hindaun City, Karauli, Rajasthan",
+   "district": "Karauli",
+   "state": "Rajasthan",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Rajasthan University of Veterinary & Animal Sciences, Bikaner",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 52,
+   "listed_as": "Shourabh College of Veterinary Science, Hindaun City, Karauli, Rajasthan",
+   "recognised_from": "2027-07-20",
+   "vci_quota_seats": null,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-1c3e703274",
+   "name": "R.R. College of Veterinary and Animal Science, Deoli",
+   "address": "Deoli, Tonk Jaipur",
+   "district": "Tonk",
+   "state": "Rajasthan",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Rajasthan University of Veterinary & Animal Sciences, Bikaner",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 53,
+   "listed_as": "R.R. College of Veterinary and Animal Science, Deoli, Tonk Jaipur",
+   "recognised_from": "2027-07-20",
+   "vci_quota_seats": null,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-4550394285",
+   "name": "Mahatma Gandhi Veterinary College, Bharatpur",
+   "address": null,
+   "district": "Bharatpur",
+   "state": "Rajasthan",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Rajasthan University of Veterinary & Animal Sciences, Bikaner",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 54,
+   "listed_as": "Mahatma Gandhi Veterinary College, Bharatpur",
+   "recognised_from": "2027-07-20",
+   "vci_quota_seats": null,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-38b143babe",
+   "name": "Sri Ganganagar Veterinary College, Sri Ganganagar",
+   "address": null,
+   "district": "Sri Ganganagar",
+   "state": "Rajasthan",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Tantia University",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 55,
+   "listed_as": "Sri Ganganagar Veterinary College, Sri Ganganagar, Rajasthan",
+   "recognised_from": "2027-12-15",
+   "vci_quota_seats": null,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-df5632c696",
+   "name": "Madras Veterinary College, Chennai",
+   "address": null,
+   "district": "Chennai",
+   "state": "Tamil Nadu",
+   "management": null,
+   "ownership": "government",
+   "university": "Tamil Nadu Veterinary & Animal Sciences University, Chennai",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 56,
+   "listed_as": "Madras Veterinary College, Chennai",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-bd9a67d75f",
+   "name": "College of Veterinary Science and Research Institute, Namakkal",
+   "address": null,
+   "district": "Namakkal",
+   "state": "Tamil Nadu",
+   "management": null,
+   "ownership": "government",
+   "university": "Tamil Nadu Veterinary & Animal Sciences University, Chennai",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 57,
+   "listed_as": "College of Veterinary Science and Research Institute, Namakkal",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-a9d3f57af3",
+   "name": "Veterinary College and Research Institute, Orthanadu",
+   "address": null,
+   "district": "Orthanadu",
+   "state": "Tamil Nadu",
+   "management": null,
+   "ownership": "government",
+   "university": "Tamil Nadu Veterinary & Animal Sciences University, Chennai",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 58,
+   "listed_as": "Veterinary College and Research Institute, Orthanadu",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-5c807d84cf",
+   "name": "Veterinary College and Research Institute, Tirunelveli",
+   "address": null,
+   "district": "Tirunelveli",
+   "state": "Tamil Nadu",
+   "management": null,
+   "ownership": "government",
+   "university": "Tamil Nadu Veterinary & Animal Sciences University, Chennai",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 59,
+   "listed_as": "Veterinary College and Research Institute, Tirunelveli",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-b0fa08e74a",
+   "name": "Veterinary College and Research Institute, Udumalpet",
+   "address": null,
+   "district": "Udumalpet",
+   "state": "Tamil Nadu",
+   "management": null,
+   "ownership": "government",
+   "university": "Tamil Nadu Veterinary & Animal Sciences University, Chennai",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 60,
+   "listed_as": "Veterinary College and Research Institute, Udumalpet",
+   "recognised_from": "2026-10-08",
+   "vci_quota_seats": 12,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-19d6718612",
+   "name": "Veterinary College and Research Institute, Theni",
+   "address": null,
+   "district": "Theni",
+   "state": "Tamil Nadu",
+   "management": null,
+   "ownership": "government",
+   "university": "Tamil Nadu Veterinary & Animal Sciences University, Chennai",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 61,
+   "listed_as": "Veterinary College and Research Institute, Theni",
+   "recognised_from": "2026-10-08",
+   "vci_quota_seats": 12,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-6a8ada3db9",
+   "name": "Veterinary College and Research Institute, Salem",
+   "address": null,
+   "district": "Salem",
+   "state": "Tamil Nadu",
+   "management": null,
+   "ownership": "government",
+   "university": "Tamil Nadu Veterinary & Animal Sciences University, Chennai",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 62,
+   "listed_as": "Veterinary College and Research Institute, Salem",
+   "recognised_from": "2026-10-08",
+   "vci_quota_seats": 12,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-e5b92dd63a",
+   "name": "College of Veterinary Science, Hyderabad",
+   "address": null,
+   "district": "Hyderabad",
+   "state": "Telangana",
+   "management": null,
+   "ownership": "government",
+   "university": "P.V. Narsimha Rao Telangana Veterinary University, Hyderabad",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 63,
+   "listed_as": "College of Veterinary Science, Hyderabad",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-9730676dae",
+   "name": "College of Veterinary Science, Korutla",
+   "address": null,
+   "district": "Korutla",
+   "state": "Telangana",
+   "management": null,
+   "ownership": "government",
+   "university": "P.V. Narsimha Rao Telangana Veterinary University, Hyderabad",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 64,
+   "listed_as": "College of Veterinary Science, Korutla",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-004e486e5d",
+   "name": "College of Veterinary Science, Mamnoor",
+   "address": "Mamnoor, Warangal",
+   "district": "Warangal",
+   "state": "Telangana",
+   "management": null,
+   "ownership": "government",
+   "university": "P.V. Narsimha Rao Telangana Veterinary University, Hyderabad",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 65,
+   "listed_as": "College of Veterinary Science, Mamnoor, Warangal",
+   "recognised_from": "2026-02-12",
+   "vci_quota_seats": 12,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-04b4d5d174",
+   "name": "College of Veterinary Science and Animal Husbandry, R.K. Nagar",
+   "address": "R.K. Nagar, Agartala, Tripura",
+   "district": "Agartala",
+   "state": "Tripura",
+   "management": null,
+   "ownership": "government",
+   "university": "Tripura University, Agartala",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 66,
+   "listed_as": "College of Veterinary Science and Animal Husbandry at R.K. Nagar, Agartala, Tripura",
+   "recognised_from": null,
+   "vci_quota_seats": 9,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 63
+    }
+   ]
+  },
+  {
+   "code": "vci-c72176aee3",
+   "name": "College of Veterinary Science and Animal Husbandry, Ayodhya",
+   "address": null,
+   "district": "Ayodhya",
+   "state": "Uttar Pradesh",
+   "management": null,
+   "ownership": "government",
+   "university": "Acharya Narendra Deva University of Agriculture & Technology, Kumarganj, Ayodhya",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 67,
+   "listed_as": "College of Veterinary Science and Animal Husbandry, Ayodhya",
+   "recognised_from": null,
+   "vci_quota_seats": 12,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-1edc964392",
+   "name": "College of Veterinary Science and Animal Husbandry, Mathura",
+   "address": null,
+   "district": "Mathura",
+   "state": "Uttar Pradesh",
+   "management": null,
+   "ownership": "government",
+   "university": "Uttar Pradesh Pandit Deen Dayal Upadhyay Pashu Chikitsa Vigyan Vishwavidyalay Evam Go Anusandhan Sansthan, Mathura",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 68,
+   "listed_as": "College of Veterinary Science and Animal Husbandry, Mathura",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-c11652751a",
+   "name": "ICAR-Indian Veterinary Research Institute",
+   "address": "Izatnagar, Bareilly",
+   "district": "Bareilly",
+   "state": "Uttar Pradesh",
+   "management": null,
+   "ownership": "government",
+   "university": null,
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 69,
+   "listed_as": "ICAR-Indian Veterinary Research Institute",
+   "recognised_from": null,
+   "vci_quota_seats": 4,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 30
+    }
+   ],
+   "same_as": {
+    "scheme": "nirf",
+    "value": "U-0518"
+   }
+  },
+  {
+   "code": "vci-7b172edf53",
+   "name": "College of Veterinary and Animal Sciences, Meerut",
+   "address": null,
+   "district": "Meerut",
+   "state": "Uttar Pradesh",
+   "management": null,
+   "ownership": "government",
+   "university": "Sardar Vallabh Bhai Patel University of Agriculture & Technology, Meerut",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 70,
+   "listed_as": "College of Veterinary and Animal Sciences, Meerut",
+   "recognised_from": null,
+   "vci_quota_seats": 12,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-64f2f97c5d",
+   "name": "Faculty of Veterinary and Animal Sciences, Institute of Agricultural Sciences, Rajiv Gandhi South Campus, Barkachha",
+   "address": null,
+   "district": "Barkachha",
+   "state": "Uttar Pradesh",
+   "management": null,
+   "ownership": "government",
+   "university": "Banaras Hindu University, Varanasi",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 71,
+   "listed_as": "Faculty of Veterinary and Animal Sciences, Institute of Agricultural Sciences, Rajiv Gandhi South Campus, Barkachha",
+   "recognised_from": null,
+   "vci_quota_seats": 9,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 60
+    }
+   ]
+  },
+  {
+   "code": "vci-3f2bbdd98f",
+   "name": "College of Veterinary & Animal Sciences, Pantnagar",
+   "address": null,
+   "district": "Pantnagar",
+   "state": "Uttarakhand",
+   "management": null,
+   "ownership": "government",
+   "university": "Govind Ballabh Pant University of Agriculture & Technology, Pantnagar",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 72,
+   "listed_as": "College of Veterinary & Animal Sciences, Pantnagar",
+   "recognised_from": null,
+   "vci_quota_seats": 11,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 76
+    }
+   ]
+  },
+  {
+   "code": "vci-e9d0c458ce",
+   "name": "Faculty of Veterinary & Animal Sciences, Mohanpur",
+   "address": "Mohanpur, Nadia",
+   "district": "Nadia",
+   "state": "West Bengal",
+   "management": null,
+   "ownership": "government",
+   "university": "West Bengal University of Animal & Fishery Sciences, Kolkata",
+   "source": "S",
+   "vci_list": "recognised",
+   "vci_serial": 73,
+   "listed_as": "Faculty of Veterinary & Animal Sciences, Mohanpur, Nadia",
+   "recognised_from": null,
+   "vci_quota_seats": 15,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "vci-7064ca454d",
+   "name": "College of Veterinary Science, Garividi",
+   "address": null,
+   "district": "Garividi",
+   "state": "Andhra Pradesh",
+   "management": "Government Sector",
+   "ownership": "government",
+   "university": "Sri Venkateswara Veterinary University, Tirupati",
+   "source": "P",
+   "vci_list": "provisional",
+   "vci_serial": 1,
+   "listed_as": "College of Veterinary Science at Garividi",
+   "lop_from_session": null,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": null
+    }
+   ]
+  },
+  {
+   "code": "vci-cc6bf39574",
+   "name": "College of Veterinary and Animal Sciences, Kishanganj",
+   "address": null,
+   "district": "Kishanganj",
+   "state": "Bihar",
+   "management": "Government Sector",
+   "ownership": "government",
+   "university": "Bihar Animal Sciences University, Patna",
+   "source": "P",
+   "vci_list": "provisional",
+   "vci_serial": 2,
+   "listed_as": "College of Veterinary and Animal Sciences, Kishanganj, Bihar",
+   "lop_from_session": null,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": null
+    }
+   ]
+  },
+  {
+   "code": "vci-08ab706242",
+   "name": "College of Veterinary Science & Animal Husbandry, Bilaspur",
+   "address": null,
+   "district": "Bilaspur",
+   "state": "Chhattisgarh",
+   "management": "Government Sector",
+   "ownership": "government",
+   "university": "Dau Shri Vasudev Chandrakar Kamdhenu Vishwavidyalaya, Durg",
+   "source": "M2",
+   "vci_list": "provisional",
+   "vci_serial": 3,
+   "listed_as": "College of Veterinary Science & Animal Husbandry, Bilaspur",
+   "lop_from_session": "2026-27",
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-3e23f79e10",
+   "name": "Goa College of Veterinary & Animal Sciences",
+   "address": "Curli-Ponda, Goa",
+   "district": "Ponda",
+   "state": "Goa",
+   "management": "Government Sector",
+   "ownership": "government",
+   "university": "Goa University",
+   "source": "M2",
+   "vci_list": "provisional",
+   "vci_serial": 4,
+   "listed_as": "Goa College of Veterinary & Animal Sciences at Curli-Ponda, Goa",
+   "lop_from_session": "2026-27",
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-ae3098cde9",
+   "name": "College of Veterinary Science & Animal Husbandry, Himmatnagar",
+   "address": null,
+   "district": "Himmatnagar",
+   "state": "Gujarat",
+   "management": "Government Sector",
+   "ownership": "government",
+   "university": "Kamdhenu University, Gujarat",
+   "source": "P",
+   "vci_list": "provisional",
+   "vci_serial": 5,
+   "listed_as": "College of Veterinary Science & Animal Husbandry, Himmatnagar, Gujarat",
+   "lop_from_session": null,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": null
+    }
+   ]
+  },
+  {
+   "code": "vci-f73a93bb83",
+   "name": "College of Veterinary Science and Animal Husbandry, Bhuj",
+   "address": "Bhuj, Kutch, Gujarat",
+   "district": "Kutch",
+   "state": "Gujarat",
+   "management": "Government Sector",
+   "ownership": "government",
+   "university": "Kamdhenu University, Gujarat",
+   "source": "M1",
+   "vci_list": "provisional",
+   "vci_serial": 6,
+   "listed_as": "College of Veterinary Science and Animal Husbandry, Bhuj, Kutch, Gujarat",
+   "lop_from_session": "2026-27",
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-632dfb4cf3",
+   "name": "Shri Bhaurao Deshpande Veterinary College, Athani",
+   "address": null,
+   "district": "Athani",
+   "state": "Karnataka",
+   "management": "Government Sector",
+   "ownership": "government",
+   "university": "Karnataka Veterinary, Animal & Fisheries Sciences University, Bidar",
+   "source": "P",
+   "vci_list": "provisional",
+   "vci_serial": 7,
+   "listed_as": "Shri Bhaurao Deshpande Veterinary College, Athani",
+   "lop_from_session": null,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": null
+    }
+   ]
+  },
+  {
+   "code": "vci-e234d4a2a3",
+   "name": "College of Veterinary & Animal Sciences, Datia",
+   "address": null,
+   "district": "Datia",
+   "state": "Madhya Pradesh",
+   "management": "Government Sector",
+   "ownership": "government",
+   "university": "Rani Lakshmi Bai Central Agricultural University, Jhansi",
+   "source": "M3",
+   "vci_list": "provisional",
+   "vci_serial": 8,
+   "listed_as": "College of Veterinary & Animal Sciences, Datia, Madhya Pradesh",
+   "lop_from_session": null,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-e7f1b43cdf",
+   "name": "College of Veterinary & Animal Sciences, Akola",
+   "address": null,
+   "district": "Akola",
+   "state": "Maharashtra",
+   "management": "Government Sector",
+   "ownership": "government",
+   "university": "Maharashtra Animal & Fishery Sciences University, Nagpur",
+   "source": "P",
+   "vci_list": "provisional",
+   "vci_serial": 9,
+   "listed_as": "College of Veterinary & Animal Sciences, Akola",
+   "lop_from_session": null,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": null
+    }
+   ]
+  },
+  {
+   "code": "vci-c6aa18ebd0",
+   "name": "College of Veterinary and Animal Sciences, Banda",
+   "address": null,
+   "district": "Banda",
+   "state": "Uttar Pradesh",
+   "management": "Government Sector",
+   "ownership": "government",
+   "university": "Banda University of Agriculture & Technology, Banda, Uttar Pradesh",
+   "source": "M2",
+   "vci_list": "provisional",
+   "vci_serial": 10,
+   "listed_as": "College of Veterinary and Animal Sciences, Banda",
+   "lop_from_session": "2026-27",
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-c080c7d31d",
+   "name": "Bhumika College of Veterinary Science and Research Centre, Mahendergarh",
+   "address": null,
+   "district": "Mahendergarh",
+   "state": "Haryana",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Lala Lajpat Rai University of Veterinary and Animal Sciences, Hisar",
+   "source": "P",
+   "vci_list": "provisional",
+   "vci_serial": 11,
+   "listed_as": "Bhumika College of Veterinary Science and Research Centre, Mahendergarh",
+   "lop_from_session": null,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": null
+    }
+   ]
+  },
+  {
+   "code": "vci-48ff5d704c",
+   "name": "B.D.M. College of Veterinary Sciences & Research Centre, Jhajjar",
+   "address": null,
+   "district": "Jhajjar",
+   "state": "Haryana",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Lala Lajpat Rai University of Veterinary and Animal Sciences, Hisar",
+   "source": "M2",
+   "vci_list": "provisional",
+   "vci_serial": 12,
+   "listed_as": "B.D.M. College of Veterinary Sciences & Research Centre, Jhajjar, Haryana",
+   "lop_from_session": "2026-27",
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-95ef254d46",
+   "name": "School of Veterinary Sciences, Chailchowk",
+   "address": "Chailchowk, Tehsil Chachyot, District Mandi, Himachal Pradesh",
+   "district": "Mandi",
+   "state": "Himachal Pradesh",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Abhilashi University, Mandi, Himachal Pradesh",
+   "source": "P",
+   "vci_list": "provisional",
+   "vci_serial": 13,
+   "listed_as": "School of Veterinary Sciences, Chailchowk, Tehsil Chachyot, District Mandi, Himachal Pradesh",
+   "lop_from_session": null,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": null
+    }
+   ]
+  },
+  {
+   "code": "vci-6e500b862c",
+   "name": "Parikarma Veterinary Science College, Ahilyanagar",
+   "address": null,
+   "district": "Ahilyanagar",
+   "state": "Maharashtra",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Maharashtra Animal & Fishery Sciences University, Nagpur",
+   "source": "P",
+   "vci_list": "provisional",
+   "vci_serial": 14,
+   "listed_as": "Parikarma Veterinary Science College, Ahilyanagar, Maharashtra",
+   "lop_from_session": "2026-27",
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": null
+    }
+   ]
+  },
+  {
+   "code": "vci-d736c2632c",
+   "name": "Yashodeep Veterinary College, Murbad",
+   "address": "Murbad, Thane",
+   "district": "Thane",
+   "state": "Maharashtra",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Maharashtra Animal & Fishery Sciences University, Nagpur",
+   "source": "M2",
+   "vci_list": "provisional",
+   "vci_serial": 15,
+   "listed_as": "Yashodeep Veterinary College, Murbad, Thane",
+   "lop_from_session": "2026-27",
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-42f44900b8",
+   "name": "Tatyasaheb Kore Institute of Veterinary & Animal Science, Warananagar",
+   "address": null,
+   "district": "Warananagar",
+   "state": "Maharashtra",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Maharashtra Animal & Fishery Sciences University, Nagpur",
+   "source": "M2",
+   "vci_list": "provisional",
+   "vci_serial": 16,
+   "listed_as": "Tatyasaheb Kore Institute of Veterinary & Animal Science, Warananagar",
+   "lop_from_session": "2026-27",
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-d7897d6ae7",
+   "name": "Dr. Rajendra Suryawanshi College of Veterinary & Animal Sciences, Gandheli",
+   "address": "Gandheli, Chh. Sambhajinagar, Maharashtra",
+   "district": "Chhatrapati Sambhajinagar",
+   "state": "Maharashtra",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Maharashtra Animal & Fishery Sciences University, Nagpur",
+   "source": "M2",
+   "vci_list": "provisional",
+   "vci_serial": 17,
+   "listed_as": "Dr. Rajendra Suryawanshi College of Veterinary & Animal Sciences, Gandheli, Chh. Sambhajinagar, Maharashtra",
+   "lop_from_session": "2026-27",
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-49fa536ec2",
+   "name": "Shekawati Veterinary College, Sikar",
+   "address": null,
+   "district": "Sikar",
+   "state": "Rajasthan",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Rajasthan University of Veterinary & Animal Sciences, Bikaner",
+   "source": "P",
+   "vci_list": "provisional",
+   "vci_serial": 18,
+   "listed_as": "Shekawati Veterinary College, Sikar, Rajasthan",
+   "lop_from_session": null,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": null
+    }
+   ]
+  },
+  {
+   "code": "vci-1b601ffb29",
+   "name": "Ramkumari College of Veterinary Science",
+   "address": null,
+   "district": null,
+   "state": "Rajasthan",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Rajasthan University of Veterinary & Animal Sciences, Bikaner",
+   "source": "P",
+   "vci_list": "provisional",
+   "vci_serial": 19,
+   "listed_as": "Ramkumari College of Veterinary Science, Rajasthan",
+   "lop_from_session": null,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": null
+    }
+   ]
+  },
+  {
+   "code": "vci-8217414a63",
+   "name": "Mahala Veterinary College, Sikar",
+   "address": null,
+   "district": "Sikar",
+   "state": "Rajasthan",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Rajasthan University of Veterinary & Animal Sciences, Bikaner",
+   "source": "P",
+   "vci_list": "provisional",
+   "vci_serial": 20,
+   "listed_as": "Mahala Veterinary College, Sikar, Rajasthan",
+   "lop_from_session": null,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": null
+    }
+   ]
+  },
+  {
+   "code": "vci-50fc9da440",
+   "name": "School of Veterinary Science & Animal Husbandry, Bijnor",
+   "address": "Moradabad, Bijnor, U.P.",
+   "district": "Bijnor",
+   "state": "Uttar Pradesh",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Vivek University, Bijnor, Uttar Pradesh",
+   "source": "M2",
+   "vci_list": "provisional",
+   "vci_serial": 21,
+   "listed_as": "School of Veterinary Science & Animal Husbandry, Moradabad, Bijnor, U.P.",
+   "lop_from_session": "2026-27",
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-349e661b81",
+   "name": "SM College of Veterinary and Animal Research, Pali Dungra",
+   "address": "Pali Dungra, Mathura, Uttar Pradesh",
+   "district": "Mathura",
+   "state": "Uttar Pradesh",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "K.M. University, Pali Dungra, Mathura, Uttar Pradesh",
+   "source": "M2",
+   "vci_list": "provisional",
+   "vci_serial": 22,
+   "listed_as": "SM College of Veterinary and Animal Research, Pali Dungra, Mathura, Uttar Pradesh",
+   "lop_from_session": "2026-27",
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-d8b0469414",
+   "name": "Faculty of Veterinary Science and Cow Research Centre, Pohalli",
+   "address": "Pohalli, Meerut",
+   "district": "Meerut",
+   "state": "Uttar Pradesh",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "Mahaveer University, Meerut",
+   "source": "M2",
+   "vci_list": "provisional",
+   "vci_serial": 23,
+   "listed_as": "Faculty of Veterinary Science and Cow Research Centre, Pohalli, Meerut",
+   "lop_from_session": "2026-27",
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "vci-7736a2b59c",
+   "name": "JIS College of Veterinary and Animal Sciences, Mogra",
+   "address": "Mogra, Hooghly, West Bengal",
+   "district": "Hooghly",
+   "state": "West Bengal",
+   "management": "Private Sector",
+   "ownership": "private",
+   "university": "West Bengal University of Animal & Fishery Sciences, Kolkata",
+   "source": "P",
+   "vci_list": "provisional",
+   "vci_serial": 24,
+   "listed_as": "JIS College of Veterinary and Animal Sciences, Mogra, Hooghly, West Bengal",
+   "lop_from_session": null,
+   "offerings": [
+    {
+     "course": "bvsc-ah",
+     "seats": null
+    }
+   ]
+  }
+ ]
+}
