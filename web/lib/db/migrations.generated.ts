@@ -63,5 +63,15 @@ export const MIGRATIONS: { tag: string; statements: string[] }[] = [
     "statements": [
       "ALTER TABLE `institutions` MODIFY COLUMN `ownership` enum('government','private','deemed','central','state_university','autonomous','public_private','aided');"
     ]
+  },
+  {
+    "tag": "0003_cutoff_branch_seat_pool",
+    "statements": [
+      "ALTER TABLE `cutoffs` MODIFY COLUMN `quota` varchar(100);",
+      "ALTER TABLE `cutoffs` ADD `branch` varchar(200);",
+      "ALTER TABLE `cutoffs` ADD `seat_pool` varchar(60);",
+      "ALTER TABLE `cutoffs` ADD `row_key` char(64) GENERATED ALWAYS AS (sha2(concat_ws('|', offering_id, exam_id, year, ifnull(round, ''), ifnull(quota, ''), ifnull(category, ''), ifnull(branch, ''), ifnull(seat_pool, '')), 256)) STORED;",
+      "ALTER TABLE `cutoffs` ADD CONSTRAINT `cutoffs_row_key` UNIQUE(`row_key`);"
+    ]
   }
 ];

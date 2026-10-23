@@ -4,6 +4,7 @@ import { MIGRATIONS } from "@/lib/db/migrations.generated";
 import { NIRF_FILES, NMC_FILES, NMC_LINKS, COUNCIL_FILES } from "@/lib/db/seed-data.generated";
 import { STATES, STATE_ALIASES, STREAMS, EXAMS, NIRF_CATEGORY_STREAM } from "@/data/reference";
 import { slugify } from "@/lib/slug";
+import { seedCutoffs } from "@/lib/seed/cutoffs";
 
 const { states, streams, courses, exams, examStreams, sources, institutions, institutionIdentifiers, institutionStreams, rankings, offerings, offeringBranches } = schema;
 
@@ -522,6 +523,7 @@ export async function bootstrap(log: (m: string) => void = console.log) {
   await seedNirf(streamIds, log);
   await seedNmc(streamIds, log);
   await seedCouncils(streamIds, log);
+  await seedCutoffs(log);
   const [c] = await rows<{ n: number }>(sql`select count(*) as n from institutions`);
   log(`Database ready: ${STATES.length} states, ${STREAMS.length} fields, ${EXAMS.length} exams, ${c?.n ?? 0} institutions`);
 }

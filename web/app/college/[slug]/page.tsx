@@ -42,6 +42,11 @@ function Stamp({ s }: { s: SourceRef | null }) {
   return s ? <SourceStamp publisher={s.title ?? s.publisher} url={s.url?.split(" ")[0]} checked={s.retrievedOn} /> : null;
 }
 
+/** "Medical Counselling Committee (MCC), ..." -> "MCC"; otherwise the regulator code or the name. */
+function shortPublisher(publisher: string) {
+  return publisher.match(/\(([A-Za-z]{2,10})\)/)?.[1] ?? publisherShort(publisher);
+}
+
 function formatDate(d: string) {
   const t = new Date(d.slice(0, 10) + "T00:00:00");
   return Number.isNaN(t.getTime()) ? d : t.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
@@ -76,6 +81,10 @@ export default async function CollegePage({ params }: Props) {
   const listYear = academicYear ? `, ${academicYear}` : "";
   const yearOf = approvalYears(c);
   const levels = new Set(c.offerings.map((o) => o.level));
+  const hasBranch = c.cutoffs.some((x) => x.branch);
+  const hasSeatPool = c.cutoffs.some((x) => x.seatPool);
+  const cutoffExams = new Set(c.cutoffs.map((x) => x.exam));
+  const cutoffSources = [...new Map(c.cutoffs.map((x) => [`${x.source.publisher}|${x.source.title ?? ""}`, x.source])).values()];
   const mapsQuery = encodeURIComponent([c.name, c.address ?? place].filter(Boolean).join(", "));
 
   // A plain summary written only from the recorded facts.
@@ -386,42 +395,78 @@ export default async function CollegePage({ params }: Props) {
               ) : null}
               <h3 className="mt-6 text-lg font-bold">Cutoffs</h3>
               {c.cutoffs.length ? (
-                <div className="mt-3 overflow-x-auto">
-                  <table className="w-full min-w-[560px] text-left text-[0.92rem]">
-                    <thead>
-                      <tr className="text-[0.8rem] uppercase tracking-wide text-muted">
-                        <th scope="col" className="py-2 font-bold">Course</th>
-                        <th scope="col" className="py-2 font-bold">Exam</th>
-                        <th scope="col" className="py-2 font-bold">Year, round</th>
-                        <th scope="col" className="py-2 font-bold">Quota, category</th>
-                        <th scope="col" className="py-2 text-right font-bold">Opening</th>
-                        <th scope="col" className="py-2 text-right font-bold">Closing</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {c.cutoffs.map((x, i) => (
-                        <tr key={i} className="border-t border-rule">
-                          <td className="py-2">{c.offerings.find((o) => o.id === x.offeringId)?.courseShort ?? <Value v={null} />}</td>
-                          <td className="py-2">{x.exam}</td>
-                          <td className="py-2">
-                            {x.year}
-                            {x.round ? `, ${x.round}` : ""}
-                          </td>
-                          <td className="py-2">{[x.quota, x.category].filter(Boolean).join(", ") || <Value v={null} />}</td>
-                          <td className="tabular py-2 text-right">
-                            <Value v={x.openingRank} />
-                          </td>
-                          <td className="tabular py-2 text-right font-bold">
-                            <Value v={x.closingRank} />
-                          </td>
+                <>
+                  <p className="mt-2 max-w-[70ch] text-[0.92rem] text-ink-soft">
+                    The first and last rank allotted a seat here in each counselling round, from the counselling body&apos;s own allotment lists. Ranks
+                    change every year, so treat them as a guide, not a promise.
+                  </p>
+                  <div className="mt-3 max-h-[520px] overflow-auto rounded-xl border border-rule">
+                    <table className="w-full min-w-[640px] text-left text-[0.88rem]">
+                      <thead className="sticky top-0 bg-band">
+                        <tr className="text-[0.75rem] uppercase tracking-wide text-muted">
+                          <th scope="col" className="px-3 py-2 font-bold">Course</th>
+                          {hasBranch ? <th scope="col" className="px-3 py-2 font-bold">Branch</th> : null}
+                          <th scope="col" className="px-3 py-2 font-bold">Quota</th>
+                          <th scope="col" className="px-3 py-2 font-bold">Category</th>
+                          {hasSeatPool ? <th scope="col" className="px-3 py-2 font-bold">Seat pool</th> : null}
+                          <th scope="col" className="px-3 py-2 font-bold">Round</th>
+                          <th scope="col" className="px-3 py-2 text-right font-bold">Opening</th>
+                          <th scope="col" className="px-3 py-2 text-right font-bold">Closing</th>
+                          <th scope="col" className="px-3 py-2 font-bold">Year</th>
+                          <th scope="col" className="px-3 py-2 font-bold">Source</th>
                         </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                  <div className="mt-3">
-                    <Stamp s={c.cutoffs[0].source} />
+                      </thead>
+                      <tbody>
+                        {c.cutoffs.map((x, i) => (
+                          <tr key={i} className="border-t border-rule align-top">
+                            <td className="px-3 py-1.5">
+                              {x.course}
+                              {cutoffExams.size > 1 ? <span className="block text-[0.78rem] text-muted">{x.exam}</span> : null}
+                            </td>
+                            {hasBranch ? <td className="px-3 py-1.5">{x.branch ?? ""}</td> : null}
+                            <td className="px-3 py-1.5">
+                              <Value v={x.quota} />
+                            </td>
+                            <td className="px-3 py-1.5">
+                              <Value v={x.category} />
+                            </td>
+                            {hasSeatPool ? <td className="px-3 py-1.5">{x.seatPool ?? ""}</td> : null}
+                            <td className="px-3 py-1.5 whitespace-nowrap">
+                              <Value v={x.round} />
+                            </td>
+                            <td className="tabular px-3 py-1.5 text-right">
+                              <Value v={x.openingRank === null ? null : formatNumber(x.openingRank)} />
+                            </td>
+                            <td className="tabular px-3 py-1.5 text-right font-bold">
+                              <Value v={x.closingRank === null ? null : formatNumber(x.closingRank)} />
+                            </td>
+                            <td className="tabular px-3 py-1.5">{x.year}</td>
+                            <td className="px-3 py-1.5">
+                              {x.source.url ? (
+                                <a
+                                  href={x.source.url.split(" ")[0]}
+                                  target="_blank"
+                                  rel="noopener"
+                                  title={x.source.title ?? x.source.publisher}
+                                  className="inline-flex items-center gap-1 whitespace-nowrap text-verified underline underline-offset-2"
+                                >
+                                  {shortPublisher(x.source.publisher)} <ExternalLink size={12} aria-hidden="true" />
+                                </a>
+                              ) : (
+                                shortPublisher(x.source.publisher)
+                              )}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   </div>
-                </div>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {cutoffSources.map((s) => (
+                      <Stamp key={`${s.publisher}|${s.title}`} s={s} />
+                    ))}
+                  </div>
+                </>
               ) : (
                 <p className="mt-2 text-ink-soft">Not recorded. Official closing ranks for this college are not loaded yet; we do not publish estimated cutoffs.</p>
               )}
