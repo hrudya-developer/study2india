@@ -150,7 +150,7 @@ export function FilterForm({ facets, cities, filters: f, idPrefix, autoApply, on
         {showCities ? (
           <div>
             <label htmlFor={id("city")} className={legend + " block"}>
-              District or city
+              District
             </label>
             <select id={id("city")} name="city" defaultValue={f.city ?? ""} className={field}>
               <option value="">All in this state</option>
