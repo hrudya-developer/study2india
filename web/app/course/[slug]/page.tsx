@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Clock, GraduationCap, Target, Building2, ExternalLink } from "lucide-react";
+import { Clock, GraduationCap, Target, Layers, ExternalLink } from "lucide-react";
 import { getCourse } from "@/lib/queries/catalog";
 import { getSearchOptions } from "@/lib/queries/home";
 import { PageHero } from "@/components/page-hero";
 import { CounsellingForm } from "@/components/counselling-form";
-import { POPULAR_STATES } from "@/components/site-header";
-import { slugify } from "@/lib/slug";
+import { CourseKeyNumbers, CourseOwnership, CourseRankedColleges, CourseSpecialisations, CourseStates } from "@/components/course/course-insights";
 
 export const dynamic = "force-dynamic";
 
@@ -18,9 +17,12 @@ const LEVEL_LABEL: Record<string, string> = { ug: "Undergraduate", pg: "Postgrad
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const c = await getCourse((await params).slug);
   if (!c) return { title: "Course not found" };
+  const reach = c.stats.colleges
+    ? ` Offered by ${c.stats.colleges.toLocaleString("en-IN")} colleges across ${c.stats.states} ${c.stats.states === 1 ? "state" : "states"}${c.stats.seats ? `, with ${c.stats.seats.toLocaleString("en-IN")} approved seats` : ""}.`
+    : "";
   return {
-    title: `${c.short}: duration, entrance exams and colleges`,
-    description: `${c.name} (${c.short}): course duration, entrance exams and colleges offering it in India.`,
+    title: `${c.short}: colleges, seats, specialisations and entrance exams`,
+    description: `${c.name} (${c.short}): course duration, entrance exams, seats by state and colleges offering it in India.${reach}`,
     alternates: { canonical: `/course/${c.slug}` },
   };
 }
@@ -34,9 +36,7 @@ export default async function CoursePage({ params }: Props) {
     { icon: GraduationCap, k: "Level", v: LEVEL_LABEL[c.level] ?? c.level },
     { icon: Clock, k: "Duration", v: c.duration },
     { icon: Target, k: "Entrance exams", v: c.exams.length ? c.exams.map((e) => e.short).join(", ") : null },
-    c.offeredBy
-      ? { icon: Building2, k: `Colleges offering ${c.short}`, v: c.offeredBy.toLocaleString("en-IN") }
-      : { icon: Building2, k: `${c.streamName} colleges listed`, v: c.institutions ? c.institutions.toLocaleString("en-IN") : null },
+    { icon: Layers, k: "Field of study", v: c.streamName },
   ];
 
   return (
@@ -55,6 +55,8 @@ export default async function CoursePage({ params }: Props) {
       <div className="bg-band">
         <div className="mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:px-6 lg:grid-cols-[minmax(0,1fr)_340px]">
           <div className="min-w-0 space-y-6">
+            <CourseKeyNumbers short={c.short} slug={c.slug} stats={c.stats} />
+
             <section className="card p-5 sm:p-6">
               <h2 className="text-2xl font-bold">Course at a glance</h2>
               <dl className="mt-4 grid gap-x-8 sm:grid-cols-2">
@@ -96,22 +98,14 @@ export default async function CoursePage({ params }: Props) {
               </section>
             ) : null}
 
-            <section className="card p-5 sm:p-6">
-              <h2 className="text-2xl font-bold">{c.short} colleges by state</h2>
-              <ul className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3">
-                {POPULAR_STATES.map((s) => (
-                  <li key={s}>
-                    <Link href={`/colleges?course=${c.slug}&state=${slugify(s)}`} className="block rounded-lg border border-rule px-3 py-2 text-[0.92rem] hover:border-brand hover:bg-brand-soft">
-                      {c.short} in {s}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </section>
+            <CourseStates short={c.short} slug={c.slug} stats={c.stats} />
+            <CourseSpecialisations short={c.short} branches={c.branches} />
+            <CourseRankedColleges short={c.short} slug={c.slug} colleges={c.stats.colleges} nirfYear={c.nirfYear} nirfLists={c.nirfLists} ranked={c.ranked} />
+            <CourseOwnership short={c.short} slug={c.slug} stats={c.stats} />
 
             {c.related.length ? (
               <section className="card p-5 sm:p-6">
-                <h2 className="text-2xl font-bold">Other {c.streamName.toLowerCase()} courses</h2>
+                <h2 className="text-2xl font-bold">Other {c.streamName === c.streamName.toUpperCase() ? c.streamName : c.streamName.toLowerCase()} courses</h2>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {c.related.map((r) => (
                     <Link key={r.slug} href={`/course/${r.slug}`} className="rounded-full border border-rule px-3 py-1.5 hover:border-brand hover:bg-brand-soft">
