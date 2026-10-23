@@ -1,0 +1,2716 @@
+{
+ "source": {
+  "publisher": "NIRF, Ministry of Education",
+  "url": [
+   "https://www.nirfindia.org/Rankings/2025/CollegeRanking.html",
+   "https://www.nirfindia.org/Rankings/2025/CollegeRanking150.html",
+   "https://www.nirfindia.org/Rankings/2025/CollegeRanking200.html",
+   "https://www.nirfindia.org/Rankings/2025/CollegeRanking300.html"
+  ],
+  "retrieved": "2026-10-23"
+ },
+ "year": 2025,
+ "category": "College",
+ "rows": [
+  {
+   "institute_id": "C-6377",
+   "name": "Hindu College",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": 84.01,
+   "rank": 1,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6355",
+   "name": "Miranda House",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": 83.2,
+   "rank": 2,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6425",
+   "name": "Hans Raj College",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": 81.75,
+   "rank": 3,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6385",
+   "name": "Kirori Mal College",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": 80.33,
+   "rank": 4,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-22470",
+   "name": "St. Stephens's College",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": 79.41,
+   "rank": 5,
+   "rank_band": null
+  },
+  {
+   "institute_id": "I-1317",
+   "name": "Rama Krishna Mission Vivekananda Centenary College",
+   "city": "Kolkata",
+   "state": "West Bengal",
+   "score": 76.74,
+   "rank": 6,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-22462",
+   "name": "Atma Ram Sanatan Dharm College",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": 76.09,
+   "rank": 7,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-11881",
+   "name": "St. Xavier`s College",
+   "city": "Kolkata",
+   "state": "West Bengal",
+   "score": 76.07,
+   "rank": 8,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-41046",
+   "name": "PSGR Krishnammal College for Women",
+   "city": "Coimbatore",
+   "state": "Tamil Nadu",
+   "score": 75.52,
+   "rank": 9,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-41124",
+   "name": "PSG College of Arts and Science",
+   "city": "Coimbatore",
+   "state": "Tamil Nadu",
+   "score": 73.15,
+   "rank": 10,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6369",
+   "name": "Sri Venkateswara College",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": 72.61,
+   "rank": 11,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-11691",
+   "name": "Rajagiri College of Social Sciences",
+   "city": "Ernakulam",
+   "state": "Kerala",
+   "score": 71.72,
+   "rank": 12,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6409",
+   "name": "Deshbandhu College",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": 71.26,
+   "rank": 13,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-44006",
+   "name": "Loyola College",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": 71.14,
+   "rank": 14,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-43921",
+   "name": "Presidency College",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": 70.62,
+   "rank": 15,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-43965",
+   "name": "Madras Christian College",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": 70.57,
+   "rank": 16,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6415",
+   "name": "Lady Shri Ram College For Women",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": 69.87,
+   "rank": 17,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6419",
+   "name": "Shri Ram College of Commerce",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": 69.01,
+   "rank": 18,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-11926",
+   "name": "Ramakrishna Mission Vidyamandira",
+   "city": "Howrah",
+   "state": "West Bengal",
+   "score": 69,
+   "rank": 19,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-36513",
+   "name": "Thiagarajar College",
+   "city": "Madurai",
+   "state": "Tamil Nadu",
+   "score": 68.93,
+   "rank": 20,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6380",
+   "name": "Acharya Narendra Dev College",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": 68.21,
+   "rank": 21,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-41157",
+   "name": "V.O. Chidambaram College",
+   "city": "Thoothukudi",
+   "state": "Tamil Nadu",
+   "score": 67.27,
+   "rank": 22,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-43671",
+   "name": "University College, Thiruvananthapuram",
+   "city": "Thiruvananthapuram",
+   "state": "Kerala",
+   "score": 67.17,
+   "rank": 23,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-42814",
+   "name": "Ramakrishna Mission Residential College",
+   "city": "Kolkata",
+   "state": "West Bengal",
+   "score": 66.81,
+   "rank": 24,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-35860",
+   "name": "St. Joseph's College, Tiruchirappalli",
+   "city": "Tiruchirappalli",
+   "state": "Tamil Nadu",
+   "score": 66.59,
+   "rank": 25,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6367",
+   "name": "Daulat Ram College",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": 64.56,
+   "rank": 26,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6361",
+   "name": "Deen Dayal Upadhyaya College",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": 64.19,
+   "rank": 27,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6371",
+   "name": "Ramjas College",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": 63.82,
+   "rank": 28,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6353",
+   "name": "Sri Guru Tegh Bahadur Khalsa College",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": 63.26,
+   "rank": 29,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6376",
+   "name": "Delhi College of Arts & Commerce",
+   "city": "South West",
+   "state": "Delhi",
+   "score": 63.11,
+   "rank": 30,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-27608",
+   "name": "Lady Irwin College",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": 62.88,
+   "rank": 31,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6413",
+   "name": "Sri Guru Gobind Singh College of Commerce",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": 62.63,
+   "rank": 32,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6429",
+   "name": "Gargi College",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": 62.48,
+   "rank": 33,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-20653",
+   "name": "Kristu Jayanti College",
+   "city": "Bengaluru",
+   "state": "Karnataka",
+   "score": 62.29,
+   "rank": 34,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-29284",
+   "name": "Govt Home Science College",
+   "city": "Chandigarh",
+   "state": "Chandigarh",
+   "score": 62.18,
+   "rank": 35,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6432",
+   "name": "Dyal Singh College",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": 61.99,
+   "rank": 36,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6431",
+   "name": "Ramanujan College",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": 61.85,
+   "rank": 37,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6391",
+   "name": "Maitreyi College",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": 61.84,
+   "rank": 38,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6421",
+   "name": "Shaheed Bhagat Singh College",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": 61.55,
+   "rank": 39,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-35868",
+   "name": "Dhanalakshmi Srinivasan College of Arts & Science for Women",
+   "city": "Perambalur",
+   "state": "Tamil Nadu",
+   "score": 61.5,
+   "rank": 40,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-43931",
+   "name": "Stella Maris College for Women",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": 61.25,
+   "rank": 41,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-19103",
+   "name": "Midnapore College",
+   "city": "Midnapore",
+   "state": "West Bengal",
+   "score": 61.23,
+   "rank": 42,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6357",
+   "name": "Shyam Lal College",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": 60.96,
+   "rank": 43,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-11708",
+   "name": "Sacred Heart College",
+   "city": "Kochi",
+   "state": "Kerala",
+   "score": 60.77,
+   "rank": 44,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6387",
+   "name": "Bhaskaracharya College of Applied Sciences",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": 60.2,
+   "rank": 45,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-35825",
+   "name": "Bishop Heber College",
+   "city": "Tiruchirappalli",
+   "state": "Tamil Nadu",
+   "score": 60.18,
+   "rank": 46,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-11971",
+   "name": "Lady Brabourne College",
+   "city": "KOLKATA",
+   "state": "West Bengal",
+   "score": 60.17,
+   "rank": 47,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-41173",
+   "name": "St. Xavier's College, Palayamkottai",
+   "city": "Palayamkottai",
+   "state": "Tamil Nadu",
+   "score": 60.16,
+   "rank": 48,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-8308",
+   "name": "Pachhunga University College",
+   "city": "Aizawl",
+   "state": "Mizoram",
+   "score": 59.88,
+   "rank": 49,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-41126",
+   "name": "Sri Krishna Arts and Science College",
+   "city": "Coimbatore",
+   "state": "Tamil Nadu",
+   "score": 59.74,
+   "rank": 50,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6502",
+   "name": "Kanchi Mamunivar Govt. Institute for Postgraduate Studies and Research",
+   "city": "PUDUCHERRY",
+   "state": "Pondicherry",
+   "score": 59.58,
+   "rank": 51,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-35787",
+   "name": "Holy Cross College, Tiruchirappalli",
+   "city": "Tiruchirappalli",
+   "state": "Tamil Nadu",
+   "score": 59.47,
+   "rank": 52,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-8169",
+   "name": "St. Thomas College, Thrissur",
+   "city": "Thrissur",
+   "state": "Kerala",
+   "score": 59.19,
+   "rank": 53,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-43705",
+   "name": "Govt. College for Women, Thiruvananthapuram",
+   "city": "Thiruvananthapuram",
+   "state": "Kerala",
+   "score": 58.99,
+   "rank": 54,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-43964",
+   "name": "Madras School of Social Work",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": 58.9,
+   "rank": 55,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-11831",
+   "name": "St Berchmans College (Autonomous), Changanacherry, Kerala",
+   "city": "Kottayam",
+   "state": "Kerala",
+   "score": 58.38,
+   "rank": 56,
+   "rank_band": null
+  },
+  {
+   "institute_id": "I-1385",
+   "name": "Fergusson College (Autonomous)",
+   "city": "Pune",
+   "state": "Maharashtra",
+   "score": 58.35,
+   "rank": 57,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6417",
+   "name": "Kamala Nehru College",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": 58.22,
+   "rank": 58,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-36547",
+   "name": "The American College",
+   "city": "Madurai",
+   "state": "Tamil Nadu",
+   "score": 58.12,
+   "rank": 59,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-11582",
+   "name": "St. Teresa's College, Ernakulam",
+   "city": "Ernakulam",
+   "state": "Kerala",
+   "score": 57.84,
+   "rank": 60,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-43767",
+   "name": "Mar Ivanios College, Thiruvananthapuram",
+   "city": "Thiruvananthapuram",
+   "state": "Kerala",
+   "score": 57.75,
+   "rank": 61,
+   "rank_band": null
+  },
+  {
+   "institute_id": "N-6",
+   "name": "Queen Mary`s College",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": 57.68,
+   "rank": 62,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-41154",
+   "name": "Nesamony Memorial Christian College, Marthandam, Kanyakumari Dist.",
+   "city": "Marthandam",
+   "state": "Tamil Nadu",
+   "score": 57.67,
+   "rank": 63,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-43902",
+   "name": "Ethiraj College for Women",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": 57.64,
+   "rank": 64,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6426",
+   "name": "Shaheed Rajguru College of Applied Sciences for Women",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": 57.59,
+   "rank": 65,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-41054",
+   "name": "Dr. N. G. P. Arts and Science College",
+   "city": "Coimbatore",
+   "state": "Tamil Nadu",
+   "score": 57.56,
+   "rank": 66,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-41035",
+   "name": "Government Arts College",
+   "city": "Coimbatore",
+   "state": "Tamil Nadu",
+   "score": 57.49,
+   "rank": 67,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-20729",
+   "name": "M S Ramaiah College of Arts, Science, and Commerce",
+   "city": "Bengaluru",
+   "state": "Karnataka",
+   "score": 57.49,
+   "rank": 67,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6366",
+   "name": "Shivaji College",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": 57.48,
+   "rank": 69,
+   "rank_band": null
+  },
+  {
+   "institute_id": "I-1373",
+   "name": "Goswami Ganesh Dutta S.D. College",
+   "city": "Chandigarh",
+   "state": "Chandigarh",
+   "score": 57.44,
+   "rank": 70,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-35848",
+   "name": "Government Arts College",
+   "city": "Kumbakonam",
+   "state": "Tamil Nadu",
+   "score": 57.3,
+   "rank": 71,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-36579",
+   "name": "Ayya Nadar Janaki Ammal College",
+   "city": "Sivakasi",
+   "state": "Tamil Nadu",
+   "score": 57.27,
+   "rank": 72,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-16897",
+   "name": "St. Aloysius College",
+   "city": "Mangaluru",
+   "state": "Karnataka",
+   "score": 57.17,
+   "rank": 73,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-8010",
+   "name": "St. Joseph’s College, Devagiri",
+   "city": "Kozhikode",
+   "state": "Kerala",
+   "score": 56.89,
+   "rank": 74,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-11697",
+   "name": "Maharaja's College, Ernakulam",
+   "city": "Ernakulam",
+   "state": "Kerala",
+   "score": 56.86,
+   "rank": 75,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-41100",
+   "name": "Sri Ramakrishna College of Arts and Science",
+   "city": "Coimbatore",
+   "state": "Tamil Nadu",
+   "score": 56.8,
+   "rank": 76,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-28526",
+   "name": "Alagappa Government Arts College, Karaikudi",
+   "city": "Karaikudi",
+   "state": "Tamil Nadu",
+   "score": 56.8,
+   "rank": 76,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-8008",
+   "name": "Vimala College, Thrissur",
+   "city": "Thrissur",
+   "state": "Kerala",
+   "score": 56.59,
+   "rank": 78,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-35846",
+   "name": "Rajah Serfoji Government College, Thanjavur - 613 005.",
+   "city": "Thanjavur",
+   "state": "Tamil Nadu",
+   "score": 56.57,
+   "rank": 79,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-36411",
+   "name": "Sacred Heart College (Autonomous)",
+   "city": "Tirupattur",
+   "state": "Tamil Nadu",
+   "score": 56.54,
+   "rank": 80,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-9552",
+   "name": "Sri Sarada College for Women(Autonomous)",
+   "city": "Salem",
+   "state": "Tamil Nadu",
+   "score": 56.47,
+   "rank": 81,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-8023",
+   "name": "Farook College, Kozhikkode",
+   "city": "Kozhikode",
+   "state": "Kerala",
+   "score": 55.83,
+   "rank": 82,
+   "rank_band": null
+  },
+  {
+   "institute_id": "I-1322",
+   "name": "St. Joseph's College",
+   "city": "Thrissur",
+   "state": "Kerala",
+   "score": 55.81,
+   "rank": 83,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-35832",
+   "name": "Jamal Mohamed College, Tiruchirappalli",
+   "city": "Tiruchirappalli",
+   "state": "Tamil Nadu",
+   "score": 55.67,
+   "rank": 84,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6420",
+   "name": "Jesus & Mary College",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": 55.66,
+   "rank": 85,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-11771",
+   "name": "CMS College Kottayam",
+   "city": "Kottayam",
+   "state": "Kerala",
+   "score": 55.58,
+   "rank": 86,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-8213",
+   "name": "Christ College (Autonomous)",
+   "city": "Thrissur",
+   "state": "Kerala",
+   "score": 55.51,
+   "rank": 87,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-41140",
+   "name": "A.P.C. Mahalaxmi College for Women",
+   "city": "Thoothukkudi",
+   "state": "Tamil Nadu",
+   "score": 55.44,
+   "rank": 88,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-33555",
+   "name": "St. Xavier`s College",
+   "city": "Mumbai",
+   "state": "Maharashtra",
+   "score": 55.16,
+   "rank": 89,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6358",
+   "name": "Ram Lal Anand College",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": 55.1,
+   "rank": 90,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-43968",
+   "name": "DG Vaishnav College",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": 55.03,
+   "rank": 91,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-11815",
+   "name": "Mar Athanasius College",
+   "city": "Kothamangalam",
+   "state": "Kerala",
+   "score": 54.97,
+   "rank": 92,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-43229",
+   "name": "Shri Shivaji Science College , Morshi Road , Amravati.",
+   "city": "Amravati",
+   "state": "Maharashtra",
+   "score": 54.76,
+   "rank": 93,
+   "rank_band": null
+  },
+  {
+   "institute_id": "I-1293",
+   "name": "Sri Ramakrishna Mission Vidyalaya College of Arts and Science",
+   "city": "Coimbatore",
+   "state": "Tamil Nadu",
+   "score": 54.66,
+   "rank": 94,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6381",
+   "name": "Keshav Mahavidyalya",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": 54.61,
+   "rank": 95,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-11742",
+   "name": "Union Christian College",
+   "city": "Ernakulam",
+   "state": "Kerala",
+   "score": 54.55,
+   "rank": 96,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-22467",
+   "name": "PGDAV College",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": 54.52,
+   "rank": 97,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-20830",
+   "name": "St. Joseph`s College of Commerce",
+   "city": "Bengaluru",
+   "state": "Karnataka",
+   "score": 54.47,
+   "rank": 98,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-43646",
+   "name": "Government College, Attingal",
+   "city": "Thiruvananthapuram",
+   "state": "Kerala",
+   "score": 54.42,
+   "rank": 99,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-36529",
+   "name": "Fatima College",
+   "city": "Madurai",
+   "state": "Tamil Nadu",
+   "score": 54.39,
+   "rank": 100,
+   "rank_band": null
+  },
+  {
+   "institute_id": null,
+   "name": "All Saints' College, Thiruvananthapuram",
+   "city": "Thiruvananthapuram",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Bishop Moore College, Mavelikkara, Alappuzha",
+   "city": "Alappuzha",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "College of Social Work Nirmala Niketan 38 New Marine Lines",
+   "city": "Mumbai",
+   "state": "Maharashtra",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Dr. S. N. S. Rajalakshmi College of Arts and Science",
+   "city": "Coimbatore",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Government Arts College",
+   "city": "Salem",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Government Brennen College",
+   "city": "Kannur",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Government Victoria College, Palakkad",
+   "city": "Palakkad",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Govt. Arts & Science College, Meenchanda",
+   "city": "Kozhikode",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Govt. College, Nattakom, Kottayam",
+   "city": "Kottayam",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Govt.College, Nedumangad",
+   "city": "Thiruvananthapuram",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Guru Nanak College",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Hindusthan College of Arts and Science",
+   "city": "Coimbatore",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Holy Cross College",
+   "city": "Nagercoil",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Indraprastha College for Women",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Kamaraj College",
+   "city": "Thoothukkudi",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Karnatak Science College, Dharwad",
+   "city": "Dharwad",
+   "state": "Karnataka",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Khalsa College",
+   "city": "Amritsar",
+   "state": "Punjab",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Kongunadu Arts & Science College",
+   "city": "Coimbatore",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Kumaraguru college of Liberal Arts and Science",
+   "city": "Coimbatore",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Lady Doak College",
+   "city": "Madurai",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Madura College",
+   "city": "Madurai",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Maharaja Agrasen College",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Maharaja Agrasen Institute of Management Studies",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Maharaja Surajmal Institute",
+   "city": "West",
+   "state": "Delhi",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Marian College, Kuttikanam P.O. Peermade",
+   "city": "Kuttikanam",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Mata Sundri College for Women",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "MOP Vaishnav College for Women",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "N. G. M. College",
+   "city": "Pollachi",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "National College",
+   "city": "Tiruchirappalli",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Nehru Arts and Science College",
+   "city": "Coimbatore",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Nehru Memorial College",
+   "city": "Puthanampatti",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Nirmalagiri College",
+   "city": "Kannur",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Nizam College, Basheerbagh",
+   "city": "Hyderabad",
+   "state": "Telangana",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Patna Women's College",
+   "city": "Patna",
+   "state": "Bihar",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Prince Shri Venkateshwara Arts and Science College",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Rajdhani College",
+   "city": "West",
+   "state": "Delhi",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Rathinam College of Arts and Science",
+   "city": "Coimbatore",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Sadakathullah Appa College",
+   "city": "Tirunelveli",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Scott Christian College, Nagercoil",
+   "city": "Nagercoil",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Scottish Church College",
+   "city": "Kolkata",
+   "state": "West Bengal",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "SDNB Vaishnav College",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Shaheed Sukhdev College of Business Studies",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "St. Xavier's College",
+   "city": "Ahmedabad",
+   "state": "Gujarat",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "St.Joseph's College for Women, Alappuzha",
+   "city": "Alappuzha",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Swami Shraddhanand College",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Thanthai Periyar Government Arts and Science College (Autonomous)",
+   "city": "Tiruchirappalli",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Virudhunagar Hindu Nadars Senthikumara Nadar College",
+   "city": "Virudhunagar",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Women`s Christian College",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Women's Christian College, Nagercoil",
+   "city": "Nagercoil",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "Zakir Husain Delhi College",
+   "city": "Central",
+   "state": "Delhi",
+   "score": null,
+   "rank": null,
+   "rank_band": "101-150"
+  },
+  {
+   "institute_id": null,
+   "name": "A. V. C. College",
+   "city": "Mayiladuthurai",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Andhra Loyola College",
+   "city": "Vijayawada",
+   "state": "Andhra Pradesh",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Anna Adarsh College for Women",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Arignar Anna Govt. Arts College, Villupuram",
+   "city": "Viluppuram",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Aryabhatta College",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Bethune College",
+   "city": "Kolkata",
+   "state": "West Bengal",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Bharata Matha College, Thrikkakara P.O. 682 021",
+   "city": "Ernakulam",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Bharathi Womens College",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Bhavans Vivekananda College of Science, Humanities and Commerce",
+   "city": "Secunderabad",
+   "state": "Telangana",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Bon Secours College for Women",
+   "city": "Thanjavur",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Cauvery College for Women, Annamalai Nagar, Tiruchirappalli",
+   "city": "Tiruchirappalli",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "D.A.V.College",
+   "city": "Chandigarh- (U.T)",
+   "state": "Chandigarh",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Dempo Charities Trust Dhempe College of Arts & Science",
+   "city": "PANAJI",
+   "state": "Goa",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Devamatha College, Kuravilangad",
+   "city": "Kottayam",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Government Arts College",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Government Arts College for Women",
+   "city": "Salem",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Government Arts College, Tiruppur",
+   "city": "Udumalpet",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Government Bikram College of Commerce, Patiala",
+   "city": "Patiala",
+   "state": "Punjab",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Government Institute of Science, Nagpur",
+   "city": "Nagpur",
+   "state": "Maharashtra",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Govt. College Kasaragod. Vidya Nagar P.O, Kasargod",
+   "city": "Kasaragod",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Govt. College, Kattappana",
+   "city": "Kattappana",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "I.C. College of Community Science",
+   "city": "Hisar",
+   "state": "Haryana",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Institute of Home Economics",
+   "city": "NEW DELHI",
+   "state": "Delhi",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Janki Devi Memorial College",
+   "city": "Central",
+   "state": "Delhi",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Kunthavai Naacchiyaar Government Arts College for Women",
+   "city": "Thanjavur",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Lakshmi Bai College",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Loyala Academy",
+   "city": "Hyderabad",
+   "state": "Telangana",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Mahatma Gandhi Government Arts College",
+   "city": "Mahe",
+   "state": "Pondicherry",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Maniben M.P.Shah Mahila Arts College, Kadi",
+   "city": "Mahesana",
+   "state": "Gujarat",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Mehr Chand Mahajan D.A.V. College for Women",
+   "city": "Chandigarh",
+   "state": "Chandigarh",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Mount Carmel College (Autonomous)",
+   "city": "Bengaluru",
+   "state": "Karnataka",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Nehru Arts & Science College",
+   "city": "Kasaragod",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Nirmala College, Muvattupuzha",
+   "city": "Muvattupuzha",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Presidency College",
+   "city": "Bengaluru",
+   "state": "Karnataka",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Rani Anna Government College for Women",
+   "city": "Tirunelveli",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "S.T.Hindu College, Nagercoil",
+   "city": "Nagercoil",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Seethalakshmi Ramaswami College",
+   "city": "Tiruchirappalli",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Shaheed Bhagat Singh College (Evening)",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Shri M. V. & Smt. N. V. Virani Science College",
+   "city": "Rajkot",
+   "state": "Gujarat",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Sir Theagaraya College",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Sree Narayana College, Kollam",
+   "city": "Kollam",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Sree Neelakanda Govt. Sanskrit College, Pattambi",
+   "city": "Palakkad",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Sri Aurobindo College",
+   "city": "South",
+   "state": "Delhi",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Sri Krishna Adithya College of Arts and Science",
+   "city": "Coimbatore",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Sri Nehru Maha Vidyalaya College of Arts and Science",
+   "city": "Coimbatore",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Sri. Shivaji Science College, Congressnagar",
+   "city": "Nagpur",
+   "state": "Maharashtra",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "St. Francis College for Women",
+   "city": "Hyderabad",
+   "state": "Telangana",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "St. Xavier's College for Women, Aluva",
+   "city": "Aluva",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Thiruvalluvar Government Arts College",
+   "city": "Namakkal",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "Vellalar College for Women",
+   "city": "Erode",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "151-200"
+  },
+  {
+   "institute_id": null,
+   "name": "A. A. Government Arts College",
+   "city": "Tiruchirappalli",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "A.P Residential Degree College",
+   "city": "NAGARJUNASAGAR",
+   "state": "Andhra Pradesh",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Aditanar College of Arts & Science, Virapandianpattinam, Tiruchendur,Thoothukudi District.",
+   "city": "Thoothukkudi",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Arignar Anna Govt.Arts College,Cheyyar",
+   "city": "Cheyyar",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Athawale College of Social Work",
+   "city": "Bhandara",
+   "state": "Maharashtra",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Auxilium College",
+   "city": "Vellore",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "B. Borooah College",
+   "city": "Guwahati, Kamrup Metro",
+   "state": "Assam",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "B. V. Raju College",
+   "city": "West Godavari",
+   "state": "Andhra Pradesh",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Baselius College, Kottayam",
+   "city": "Kottayam",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "C.Abdul Hakeem College",
+   "city": "Melvisharam",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Catholicate College",
+   "city": "Pathanamthitta",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Chhatrapati Shahu Institute of Business Education and Research",
+   "city": "Kolhapur",
+   "state": "Maharashtra",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Chikkanna Government Arts College",
+   "city": "Tiruppur",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Christ Nagar College, Maranalloor",
+   "city": "Thiruvananthapuram",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Christian College, Alappuzha",
+   "city": "Alappuzha",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "D.A.V.College Jalandhar",
+   "city": "Jalandhar",
+   "state": "Punjab",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Dr. Ambedkar Government Arts College",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Dr. D.Y.Patil Unitech Society Dr. D.Y.Patil Arts, Commerce and Science College",
+   "city": "Pune",
+   "state": "Maharashtra",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Dr. Gafoor Memorial MES Mampad College, Mampad",
+   "city": "Malappuram",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Dr.G.R.Damodaran College of Science",
+   "city": "Coimbatore",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Fatima Mata National College, Kollam",
+   "city": "Kollam",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "G.T.N. ARTS COLLEGE",
+   "city": "Dindigul",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Government Arts College",
+   "city": "Cuddalore",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Government Arts College, Ariyalur",
+   "city": "Ariyalur",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Government Arts College, Karur",
+   "city": "Karur",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Government College",
+   "city": "Rajahmundry",
+   "state": "Andhra Pradesh",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Government College for Women, Kumbakonam",
+   "city": "KUMBAKONAM - 612 001",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Govt Post-graduate College for Girls, Sector-11",
+   "city": "Chandigarh",
+   "state": "Chandigarh",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "GOVT. COLLEGE, CHITTUR",
+   "city": "Palakkad",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Govt. Arts College Thiruvannamalai",
+   "city": "Thiruvannamalai",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Govt. College",
+   "city": "Malappuram",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "GOVT. COLLEGE, KODENCHERY",
+   "city": "Thamarassery",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Govt. Zirtiri Residential Science College",
+   "city": "Aizawl",
+   "state": "Mizoram",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Govt.Arts College, Thiruvananthapuram",
+   "city": "Thiruvananthapuram",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "H. & H.B. Kotak Institute of Science Rajkot",
+   "city": "Rajkot",
+   "state": "Gujarat",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Hajee Karutha Rowther Howdia College",
+   "city": "Uthamapalayam,Theni",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "HHMSPB NSS College for Women",
+   "city": "Thiruvananthapuram",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Indira Gandhi College of Arts and Science",
+   "city": "Puducherry",
+   "state": "Pondicherry",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Institute for Excellence in Higher Education(IEHE),Bhopal(Autonomous) Kaliya sot bandh Kolar Road, Bhopal",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Jagannath International Management School, VasantKunj",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Justice Basheer Ahmed Sayeed College for Women",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "K. S. Rangasamy College of Arts and Science (Autonomous)",
+   "city": "Namakkal",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "K.M.M Govt Women's College , Kannur",
+   "city": "Kannur",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Kalai Kaviri College of Fine Arts",
+   "city": "Tiruchirappalli",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Kalindi College",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Kongu Arts & Science College",
+   "city": "Erode",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "KPR College of Arts Science and Research",
+   "city": "Coimbatore",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Kumbhalkar Social Work College",
+   "city": "Wardha",
+   "state": "Maharashtra",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "M. E. S College, Marampally, North Vazhakulam, Aluva",
+   "city": "Ernakulam",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "M.V.Muthiah Government Arts College for Women",
+   "city": "Dindigul",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Mahatma Gandhi College,Iritti,PO-Keezhur",
+   "city": "Kannur",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Malankara Catholic College",
+   "city": "KALIAKKAVILAI",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Mar Athanasios College For Advanced Studies Tiruvalla",
+   "city": "Thiruvalla",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Mercy College",
+   "city": "Palakkad",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "MG College, Thiruvananthapuram",
+   "city": "Thiruvananthapuram",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Morning Star Home Science College",
+   "city": "Ernakulam",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Muthayammal College of Arts & Science",
+   "city": "Namakkal",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Newman College",
+   "city": "Thodupuzha",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Nilgiri College of Arts And Science, The Nilgiris",
+   "city": "Thaloor",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Nirmala College for Women",
+   "city": "Coimbatore",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Nowgong College",
+   "city": "Nagaon",
+   "state": "Assam",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "NSS College, Nenmara",
+   "city": "Palakkad",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Parvatibai Chowgule College of Arts & Science (Autonomous)",
+   "city": "Margao",
+   "state": "Goa",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Payyannur College, Payyannur,PO-Edat",
+   "city": "Payyanur",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Ponda Education Society Shri Ravi S. Naik College of Arts and Science",
+   "city": "North Goa",
+   "state": "Goa",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Pookoya Thangal Memorial Govt. College, Perinthalmanna",
+   "city": "Malappuram",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "PSMO College, Thirurangadi",
+   "city": "Malappuram",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Raja Narendra Lal Khan Women's College - Autonomous",
+   "city": "Midnapore",
+   "state": "West Bengal",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Rathnavel Subramaniam College of Arts and Science",
+   "city": "Coimbatore",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "RBVRR College for Women",
+   "city": "Hyderabad",
+   "state": "Telangana",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "S.N. College Alathur",
+   "city": "Palakkad",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "S.S.V. College, Valayanchirangara P.O., Perumbavoor",
+   "city": "Ernakulam",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Sarah Tucker College, Perumalpuram, Palayamkottai",
+   "city": "Tirunelveli",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "School of Social Work, Roshni Nilaya, Mangalore",
+   "city": "Dakshina Kannada",
+   "state": "Karnataka",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Shikshan Prasarak Mandalis Sir Parshurambhau College Arts, Science & Commerce, Pune",
+   "city": "Pune",
+   "state": "Maharashtra",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Shikshan Prasark Mandals Ramnarain Ruia College Matunga Mumbai",
+   "city": "Mumbai",
+   "state": "Maharashtra",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Shri Shankarlal Sundarbai Shasun Jain College for Women",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Silver Jubilee Degree College (Autonomous)",
+   "city": "Kurnool",
+   "state": "Andhra Pradesh",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Sir Syed College",
+   "city": "Taliparamba",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Sree Kerala Varma College, Thrissur",
+   "city": "Thrissur",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Sree Narayana College, Thottada",
+   "city": "Kannur",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Sree Sankara College, Kalady",
+   "city": "Ernakulam",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Sri Dharmasthala Manjunatheshwara College, Ujire, Belthangady",
+   "city": "Ujire",
+   "state": "Karnataka",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Sri Guru Nanak Dev Khalsa College",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Sri Parasakthi College for Women, Tirunelveli",
+   "city": "COURTALLAM",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Sri Ramakrishna College of Arts & Science for Women",
+   "city": "Coimbatore",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "St Xaviers College of Arts Science & Commerce Mapusa",
+   "city": "Mapusa",
+   "state": "Goa",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "St. Ann`s College for Women",
+   "city": "HYDERABAD",
+   "state": "Telangana",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "St. Dominic's College, Parathod P.O., Kanjirappally",
+   "city": "Kottayam",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "St. Joseph College of Arts & Science College (Autonomous)",
+   "city": "Cuddalore",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "St. Mary's College",
+   "city": "Dist. Thrissur",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "St. Peter's College",
+   "city": "Ernakulam",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "St. Pius Xth College",
+   "city": "Kasaragod",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "St. Thomas College, Arunapuram",
+   "city": "Kottayam",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Sullamussalam Science College, Areakkode",
+   "city": "Areekode",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "T. M Jacob Memorial Govt. College Manimalakunnu",
+   "city": "ERNAKULAM",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "T.K.M.College of Arts and Science, Kollam",
+   "city": "Kollam",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "The New College",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "V.V. Vanniaperumal College for Women",
+   "city": "Virudhunagar",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  },
+  {
+   "institute_id": null,
+   "name": "Vivekanandha college of arts and sciences for women",
+   "city": "Namakkal",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "201-300"
+  }
+ ]
+}
