@@ -6,6 +6,8 @@ import { approvalYears, getCollege, getSimilarColleges, offeringSeats, type Sour
 import { getSearchOptions } from "@/lib/queries/home";
 import { APPROVAL_BODIES, OWNERSHIP_LABELS, formatNumber, publisherShort } from "@/lib/queries/colleges";
 import { CounsellingForm } from "@/components/counselling-form";
+import { getLandingIndex, isLandingPair, landingPath } from "@/lib/queries/landing";
+import { absoluteUrl, breadcrumbList, isWebUrl, jsonLd as toJsonLd } from "@/lib/seo";
 import { SourceStamp } from "@/components/source-stamp";
 import { SectionNav } from "@/components/college/section-nav";
 import { CoursesTable } from "@/components/college/courses-table";
@@ -60,7 +62,7 @@ export default async function CollegePage({ params }: Props) {
   const { slug } = await params;
   const c = await getCollege(slug);
   if (!c) notFound();
-  const [{ items: similar, inState: similarInState }, options] = await Promise.all([getSimilarColleges(c), getSearchOptions()]);
+  const [{ items: similar, inState: similarInState }, options, landingIndex] = await Promise.all([getSimilarColleges(c), getSearchOptions(), getLandingIndex()]);
 
   const town = c.city ?? c.district;
   const place = [c.city, c.district && c.district !== c.city ? c.district : null, c.state].filter(Boolean).join(", ");
@@ -95,22 +97,52 @@ export default async function CollegePage({ params }: Props) {
     c.affiliatingUniversity ? `It is affiliated to ${c.affiliatingUniversity}.` : null,
   ].filter(Boolean);
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "CollegeOrUniversity",
-    name: c.name,
-    alternateName: c.aliases.length ? c.aliases : undefined,
-    url: c.website ?? undefined,
-    foundingDate: c.establishedYear ? String(c.establishedYear) : undefined,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: c.address ?? undefined,
-      addressLocality: town ?? undefined,
-      addressRegion: c.state ?? undefined,
-      postalCode: c.pin ?? undefined,
-      addressCountry: "IN",
+  // Structured data from recorded fields only: sameAs and url only for an official website we hold,
+  // address parts only when known.
+  const pagePath = `/college/${c.slug}`;
+  const website = isWebUrl(c.website) ? c.website.trim() : undefined;
+  const postalCode = c.pin && /^\d{6}$/.test(c.pin) ? c.pin : undefined;
+  const hasAddress = !!(c.address || town || c.state || postalCode);
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollegeOrUniversity",
+      "@id": absoluteUrl(`${pagePath}#institution`),
+      name: c.name,
+      alternateName: c.aliases.length ? c.aliases : undefined,
+      url: website,
+      sameAs: website ? [website] : undefined,
+      mainEntityOfPage: absoluteUrl(pagePath),
+      foundingDate: c.establishedYear ? String(c.establishedYear) : undefined,
+      address: hasAddress
+        ? {
+            "@type": "PostalAddress",
+            streetAddress: c.address ?? undefined,
+            addressLocality: town ?? undefined,
+            addressRegion: c.state ?? undefined,
+            postalCode,
+            addressCountry: "IN",
+          }
+        : undefined,
     },
-  };
+    breadcrumbList(
+      [
+        { name: "Home", path: "/" },
+        { name: "Colleges", path: "/colleges" },
+        ...(c.stateSlug && c.state ? [{ name: c.state, path: `/colleges?state=${c.stateSlug}` }] : []),
+        { name: c.name, path: pagePath },
+      ],
+      pagePath,
+    ),
+  ];
+
+  // "<course> colleges in <state>" landing pages for the courses this college offers.
+  const landingLinks = c.stateSlug
+    ? [...new Map(c.offerings.map((o) => [o.courseSlug, o.courseShort])).entries()]
+        .filter(([course]) => isLandingPair(landingIndex, "course", course, c.stateSlug as string))
+        .slice(0, 16)
+        .map(([course, short]) => ({ href: landingPath(course, c.stateSlug as string), label: `${short} colleges in ${c.state}` }))
+    : [];
 
   const stats = [
     { icon: Trophy, label: best ? `NIRF ${best.year} ${best.category}` : "NIRF rank", value: best ? (best.rank ? `#${best.rank}` : best.rankBand) : null, empty: "Not ranked" },
@@ -121,7 +153,9 @@ export default async function CollegePage({ params }: Props) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+      {jsonLd.map((d, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(d) }} />
+      ))}
 
       <section className="bg-[linear-gradient(115deg,#0d0f36_0%,#1c2063_100%)] text-white">
         <div className="mx-auto max-w-7xl px-4 pb-7 pt-5 sm:px-6">
@@ -242,7 +276,7 @@ export default async function CollegePage({ params }: Props) {
                     {c.streams.map((s) => (
                       <li key={s.slug}>
                         <Link
-                          href={`/colleges?stream=${s.slug}${c.stateSlug ? `&state=${c.stateSlug}` : ""}`}
+                          href={c.stateSlug ? landingPath(s.slug, c.stateSlug) : `/colleges?stream=${s.slug}`}
                           className="inline-block rounded-full bg-band px-3 py-1 text-[0.88rem] hover:bg-rule"
                           title={`More ${s.name} colleges${c.state ? ` in ${c.state}` : ""}`}
                         >
@@ -545,11 +579,27 @@ export default async function CollegePage({ params }: Props) {
                   ))}
                 </ul>
                 {c.stateSlug && c.streams[0] ? (
-                  <Link href={`/colleges?stream=${c.streams[0].slug}&state=${c.stateSlug}`} className="mt-2 inline-block text-[0.92rem] font-bold text-brand-hover hover:underline">
+                  <Link href={landingPath(c.streams[0].slug, c.stateSlug)} className="mt-2 inline-block text-[0.92rem] font-bold text-brand-hover hover:underline">
                     See all {c.streams[0].name} colleges in {c.state}
                   </Link>
                 ) : null}
               </div>
+            ) : null}
+            {landingLinks.length ? (
+              <nav aria-labelledby="h-course-states" className="card p-5">
+                <h2 id="h-course-states" className="text-lg font-bold">
+                  Other colleges in {c.state} for these courses
+                </h2>
+                <ul className="mt-3 flex flex-wrap gap-2">
+                  {landingLinks.map((l) => (
+                    <li key={l.href}>
+                      <Link href={l.href} className="inline-block rounded-full border border-rule px-3 py-1.5 text-[0.88rem] hover:border-brand hover:bg-brand-soft">
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
             ) : null}
           </aside>
         </div>

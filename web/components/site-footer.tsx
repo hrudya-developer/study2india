@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Phone, MessageCircle, Mail, MapPin, ExternalLink } from "lucide-react";
 import { CONTACT, STREAMS, EXAMS } from "@/data/reference";
 import { slugify } from "@/lib/slug";
+import { landingPath } from "@/lib/seo";
 import { POPULAR_STATES } from "@/components/site-header";
 
 const FOOTER_COURSES = ["mbbs", "bds", "bsc-nursing", "gnm", "bams", "bhms", "b-pharm", "bpt", "btech", "diploma-engineering", "mba", "bba", "ba-llb", "barch", "bca", "bcom"];
@@ -166,7 +167,7 @@ export function SiteFooter() {
             {POPULAR_SEARCHES.flatMap((p) =>
               p.states.map((s) => (
                 <li key={`${p.course}-${s}`} className="after:ml-1 after:text-white/30 after:content-['|'] last:after:content-none">
-                  <Link href={`/colleges?course=${p.course}&state=${slugify(s)}`} className={link}>
+                  <Link href={landingPath(p.course, slugify(s))} className={link}>
                     {p.short} colleges in {s}
                   </Link>
                 </li>

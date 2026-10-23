@@ -18,11 +18,11 @@ const POPULAR_COURSES = ["mbbs", "bds", "bsc-nursing", "bams", "btech", "mba", "
 const COMBO_COURSES = ["mbbs", "bds", "bsc-nursing", "bams", "btech", "b-pharm"];
 const COMBO_STATES = ["kerala", "karnataka", "tamil-nadu"];
 const HERO_CHIPS = [
-  { label: "MBBS in Karnataka", href: "/colleges?course=mbbs&state=karnataka" },
-  { label: "B.Sc Nursing in Kerala", href: "/colleges?course=bsc-nursing&state=kerala" },
-  { label: "BDS in Tamil Nadu", href: "/colleges?course=bds&state=tamil-nadu" },
+  { label: "MBBS in Karnataka", href: "/colleges/mbbs/karnataka" },
+  { label: "B.Sc Nursing in Kerala", href: "/colleges/bsc-nursing/kerala" },
+  { label: "BDS in Tamil Nadu", href: "/colleges/bds/tamil-nadu" },
   { label: "NEET UG", href: "/exam/neet-ug" },
-  { label: "B.Tech in Kerala", href: "/colleges?course=btech&state=kerala" },
+  { label: "B.Tech in Kerala", href: "/colleges/btech/kerala" },
 ];
 const LEVEL_LABEL: Record<string, string> = { ug: "Undergraduate", pg: "Postgraduate", diploma: "Diploma", doctorate: "Doctorate", certificate: "Certificate", integrated: "Integrated" };
 
@@ -287,7 +287,7 @@ export default async function HomePage() {
                     {row.map((c) => (
                       <Link
                         key={c.stateSlug}
-                        href={`/colleges?course=${c.courseSlug}&state=${c.stateSlug}`}
+                        href={`/colleges/${c.courseSlug}/${c.stateSlug}`}
                         className="inline-flex min-h-9 items-center gap-1.5 rounded-full border border-rule bg-paper px-3 text-[0.88rem] text-ink-soft hover:border-brand hover:text-ink"
                       >
                         <span className="sr-only">{c.course} colleges in </span>

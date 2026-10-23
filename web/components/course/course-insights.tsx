@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { SourceStamp } from "@/components/source-stamp";
 import { mostlyRecorded, type CourseBranch, type CourseRanked, type CourseStats } from "@/lib/queries/catalog";
+import { landingPath } from "@/lib/seo";
 
 const fmt = (n: number) => n.toLocaleString("en-IN");
 
@@ -140,7 +141,8 @@ export function CourseStates({ short, slug, stats }: { short: string; slug: stri
             {list.map((s) => (
               <tr key={s.slug} className="border-t border-rule">
                 <td className="py-2.5">
-                  <Link href={`/colleges?course=${slug}&state=${s.slug}`} className="font-bold wrap-anywhere hover:text-brand-hover">
+                  <Link href={landingPath(slug, s.slug)} className="font-bold wrap-anywhere hover:text-brand-hover">
+                    <span className="sr-only">{short} colleges in </span>
                     {s.name}
                   </Link>
                   <div className="mt-1 h-1.5 rounded-full bg-band" aria-hidden="true">
