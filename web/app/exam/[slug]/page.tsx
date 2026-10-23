@@ -6,7 +6,7 @@ import { getExam } from "@/lib/queries/catalog";
 import { getSearchOptions } from "@/lib/queries/home";
 import { PageHero } from "@/components/page-hero";
 import { CounsellingForm } from "@/components/counselling-form";
-import { EXAM_COUNSELLING } from "@/data/exam-dates";
+import { EXAM_COUNSELLING, EXAM_FACTS } from "@/data/exam-dates";
 import { formatDate, formatRange, phaseOf, PHASE_LABEL, todayInIndia } from "@/lib/exam-timeline";
 
 export const dynamic = "force-dynamic";
@@ -29,10 +29,18 @@ export default async function ExamPage({ params }: Props) {
   const options = await getSearchOptions();
   const today = todayInIndia();
   const dated = e.dates.filter((d) => d.startsOn);
-  // Latest cycle first; within a cycle, in date order.
+  // Latest cycle first (by its last date, since cycles can be named "July 2026" or "2027-28"); within a cycle, in date order.
+  const lastDate = (c: string) => dated.filter((d) => d.cycle === c).map((d) => d.endsOn ?? d.startsOn!).sort().at(-1) ?? "";
   const cycles = [...new Set(dated.map((d) => d.cycle))]
-    .sort((a, b) => b.localeCompare(a))
+    .sort((a, b) => lastDate(b).localeCompare(lastDate(a)) || b.localeCompare(a))
     .map((c) => [c, dated.filter((d) => d.cycle === c).sort((a, b) => a.startsOn!.localeCompare(b.startsOn!))] as const);
+  const facts = EXAM_FACTS.filter((f) => f.exam === e.slug).sort((a, b) => b.cycle.localeCompare(a.cycle))[0];
+  const levelText =
+    e.level === "State"
+      ? `State level${e.states.length ? `: ${e.states.join(", ")} colleges only` : ""}`
+      : e.level === "University"
+        ? `Institute level: admissions to ${e.body} only`
+        : "National level";
   const next = dated
     .filter((d) => phaseOf(d.startsOn!, d.endsOn, today) !== "past")
     .sort((a, b) => a.startsOn!.localeCompare(b.startsOn!))[0];
@@ -62,8 +70,9 @@ export default async function ExamPage({ params }: Props) {
               <dl className="mt-4">
                 {[
                   { k: "Full name", v: e.name },
-                  { k: "Conducted by", v: e.body },
-                  { k: "Level", v: e.level === "State" ? "State level" : "National level" },
+                  { k: e.counsellingOnly ? "Run by" : "Conducted by", v: e.body },
+                  { k: "Level", v: levelText },
+                  ...(e.counsellingOnly ? [{ k: "Admission basis", v: "Counselling on Class 12 marks; there is no entrance test" }] : []),
                   { k: "Leads to", v: e.streams.join(", ") },
                 ].map((r) => (
                   <div key={r.k} className="flex gap-4 border-b border-rule py-3">
@@ -183,6 +192,37 @@ export default async function ExamPage({ params }: Props) {
               )}
             </section>
 
+            {facts?.eligibility || facts?.pattern?.length ? (
+              <section className="card p-5 sm:p-6" aria-labelledby="facts-heading">
+                <h2 id="facts-heading" className="text-2xl font-bold">
+                  {facts.eligibility && facts.pattern?.length ? "Eligibility and exam pattern" : facts.eligibility ? "Eligibility" : "Exam pattern"}
+                </h2>
+                {facts.eligibility ? (
+                  <div className="mt-4">
+                    <h3 className="text-lg font-bold">Who can apply ({e.short} {facts.cycle})</h3>
+                    <p className="mt-1 max-w-[70ch] text-ink-soft">{facts.eligibility}</p>
+                  </div>
+                ) : null}
+                {facts.pattern?.length ? (
+                  <div className="mt-4">
+                    <h3 className="text-lg font-bold">Exam pattern ({e.short} {facts.cycle})</h3>
+                    <ul className="mt-2 max-w-[70ch] list-disc space-y-1 pl-5 text-ink-soft">
+                      {facts.pattern.map((p) => (
+                        <li key={p}>{p}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+                <p className="mt-4 text-[0.85rem] text-muted">
+                  Summarised from{" "}
+                  <a href={facts.source.url} target="_blank" rel="noopener" className="underline underline-offset-2 hover:text-ink">
+                    {facts.source.title}
+                  </a>
+                  . Read the full bulletin before applying; the official document is the final word.
+                </p>
+              </section>
+            ) : null}
+
             {e.courses.length ? (
               <section className="card p-5 sm:p-6">
                 <h2 className="text-2xl font-bold">Courses through {e.short}</h2>
@@ -200,7 +240,7 @@ export default async function ExamPage({ params }: Props) {
 
           <aside>
             <div id="apply" className="card scroll-mt-32 p-5 lg:sticky lg:top-[120px]">
-              <h2 className="text-xl font-bold">Writing {e.short}?</h2>
+              <h2 className="text-xl font-bold">{e.counsellingOnly ? `Applying through ${e.short}?` : `Writing ${e.short}?`}</h2>
               <p className="mb-4 mt-1 text-[0.92rem] text-muted">A counsellor can plan your college options around your rank, free.</p>
               <CounsellingForm courses={options.courses} states={options.states} />
             </div>

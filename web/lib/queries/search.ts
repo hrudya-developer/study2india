@@ -1,6 +1,6 @@
 import { sql, type SQL } from "drizzle-orm";
 import { rows } from "@/lib/db";
-import { STATE_ALIASES } from "@/data/reference";
+import { STATE_ALIASES, examLevelLabel } from "@/data/reference";
 import { own } from "@/lib/params";
 
 /**
@@ -295,7 +295,7 @@ export async function searchSite(rawQ: string, opts: { colleges?: number; course
       return sn.startsWith(qn) || (qn.length >= 3 && sn.includes(qn)) || e.name.toLowerCase().includes(qLower) || (qLower.length >= 4 && e.body.toLowerCase().includes(qLower));
     })
     .slice(0, limits.exams)
-    .map((e) => ({ label: e.short, href: `/exam/${e.slug}`, meta: `${e.level === "State" ? "State exam" : "National exam"}, ${e.body}` }));
+    .map((e) => ({ label: e.short, href: `/exam/${e.slug}`, meta: `${examLevelLabel(e.level)}, ${e.body}` }));
 
   // States, when the query names one and nothing else.
   const states = cat.states

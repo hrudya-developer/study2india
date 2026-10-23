@@ -5,13 +5,20 @@ import { getAllCourses, getExams, type CourseLite, type ExamSummary } from "@/li
 import { OWNERSHIP_LABELS } from "@/lib/queries/colleges";
 import { EXAMS } from "@/data/reference";
 
-/** Exams that admit to a course: the exam's own course list when it has one, otherwise its fields. */
+const examSeedBySlug = new Map(EXAMS.map((e) => [e.slug, e]));
+const LEVEL_ORDER: Record<string, number> = { National: 0, University: 1, State: 2 };
+
+/**
+ * Exams that admit to a course: the exam's own course list when it has one, otherwise its fields.
+ * National exams first, then institute exams, then state exams (which apply only in their state).
+ */
 function examsForCourse(exams: ExamSummary[], c: CourseLite) {
-  const bySlug = new Map(EXAMS.map((e) => [e.slug, e]));
-  return exams.filter((e) => {
-    const seed = bySlug.get(e.slug);
-    return seed?.courses ? seed.courses.includes(c.slug) : e.streams.includes(c.streamName);
-  });
+  return exams
+    .filter((e) => {
+      const seed = examSeedBySlug.get(e.slug);
+      return seed?.courses ? seed.courses.includes(c.slug) : e.streams.includes(c.streamName);
+    })
+    .sort((a, b) => (LEVEL_ORDER[a.level] ?? 3) - (LEVEL_ORDER[b.level] ?? 3));
 }
 
 /**
@@ -312,7 +319,10 @@ export async function getExam(slug: string) {
       sourceUrl: d.url,
       retrievedOn: d.retrieved_on,
     })),
-    courses: courses.filter((c) => e.streams.includes(c.streamName)),
+    courses: courses.filter((c) => {
+      const seed = examSeedBySlug.get(e.slug);
+      return seed?.courses ? seed.courses.includes(c.slug) : e.streams.includes(c.streamName);
+    }),
   };
 }
 
