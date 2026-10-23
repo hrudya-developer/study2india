@@ -1,92 +1,1266 @@
 {
-  "PCI-82": "C-10250",
-  "PCI-321": "C-10283",
-  "PCI-883": "C-10398",
-  "PCI-247": "C-11091",
-  "PCI-1722": "C-16179",
-  "PCI-2234": "C-18900",
-  "PCI-1450": "C-19322",
-  "PCI-114": "C-19747",
-  "PCI-1060": "C-24505",
-  "PCI-2347": "C-26904",
-  "PCI-702": "C-30858",
-  "PCI-555": "C-33877",
-  "PCI-2654": "C-34531",
-  "PCI-1032": "C-35006",
-  "PCI-1033": "C-35007",
-  "PCI-249": "C-35430",
-  "PCI-1786": "C-40080",
-  "PCI-1161": "C-40235",
-  "PCI-32": "C-40354",
-  "PCI-1173": "C-409",
-  "PCI-1631": "C-45540",
-  "PCI-1419": "C-45585",
-  "PCI-133": "C-45757",
-  "PCI-1125": "C-46111",
-  "PCI-2907": "C-58318",
-  "PCI-1326": "C-7249",
-  "PCI-1652": "I-1045",
-  "PCI-368": "I-1243",
-  "PCI-483": "I-1256",
-  "PCI-433": "I-1280",
-  "PCI-2528": "I-1289",
-  "PCI-151": "I-1450",
-  "PCI-2311": "I-1486",
-  "PCI-2423": "N-10",
-  "PCI-791": "S-10906",
-  "PCI-687": "U-0011",
-  "PCI-919": "U-0034",
-  "PCI-1820": "U-0037",
-  "PCI-2418": "U-0050",
-  "PCI-476": "U-0051",
-  "PCI-4903": "U-0062",
-  "PCI-2536": "U-0078",
-  "PCI-2227": "U-0085",
-  "PCI-624": "U-0107",
-  "PCI-778": "U-0135",
-  "PCI-638": "U-0143",
-  "PCI-932": "U-0146",
-  "PCI-85": "U-0155",
-  "PCI-430": "U-0162",
-  "PCI-1239": "U-0168",
-  "PCI-478": "U-0202",
-  "PCI-897": "U-0308",
-  "PCI-437": "U-0332",
-  "PCI-303": "U-0372",
-  "PCI-337": "U-0373",
-  "PCI-499": "U-0379",
-  "PCI-424": "U-0383",
-  "PCI-211": "U-0389",
-  "PCI-470": "U-0391",
-  "PCI-452": "U-0392",
-  "PCI-481": "U-0413",
-  "PCI-1457": "U-0415",
-  "PCI-806": "U-0427",
-  "PCI-454": "U-0443",
-  "PCI-2359": "U-0473",
-  "PCI-2579": "U-0491",
-  "PCI-2616": "U-0492",
-  "PCI-86": "U-0497",
-  "PCI-425": "U-0498",
-  "PCI-923": "U-0502",
-  "PCI-907": "U-0513",
-  "PCI-462": "U-0525",
-  "PCI-428": "U-0536",
-  "PCI-1956": "U-0541",
-  "PCI-441": "U-0562",
-  "PCI-503": "U-0575",
-  "PCI-4461": "U-0592",
-  "PCI-1939": "U-0643",
-  "PCI-2006": "U-0702",
-  "PCI-495": "U-0720",
-  "PCI-626": "U-0724",
-  "PCI-2544": "U-0750",
-  "PCI-528": "U-0774",
-  "PCI-418": "U-0853",
-  "PCI-502": "U-0861",
-  "PCI-1277": "U-0938",
-  "PCI-2695": "I-1441",
-  "PCI-1987": "U-0474",
-  "PCI-4456": "U-0739",
-  "PCI-10822": "U-1048"
+  "PCI-32": {
+    "scheme": "nirf",
+    "value": "C-40354"
+  },
+  "PCI-50": {
+    "scheme": "aicte",
+    "value": "1-2504741"
+  },
+  "PCI-57": {
+    "scheme": "aicte",
+    "value": "1-7455037"
+  },
+  "PCI-79": {
+    "scheme": "aicte",
+    "value": "1-465503761"
+  },
+  "PCI-82": {
+    "scheme": "nirf",
+    "value": "C-10250"
+  },
+  "PCI-85": {
+    "scheme": "nirf",
+    "value": "U-0155"
+  },
+  "PCI-86": {
+    "scheme": "nirf",
+    "value": "U-0497"
+  },
+  "PCI-108": {
+    "scheme": "aicte",
+    "value": "1-5841586"
+  },
+  "PCI-114": {
+    "scheme": "nirf",
+    "value": "C-19747"
+  },
+  "PCI-129": {
+    "scheme": "nmc",
+    "value": "MH/002/G/1"
+  },
+  "PCI-133": {
+    "scheme": "nirf",
+    "value": "C-45757"
+  },
+  "PCI-142": {
+    "scheme": "aicte",
+    "value": "1-5716861"
+  },
+  "PCI-151": {
+    "scheme": "nirf",
+    "value": "I-1450"
+  },
+  "PCI-179": {
+    "scheme": "aicte",
+    "value": "1-47100614054"
+  },
+  "PCI-180": {
+    "scheme": "aicte",
+    "value": "1-487132803"
+  },
+  "PCI-194": {
+    "scheme": "aicte",
+    "value": "1-506517641"
+  },
+  "PCI-211": {
+    "scheme": "nirf",
+    "value": "U-0389"
+  },
+  "PCI-247": {
+    "scheme": "nirf",
+    "value": "C-11091"
+  },
+  "PCI-249": {
+    "scheme": "nirf",
+    "value": "C-35430"
+  },
+  "PCI-303": {
+    "scheme": "nirf",
+    "value": "U-0372"
+  },
+  "PCI-321": {
+    "scheme": "nirf",
+    "value": "C-10283"
+  },
+  "PCI-322": {
+    "scheme": "nirf",
+    "value": "U-0747"
+  },
+  "PCI-337": {
+    "scheme": "nirf",
+    "value": "U-0373"
+  },
+  "PCI-343": {
+    "scheme": "nmc",
+    "value": "TN/009/G/1"
+  },
+  "PCI-350": {
+    "scheme": "aicte",
+    "value": "1-7324150851"
+  },
+  "PCI-361": {
+    "scheme": "aicte",
+    "value": "1-9870715"
+  },
+  "PCI-368": {
+    "scheme": "nirf",
+    "value": "I-1243"
+  },
+  "PCI-375": {
+    "scheme": "aicte",
+    "value": "1-464054631"
+  },
+  "PCI-376": {
+    "scheme": "aicte",
+    "value": "1-475096201"
+  },
+  "PCI-412": {
+    "scheme": "aicte",
+    "value": "1-2064666851"
+  },
+  "PCI-418": {
+    "scheme": "nirf",
+    "value": "U-0853"
+  },
+  "PCI-424": {
+    "scheme": "nirf",
+    "value": "U-0383"
+  },
+  "PCI-425": {
+    "scheme": "nirf",
+    "value": "U-0498"
+  },
+  "PCI-428": {
+    "scheme": "nirf",
+    "value": "U-0536"
+  },
+  "PCI-430": {
+    "scheme": "nirf",
+    "value": "U-0162"
+  },
+  "PCI-433": {
+    "scheme": "nirf",
+    "value": "I-1280"
+  },
+  "PCI-437": {
+    "scheme": "nirf",
+    "value": "U-0332"
+  },
+  "PCI-440": {
+    "scheme": "aicte",
+    "value": "1-440475501"
+  },
+  "PCI-441": {
+    "scheme": "nirf",
+    "value": "U-0562"
+  },
+  "PCI-444": {
+    "scheme": "aicte",
+    "value": "1-3962501"
+  },
+  "PCI-449": {
+    "scheme": "aicte",
+    "value": "1-6588351"
+  },
+  "PCI-452": {
+    "scheme": "nirf",
+    "value": "U-0392"
+  },
+  "PCI-454": {
+    "scheme": "nirf",
+    "value": "U-0443"
+  },
+  "PCI-462": {
+    "scheme": "nirf",
+    "value": "U-0525"
+  },
+  "PCI-470": {
+    "scheme": "nirf",
+    "value": "U-0391"
+  },
+  "PCI-476": {
+    "scheme": "nirf",
+    "value": "U-0051"
+  },
+  "PCI-478": {
+    "scheme": "nirf",
+    "value": "U-0202"
+  },
+  "PCI-481": {
+    "scheme": "nirf",
+    "value": "U-0413"
+  },
+  "PCI-483": {
+    "scheme": "nirf",
+    "value": "I-1256"
+  },
+  "PCI-495": {
+    "scheme": "nirf",
+    "value": "U-0720"
+  },
+  "PCI-499": {
+    "scheme": "nirf",
+    "value": "U-0379"
+  },
+  "PCI-502": {
+    "scheme": "nirf",
+    "value": "U-0861"
+  },
+  "PCI-503": {
+    "scheme": "nirf",
+    "value": "U-0575"
+  },
+  "PCI-528": {
+    "scheme": "nirf",
+    "value": "U-0774"
+  },
+  "PCI-555": {
+    "scheme": "nirf",
+    "value": "C-33877"
+  },
+  "PCI-580": {
+    "scheme": "aicte",
+    "value": "1-5368841"
+  },
+  "PCI-606": {
+    "scheme": "aicte",
+    "value": "1-10003974"
+  },
+  "PCI-619": {
+    "scheme": "aicte",
+    "value": "1-4329052051"
+  },
+  "PCI-621": {
+    "scheme": "nirf",
+    "value": "U-0519"
+  },
+  "PCI-624": {
+    "scheme": "nirf",
+    "value": "U-0107"
+  },
+  "PCI-626": {
+    "scheme": "nirf",
+    "value": "U-0724"
+  },
+  "PCI-638": {
+    "scheme": "nirf",
+    "value": "U-0143"
+  },
+  "PCI-685": {
+    "scheme": "aicte",
+    "value": "1-44924579667"
+  },
+  "PCI-687": {
+    "scheme": "nirf",
+    "value": "U-0011"
+  },
+  "PCI-700": {
+    "scheme": "nirf",
+    "value": "U-0645"
+  },
+  "PCI-702": {
+    "scheme": "nirf",
+    "value": "C-30858"
+  },
+  "PCI-721": {
+    "scheme": "aicte",
+    "value": "1-474009353"
+  },
+  "PCI-736": {
+    "scheme": "aicte",
+    "value": "1-44573663344"
+  },
+  "PCI-738": {
+    "scheme": "aicte",
+    "value": "1-422467281"
+  },
+  "PCI-740": {
+    "scheme": "aicte",
+    "value": "1-445641901"
+  },
+  "PCI-741": {
+    "scheme": "aicte",
+    "value": "1-450090791"
+  },
+  "PCI-742": {
+    "scheme": "aicte",
+    "value": "1-455760951"
+  },
+  "PCI-744": {
+    "scheme": "aicte",
+    "value": "1-466044331"
+  },
+  "PCI-745": {
+    "scheme": "aicte",
+    "value": "1-454592681"
+  },
+  "PCI-746": {
+    "scheme": "aicte",
+    "value": "1-456042871"
+  },
+  "PCI-747": {
+    "scheme": "aicte",
+    "value": "1-454353601"
+  },
+  "PCI-748": {
+    "scheme": "aicte",
+    "value": "1-453072271"
+  },
+  "PCI-750": {
+    "scheme": "aicte",
+    "value": "1-848846411"
+  },
+  "PCI-752": {
+    "scheme": "aicte",
+    "value": "1-486143161"
+  },
+  "PCI-753": {
+    "scheme": "aicte",
+    "value": "1-505396871"
+  },
+  "PCI-754": {
+    "scheme": "aicte",
+    "value": "1-2847849001"
+  },
+  "PCI-755": {
+    "scheme": "aicte",
+    "value": "1-451917201"
+  },
+  "PCI-756": {
+    "scheme": "aicte",
+    "value": "1-516235421"
+  },
+  "PCI-759": {
+    "scheme": "aicte",
+    "value": "1-455597101"
+  },
+  "PCI-763": {
+    "scheme": "aicte",
+    "value": "1-512726941"
+  },
+  "PCI-778": {
+    "scheme": "nirf",
+    "value": "U-0135"
+  },
+  "PCI-791": {
+    "scheme": "nirf",
+    "value": "S-10906"
+  },
+  "PCI-794": {
+    "scheme": "aicte",
+    "value": "1-491038511"
+  },
+  "PCI-806": {
+    "scheme": "nirf",
+    "value": "U-0427"
+  },
+  "PCI-840": {
+    "scheme": "nmc",
+    "value": "UP/041/P/3"
+  },
+  "PCI-868": {
+    "scheme": "inc",
+    "value": "1w4xdst"
+  },
+  "PCI-883": {
+    "scheme": "nirf",
+    "value": "C-10398"
+  },
+  "PCI-887": {
+    "scheme": "aicte",
+    "value": "1-9558208151"
+  },
+  "PCI-897": {
+    "scheme": "nirf",
+    "value": "U-0308"
+  },
+  "PCI-900": {
+    "scheme": "inc",
+    "value": "1hb4pwf"
+  },
+  "PCI-901": {
+    "scheme": "inc",
+    "value": "1orpr88"
+  },
+  "PCI-907": {
+    "scheme": "nirf",
+    "value": "U-0513"
+  },
+  "PCI-919": {
+    "scheme": "nirf",
+    "value": "U-0034"
+  },
+  "PCI-923": {
+    "scheme": "nirf",
+    "value": "U-0502"
+  },
+  "PCI-924": {
+    "scheme": "aicte",
+    "value": "1-11334228611"
+  },
+  "PCI-932": {
+    "scheme": "nirf",
+    "value": "U-0146"
+  },
+  "PCI-940": {
+    "scheme": "aicte",
+    "value": "1-4056851"
+  },
+  "PCI-1021": {
+    "scheme": "aicte",
+    "value": "1-461530291"
+  },
+  "PCI-1032": {
+    "scheme": "nirf",
+    "value": "C-35006"
+  },
+  "PCI-1033": {
+    "scheme": "nirf",
+    "value": "C-35007"
+  },
+  "PCI-1049": {
+    "scheme": "aicte",
+    "value": "1-451562311"
+  },
+  "PCI-1060": {
+    "scheme": "nirf",
+    "value": "C-24505"
+  },
+  "PCI-1096": {
+    "scheme": "inc",
+    "value": "1bbwt2a"
+  },
+  "PCI-1125": {
+    "scheme": "nirf",
+    "value": "C-46111"
+  },
+  "PCI-1161": {
+    "scheme": "nirf",
+    "value": "C-40235"
+  },
+  "PCI-1173": {
+    "scheme": "nirf",
+    "value": "C-409"
+  },
+  "PCI-1184": {
+    "scheme": "aicte",
+    "value": "1-7141211"
+  },
+  "PCI-1186": {
+    "scheme": "aicte",
+    "value": "1-2483031241"
+  },
+  "PCI-1208": {
+    "scheme": "aicte",
+    "value": "1-6275721"
+  },
+  "PCI-1217": {
+    "scheme": "aicte",
+    "value": "1-8166056"
+  },
+  "PCI-1239": {
+    "scheme": "nirf",
+    "value": "U-0168"
+  },
+  "PCI-1277": {
+    "scheme": "nirf",
+    "value": "U-0938"
+  },
+  "PCI-1326": {
+    "scheme": "nirf",
+    "value": "C-7249"
+  },
+  "PCI-1336": {
+    "scheme": "aicte",
+    "value": "1-44096844407"
+  },
+  "PCI-1378": {
+    "scheme": "aicte",
+    "value": "1-21296761"
+  },
+  "PCI-1379": {
+    "scheme": "aicte",
+    "value": "1-44240509223"
+  },
+  "PCI-1391": {
+    "scheme": "inc",
+    "value": "3zjg2l"
+  },
+  "PCI-1402": {
+    "scheme": "aicte",
+    "value": "1-25385201"
+  },
+  "PCI-1417": {
+    "scheme": "aicte",
+    "value": "1-6127201"
+  },
+  "PCI-1419": {
+    "scheme": "nirf",
+    "value": "C-45585"
+  },
+  "PCI-1450": {
+    "scheme": "nirf",
+    "value": "C-19322"
+  },
+  "PCI-1457": {
+    "scheme": "nirf",
+    "value": "U-0415"
+  },
+  "PCI-1458": {
+    "scheme": "aicte",
+    "value": "1-44612941723"
+  },
+  "PCI-1467": {
+    "scheme": "inc",
+    "value": "182zbru"
+  },
+  "PCI-1489": {
+    "scheme": "aicte",
+    "value": "1-4592571"
+  },
+  "PCI-1503": {
+    "scheme": "aicte",
+    "value": "1-43368332656"
+  },
+  "PCI-1509": {
+    "scheme": "aicte",
+    "value": "1-44485896064"
+  },
+  "PCI-1557": {
+    "scheme": "aicte",
+    "value": "1-7349863"
+  },
+  "PCI-1631": {
+    "scheme": "nirf",
+    "value": "C-45540"
+  },
+  "PCI-1652": {
+    "scheme": "nirf",
+    "value": "I-1045"
+  },
+  "PCI-1670": {
+    "scheme": "aicte",
+    "value": "1-2081817161"
+  },
+  "PCI-1722": {
+    "scheme": "nirf",
+    "value": "C-16179"
+  },
+  "PCI-1727": {
+    "scheme": "aicte",
+    "value": "1-5796654"
+  },
+  "PCI-1778": {
+    "scheme": "aicte",
+    "value": "1-7646641"
+  },
+  "PCI-1786": {
+    "scheme": "nirf",
+    "value": "C-40080"
+  },
+  "PCI-1817": {
+    "scheme": "aicte",
+    "value": "1-455999511"
+  },
+  "PCI-1820": {
+    "scheme": "nirf",
+    "value": "U-0037"
+  },
+  "PCI-1832": {
+    "scheme": "aicte",
+    "value": "1-7398831"
+  },
+  "PCI-1876": {
+    "scheme": "inc",
+    "value": "vb75ma"
+  },
+  "PCI-1896": {
+    "scheme": "inc",
+    "value": "1xmetbx"
+  },
+  "PCI-1916": {
+    "scheme": "aicte",
+    "value": "1-7995104"
+  },
+  "PCI-1931": {
+    "scheme": "aicte",
+    "value": "1-450586851"
+  },
+  "PCI-1939": {
+    "scheme": "nirf",
+    "value": "U-0643"
+  },
+  "PCI-1945": {
+    "scheme": "nirf",
+    "value": "U-0515"
+  },
+  "PCI-1956": {
+    "scheme": "nirf",
+    "value": "U-0541"
+  },
+  "PCI-1969": {
+    "scheme": "aicte",
+    "value": "1-44520296944"
+  },
+  "PCI-1980": {
+    "scheme": "aicte",
+    "value": "1-47356591822"
+  },
+  "PCI-1985": {
+    "scheme": "nirf",
+    "value": "U-0763"
+  },
+  "PCI-1987": {
+    "scheme": "nirf",
+    "value": "U-0474"
+  },
+  "PCI-1988": {
+    "scheme": "aicte",
+    "value": "1-3392703851"
+  },
+  "PCI-2004": {
+    "scheme": "aicte",
+    "value": "1-3726522441"
+  },
+  "PCI-2006": {
+    "scheme": "nirf",
+    "value": "U-0702"
+  },
+  "PCI-2015": {
+    "scheme": "aicte",
+    "value": "1-431052731"
+  },
+  "PCI-2048": {
+    "scheme": "aicte",
+    "value": "1-5368091"
+  },
+  "PCI-2064": {
+    "scheme": "inc",
+    "value": "1a45ds9"
+  },
+  "PCI-2122": {
+    "scheme": "aicte",
+    "value": "1-10540411"
+  },
+  "PCI-2127": {
+    "scheme": "inc",
+    "value": "d9m6kw"
+  },
+  "PCI-2144": {
+    "scheme": "aicte",
+    "value": "1-4412641"
+  },
+  "PCI-2163": {
+    "scheme": "aicte",
+    "value": "1-501945791"
+  },
+  "PCI-2218": {
+    "scheme": "aicte",
+    "value": "1-466670311"
+  },
+  "PCI-2227": {
+    "scheme": "nirf",
+    "value": "U-0085"
+  },
+  "PCI-2234": {
+    "scheme": "nirf",
+    "value": "C-18900"
+  },
+  "PCI-2280": {
+    "scheme": "aicte",
+    "value": "1-454450051"
+  },
+  "PCI-2284": {
+    "scheme": "aicte",
+    "value": "1-449910521"
+  },
+  "PCI-2306": {
+    "scheme": "aicte",
+    "value": "1-479882101"
+  },
+  "PCI-2311": {
+    "scheme": "nirf",
+    "value": "I-1486"
+  },
+  "PCI-2347": {
+    "scheme": "nirf",
+    "value": "C-26904"
+  },
+  "PCI-2359": {
+    "scheme": "nirf",
+    "value": "U-0473"
+  },
+  "PCI-2418": {
+    "scheme": "nirf",
+    "value": "U-0050"
+  },
+  "PCI-2423": {
+    "scheme": "nirf",
+    "value": "N-10"
+  },
+  "PCI-2426": {
+    "scheme": "inc",
+    "value": "tgnl03"
+  },
+  "PCI-2428": {
+    "scheme": "aicte",
+    "value": "1-4544061"
+  },
+  "PCI-2480": {
+    "scheme": "nmc",
+    "value": "TN/069/G/1"
+  },
+  "PCI-2495": {
+    "scheme": "aicte",
+    "value": "1-466246701"
+  },
+  "PCI-2528": {
+    "scheme": "nirf",
+    "value": "I-1289"
+  },
+  "PCI-2536": {
+    "scheme": "nirf",
+    "value": "U-0078"
+  },
+  "PCI-2544": {
+    "scheme": "nirf",
+    "value": "U-0750"
+  },
+  "PCI-2579": {
+    "scheme": "nirf",
+    "value": "U-0491"
+  },
+  "PCI-2608": {
+    "scheme": "aicte",
+    "value": "1-5601571"
+  },
+  "PCI-2616": {
+    "scheme": "nirf",
+    "value": "U-0492"
+  },
+  "PCI-2626": {
+    "scheme": "aicte",
+    "value": "1-5978601"
+  },
+  "PCI-2654": {
+    "scheme": "nirf",
+    "value": "C-34531"
+  },
+  "PCI-2692": {
+    "scheme": "aicte",
+    "value": "1-5295261"
+  },
+  "PCI-2695": {
+    "scheme": "nirf",
+    "value": "I-1441"
+  },
+  "PCI-2788": {
+    "scheme": "aicte",
+    "value": "1-44238209755"
+  },
+  "PCI-2790": {
+    "scheme": "aicte",
+    "value": "1-44646673273"
+  },
+  "PCI-2888": {
+    "scheme": "aicte",
+    "value": "1-4449363"
+  },
+  "PCI-2902": {
+    "scheme": "inc",
+    "value": "y00y60"
+  },
+  "PCI-2907": {
+    "scheme": "nirf",
+    "value": "C-58318"
+  },
+  "PCI-2947": {
+    "scheme": "inc",
+    "value": "14paa4l"
+  },
+  "PCI-2949": {
+    "scheme": "aicte",
+    "value": "1-3728024061"
+  },
+  "PCI-3013": {
+    "scheme": "aicte",
+    "value": "1-4316957341"
+  },
+  "PCI-3033": {
+    "scheme": "aicte",
+    "value": "1-4535260521"
+  },
+  "PCI-3096": {
+    "scheme": "aicte",
+    "value": "1-2518088841"
+  },
+  "PCI-3110": {
+    "scheme": "aicte",
+    "value": "1-47432882313"
+  },
+  "PCI-3156": {
+    "scheme": "aicte",
+    "value": "1-8088311"
+  },
+  "PCI-3211": {
+    "scheme": "aicte",
+    "value": "1-11323263511"
+  },
+  "PCI-3229": {
+    "scheme": "aicte",
+    "value": "1-22275071"
+  },
+  "PCI-3262": {
+    "scheme": "aicte",
+    "value": "1-4169394"
+  },
+  "PCI-3309": {
+    "scheme": "aicte",
+    "value": "1-454823691"
+  },
+  "PCI-3342": {
+    "scheme": "aicte",
+    "value": "1-798862511"
+  },
+  "PCI-3349": {
+    "scheme": "aicte",
+    "value": "1-11336439941"
+  },
+  "PCI-3501": {
+    "scheme": "inc",
+    "value": "1rv8s42"
+  },
+  "PCI-3521": {
+    "scheme": "aicte",
+    "value": "1-5924881"
+  },
+  "PCI-3569": {
+    "scheme": "aicte",
+    "value": "1-6590991"
+  },
+  "PCI-3628": {
+    "scheme": "aicte",
+    "value": "1-11265438181"
+  },
+  "PCI-3633": {
+    "scheme": "aicte",
+    "value": "1-4631873461"
+  },
+  "PCI-3697": {
+    "scheme": "aicte",
+    "value": "1-456992901"
+  },
+  "PCI-3739": {
+    "scheme": "aicte",
+    "value": "1-44081521403"
+  },
+  "PCI-3764": {
+    "scheme": "aicte",
+    "value": "1-4235787"
+  },
+  "PCI-3785": {
+    "scheme": "inc",
+    "value": "1iaq4mr"
+  },
+  "PCI-3788": {
+    "scheme": "aicte",
+    "value": "1-47429432007"
+  },
+  "PCI-3929": {
+    "scheme": "aicte",
+    "value": "1-7809651"
+  },
+  "PCI-3940": {
+    "scheme": "inc",
+    "value": "i9s5o9"
+  },
+  "PCI-3945": {
+    "scheme": "inc",
+    "value": "1mxuz9e"
+  },
+  "PCI-4000": {
+    "scheme": "aicte",
+    "value": "1-2067945951"
+  },
+  "PCI-4001": {
+    "scheme": "aicte",
+    "value": "1-44240520673"
+  },
+  "PCI-4069": {
+    "scheme": "inc",
+    "value": "14fmhxg"
+  },
+  "PCI-4075": {
+    "scheme": "aicte",
+    "value": "1-6777301"
+  },
+  "PCI-4226": {
+    "scheme": "nirf",
+    "value": "U-0370"
+  },
+  "PCI-4332": {
+    "scheme": "aicte",
+    "value": "1-7040081"
+  },
+  "PCI-4363": {
+    "scheme": "aicte",
+    "value": "1-5452869"
+  },
+  "PCI-4368": {
+    "scheme": "aicte",
+    "value": "1-1237131"
+  },
+  "PCI-4401": {
+    "scheme": "aicte",
+    "value": "1-44239810243"
+  },
+  "PCI-4456": {
+    "scheme": "nirf",
+    "value": "U-0739"
+  },
+  "PCI-4461": {
+    "scheme": "nirf",
+    "value": "U-0592"
+  },
+  "PCI-4504": {
+    "scheme": "aicte",
+    "value": "1-44019712797"
+  },
+  "PCI-4505": {
+    "scheme": "aicte",
+    "value": "1-467357021"
+  },
+  "PCI-4512": {
+    "scheme": "aicte",
+    "value": "1-7468045221"
+  },
+  "PCI-4553": {
+    "scheme": "aicte",
+    "value": "1-44462418854"
+  },
+  "PCI-4560": {
+    "scheme": "aicte",
+    "value": "1-9591844721"
+  },
+  "PCI-4603": {
+    "scheme": "aicte",
+    "value": "1-44030884253"
+  },
+  "PCI-4622": {
+    "scheme": "aicte",
+    "value": "1-44316178713"
+  },
+  "PCI-4626": {
+    "scheme": "aicte",
+    "value": "1-47132244098"
+  },
+  "PCI-4706": {
+    "scheme": "aicte",
+    "value": "1-44048612983"
+  },
+  "PCI-4903": {
+    "scheme": "nirf",
+    "value": "U-0062"
+  },
+  "PCI-4907": {
+    "scheme": "aicte",
+    "value": "1-47447283123"
+  },
+  "PCI-5215": {
+    "scheme": "aicte",
+    "value": "1-43377322503"
+  },
+  "PCI-5223": {
+    "scheme": "inc",
+    "value": "kmzlov"
+  },
+  "PCI-5256": {
+    "scheme": "nirf",
+    "value": "U-0524"
+  },
+  "PCI-5259": {
+    "scheme": "inc",
+    "value": "1tc13fo"
+  },
+  "PCI-5273": {
+    "scheme": "aicte",
+    "value": "1-508493831"
+  },
+  "PCI-5275": {
+    "scheme": "aicte",
+    "value": "1-4756979121"
+  },
+  "PCI-5282": {
+    "scheme": "aicte",
+    "value": "1-3348030800"
+  },
+  "PCI-5351": {
+    "scheme": "aicte",
+    "value": "1-11331633011"
+  },
+  "PCI-5380": {
+    "scheme": "aicte",
+    "value": "1-7427986041"
+  },
+  "PCI-5467": {
+    "scheme": "inc",
+    "value": "1xbt9qw"
+  },
+  "PCI-5478": {
+    "scheme": "aicte",
+    "value": "1-7371505983"
+  },
+  "PCI-5508": {
+    "scheme": "aicte",
+    "value": "1-16872534"
+  },
+  "PCI-5512": {
+    "scheme": "aicte",
+    "value": "1-9438183771"
+  },
+  "PCI-5540": {
+    "scheme": "aicte",
+    "value": "1-46996434428"
+  },
+  "PCI-5568": {
+    "scheme": "aicte",
+    "value": "1-15539545"
+  },
+  "PCI-5572": {
+    "scheme": "aicte",
+    "value": "1-7450578061"
+  },
+  "PCI-5703": {
+    "scheme": "aicte",
+    "value": "1-10750751"
+  },
+  "PCI-5751": {
+    "scheme": "inc",
+    "value": "rodb3n"
+  },
+  "PCI-5807": {
+    "scheme": "aicte",
+    "value": "1-11569944"
+  },
+  "PCI-5987": {
+    "scheme": "aicte",
+    "value": "1-7269511"
+  },
+  "PCI-6100": {
+    "scheme": "inc",
+    "value": "1vyawue"
+  },
+  "PCI-6279": {
+    "scheme": "inc",
+    "value": "1pcwwp7"
+  },
+  "PCI-6287": {
+    "scheme": "aicte",
+    "value": "1-4873385049"
+  },
+  "PCI-6346": {
+    "scheme": "aicte",
+    "value": "1-44788621294"
+  },
+  "PCI-6543": {
+    "scheme": "aicte",
+    "value": "1-44079446927"
+  },
+  "PCI-6578": {
+    "scheme": "aicte",
+    "value": "1-11564604"
+  },
+  "PCI-6832": {
+    "scheme": "aicte",
+    "value": "1-44245027579"
+  },
+  "PCI-6877": {
+    "scheme": "inc",
+    "value": "325njs"
+  },
+  "PCI-7027": {
+    "scheme": "aicte",
+    "value": "1-9431357186"
+  },
+  "PCI-7712": {
+    "scheme": "aicte",
+    "value": "1-44278690394"
+  },
+  "PCI-7833": {
+    "scheme": "aicte",
+    "value": "1-44480490763"
+  },
+  "PCI-7950": {
+    "scheme": "aicte",
+    "value": "1-4400571391"
+  },
+  "PCI-8031": {
+    "scheme": "inc",
+    "value": "l5fexw"
+  },
+  "PCI-8075": {
+    "scheme": "inc",
+    "value": "1ijvd25"
+  },
+  "PCI-8086": {
+    "scheme": "aicte",
+    "value": "1-11319834191"
+  },
+  "PCI-8097": {
+    "scheme": "inc",
+    "value": "8a40dd"
+  },
+  "PCI-8183": {
+    "scheme": "aicte",
+    "value": "1-44031123227"
+  },
+  "PCI-8313": {
+    "scheme": "aicte",
+    "value": "1-479589481"
+  },
+  "PCI-8381": {
+    "scheme": "aicte",
+    "value": "1-1486931211"
+  },
+  "PCI-8389": {
+    "scheme": "aicte",
+    "value": "1-47414078303"
+  },
+  "PCI-8573": {
+    "scheme": "aicte",
+    "value": "1-2863444437"
+  },
+  "PCI-8579": {
+    "scheme": "aicte",
+    "value": "1-2843555031"
+  },
+  "PCI-8586": {
+    "scheme": "aicte",
+    "value": "1-6383651"
+  },
+  "PCI-8621": {
+    "scheme": "aicte",
+    "value": "1-11327924401"
+  },
+  "PCI-8693": {
+    "scheme": "aicte",
+    "value": "1-7451617881"
+  },
+  "PCI-8736": {
+    "scheme": "nirf",
+    "value": "U-0506"
+  },
+  "PCI-9097": {
+    "scheme": "aicte",
+    "value": "1-7447661461"
+  },
+  "PCI-9247": {
+    "scheme": "aicte",
+    "value": "1-44095807013"
+  },
+  "PCI-9418": {
+    "scheme": "aicte",
+    "value": "1-44282845644"
+  },
+  "PCI-9449": {
+    "scheme": "aicte",
+    "value": "1-43799280853"
+  },
+  "PCI-9453": {
+    "scheme": "aicte",
+    "value": "1-38136961"
+  },
+  "PCI-9463": {
+    "scheme": "aicte",
+    "value": "1-3143011"
+  },
+  "PCI-9477": {
+    "scheme": "aicte",
+    "value": "1-460640153"
+  },
+  "PCI-9499": {
+    "scheme": "aicte",
+    "value": "1-2845501211"
+  },
+  "PCI-9558": {
+    "scheme": "aicte",
+    "value": "1-2847931031"
+  },
+  "PCI-9578": {
+    "scheme": "aicte",
+    "value": "1-3381672191"
+  },
+  "PCI-9672": {
+    "scheme": "aicte",
+    "value": "1-463267231"
+  },
+  "PCI-9892": {
+    "scheme": "aicte",
+    "value": "1-4884771"
+  },
+  "PCI-9988": {
+    "scheme": "aicte",
+    "value": "1-3799438"
+  },
+  "PCI-10000": {
+    "scheme": "inc",
+    "value": "8qiroe"
+  },
+  "PCI-10154": {
+    "scheme": "aicte",
+    "value": "1-518894391"
+  },
+  "PCI-10218": {
+    "scheme": "inc",
+    "value": "sl37te"
+  },
+  "PCI-10224": {
+    "scheme": "aicte",
+    "value": "1-2857057061"
+  },
+  "PCI-10225": {
+    "scheme": "nirf",
+    "value": "U-0749"
+  },
+  "PCI-10259": {
+    "scheme": "aicte",
+    "value": "1-3357241821"
+  },
+  "PCI-10430": {
+    "scheme": "aicte",
+    "value": "1-13636687"
+  },
+  "PCI-10641": {
+    "scheme": "inc",
+    "value": "1wtvfz5"
+  },
+  "PCI-10654": {
+    "scheme": "aicte",
+    "value": "1-23439963"
+  },
+  "PCI-10822": {
+    "scheme": "nirf",
+    "value": "U-1048"
+  },
+  "PCI-10852": {
+    "scheme": "aicte",
+    "value": "1-490747501"
+  },
+  "PCI-10877": {
+    "scheme": "aicte",
+    "value": "1-44231872073"
+  },
+  "PCI-10900": {
+    "scheme": "aicte",
+    "value": "1-43381905583"
+  },
+  "PCI-10905": {
+    "scheme": "aicte",
+    "value": "1-43370563218"
+  },
+  "PCI-10972": {
+    "scheme": "aicte",
+    "value": "1-47407999933"
+  }
 }

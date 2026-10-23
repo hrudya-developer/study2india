@@ -57,7 +57,7 @@ const sources = [
 ];
 
 // Recognised list, in VCI's order (serial numbers 1 to 73).
-// [serial, name, district, state, university, private, address, seats, vciQuotaSeats, recognisedFrom, listedAs?]
+// [serial, name, place, state, university, private, address, seats, vciQuotaSeats, recognisedFrom, listedAs?]
 // seats: "Seats Approved by Central Govt." from the seats list (source S).
 // vciQuotaSeats: the college's 15% VCI quota seats in Annexure 2 of the VCI counselling bulletin for 2026-27.
 // recognisedFrom: footnote date from which the degree is recognised ("granted on or after").
@@ -156,7 +156,7 @@ const recognised = [
 // Provisional list (LOP or renewal of LOP issued), in VCI's order (serial numbers 1 to 24). VCI prints no
 // seats here. Where a VCI meeting recommended the LOP for a stated number of annual admissions, that
 // number and the minutes are recorded; otherwise seats stay null.
-// [serial, name, district, state, university, private, address, seats, seatsSource, wefSession, listedAs?]
+// [serial, name, place, state, university, private, address, seats, seatsSource, wefSession, listedAs?]
 const provisional = [
   [1, "College of Veterinary Science, Garividi", "Garividi", "Andhra Pradesh", SVVU, false, null, null, null, null, "College of Veterinary Science at Garividi"],
   [2, "College of Veterinary and Animal Sciences, Kishanganj", "Kishanganj", "Bihar", "Bihar Animal Sciences University, Patna", false, null, null, null, null, "College of Veterinary and Animal Sciences, Kishanganj, Bihar"],
@@ -184,6 +184,35 @@ const provisional = [
   [24, "JIS College of Veterinary and Animal Sciences, Mogra", "Hooghly", "West Bengal", "West Bengal University of Animal & Fishery Sciences, Kolkata", true, "Mogra, Hooghly, West Bengal", null, null, null, "JIS College of Veterinary and Animal Sciences, Mogra, Hooghly, West Bengal"],
 ];
 
+// The place column above is the town VCI writes after the college name (it also feeds the code hash, so it
+// stays as transcribed). It becomes the row's city. district is set only where VCI's name or address gives a
+// district: "Town, District" or "Dist. X". These rows differ from that default, as [city, district]:
+const PLACES = {
+  // "Lakhimpur" is part of the college name and names both a district and (as North Lakhimpur) the town.
+  R5: [null, null],
+  R14: ["Balana", "Mahendergarh"], // Satnali Road, Balana, Dist. Mahendergah
+  R37: ["Jalukie", "Peren"],
+  R40: [null, "Gajapati"], // Gajapati is a district, not a town
+  R44: ["Rampura Phul", "Bathinda"],
+  R46: ["Chomu", "Jaipur"],
+  R49: ["Navania", "Udaipur"],
+  R52: ["Hindaun City", "Karauli"],
+  R53: ["Deoli", "Tonk"],
+  R65: ["Mamnoor", "Warangal"],
+  R73: ["Mohanpur", "Nadia"],
+  P6: ["Bhuj", "Kutch"],
+  P13: ["Chailchowk", "Mandi"], // Chailchowk, Tehsil Chachyot, District Mandi
+  P15: ["Murbad", "Thane"],
+  P17: ["Gandheli", "Chhatrapati Sambhajinagar"],
+  P22: ["Pali Dungra", "Mathura"],
+  P23: ["Pohalli", "Meerut"],
+  P24: ["Mogra", "Hooghly"],
+};
+const placeOf = (key, place) => {
+  const [city, district] = PLACES[key] ?? [place, null];
+  return { district, city };
+};
+
 // Hand-checked: VCI lists IVRI itself (not a constituent college) under its own deemed university.
 const SAME_AS = { "R69": { scheme: "nirf", value: "U-0518" } };
 
@@ -191,12 +220,12 @@ const code = (state, name, town) =>
   "vci-" + createHash("sha1").update(`${state}|${name}|${town ?? ""}`.toLowerCase().replace(/\s+/g, " ")).digest("hex").slice(0, 10);
 
 const rows = [];
-for (const [serial, name, district, state, university, pvt, address, seats, quota, recognisedFrom, listedAs] of recognised) {
+for (const [serial, name, place, state, university, pvt, address, seats, quota, recognisedFrom, listedAs] of recognised) {
   const row = {
-    code: code(state, name, district),
+    code: code(state, name, place),
     name,
     address,
-    district,
+    ...placeOf(`R${serial}`, place),
     state,
     management: pvt ? "Private Sector" : null,
     ownership: pvt ? "private" : "government",
@@ -212,12 +241,12 @@ for (const [serial, name, district, state, university, pvt, address, seats, quot
   if (SAME_AS[`R${serial}`]) row.same_as = SAME_AS[`R${serial}`];
   rows.push(row);
 }
-for (const [serial, name, district, state, university, pvt, address, seats, seatsSource, wef, listedAs] of provisional) {
+for (const [serial, name, place, state, university, pvt, address, seats, seatsSource, wef, listedAs] of provisional) {
   rows.push({
-    code: code(state, name, district),
+    code: code(state, name, place),
     name,
     address,
-    district,
+    ...placeOf(`P${serial}`, place),
     state,
     management: pvt ? "Private Sector" : "Government Sector",
     ownership: pvt ? "private" : "government",
@@ -239,6 +268,7 @@ const out = {
   sources,
   note:
     "Every college in VCI's list of recognised veterinary colleges (First Schedule to the Indian Veterinary Council Act, 1984) and its list of provisionally recognised colleges with a Letter of Permission, both as on 22.10.2026. VCI publishes no college codes, so each college is keyed by a hash of its state, name and town. " +
+      "city is the town VCI writes with the college; district is filled only where VCI's name or address gives one ('Town, District' or 'Dist. X'). " +
     "B.V.Sc. & A.H. seats for recognised colleges are the 'Seats Approved by Central Govt.' in VCI's seats list, which is undated but covers the same 73 colleges; every college's 15% VCI quota in the 2026-27 counselling bulletin (https://www.vci.dahd.gov.in/sites/default/files/News%20update/CompositIBAY2026-27.pdf, Annexure 2, 858 seats in 64 colleges) is within rounding of 15% of those seats, except Ayodhya and Meerut (100 approved seats, quota 12). That quota is kept as vci_quota_seats. " +
     "VCI prints no seats for provisionally recognised colleges: where a VCI meeting recommended the LOP for a stated number of annual admissions, that number is used and the minutes are the source; the rest stay null. " +
     "recognised_from is the date from which VCI recognises the degree ('granted on or after'). VCI publishes no college-wise M.V.Sc. list, so no M.V.Sc. intake is recorded. " +
