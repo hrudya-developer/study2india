@@ -65,6 +65,8 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   return {
     title,
     description: `${what || "Every major"} course in India by field, with level, duration, the number of colleges offering it and approved seats from official regulators.`,
+    // Level and field views are their own canonical; a text search is noindex and left out of it.
+    alternates: { canonical: `/courses${qs({ level: level?.value, field: field?.slug })}` },
     robots: f.q ? { index: false, follow: true } : undefined,
   };
 }

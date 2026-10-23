@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useId, useState } from "react";
 import type { RankingList } from "@/lib/queries/home";
 import { SourceStamp } from "@/components/source-stamp";
+import { slugify } from "@/lib/slug";
 
 export function RankingTabs({ lists }: { lists: RankingList[] }) {
   const [active, setActive] = useState(0);
@@ -72,7 +73,8 @@ export function RankingTabs({ lists }: { lists: RankingList[] }) {
         </table>
         <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
           <SourceStamp publisher={`NIRF India Rankings ${list.year}`} url={list.sourceUrl} checked={list.retrievedOn} />
-          <Link href={`/rankings?category=${encodeURIComponent(list.category)}`} className="font-bold text-ink underline decoration-brand decoration-2 underline-offset-4">
+          {/* The plain category URL shows that category's latest year, the year of these lists; the slug is categorySlug (slugify) from lib/queries/rankings.ts. */}
+          <Link href={`/rankings/${slugify(list.category)}`} className="font-bold text-ink underline decoration-brand decoration-2 underline-offset-4">
             Full {list.category} ranking
           </Link>
         </div>

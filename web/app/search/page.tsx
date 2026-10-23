@@ -8,16 +8,17 @@ import { STREAMS } from "@/data/reference";
 import { POPULAR_STATES } from "@/components/site-header";
 import { slugify } from "@/lib/slug";
 import { one, type SearchParams } from "@/lib/params";
+import { landingPath } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = { title: "Search", robots: { index: false, follow: true } };
 
 const POPULAR: SuggestItem[] = [
-  { label: "MBBS colleges in Karnataka", href: "/colleges?course=mbbs&state=karnataka" },
-  { label: "B.Sc Nursing colleges in Kerala", href: "/colleges?course=bsc-nursing&state=kerala" },
-  { label: "BDS colleges in Tamil Nadu", href: "/colleges?course=bds&state=tamil-nadu" },
-  { label: "B.Tech colleges in Kerala", href: "/colleges?course=btech&state=kerala" },
+  { label: "MBBS colleges in Karnataka", href: landingPath("mbbs", "karnataka") },
+  { label: "B.Sc Nursing colleges in Kerala", href: landingPath("bsc-nursing", "kerala") },
+  { label: "BDS colleges in Tamil Nadu", href: landingPath("bds", "tamil-nadu") },
+  { label: "B.Tech colleges in Kerala", href: landingPath("btech", "kerala") },
   { label: "NEET UG", href: "/exam/neet-ug" },
   { label: "NIRF rankings", href: "/rankings" },
 ];

@@ -36,13 +36,18 @@ type Props = {
   result: CollegeSearchResult;
   /** The URL of a result page; landing pages keep their clean path, other listings use query URLs. */
   pageHref: (page: number) => string;
+  /**
+   * The URL of another set of filters (chips and sort links). Pages pass one that knows the landing
+   * pages, so these links go straight to a clean URL instead of through a redirect; defaults to collegesHref.
+   */
+  listingHref?: (f: Partial<CollegeFilters>) => string;
   /** A short factual introduction shown under the heading (landing pages). */
   intro?: React.ReactNode;
 };
 
 /** The college listing: heading, filters, chips, sort, results and pagination. Shared by /colleges and the landing pages. */
-export function CollegeListing({ title, crumbs, f, facets, course, state, cities, result, pageHref, intro }: Props) {
-  const without = (patch: Partial<CollegeFilters>) => collegesHref({ ...f, page: 1, ...patch });
+export function CollegeListing({ title, crumbs, f, facets, course, state, cities, result, pageHref, listingHref = collegesHref, intro }: Props) {
+  const without = (patch: Partial<CollegeFilters>) => listingHref({ ...f, page: 1, ...patch });
   const chips: { label: string; href: string }[] = [];
   if (f.q) chips.push({ label: `"${f.q}"`, href: without({ q: undefined }) });
   if (f.stream) chips.push({ label: facets.streams.find((s) => s.value === f.stream)?.label ?? f.stream, href: without({ stream: undefined }) });
@@ -153,7 +158,7 @@ export function CollegeListing({ title, crumbs, f, facets, course, state, cities
               {(Object.keys(SORTS) as SortKey[]).map((s) => (
                 <Link
                   key={s}
-                  href={collegesHref({ ...f, sort: s, page: 1 })}
+                  href={listingHref({ ...f, sort: s, page: 1 })}
                   aria-current={f.sort === s ? "true" : undefined}
                   className={`shrink-0 rounded-full border px-3 py-1.5 text-[0.88rem] font-bold ${
                     f.sort === s ? "border-ink bg-ink text-white" : "border-rule bg-paper text-ink-soft hover:border-ink hover:text-ink"

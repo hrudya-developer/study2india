@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { MapPin, ShieldCheck, Phone, Users, Target, GitCompareArrows, Compass, BadgeIndianRupee, Clock, ExternalLink, ArrowUpRight, CheckCircle2, ChevronDown, FileCheck2 } from "lucide-react";
@@ -13,6 +14,9 @@ import { CONTACT } from "@/data/reference";
 import { slugify } from "@/lib/slug";
 
 export const dynamic = "force-dynamic";
+
+// Title and description come from the root layout's defaults.
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 const POPULAR_COURSES = ["mbbs", "bds", "bsc-nursing", "bams", "btech", "mba", "ba-llb", "b-pharm"];
 const COMBO_COURSES = ["mbbs", "bds", "bsc-nursing", "bams", "btech", "b-pharm"];

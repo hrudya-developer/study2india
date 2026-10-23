@@ -9,10 +9,12 @@ import { JsonLd } from "@/components/rankings/bits";
 import { YearSwitch } from "@/components/rankings/year-switch";
 import { categorySlug, getCategoryYears, getRankingCategories, getRankingYears, rankingHref } from "@/lib/queries/rankings";
 import { one, type SearchParams } from "@/lib/params";
+import { SITE_ORIGIN } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
-const siteUrl = (process.env.SITE_URL ?? "https://study2india.com").replace(/\/$/, "");
+// JSON-LD names the public origin, like the sitemaps and the other pages (lib/seo.ts).
+const siteUrl = SITE_ORIGIN;
 const fmt = (n: number) => n.toLocaleString("en-IN");
 
 type Props = { searchParams: SearchParams };

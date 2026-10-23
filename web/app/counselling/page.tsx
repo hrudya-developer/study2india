@@ -11,6 +11,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Free admission counselling",
   description: "Talk to a Study2India counsellor in Kerala about colleges, entrance exams, counselling rounds and fees. Free.",
+  alternates: { canonical: "/counselling" },
 };
 
 const STEPS = [
