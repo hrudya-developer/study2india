@@ -3,7 +3,8 @@ import { sql } from "drizzle-orm";
 import { rows } from "@/lib/db";
 import { getCollegeFacets } from "@/lib/queries/colleges";
 import { getLandingIndex, landingPages } from "@/lib/queries/landing";
-import { absoluteUrl, xmlEscape } from "@/lib/seo";
+import { SITE_ORIGIN, absoluteUrl, xmlEscape } from "@/lib/seo";
+import { rankingSitemapEntries } from "@/lib/queries/rankings";
 
 /**
  * The site's sitemaps. /sitemap.xml is an index of child sitemaps served at /sitemap/<id>.xml:
@@ -66,7 +67,10 @@ const entry = (path: string, lastModified?: Date): MetadataRoute.Sitemap[number]
 
 export async function sitemapEntries(id: string): Promise<MetadataRoute.Sitemap> {
   try {
-    if (id === "pages") return STATIC_PAGES.map((p) => entry(p));
+    if (id === "pages") {
+      const rankings = (await rankingSitemapEntries(SITE_ORIGIN)).map((r) => ({ ...r, url: xmlEscape(r.url) }));
+      return [...STATIC_PAGES.map((p) => entry(p)), ...rankings];
+    }
     if (id === "courses") {
       const list = await rows<{ slug: string }>(sql`select slug from courses order by sort_order, slug`);
       return list.map((c) => entry(`/course/${c.slug}`));
