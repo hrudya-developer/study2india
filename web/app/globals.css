@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0d0f36;
+  --color-ink-soft: #3a3d5c;
+  --color-muted: #646884;
+  --color-brand: #f68c1e;
+  --color-brand-deep: #c86400;
+  --color-mist: #eef1f7;
+  --color-rule: #d9dce6;
+  --color-verified: #1f7a4d;
+  --color-verified-bg: #e6f3ec;
+  --color-paper: #ffffff;
+
+  --font-display: "Bricolage Grotesque Variable", "Bricolage Grotesque", system-ui, sans-serif;
+  --font-sans: "Atkinson Hyperlegible Next", system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  font-variant-numeric: lining-nums;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-brand);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* The fill-in sentence in the hero: selects that read as part of the headline. */
+.sentence-select {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-bottom: 3px solid var(--color-brand);
+  color: var(--color-ink);
+  font: inherit;
+  padding: 0 1.4em 0.05em 0.1em;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23f68c1e' stroke-width='2.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.15em center;
+  background-size: 0.55em auto;
+  max-width: 100%;
+  field-sizing: content;
+  min-width: 3ch;
+}
+
+.sentence-select:hover {
+  background-color: #fff4e8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
