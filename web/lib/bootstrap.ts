@@ -7,6 +7,7 @@ import { STATES, STATE_ALIASES, STREAMS, EXAMS, NIRF_CATEGORY_STREAM } from "@/d
 import { slugify } from "@/lib/slug";
 import { DISTRICT_NORMALISER_VERSION, isOfficialDistrict, matchDistrict, normaliseDistrict, type DistrictMatch } from "@/lib/districts";
 import { AMBIGUOUS_DISTRICTS, CITIES_SPANNING_DISTRICTS, DISTRICTS, DISTRICT_ALIASES, DISTRICT_TOWNS } from "@/data/districts";
+import { seedReferenceExtras } from "@/lib/seed/reference-extras";
 
 const { states, streams, courses, exams, examStreams, sources, institutions, institutionIdentifiers, institutionStreams, rankings, offerings, offeringBranches } = schema;
 
@@ -631,6 +632,7 @@ export async function bootstrap(log: (m: string) => void = console.log) {
   await seedNirf(streamIds, log);
   await seedNmc(streamIds, log);
   await seedCouncils(streamIds, log);
+  await seedReferenceExtras(log);
   await normaliseInstitutionDistricts(log);
   const [c] = await rows<{ n: number }>(sql`select count(*) as n from institutions`);
   log(`Database ready: ${STATES.length} states, ${STREAMS.length} fields, ${EXAMS.length} exams, ${c?.n ?? 0} institutions`);
