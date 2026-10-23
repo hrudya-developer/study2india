@@ -114,10 +114,19 @@ async function findOrCreateInstitution(r: NirfRow, sourceId: number) {
   }
   const code = stateCode(r.state);
   const name = r.name.trim().replace(/\s+/g, " ");
+  // Same name, state and city: several institutions share a name ("Government Dental College"),
+  // so the city is part of the match.
+  const city = r.city?.trim() && !/^select city$/i.test(r.city.trim()) ? r.city.trim() : null;
   const [byName] = await db
     .select({ id: institutions.id })
     .from(institutions)
-    .where(and(eq(institutions.name, name), code ? eq(institutions.stateCode, code) : sql`1 = 1`));
+    .where(
+      and(
+        eq(institutions.name, name),
+        code ? eq(institutions.stateCode, code) : sql`${institutions.stateCode} is null`,
+        city ? eq(institutions.city, city) : sql`${institutions.city} is null`,
+      ),
+    );
   let id = byName?.id;
   if (!id) {
     const base = slugify(`${name} ${r.city ?? ""}`);
@@ -125,7 +134,7 @@ async function findOrCreateInstitution(r: NirfRow, sourceId: number) {
     for (let n = 2; (await db.select({ id: institutions.id }).from(institutions).where(eq(institutions.slug, slug)))[0]; n++) slug = `${base}-${n}`;
     const [res] = await db
       .insert(institutions)
-      .values({ slug, name, city: r.city?.trim() || null, stateCode: code, status: "published", sourceId })
+      .values({ slug, name, city, stateCode: code, status: "published", sourceId })
       .$returningId();
     id = res.id;
   }
@@ -138,6 +147,9 @@ async function findOrCreateInstitution(r: NirfRow, sourceId: number) {
   return id;
 }
 
+/** Bump when the loading logic changes, so every file is loaded again once. */
+const LOADER_VERSION = 2;
+
 /**
  * Loads the official NIRF files built into the app (see scripts/embed-migrations.mjs).
  * Each file is recorded in app_seeds with its content hash and skipped once loaded.
@@ -147,7 +159,8 @@ export async function seedNirf(streamIds: Map<string, number>, log: (m: string) 
   await db.execute(sql`create table if not exists app_seeds (tag varchar(120) primary key, hash varchar(32) not null, loaded_at timestamp not null default current_timestamp)`);
   const done = new Map((await rows<{ tag: string; hash: string }>(sql`select tag, hash from app_seeds`)).map((r) => [r.tag, r.hash]));
   for (const file of NIRF_FILES) {
-    if (done.get(file.tag) === file.hash) continue;
+    const key = `${file.hash}-${LOADER_VERSION}`;
+    if (done.get(file.tag) === key) continue;
     const data = file.data as NirfFile;
     const url = Array.isArray(data.source.url) ? data.source.url.join(" ") : data.source.url;
     const title = `NIRF India Rankings ${data.year}: ${data.category}`;
@@ -173,7 +186,7 @@ export async function seedNirf(streamIds: Map<string, number>, log: (m: string) 
       }
       count++;
     }
-    await db.execute(sql`insert into app_seeds (tag, hash) values (${file.tag}, ${file.hash}) on duplicate key update hash = values(hash), loaded_at = current_timestamp`);
+    await db.execute(sql`insert into app_seeds (tag, hash) values (${file.tag}, ${key}) on duplicate key update hash = values(hash), loaded_at = current_timestamp`);
     log(`NIRF ${data.year} ${data.category}: ${count} rows loaded`);
   }
 }
