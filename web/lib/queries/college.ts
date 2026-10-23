@@ -15,6 +15,8 @@ function parseJson<T>(v: unknown, fallback: T): T {
 
 export type SourceRef = { publisher: string; title: string | null; url: string | null; retrievedOn: string };
 
+export type CollegeExam = { slug: string; short: string; name: string; body: string; level: string; forLevel: string; streams: string[] };
+
 export type CollegeDetail = {
   id: number;
   slug: string;
@@ -39,6 +41,7 @@ export type CollegeDetail = {
   source: SourceRef | null;
   streams: { slug: string; name: string }[];
   rankings: { agency: string; year: number; category: string; rank: number | null; rankBand: string | null; score: string | null; source: SourceRef }[];
+  /** The latest academic year of each course only. */
   offerings: {
     id: number;
     courseSlug: string;
@@ -54,10 +57,37 @@ export type CollegeDetail = {
     fees: { quota: string | null; component: string; amount: string | null; basis: string | null; source: SourceRef | null }[];
   }[];
   cutoffs: { offeringId: number; exam: string; year: number; round: string | null; quota: string | null; category: string | null; openingRank: number | null; closingRank: number | null; source: SourceRef }[];
+  /** National (and the home state's) entrance exams for the fields and levels this college teaches. */
+  exams: CollegeExam[];
+  /** Every official document behind the figures on the page. */
+  sources: (SourceRef & { usedFor: string[] })[];
 };
 
 type SrcRow = { s_publisher: string | null; s_title: string | null; s_url: string | null; s_retrieved: string | null };
 const src = (r: SrcRow): SourceRef | null => (r.s_publisher ? { publisher: r.s_publisher, title: r.s_title, url: r.s_url, retrievedOn: r.s_retrieved ?? "" } : null);
+
+/**
+ * Which exams to show for which colleges. State exams only for colleges in that state, JEE Advanced
+ * only for the IITs; the rest when the college teaches the exam's field at the matching level.
+ * The page says these are the exams for the field, not that this college uses them.
+ */
+const EXAM_RULES: Record<string, { levels: string[]; state?: string; namePattern?: RegExp }> = {
+  "neet-ug": { levels: ["ug", "integrated"] },
+  "neet-pg": { levels: ["pg"] },
+  "neet-mds": { levels: ["pg"] },
+  "jee-main": { levels: ["ug", "integrated"] },
+  "jee-advanced": { levels: ["ug", "integrated"], namePattern: /Indian Institute of Technology/i },
+  gate: { levels: ["pg", "doctorate"] },
+  keam: { levels: ["ug", "integrated"], state: "KL" },
+  kcet: { levels: ["ug", "integrated"], state: "KA" },
+  "cuet-ug": { levels: ["ug", "integrated"] },
+  cat: { levels: ["pg"] },
+  clat: { levels: ["ug", "integrated", "pg"] },
+  nata: { levels: ["ug"] },
+  uceed: { levels: ["ug"] },
+  "nchm-jee": { levels: ["ug"] },
+  gpat: { levels: ["pg"] },
+};
 
 export async function getCollege(slug: string): Promise<CollegeDetail | null> {
   const [c] = await rows<Record<string, unknown> & SrcRow>(sql`
@@ -71,7 +101,7 @@ export async function getCollege(slug: string): Promise<CollegeDetail | null> {
   if (!c) return null;
   const id = Number(c.id);
 
-  const [streamRows, rankRows, offeringRows, feeRows, cutoffRows, branchRows] = await Promise.all([
+  const [streamRows, rankRows, offeringRows, feeRows, cutoffRows, branchRows, examRows] = await Promise.all([
     rows<{ slug: string; name: string }>(sql`
       select s.slug, s.name from institution_streams x join streams s on s.id = x.stream_id where x.institution_id = ${id} order by s.sort_order
     `),
@@ -88,7 +118,8 @@ export async function getCollege(slug: string): Promise<CollegeDetail | null> {
       from offerings o join courses c on c.id = o.course_id
       left join sources s on s.id = o.seats_source_id
       where o.institution_id = ${id}
-      order by c.level, c.sort_order
+        and not exists (select 1 from offerings o2 where o2.institution_id = o.institution_id and o2.course_id = o.course_id and o2.academic_year > o.academic_year)
+      order by field(c.level, 'ug', 'integrated', 'pg', 'diploma', 'doctorate', 'certificate'), c.sort_order
     `),
     rows<{ offering_id: number; quota: string | null; component: string; amount_inr: string | null; basis: string | null } & SrcRow>(sql`
       select fe.offering_id, fe.quota, fe.component, fe.amount_inr, fe.basis,
@@ -105,18 +136,74 @@ export async function getCollege(slug: string): Promise<CollegeDetail | null> {
       where o.institution_id = ${id}
       order by cu.year desc, cu.round
     `),
-    rows<{ offering_id: number; name: string; seats: number | null }>(sql`
-      select b.offering_id, b.name, b.seats
+    rows<{ offering_id: number; name: string; seats: number | null } & SrcRow>(sql`
+      select b.offering_id, b.name, b.seats,
+        s.publisher as s_publisher, s.title as s_title, s.url as s_url, s.retrieved_on as s_retrieved
       from offering_branches b join offerings o on o.id = b.offering_id
+      left join sources s on s.id = b.source_id
       where o.institution_id = ${id}
-      order by b.name
+      order by b.seats is null, b.seats desc, b.name
+    `),
+    rows<{ slug: string; short_name: string; name: string; conducting_body: string; level: string; streams: string | null }>(sql`
+      select e.slug, e.short_name, e.name, e.conducting_body, e.level,
+        group_concat(distinct s.name order by s.sort_order separator '|') as streams
+      from exams e
+      join exam_streams es on es.exam_id = e.id
+      join streams s on s.id = es.stream_id
+      join institution_streams x on x.stream_id = s.id and x.institution_id = ${id}
+      group by e.id, e.slug, e.short_name, e.name, e.conducting_body, e.level, e.sort_order
+      order by e.sort_order
     `),
   ]);
+
+  const name = String(c.name);
+  const stateCode = (c.state_code as string | null) ?? null;
+  const levels = new Set(offeringRows.map((o) => o.level));
+  const exams: CollegeExam[] = examRows
+    .filter((e) => {
+      const rule = EXAM_RULES[e.slug];
+      if (!rule) return e.level === "National";
+      if (rule.state && rule.state !== stateCode) return false;
+      if (rule.namePattern && !rule.namePattern.test(name)) return false;
+      // With no course list loaded we cannot tell UG from PG, so keep the exam.
+      return !levels.size || rule.levels.some((l) => levels.has(l));
+    })
+    .map((e) => {
+      const rule = EXAM_RULES[e.slug];
+      const ug = !rule || rule.levels.includes("ug");
+      const pg = !!rule && rule.levels.includes("pg");
+      return {
+        slug: e.slug,
+        short: e.short_name,
+        name: e.name,
+        body: e.conducting_body,
+        level: e.level,
+        forLevel: ug && pg ? "UG and PG" : pg ? "Postgraduate" : "Undergraduate",
+        streams: (e.streams ?? "").split("|").filter(Boolean),
+      };
+    });
+
+  const sourceMap = new Map<string, SourceRef & { usedFor: string[] }>();
+  const addSource = (s: SourceRef | null, use: string) => {
+    if (!s) return;
+    const key = `${s.publisher}|${s.title ?? ""}`;
+    const hit = sourceMap.get(key) ?? { ...s, usedFor: [] };
+    if (!hit.usedFor.includes(use)) hit.usedFor.push(use);
+    sourceMap.set(key, hit);
+  };
+  addSource(src(c), "Name, location and approval");
+  offeringRows.forEach((o) => addSource(src(o), "Courses and seats"));
+  branchRows.filter((b) => offeringRows.some((o) => o.id === b.offering_id)).forEach((b) => addSource(src(b), "Branch seats"));
+  rankRows.forEach((r) => addSource(src(r), `NIRF ${r.year} ${r.category}`));
+  feeRows.forEach((f) => addSource(src(f), "Fees"));
+  cutoffRows.forEach((x) => addSource(src(x), "Cutoffs"));
+
+  const num = (v: unknown) => (v === null || v === undefined ? null : Number(v));
 
   return {
     id,
     slug: String(c.slug),
-    name: String(c.name),
+    name,
     aliases: parseJson<string[]>(c.aliases, []),
     ownership: (c.ownership as string | null) ?? null,
     establishedYear: (c.established_year as number | null) ?? null,
@@ -140,7 +227,7 @@ export async function getCollege(slug: string): Promise<CollegeDetail | null> {
       agency: r.agency,
       year: Number(r.year),
       category: r.category,
-      rank: r.rank,
+      rank: num(r.rank),
       rankBand: r.rank_band,
       score: r.score,
       source: src(r)!,
@@ -153,9 +240,9 @@ export async function getCollege(slug: string): Promise<CollegeDetail | null> {
       level: o.level,
       duration: o.duration_text,
       academicYear: o.academic_year,
-      seats: o.seats,
+      seats: num(o.seats),
       seatsSource: src(o),
-      branches: branchRows.filter((b) => b.offering_id === o.id).map((b) => ({ name: b.name, seats: b.seats })),
+      branches: branchRows.filter((b) => b.offering_id === o.id).map((b) => ({ name: b.name, seats: num(b.seats) })),
       fees: feeRows
         .filter((f) => f.offering_id === o.id)
         .map((f) => ({ quota: f.quota, component: f.component, amount: f.amount_inr, basis: f.basis, source: src(f) })),
@@ -167,11 +254,20 @@ export async function getCollege(slug: string): Promise<CollegeDetail | null> {
       round: x.round,
       quota: x.quota,
       category: x.category,
-      openingRank: x.opening_rank,
-      closingRank: x.closing_rank,
+      openingRank: num(x.opening_rank),
+      closingRank: num(x.closing_rank),
       source: src(x)!,
     })),
+    exams,
+    sources: [...sourceMap.values()],
   };
+}
+
+/** Seats for an offering: its own figure, or the sum of its branch intakes when only those are listed. */
+export function offeringSeats(o: CollegeDetail["offerings"][number]): number | null {
+  if (o.seats !== null) return o.seats;
+  const known = o.branches.filter((b) => b.seats !== null);
+  return known.length ? known.reduce((n, b) => n + (b.seats ?? 0), 0) : null;
 }
 
 export async function getSimilarColleges(c: CollegeDetail, limit = 5) {
@@ -179,13 +275,16 @@ export async function getSimilarColleges(c: CollegeDetail, limit = 5) {
   const streamFilter = streamSlugs.length
     ? sql`and exists (select 1 from institution_streams x join streams s on s.id = x.stream_id where x.institution_id = i.id and s.slug in (${sql.join(streamSlugs.map((s) => sql`${s}`), sql`, `)}))`
     : sql``;
-  return rows<{ slug: string; name: string; city: string | null; state: string | null }>(sql`
-    select i.slug, i.name, i.city, st.name as state
+  return rows<{ slug: string; name: string; city: string | null; state: string | null; best_rank: number | null }>(sql`
+    select i.slug, i.name, coalesce(i.city, i.district) as city, st.name as state,
+      (select min(r.rank) from rankings r where r.institution_id = i.id) as best_rank
     from institutions i left join states st on st.code = i.state_code
     where i.status = 'published' and i.id <> ${c.id} ${streamFilter}
     order by (st.slug = ${c.stateSlug ?? ""}) desc,
+      (coalesce(i.city, i.district) = ${c.city ?? c.district ?? ""}) desc,
       (select min(r.rank) from rankings r where r.institution_id = i.id) is null,
-      (select min(r.rank) from rankings r where r.institution_id = i.id)
+      (select min(r.rank) from rankings r where r.institution_id = i.id),
+      i.name
     limit ${limit}
   `);
 }
