@@ -1,9 +1,12 @@
+import { createHash } from "node:crypto";
 import { and, eq, sql } from "drizzle-orm";
 import { getDb, getPool, rows, schema } from "@/lib/db";
 import { MIGRATIONS } from "@/lib/db/migrations.generated";
 import { NIRF_FILES, NMC_FILES, NMC_LINKS, COUNCIL_FILES } from "@/lib/db/seed-data.generated";
 import { STATES, STATE_ALIASES, STREAMS, EXAMS, NIRF_CATEGORY_STREAM } from "@/data/reference";
 import { slugify } from "@/lib/slug";
+import { DISTRICT_NORMALISER_VERSION, isOfficialDistrict, matchDistrict, normaliseDistrict, type DistrictMatch } from "@/lib/districts";
+import { AMBIGUOUS_DISTRICTS, CITIES_SPANNING_DISTRICTS, DISTRICTS, DISTRICT_ALIASES, DISTRICT_TOWNS } from "@/data/districts";
 
 const { states, streams, courses, exams, examStreams, sources, institutions, institutionIdentifiers, institutionStreams, rankings, offerings, offeringBranches } = schema;
 
@@ -134,7 +137,7 @@ async function findOrCreateInstitution(r: NirfRow, sourceId: number) {
     for (let n = 2; (await db.select({ id: institutions.id }).from(institutions).where(eq(institutions.slug, slug)))[0]; n++) slug = `${base}-${n}`;
     const [res] = await db
       .insert(institutions)
-      .values({ slug, name, city, stateCode: code, status: "published", sourceId })
+      .values({ slug, name, city, district: normaliseDistrict(code, city, { asCity: true }), stateCode: code, status: "published", sourceId })
       .$returningId();
     id = res.id;
   }
@@ -448,6 +451,10 @@ export async function seedCouncils(streamIds: Map<string, number>, log: (m: stri
     for (const r of data.rows) {
       const sourceId = sourceIds.get(r.source ?? data.sources.find((s) => r.code.startsWith(s.prefix))?.prefix ?? data.sources[0].prefix)!;
       const year = r.academic_year ?? data.academic_year;
+      const code = stateCode(r.state);
+      // Every district written goes through the normaliser: the official name, or null when the
+      // council's value cannot be placed in one district (the raw text stays in data/councils).
+      const district = normaliseDistrict(code, r.district) ?? normaliseDistrict(code, r.city, { asCity: true });
       let id = await identifierOwner(data.scheme, r.code);
       if (r.same_as) {
         const target = await identifierOwner(r.same_as.scheme, r.same_as.value);
@@ -462,13 +469,14 @@ export async function seedCouncils(streamIds: Map<string, number>, log: (m: stri
       if (!id) {
         const name = r.name.trim().replace(/\s+/g, " ");
         // Many council colleges share a name ("Govt. Ayurved Mahavidhalaya"); the district tells them apart.
+        // The slug keeps the council's own spelling, so slugs match those of databases loaded earlier.
         const own = slugify(name);
         const base = r.district && !own.endsWith(slugify(r.district)) ? slugify(`${name} ${r.district}`) : own;
         let slug = base;
         for (let n = 2; (await db.select({ id: institutions.id }).from(institutions).where(eq(institutions.slug, slug)))[0]; n++) slug = `${base}-${n}`;
         const [res] = await db
           .insert(institutions)
-          .values({ slug, name, address: r.address, district: r.district, city: r.city ?? null, pin: r.pin && /^\d{6}$/.test(r.pin) ? r.pin : null, stateCode: stateCode(r.state), ownership: r.ownership ?? null, affiliatingUniversity: r.university ?? null, status: "published", sourceId })
+          .values({ slug, name, address: r.address, district, city: r.city ?? null, pin: r.pin && /^\d{6}$/.test(r.pin) ? r.pin : null, stateCode: code, ownership: r.ownership ?? null, affiliatingUniversity: r.university ?? null, status: "published", sourceId })
           .$returningId();
         id = res.id;
         created++;
@@ -477,7 +485,7 @@ export async function seedCouncils(streamIds: Map<string, number>, log: (m: stri
         await db.execute(sql`update institutions set
           ownership = coalesce(ownership, ${r.ownership ?? null}),
           address = coalesce(address, ${r.address}),
-          district = coalesce(district, ${r.district}),
+          district = coalesce(district, ${district}),
           city = coalesce(city, ${r.city ?? null}),
           pin = coalesce(pin, ${r.pin && /^\d{6}$/.test(r.pin) ? r.pin : null}),
           affiliating_university = coalesce(affiliating_university, ${r.university ?? null})
@@ -515,6 +523,107 @@ export async function seedCouncils(streamIds: Map<string, number>, log: (m: stri
   }
 }
 
+/** One institution's district as the normaliser would set it, and the raw value it came from. */
+export type DistrictPlan = {
+  id: number;
+  stateCode: string | null;
+  current: string | null;
+  next: string | null;
+  /** The raw value that decided `next`, or the first one tried when none matched. */
+  raw: string | null;
+  field: "district" | "city" | "kept" | null;
+  match: DistrictMatch | "kept" | null;
+  /** Every raw value for the institution, in order, with its result (for the audit report). */
+  tried: { raw: string; field: "district" | "city"; district: string | null; match: DistrictMatch }[];
+};
+
+/**
+ * Works out every institution's district from the raw values: each council list's district for
+ * it (the embedded files keep the council's own text), then the institution's city, then the
+ * councils' city values. The first value the normaliser can place wins. Without one, a district
+ * that is already an official name is kept and anything else is cleared.
+ */
+export async function planDistricts(): Promise<DistrictPlan[]> {
+  const schemes = [...new Set(COUNCIL_FILES.map((f) => (f.data as CouncilFile).scheme))];
+  const owner = new Map<string, number>();
+  if (schemes.length) {
+    const ids = await rows<{ scheme: string; value: string; institution_id: number }>(
+      sql`select scheme, value, institution_id from institution_identifiers where scheme in (${sql.join(schemes.map((s) => sql`${s}`), sql`, `)})`,
+    );
+    for (const r of ids) owner.set(`${r.scheme}\u0000${r.value}`, Number(r.institution_id));
+  }
+  const councilDistricts = new Map<number, string[]>();
+  const councilCities = new Map<number, string[]>();
+  for (const file of COUNCIL_FILES) {
+    const data = file.data as CouncilFile;
+    for (const r of data.rows) {
+      const id = owner.get(`${data.scheme}\u0000${r.code}`);
+      if (!id) continue;
+      if (r.district?.trim()) (councilDistricts.get(id) ?? councilDistricts.set(id, []).get(id)!).push(r.district);
+      if (r.city?.trim()) (councilCities.get(id) ?? councilCities.set(id, []).get(id)!).push(r.city);
+    }
+  }
+  const list = await rows<{ id: number; state_code: string | null; district: string | null; city: string | null }>(
+    sql`select id, state_code, district, city from institutions order by id`,
+  );
+  return list.map((i) => {
+    const id = Number(i.id);
+    const candidates: { raw: string; field: "district" | "city" }[] = [
+      ...(councilDistricts.get(id) ?? []).map((raw) => ({ raw, field: "district" as const })),
+      ...(i.city?.trim() ? [{ raw: i.city, field: "city" as const }] : []),
+      ...(councilCities.get(id) ?? []).map((raw) => ({ raw, field: "city" as const })),
+    ];
+    const tried: DistrictPlan["tried"] = [];
+    const seen = new Set<string>();
+    for (const c of candidates) {
+      const k = `${c.field}\u0000${c.raw}`;
+      if (seen.has(k)) continue;
+      seen.add(k);
+      tried.push({ ...c, ...matchDistrict(i.state_code, c.raw, { asCity: c.field === "city" }) });
+    }
+    const hit = tried.find((t) => t.district);
+    if (hit) return { id, stateCode: i.state_code, current: i.district, next: hit.district, raw: hit.raw, field: hit.field, match: hit.match, tried };
+    if (i.district && isOfficialDistrict(i.state_code, i.district)) {
+      return { id, stateCode: i.state_code, current: i.district, next: i.district, raw: i.district, field: "kept", match: "kept", tried };
+    }
+    const first = tried[0];
+    return { id, stateCode: i.state_code, current: i.district, next: null, raw: first?.raw ?? null, field: first?.field ?? null, match: first?.match ?? null, tried };
+  });
+}
+
+/**
+ * Rewrites institutions.district through the normaliser, once per normaliser version, district
+ * data and set of embedded lists (recorded in app_seeds), so databases loaded before the
+ * normaliser existed, or with an older alias list, are corrected on the next start.
+ */
+export async function normaliseInstitutionDistricts(log: (m: string) => void = console.log) {
+  const tag = "district-normaliser";
+  const digest = createHash("sha256")
+    .update(JSON.stringify({ DISTRICTS, DISTRICT_ALIASES, DISTRICT_TOWNS, AMBIGUOUS_DISTRICTS, CITIES_SPANNING_DISTRICTS }))
+    .update([...NIRF_FILES, ...NMC_FILES, ...COUNCIL_FILES].map((f) => `${f.tag}:${f.hash}`).join(","))
+    .digest("hex");
+  const key = `v${DISTRICT_NORMALISER_VERSION}-${digest.slice(0, 24)}`;
+  const [done] = await rows<{ hash: string }>(sql`select hash from app_seeds where tag = ${tag}`);
+  if (done?.hash === key) return;
+  const plan = await planDistricts();
+  const changes = new Map<string | null, number[]>();
+  for (const p of plan) {
+    if (p.next === p.current) continue;
+    (changes.get(p.next) ?? changes.set(p.next, []).get(p.next)!).push(p.id);
+  }
+  let updated = 0;
+  for (const [district, ids] of changes) {
+    for (let i = 0; i < ids.length; i += 500) {
+      const chunk = ids.slice(i, i + 500);
+      await getDb().execute(sql`update institutions set district = ${district} where id in (${sql.join(chunk.map((x) => sql`${x}`), sql`, `)})`);
+      updated += chunk.length;
+    }
+  }
+  await getDb().execute(sql`insert into app_seeds (tag, hash) values (${tag}, ${key}) on duplicate key update hash = values(hash), loaded_at = current_timestamp`);
+  const withDistrict = plan.filter((p) => p.next).length;
+  log(`Districts normalised (v${DISTRICT_NORMALISER_VERSION}): ${updated} institutions updated, ${withDistrict} of ${plan.length} have an official district`);
+}
+
 /** Migrate, then load reference data and any official data files shipped with the app. */
 export async function bootstrap(log: (m: string) => void = console.log) {
   await runMigrations(log);
@@ -522,6 +631,7 @@ export async function bootstrap(log: (m: string) => void = console.log) {
   await seedNirf(streamIds, log);
   await seedNmc(streamIds, log);
   await seedCouncils(streamIds, log);
+  await normaliseInstitutionDistricts(log);
   const [c] = await rows<{ n: number }>(sql`select count(*) as n from institutions`);
   log(`Database ready: ${STATES.length} states, ${STREAMS.length} fields, ${EXAMS.length} exams, ${c?.n ?? 0} institutions`);
 }
