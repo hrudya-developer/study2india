@@ -22,41 +22,40 @@ import { FilterForm } from "@/components/colleges/filter-form";
 import { FilterSheet } from "@/components/colleges/filter-sheet";
 import { Pagination } from "@/components/colleges/pagination";
 import { ShortlistLink } from "@/components/colleges/shortlist-button";
+import { own } from "@/lib/params";
 
 type Props = { searchParams: Promise<Record<string, string | string[] | undefined>> };
 
-async function describe(f: CollegeFilters) {
-  const [facets, course, cities] = await Promise.all([
-    getCollegeFacets(),
-    f.course ? getCourseContext(f.course) : Promise.resolve(null),
-    f.state ? getCityFacets(f.state) : Promise.resolve([]),
-  ]);
-  const stream = facets.streams.find((s) => s.value === f.stream);
-  const state = facets.states.find((s) => s.value === f.state);
-  const city = f.city && cities.find((c) => c.value === f.city) ? f.city : undefined;
-  const level = f.level ? LEVEL_LABELS[f.level] : undefined;
+/**
+ * Resolves the filters against what exists. Unknown values from the URL (a course, field, state,
+ * district or level we do not have) are dropped: they filter nothing, get no chip and stay out of the canonical.
+ */
+async function describe(raw: CollegeFilters) {
+  const [facets, course] = await Promise.all([getCollegeFacets(), raw.course ? getCourseContext(raw.course) : Promise.resolve(null)]);
+  const stream = facets.streams.find((s) => s.value === raw.stream);
+  const state = facets.states.find((s) => s.value === raw.state);
+  const cities = state ? await getCityFacets(state.value) : [];
+  const city = raw.city && cities.find((c) => c.value === raw.city) ? raw.city : undefined;
+  const level = own(LEVEL_LABELS, raw.level);
+  const f: CollegeFilters = { ...raw, stream: stream?.value, course: course?.slug, state: state?.value, city, level: level ? raw.level : undefined };
   const what = course ? `${course.short} colleges` : stream ? `${stream.label} colleges` : level ? `${level} colleges` : "Colleges";
   const where = state ? `in ${city ? `${city}, ` : ""}${state.label}` : "in India";
-  return { title: `${what} ${where}`, facets, course, stream, state, city, cities };
+  return { title: `${what} ${where}`, f, facets, course, stream, state, cities };
 }
 
 export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
-  const f = readCollegeFilters(await searchParams);
-  const { title } = await describe(f);
+  const { title, f } = await describe(readCollegeFilters(await searchParams));
   const filtered = !!(f.ownership.length || f.approval.length || f.level || f.city || f.ranked || f.q || f.page > 1 || f.sort !== "relevance");
   return {
     title,
-    description: `${title}: approvals, seats and NIRF ranks from official lists (AICTE, NMC, INC, NCISM, NCH, NIRF), with free admission counselling.`,
+    description: `${title}: approvals, seats and NIRF ranks from official lists (AICTE, NMC, INC, NCISM, NCH, PCI, DCI, VCI and NIRF), with free admission counselling.`,
     alternates: { canonical: collegesHref({ stream: f.stream, course: f.course, state: f.state }) },
     robots: filtered ? { index: false, follow: true } : undefined,
   };
 }
 
 export default async function CollegesPage({ searchParams }: Props) {
-  const raw = readCollegeFilters(await searchParams);
-  const { title, facets, course, state, city, cities } = await describe(raw);
-  // Ignore a district that does not belong to the chosen state.
-  const f: CollegeFilters = { ...raw, city };
+  const { title, f, facets, course, state, cities } = await describe(readCollegeFilters(await searchParams));
   const result = await searchColleges(f, course);
 
   const without = (patch: Partial<CollegeFilters>) => collegesHref({ ...f, page: 1, ...patch });
@@ -64,11 +63,12 @@ export default async function CollegesPage({ searchParams }: Props) {
   if (f.q) chips.push({ label: `"${f.q}"`, href: without({ q: undefined }) });
   if (f.stream) chips.push({ label: facets.streams.find((s) => s.value === f.stream)?.label ?? f.stream, href: without({ stream: undefined }) });
   if (f.course) chips.push({ label: course?.short ?? f.course, href: without({ course: undefined }) });
-  if (f.level && LEVEL_LABELS[f.level]) chips.push({ label: LEVEL_LABELS[f.level], href: without({ level: undefined }) });
+  const levelLabel = own(LEVEL_LABELS, f.level);
+  if (levelLabel) chips.push({ label: levelLabel, href: without({ level: undefined }) });
   if (f.state) chips.push({ label: state?.label ?? f.state, href: without({ state: undefined, city: undefined }) });
   if (f.city) chips.push({ label: f.city, href: without({ city: undefined }) });
-  for (const o of f.ownership) chips.push({ label: OWNERSHIP_LABELS[o], href: without({ ownership: f.ownership.filter((x) => x !== o) }) });
-  for (const a of f.approval) chips.push({ label: APPROVAL_BODIES[a].badge, href: without({ approval: f.approval.filter((x) => x !== a) }) });
+  for (const o of f.ownership) chips.push({ label: own(OWNERSHIP_LABELS, o) ?? o, href: without({ ownership: f.ownership.filter((x) => x !== o) }) });
+  for (const a of f.approval) chips.push({ label: own(APPROVAL_BODIES, a)?.badge ?? a, href: without({ approval: f.approval.filter((x) => x !== a) }) });
   if (f.ranked) chips.push({ label: "NIRF ranked", href: without({ ranked: false }) });
   const clearAll = collegesHref({ sort: f.sort });
 

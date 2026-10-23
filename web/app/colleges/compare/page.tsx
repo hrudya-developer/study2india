@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Search, X } from "lucide-react";
-import { getCollege, offeringSeats, type CollegeDetail } from "@/lib/queries/college";
+import { approvalYears, getCollege, offeringSeats, type CollegeDetail } from "@/lib/queries/college";
 import { APPROVAL_BODIES, OWNERSHIP_LABELS, findCollegesByName, formatNumber, publisherShort } from "@/lib/queries/colleges";
 import { CompareFromShortlist } from "@/components/colleges/shortlist-view";
 import { COMPARE_MAX } from "@/components/colleges/limits";
 import { ShortlistButton } from "@/components/colleges/shortlist-button";
+import { own } from "@/lib/params";
 
 type Props = { searchParams: Promise<Record<string, string | string[] | undefined>> };
 
@@ -47,17 +48,17 @@ export default async function ComparePage({ searchParams }: Props) {
 
   const rows: { label: string; cell: (c: CollegeDetail) => React.ReactNode }[] = [
     { label: "Location", cell: (c) => [c.city ?? c.district, c.state].filter(Boolean).join(", ") || NR },
-    { label: "Ownership", cell: (c) => (c.ownership ? OWNERSHIP_LABELS[c.ownership] ?? c.ownership : NR) },
+    { label: "Ownership", cell: (c) => (c.ownership ? own(OWNERSHIP_LABELS, c.ownership) ?? c.ownership : NR) },
     {
       label: "Approved or listed by",
       cell: (c) => {
-        const year = c.offerings.map((o) => o.academicYear).filter(Boolean).sort().at(-1);
+        const years = approvalYears(c);
         return c.approvals.length ? (
           <ul className="space-y-0.5">
             {c.approvals.map((a) => (
               <li key={a}>
-                {APPROVAL_BODIES[a]?.badge ?? a}
-                {year ? <span className="text-muted">, {year}</span> : null}
+                {own(APPROVAL_BODIES, a)?.badge ?? a}
+                {own(years, a) ? <span className="text-muted">, {own(years, a)}</span> : null}
               </li>
             ))}
           </ul>

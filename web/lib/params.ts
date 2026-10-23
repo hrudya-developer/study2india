@@ -6,6 +6,14 @@ export function one(v: string | string[] | undefined): string | undefined {
   return t ? t.slice(0, 120) : undefined;
 }
 
+/**
+ * A lookup that ignores inherited keys, so a request value such as "constructor" or "toString"
+ * finds nothing instead of a function from Object.prototype.
+ */
+export function own<V>(map: Record<string, V>, key: string | null | undefined): V | undefined {
+  return key !== null && key !== undefined && Object.hasOwn(map, key) ? map[key] : undefined;
+}
+
 export function pageNumber(v: string | string[] | undefined): number {
   const n = Number(one(v));
   return Number.isInteger(n) && n > 0 && n < 10000 ? n : 1;

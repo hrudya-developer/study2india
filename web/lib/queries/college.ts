@@ -1,5 +1,7 @@
-import { sql } from "drizzle-orm";
+import { cache } from "react";
+import { sql, type SQL } from "drizzle-orm";
 import { rows } from "@/lib/db";
+import { CURRENT_OFFERING, publisherShort } from "@/lib/queries/colleges";
 
 function parseJson<T>(v: unknown, fallback: T): T {
   if (v === null || v === undefined) return fallback;
@@ -89,7 +91,10 @@ const EXAM_RULES: Record<string, { levels: string[]; state?: string; namePattern
   gpat: { levels: ["pg"] },
 };
 
-export async function getCollege(slug: string): Promise<CollegeDetail | null> {
+/** One database read per request: generateMetadata and the page both ask for the same college. */
+export const getCollege = cache(loadCollege);
+
+async function loadCollege(slug: string): Promise<CollegeDetail | null> {
   const [c] = await rows<Record<string, unknown> & SrcRow>(sql`
     select i.*, st.name as state_name, st.slug as state_slug,
       s.publisher as s_publisher, s.title as s_title, s.url as s_url, s.retrieved_on as s_retrieved
@@ -118,7 +123,7 @@ export async function getCollege(slug: string): Promise<CollegeDetail | null> {
       from offerings o join courses c on c.id = o.course_id
       left join sources s on s.id = o.seats_source_id
       where o.institution_id = ${id}
-        and not exists (select 1 from offerings o2 where o2.institution_id = o.institution_id and o2.course_id = o.course_id and o2.academic_year > o.academic_year)
+        and ${CURRENT_OFFERING}
       order by field(c.level, 'ug', 'integrated', 'pg', 'diploma', 'doctorate', 'certificate'), c.sort_order
     `),
     rows<{ offering_id: number; quota: string | null; component: string; amount_inr: string | null; basis: string | null } & SrcRow>(sql`
@@ -270,21 +275,48 @@ export function offeringSeats(o: CollegeDetail["offerings"][number]): number | n
   return known.length ? known.reduce((n, b) => n + (b.seats ?? 0), 0) : null;
 }
 
+/**
+ * The academic year each regulator's list gives for this college: the latest year among the
+ * offerings whose seats come from that regulator. A regulator with no offerings here gets no year.
+ */
+export function approvalYears(c: CollegeDetail): Record<string, string> {
+  const years: Record<string, string> = Object.create(null);
+  for (const o of c.offerings) {
+    if (!o.academicYear || !o.seatsSource) continue;
+    const code = publisherShort(o.seatsSource.publisher);
+    if (!years[code] || o.academicYear > years[code]) years[code] = o.academicYear;
+  }
+  return years;
+}
+
+/** Fewer same-state matches than this and the list falls back to colleges anywhere in India. */
+const MIN_SIMILAR_IN_STATE = 3;
+
+/**
+ * Colleges in the same fields, from the same state when there are enough of them (inState true);
+ * otherwise from anywhere, nearest state first, and the heading should not name the state.
+ */
 export async function getSimilarColleges(c: CollegeDetail, limit = 5) {
   const streamSlugs = c.streams.map((s) => s.slug);
   const streamFilter = streamSlugs.length
     ? sql`and exists (select 1 from institution_streams x join streams s on s.id = x.stream_id where x.institution_id = i.id and s.slug in (${sql.join(streamSlugs.map((s) => sql`${s}`), sql`, `)}))`
     : sql``;
-  return rows<{ slug: string; name: string; city: string | null; state: string | null; best_rank: number | null }>(sql`
-    select i.slug, i.name, coalesce(i.city, i.district) as city, st.name as state,
-      (select min(r.rank) from rankings r where r.institution_id = i.id) as best_rank
-    from institutions i left join states st on st.code = i.state_code
-    where i.status = 'published' and i.id <> ${c.id} ${streamFilter}
-    order by (st.slug = ${c.stateSlug ?? ""}) desc,
-      (coalesce(i.city, i.district) = ${c.city ?? c.district ?? ""}) desc,
-      (select min(r.rank) from rankings r where r.institution_id = i.id) is null,
-      (select min(r.rank) from rankings r where r.institution_id = i.id),
-      i.name
-    limit ${limit}
-  `);
+  const query = (stateFilter: SQL) =>
+    rows<{ slug: string; name: string; city: string | null; state: string | null; best_rank: number | null }>(sql`
+      select i.slug, i.name, coalesce(i.city, i.district) as city, st.name as state,
+        (select min(r.rank) from rankings r where r.institution_id = i.id) as best_rank
+      from institutions i left join states st on st.code = i.state_code
+      where i.status = 'published' and i.id <> ${c.id} ${streamFilter} ${stateFilter}
+      order by (st.slug = ${c.stateSlug ?? ""}) desc,
+        (coalesce(i.city, i.district) = ${c.city ?? c.district ?? ""}) desc,
+        (select min(r.rank) from rankings r where r.institution_id = i.id) is null,
+        (select min(r.rank) from rankings r where r.institution_id = i.id),
+        i.name
+      limit ${limit}
+    `);
+  if (c.stateSlug) {
+    const inState = await query(sql`and st.slug = ${c.stateSlug}`);
+    if (inState.length >= Math.min(limit, MIN_SIMILAR_IN_STATE)) return { items: inState, inState: true };
+  }
+  return { items: await query(sql``), inState: false };
 }

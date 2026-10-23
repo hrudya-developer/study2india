@@ -9,7 +9,11 @@ import { ChevronDown } from "lucide-react";
  * A top navigation item with a mega menu. Mouse users open it by hovering; keyboard users get the
  * link plus a separate toggle button (the disclosure pattern), so tabbing past the menu does not
  * walk through every link inside it. Escape closes it and returns focus to the toggle.
+ * Only one menu is open at a time: opening one closes the others, and while one is open from its
+ * toggle, hovering another item does not show a second panel (see .has-mega in globals.css).
  */
+const OPEN_EVENT = "navmega:open";
+
 export function NavMega({ label, href, panelClass, children }: { label: string; href: string; panelClass: string; children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLLIElement>(null);
@@ -18,6 +22,18 @@ export function NavMega({ label, href, panelClass, children }: { label: string; 
   const pathname = usePathname();
 
   useEffect(() => setOpen(false), [pathname]);
+
+  useEffect(() => {
+    const onOtherOpen = (e: Event) => {
+      if ((e as CustomEvent<string>).detail !== id) setOpen(false);
+    };
+    window.addEventListener(OPEN_EVENT, onOtherOpen);
+    return () => window.removeEventListener(OPEN_EVENT, onOtherOpen);
+  }, [id]);
+
+  useEffect(() => {
+    if (open) window.dispatchEvent(new CustomEvent(OPEN_EVENT, { detail: id }));
+  }, [open, id]);
 
   useEffect(() => {
     if (!open) return;
@@ -58,7 +74,7 @@ export function NavMega({ label, href, panelClass, children }: { label: string; 
         onClick={() => setOpen((o) => !o)}
         className="flex h-9 w-7 items-center justify-center rounded-md text-ink-soft hover:text-ink"
       >
-        <ChevronDown size={15} className="transition-transform group-hover:rotate-180 group-data-[open=true]:rotate-180" aria-hidden="true" />
+        <ChevronDown size={15} className="mega-chevron transition-transform" aria-hidden="true" />
       </button>
       <div id={id} className={`mega absolute left-0 top-full pt-2 ${panelClass}`}>
         {children}

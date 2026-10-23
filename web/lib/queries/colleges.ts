@@ -1,5 +1,6 @@
 import { sql, type SQL } from "drizzle-orm";
 import { rows } from "@/lib/db";
+import { own } from "@/lib/params";
 
 export const OWNERSHIP_LABELS: Record<string, string> = {
   government: "Government",
@@ -123,16 +124,21 @@ export function publisherShort(publisher: string): string {
 
 /**
  * Only the latest academic year of each course counts, so a course listed in two years
- * is not counted twice. Seats fall back to the sum of branch intakes when the regulator lists only those.
+ * is not counted twice. A row with no academic year counts as older than any dated row, and
+ * among undated rows only the newest (highest id) counts. Use with the offering aliased as `o`.
+ * Seats fall back to the sum of branch intakes when the regulator lists only those.
  */
-const CURRENT_OFFERING = sql`not exists (select 1 from offerings o2 where o2.institution_id = o.institution_id and o2.course_id = o.course_id and o2.academic_year > o.academic_year)`;
+export const CURRENT_OFFERING = sql`not exists (select 1 from offerings o2 where o2.institution_id = o.institution_id and o2.course_id = o.course_id
+  and (coalesce(o2.academic_year, '') > coalesce(o.academic_year, '') or (o2.academic_year <=> o.academic_year and o2.id > o.id)))`;
 const OFFERING_SEATS = sql`coalesce(o.seats, (select sum(b.seats) from offering_branches b where b.offering_id = o.id))`;
+
+export type CollegeSearchResult = { items: CollegeCard[]; total: number; page: number; pageCount: number; courseFallback: boolean };
 
 /**
  * When a course is asked for but no course-level offerings are loaded yet, we fall back to the
  * course's field of study and say so on the page, rather than claiming the course is offered.
  */
-export async function searchColleges(f: CollegeFilters, course: CourseContext | null) {
+export async function searchColleges(f: CollegeFilters, course: CourseContext | null): Promise<CollegeSearchResult> {
   const where: SQL[] = [sql`i.status = 'published'`];
   const useOffering = !!course && course.offeringRows > 0;
   const streamSlug = f.stream || (course && !useOffering ? course.streamSlug : undefined);
@@ -143,14 +149,14 @@ export async function searchColleges(f: CollegeFilters, course: CourseContext | 
   if (useOffering && course) {
     where.push(sql`exists (select 1 from offerings o join courses c on c.id = o.course_id where o.institution_id = i.id and c.slug = ${course.slug})`);
   }
-  if (f.level && LEVEL_LABELS[f.level]) {
+  if (own(LEVEL_LABELS, f.level)) {
     where.push(sql`exists (select 1 from offerings o join courses c on c.id = o.course_id where o.institution_id = i.id and c.level = ${f.level})`);
   }
   if (f.state) where.push(sql`st.slug = ${f.state}`);
   if (f.state && f.city) where.push(sql`coalesce(i.city, i.district) = ${f.city}`);
-  const owners = f.ownership.filter((o) => OWNERSHIP_LABELS[o]);
+  const owners = f.ownership.filter((o) => own(OWNERSHIP_LABELS, o));
   if (owners.length) where.push(sql`i.ownership in (${sql.join(owners.map((o) => sql`${o}`), sql`, `)})`);
-  const bodies = f.approval.filter((a) => APPROVAL_BODIES[a]);
+  const bodies = f.approval.filter((a) => own(APPROVAL_BODIES, a));
   if (bodies.length) {
     where.push(sql`(${sql.join(bodies.map((a) => sql`json_contains(i.approvals, json_quote(${a}))`), sql` or `)})`);
   }
@@ -204,6 +210,11 @@ export async function searchColleges(f: CollegeFilters, course: CourseContext | 
       limit ${PAGE_SIZE} offset ${(page - 1) * PAGE_SIZE}
     `),
   ]);
+
+  // A page past the end (from an old or edited link) shows the last page instead of an empty list.
+  const count = Number(total?.n ?? 0);
+  const pageCount = Math.max(1, Math.ceil(count / PAGE_SIZE));
+  if (page > pageCount) return searchColleges({ ...f, page: pageCount }, course);
 
   const ids = base.map((b) => b.id);
   const idList = ids.length ? sql.join(ids.map((x) => sql`${x}`), sql`, `) : sql`0`;
@@ -277,8 +288,7 @@ export async function searchColleges(f: CollegeFilters, course: CourseContext | 
     };
   });
 
-  const count = Number(total?.n ?? 0);
-  return { items, total: count, page, pageCount: Math.max(1, Math.ceil(count / PAGE_SIZE)), courseFallback: !!course && !useOffering };
+  return { items, total: count, page, pageCount, courseFallback: !!course && !useOffering };
 }
 
 type RawParams = Record<string, string | string[] | undefined>;
@@ -300,16 +310,16 @@ export function readCollegeFilters(p: RawParams): CollegeFilters {
   return {
     stream: firstParam(p.stream),
     course: firstParam(p.course),
-    level: firstParam(p.level),
+    level: own(LEVEL_LABELS, firstParam(p.level)) ? firstParam(p.level) : undefined,
     state: firstParam(p.state),
     city: firstParam(p.city),
-    ownership: allParams(p.ownership).filter((o) => OWNERSHIP_LABELS[o]),
+    ownership: allParams(p.ownership).filter((o) => own(OWNERSHIP_LABELS, o)),
     approval: allParams(p.approval)
       .map((a) => a.toUpperCase())
-      .filter((a) => APPROVAL_BODIES[a]),
+      .filter((a) => own(APPROVAL_BODIES, a)),
     ranked: firstParam(p.ranked) === "1",
     q: firstParam(p.q),
-    sort: sort && sort in SORTS ? (sort as SortKey) : "relevance",
+    sort: sort && Object.hasOwn(SORTS, sort) ? (sort as SortKey) : "relevance",
     page: Number.isInteger(pageNum) && pageNum > 0 && pageNum < 10000 ? pageNum : 1,
   };
 }
@@ -419,8 +429,13 @@ export function getCollegeFacets(): Promise<CollegeFacets> {
   return value;
 }
 
-/** Districts or cities within a state, as the regulators spell them. */
-export function getCityFacets(stateSlug: string): Promise<FacetOption[]> {
+/**
+ * Districts or cities within a state, as the regulators spell them. Only slugs from the states
+ * table are queried and memoised, so arbitrary ?state= values cannot grow the memo.
+ */
+export async function getCityFacets(stateSlug: string): Promise<FacetOption[]> {
+  const { states } = await getCollegeFacets();
+  if (!states.some((s) => s.value === stateSlug)) return [];
   memo.cityFacets ??= new Map();
   const hit = memo.cityFacets.get(stateSlug);
   if (hit && Date.now() - hit.at < FACET_TTL_MS) return hit.value;

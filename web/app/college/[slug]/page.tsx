@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MapPin, Globe, Phone, Mail, Award, ShieldCheck, ExternalLink, Building, CalendarDays, GraduationCap, Trophy, Users, BookOpen, Navigation, Scale } from "lucide-react";
-import { getCollege, getSimilarColleges, offeringSeats, type SourceRef } from "@/lib/queries/college";
+import { approvalYears, getCollege, getSimilarColleges, offeringSeats, type SourceRef } from "@/lib/queries/college";
 import { getSearchOptions } from "@/lib/queries/home";
 import { APPROVAL_BODIES, OWNERSHIP_LABELS, formatNumber, publisherShort } from "@/lib/queries/colleges";
 import { CounsellingForm } from "@/components/counselling-form";
@@ -11,6 +11,7 @@ import { SectionNav } from "@/components/college/section-nav";
 import { CoursesTable } from "@/components/college/courses-table";
 import { ShortlistButton } from "@/components/colleges/shortlist-button";
 import { initials } from "@/components/college-card";
+import { own } from "@/lib/params";
 
 export const dynamic = "force-dynamic";
 
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const place = [c.city ?? c.district, c.state].filter(Boolean).join(", ");
   const seats = c.offerings.map(offeringSeats).filter((n): n is number => n !== null);
   const facts = [
-    c.approvals.length ? c.approvals.map((a) => APPROVAL_BODIES[a]?.badge ?? a).join(", ") : null,
+    c.approvals.length ? c.approvals.map((a) => own(APPROVAL_BODIES, a)?.badge ?? a).join(", ") : null,
     seats.length ? `${formatNumber(seats.reduce((a, b) => a + b, 0))} seats across ${c.offerings.length} courses` : null,
     c.rankings[0] ? `NIRF ${c.rankings[0].year} ${c.rankings[0].category} ${c.rankings[0].rank ? `rank ${c.rankings[0].rank}` : c.rankings[0].rankBand}` : null,
   ].filter(Boolean);
@@ -59,12 +60,12 @@ export default async function CollegePage({ params }: Props) {
   const { slug } = await params;
   const c = await getCollege(slug);
   if (!c) notFound();
-  const [similar, options] = await Promise.all([getSimilarColleges(c), getSearchOptions()]);
+  const [{ items: similar, inState: similarInState }, options] = await Promise.all([getSimilarColleges(c), getSearchOptions()]);
 
   const town = c.city ?? c.district;
   const place = [c.city, c.district && c.district !== c.city ? c.district : null, c.state].filter(Boolean).join(", ");
   const shortPlace = [town, c.state].filter(Boolean).join(", ");
-  const ownership = c.ownership ? OWNERSHIP_LABELS[c.ownership] ?? c.ownership : null;
+  const ownership = c.ownership ? own(OWNERSHIP_LABELS, c.ownership) ?? c.ownership : null;
   const latestYear = c.rankings[0]?.year;
   const latestRanks = c.rankings.filter((r) => r.year === latestYear);
   // The Overall rank is the one students compare across colleges; otherwise the best category rank.
@@ -73,6 +74,7 @@ export default async function CollegePage({ params }: Props) {
   const totalSeats = seatList.length ? seatList.reduce((a, b) => a + b, 0) : null;
   const academicYear = c.offerings.map((o) => o.academicYear).filter(Boolean).sort().at(-1) ?? null;
   const listYear = academicYear ? `, ${academicYear}` : "";
+  const yearOf = approvalYears(c);
   const levels = new Set(c.offerings.map((o) => o.level));
   const mapsQuery = encodeURIComponent([c.name, c.address ?? place].filter(Boolean).join(", "));
 
@@ -159,10 +161,10 @@ export default async function CollegePage({ params }: Props) {
                   {c.isPartner ? <li className="rounded bg-verified px-2 py-0.5 font-bold text-white">Study2India partner</li> : null}
                   {ownership ? <li className="rounded bg-white px-2 py-0.5 font-bold text-ink">{ownership}</li> : null}
                   {c.approvals.map((a) => (
-                    <li key={a} className="inline-flex items-center gap-1 rounded bg-[#1f7a4d] px-2 py-0.5 font-bold text-white" title={APPROVAL_BODIES[a]?.full}>
+                    <li key={a} className="inline-flex items-center gap-1 rounded bg-[#1f7a4d] px-2 py-0.5 font-bold text-white" title={own(APPROVAL_BODIES, a)?.full}>
                       <ShieldCheck size={14} aria-hidden="true" />
-                      {APPROVAL_BODIES[a]?.badge ?? `${a} approved`}
-                      {academicYear ? <span className="font-normal opacity-90">{academicYear}</span> : null}
+                      {own(APPROVAL_BODIES, a)?.badge ?? `${a} approved`}
+                      {own(yearOf, a) ? <span className="font-normal opacity-90">{own(yearOf, a)}</span> : null}
                     </li>
                   ))}
                   {c.naacGrade ? <li className="rounded bg-white/10 px-2 py-0.5">NAAC {c.naacGrade}</li> : null}
@@ -220,7 +222,7 @@ export default async function CollegePage({ params }: Props) {
                   { icon: Building, k: "Ownership", v: ownership },
                   { icon: CalendarDays, k: "Established", v: c.establishedYear },
                   { icon: GraduationCap, k: "Affiliated to", v: c.affiliatingUniversity },
-                  { icon: ShieldCheck, k: "Approved or listed by", v: c.approvals.length ? c.approvals.map((a) => APPROVAL_BODIES[a]?.full ?? a).join(", ") : null },
+                  { icon: ShieldCheck, k: "Approved or listed by", v: c.approvals.length ? c.approvals.map((a) => own(APPROVAL_BODIES, a)?.full ?? a).join(", ") : null },
                   { icon: Award, k: "NAAC grade", v: c.naacGrade },
                   { icon: MapPin, k: "Location", v: place || null },
                 ].map((r) => (
@@ -528,7 +530,7 @@ export default async function CollegePage({ params }: Props) {
             </div>
             {similar.length ? (
               <div className="card p-5">
-                <h2 className="text-lg font-bold">Similar colleges{c.state ? ` in ${c.state}` : ""}</h2>
+                <h2 className="text-lg font-bold">Similar colleges{similarInState && c.state ? ` in ${c.state}` : ""}</h2>
                 <ul className="mt-3 divide-y divide-rule">
                   {similar.map((s) => (
                     <li key={s.slug} className="flex items-start justify-between gap-3 py-2.5">

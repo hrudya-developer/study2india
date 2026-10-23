@@ -1,6 +1,7 @@
 import { sql, type SQL } from "drizzle-orm";
 import { rows } from "@/lib/db";
 import { STATE_ALIASES } from "@/data/reference";
+import { own } from "@/lib/params";
 
 /**
  * Site search shared by the header suggestions, the home page search and the /search page.
@@ -183,7 +184,7 @@ function parseQuery(q: string, cat: Catalog): Parsed {
   if (!out.course) {
     for (let i = 0; i < words.length; i++) {
       if (used[i]) continue;
-      const slug = STREAM_WORDS[norm(words[i])];
+      const slug = own(STREAM_WORDS, norm(words[i]));
       const s = slug ? cat.streams.find((x) => x.slug === slug) : undefined;
       if (s) {
         out.stream = s;
@@ -197,7 +198,7 @@ function parseQuery(q: string, cat: Catalog): Parsed {
   // A field word next to other name words is usually part of a name ("Indian Institute of Science",
   // "College of Engineering Trivandrum"), so it is matched as a word rather than used as a filter.
   if (out.stream && out.rest.length > 0) {
-    const word = words.find((w) => STREAM_WORDS[norm(w)] === out.stream!.slug);
+    const word = words.find((w) => own(STREAM_WORDS, norm(w)) === out.stream!.slug);
     if (word) out.rest.push(word);
     out.stream = undefined;
   }
@@ -215,7 +216,7 @@ function escapeRegex(s: string) {
 /** One SQL condition per leftover word: the word must appear in the name or the place. */
 function nameConditions(rest: string[]): SQL[] {
   return rest.map((w) => {
-    const abbr = NAME_ABBREVIATIONS[norm(w)];
+    const abbr = own(NAME_ABBREVIATIONS, norm(w));
     // Names match from the start of a word, so "neet" does not find "Navaneetham".
     const word = `\\b${escapeRegex(w)}`;
     if (abbr) return sql`(i.name like ${`%${abbr}%`} or i.name regexp ${`${word}\\b`})`;
@@ -269,7 +270,7 @@ export async function searchSite(rawQ: string, opts: { colleges?: number; course
   const qLower = q.toLowerCase();
 
   // Courses: by short name, full name or field. A field word ("nursing kottayam") suggests that field's courses.
-  const fieldWords = new Set(q.toLowerCase().split(/\s+/).map((w) => STREAM_WORDS[norm(w)]).filter(Boolean));
+  const fieldWords = new Set(q.toLowerCase().split(/\s+/).map((w) => own(STREAM_WORDS, norm(w))).filter(Boolean));
   const courses = cat.courses
     .map((c) => {
       const keys = courseKeys(c);
@@ -336,7 +337,7 @@ export async function searchSite(rawQ: string, opts: { colleges?: number; course
   if (where.length) {
     // Rank: the whole query as a phrase, then names starting with the first word, then NIRF ranked,
     // then shorter names (the main campus before its departments), then alphabetical.
-    const first = p.rest[0] ? `${escapeLike(NAME_ABBREVIATIONS[norm(p.rest[0])] ?? p.rest[0])}%` : null;
+    const first = p.rest[0] ? `${escapeLike(own(NAME_ABBREVIATIONS, norm(p.rest[0])) ?? p.rest[0])}%` : null;
     const phrase = `%${escapeLike(q.replace(/\s+/g, " "))}%`;
     const order = first
       ? sql`(i.name like ${phrase}) desc, (i.name like ${first}) desc, nirf desc, char_length(i.name), i.name`
@@ -359,7 +360,7 @@ export async function searchSite(rawQ: string, opts: { colleges?: number; course
         colleges = list.map((c) => ({
           label: c.name,
           href: collegeHref(c.slug),
-          meta: [[c.city, c.state].filter(Boolean).join(", "), c.ownership ? OWNERSHIP_LABEL[c.ownership] : null, Number(c.nirf) ? "NIRF ranked" : null].filter(Boolean).join(" · "),
+          meta: [[c.city, c.state].filter(Boolean).join(", "), c.ownership ? own(OWNERSHIP_LABEL, c.ownership) : null, Number(c.nirf) ? "NIRF ranked" : null].filter(Boolean).join(" · "),
         }));
       })(),
     );
@@ -376,6 +377,6 @@ export async function searchSite(rawQ: string, opts: { colleges?: number; course
 export async function collegeListHref(rawQ: string): Promise<string | null> {
   const cat = await getCatalog();
   const p = parseQuery(rawQ, cat);
-  if (p.rest.length > 1 || (p.rest[0] && NAME_ABBREVIATIONS[norm(p.rest[0])])) return null;
+  if (p.rest.length > 1 || (p.rest[0] && own(NAME_ABBREVIATIONS, norm(p.rest[0])))) return null;
   return listHref(p, p.rest[0]);
 }
