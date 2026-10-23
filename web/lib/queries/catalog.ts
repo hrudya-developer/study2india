@@ -85,7 +85,7 @@ export type CourseDetail = CourseLite & {
 };
 
 /** NIRF list that fits each field of study; fields without their own list fall back to the general lists. */
-const NIRF_CATEGORY_BY_STREAM: Record<string, string> = {
+export const NIRF_CATEGORY_BY_STREAM: Record<string, string> = {
   engineering: "Engineering",
   medical: "Medical",
   dental: "Dental",
@@ -95,7 +95,7 @@ const NIRF_CATEGORY_BY_STREAM: Record<string, string> = {
   architecture: "Architecture",
   agriculture: "Agriculture",
 };
-const NIRF_GENERAL_CATEGORIES = ["Overall", "University", "College"];
+export const NIRF_GENERAL_CATEGORIES = ["Overall", "University", "College"];
 
 const num = (v: unknown) => (v === null || v === undefined ? null : Number(v));
 

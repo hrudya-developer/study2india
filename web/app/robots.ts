@@ -1,10 +1,9 @@
 import type { MetadataRoute } from "next";
-
-const base = (process.env.SITE_URL ?? "https://study2india.com").replace(/\/$/, "");
+import { SITE_ORIGIN } from "@/lib/seo";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [{ userAgent: "*", allow: "/", disallow: ["/search", "/admin"] }],
-    sitemap: `${base}/sitemap.xml`,
+    sitemap: `${SITE_ORIGIN}/sitemap.xml`,
   };
 }

@@ -6,6 +6,7 @@ import { getCourse } from "@/lib/queries/catalog";
 import { getSearchOptions } from "@/lib/queries/home";
 import { PageHero } from "@/components/page-hero";
 import { CounsellingForm } from "@/components/counselling-form";
+import { breadcrumbList, jsonLd } from "@/lib/seo";
 import { CourseKeyNumbers, CourseOwnership, CourseRankedColleges, CourseSpecialisations, CourseStates } from "@/components/course/course-insights";
 
 export const dynamic = "force-dynamic";
@@ -39,8 +40,20 @@ export default async function CoursePage({ params }: Props) {
     { icon: Layers, k: "Field of study", v: c.streamName },
   ];
 
+  // Course rich results are for a course a named provider sells; this page describes a degree across
+  // many colleges, so it carries a breadcrumb only rather than a Course with an invented provider.
+  const crumbLd = breadcrumbList(
+    [
+      { name: "Home", path: "/" },
+      { name: "Courses", path: "/courses" },
+      { name: c.short, path: `/course/${c.slug}` },
+    ],
+    `/course/${c.slug}`,
+  );
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(crumbLd) }} />
       <PageHero crumbs={[{ href: "/courses", label: "Courses" }, { href: `/courses#${c.streamSlug}`, label: c.streamName }, { label: c.short }]} title={c.short} intro={c.name}>
         <div className="mt-6 flex flex-wrap gap-3">
           <Link href={`/colleges?course=${c.slug}`} className="rounded-lg bg-brand px-5 py-2.5 font-bold text-ink hover:bg-brand-hover">

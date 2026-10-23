@@ -1,0 +1,113 @@
+import type { MetadataRoute } from "next";
+import { sql } from "drizzle-orm";
+import { rows } from "@/lib/db";
+import { getCollegeFacets } from "@/lib/queries/colleges";
+import { getLandingIndex, landingPages } from "@/lib/queries/landing";
+import { absoluteUrl, xmlEscape } from "@/lib/seo";
+
+/**
+ * The site's sitemaps. /sitemap.xml is an index of child sitemaps served at /sitemap/<id>.xml:
+ * static pages, courses, exams, listing landing pages and published colleges, split into
+ * chunks well under the 50,000 URL and 50MB limits.
+ */
+export const COLLEGES_PER_SITEMAP = 40000;
+
+const STATIC_PAGES = ["/", "/colleges", "/courses", "/exams", "/rankings", "/scholarships", "/counselling", "/about", "/contact", "/how-we-check-data", "/privacy"];
+
+type College = { slug: string; updated_at: string };
+
+// Sitemaps are fetched in bursts by crawlers; the data changes only when lists are loaded.
+const TTL_MS = 10 * 60 * 1000;
+const memo = globalThis as unknown as { sitemapColleges?: { at: number; value: Promise<College[]> } };
+
+function getColleges(): Promise<College[]> {
+  const hit = memo.sitemapColleges;
+  if (hit && Date.now() - hit.at < TTL_MS) return hit.value;
+  const value = rows<College>(sql`select slug, updated_at from institutions where status = 'published' order by id`);
+  memo.sitemapColleges = { at: Date.now(), value };
+  value.catch(() => {
+    if (memo.sitemapColleges?.value === value) memo.sitemapColleges = undefined;
+  });
+  return value;
+}
+
+/** MariaDB timestamps come back as "YYYY-MM-DD HH:MM:SS" in UTC; null when unparseable. */
+function toDate(v: string | null | undefined): Date | undefined {
+  if (!v) return undefined;
+  const d = new Date(v.includes("T") ? v : `${v.replace(" ", "T")}Z`);
+  return Number.isNaN(d.getTime()) ? undefined : d;
+}
+
+function latest(dates: (string | null)[]): Date | undefined {
+  let best: Date | undefined;
+  for (const v of dates) {
+    const d = toDate(v);
+    if (d && (!best || d > best)) best = d;
+  }
+  return best;
+}
+
+/** The child sitemap ids, in index order. Falls back to a single colleges chunk when the database is unreachable. */
+export async function sitemapIds(): Promise<string[]> {
+  let chunks = 1;
+  try {
+    chunks = Math.max(1, Math.ceil((await getColleges()).length / COLLEGES_PER_SITEMAP));
+  } catch {
+    // The colleges sitemap will be empty until the database is back; the ids stay valid.
+  }
+  return ["pages", "courses", "exams", "landing", ...Array.from({ length: chunks }, (_, i) => `colleges-${i + 1}`)];
+}
+
+const entry = (path: string, lastModified?: Date): MetadataRoute.Sitemap[number] => ({
+  // Next writes <loc> as given, so "&" in a query URL must be escaped here.
+  url: xmlEscape(absoluteUrl(path)),
+  ...(lastModified ? { lastModified } : {}),
+});
+
+export async function sitemapEntries(id: string): Promise<MetadataRoute.Sitemap> {
+  try {
+    if (id === "pages") return STATIC_PAGES.map((p) => entry(p));
+    if (id === "courses") {
+      const list = await rows<{ slug: string }>(sql`select slug from courses order by sort_order, slug`);
+      return list.map((c) => entry(`/course/${c.slug}`));
+    }
+    if (id === "exams") {
+      const list = await rows<{ slug: string }>(sql`select slug from exams order by sort_order, slug`);
+      return list.map((e) => entry(`/exam/${e.slug}`));
+    }
+    if (id === "landing") {
+      const [facets, index] = await Promise.all([getCollegeFacets(), getLandingIndex()]);
+      // One-filter listings that have colleges, then the course or field in a state pages.
+      const single = [
+        ...facets.courses.filter((c) => c.count > 0).map((c) => `/colleges?course=${c.value}`),
+        ...facets.streams.filter((s) => s.count > 0).map((s) => `/colleges?stream=${s.value}`),
+        ...facets.states.filter((s) => s.count > 0).map((s) => `/colleges?state=${s.value}`),
+      ];
+      return [...single.map((p) => entry(p)), ...landingPages(index).map((l) => entry(l.path, toDate(l.lastmod)))];
+    }
+    const m = /^colleges-(\d+)$/.exec(id);
+    if (m) {
+      const start = (Number(m[1]) - 1) * COLLEGES_PER_SITEMAP;
+      const list = (await getColleges()).slice(start, start + COLLEGES_PER_SITEMAP);
+      return list.map((c) => entry(`/college/${c.slug}`, toDate(c.updated_at)));
+    }
+  } catch {
+    // An empty sitemap is better than a 500 that makes crawlers back off the whole index.
+  }
+  return [];
+}
+
+/** lastmod for an index entry, where the child sitemap has dated URLs. */
+export async function sitemapLastModified(id: string): Promise<Date | undefined> {
+  try {
+    const m = /^colleges-(\d+)$/.exec(id);
+    if (m) {
+      const start = (Number(m[1]) - 1) * COLLEGES_PER_SITEMAP;
+      return latest((await getColleges()).slice(start, start + COLLEGES_PER_SITEMAP).map((c) => c.updated_at));
+    }
+    if (id === "landing") return latest(landingPages(await getLandingIndex()).map((l) => l.lastmod));
+  } catch {
+    // No lastmod is fine.
+  }
+  return undefined;
+}
