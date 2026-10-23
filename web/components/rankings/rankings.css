@@ -1,0 +1,283 @@
+/*
+ * The NIRF list: one table that reads as cards on phones and as a table with a sticky header
+ * on wide screens. Short class names keep a 300-row list light.
+ */
+
+.rk {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+}
+
+.rk a {
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.rk a:hover {
+  color: var(--color-brand-hover);
+  text-decoration: underline;
+  text-decoration-color: var(--color-brand);
+  text-underline-offset: 4px;
+}
+
+.rk .n {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--color-ink-2);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.rk .nr {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-muted);
+}
+
+.rk .up {
+  color: var(--color-verified);
+  font-weight: 700;
+}
+
+.rk .down {
+  color: #b4232a;
+  font-weight: 700;
+}
+
+.rk .was {
+  color: var(--color-muted);
+  font-weight: 400;
+}
+
+.rk .sub {
+  margin-left: 0.25rem;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  font-weight: 400;
+}
+
+.rk tr.band th {
+  background: var(--color-band);
+  color: var(--color-ink-2);
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-top: 1px solid var(--color-rule);
+}
+
+.rk tr.band span {
+  font-weight: 400;
+  color: var(--color-muted);
+}
+
+.rk .num {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Phones and tablets: each row is a card. */
+@media (max-width: 63.99rem) {
+  .rk thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .rk,
+  .rk tbody {
+    display: block;
+  }
+
+  .rk tr.band {
+    display: block;
+  }
+
+  .rk tr.band th {
+    display: block;
+    padding: 0.5rem 1rem;
+  }
+
+  .rk tr.band span {
+    display: block;
+  }
+
+  .rk tr.row {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1rem;
+    row-gap: 0.5rem;
+    padding: 0.95rem 1rem 1rem 5rem;
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .rk tr.row > * {
+    display: block;
+    padding: 0;
+  }
+
+  .rk td.rank {
+    position: absolute;
+    left: 0;
+    top: 0.95rem;
+    width: 5rem;
+    text-align: center;
+    font-size: 1.65rem;
+    line-height: 1.1;
+  }
+
+  .rk td.rank::before {
+    content: "Rank";
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .rk td.rank.band {
+    font-size: 0.98rem;
+  }
+
+  .rk th.name {
+    grid-column: 1 / -1;
+    font-size: 1.02rem;
+  }
+
+  /* The city is written into the state cell on phones, so "Chennai, Tamil Nadu" reads as one line. */
+  .rk td.city {
+    display: none;
+  }
+
+  .rk td.state {
+    grid-column: 1 / -1;
+    margin-top: -0.3rem;
+    font-size: 0.9rem;
+    color: var(--color-ink-soft);
+  }
+
+  .rk td.fact {
+    min-width: 0;
+    font-size: 0.9rem;
+  }
+
+  .rk td.fact::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+}
+
+@media (min-width: 40rem) and (max-width: 63.99rem) {
+  .rk tr.row {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    padding-left: 5.5rem;
+  }
+
+  .rk td.rank {
+    width: 5.5rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .rk .mc {
+    display: none;
+  }
+
+  .rk td.state,
+  .rk td.own,
+  .rk td.score {
+    white-space: nowrap;
+  }
+}
+
+/* Wide screens: a table whose header stays under the site header while scrolling. */
+@media (min-width: 64rem) {
+  .rk thead th {
+    position: sticky;
+    top: 65px;
+    z-index: 10;
+    padding: 0.8rem 0.75rem;
+    background: var(--color-paper);
+    box-shadow: inset 0 -1px 0 var(--color-rule);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    white-space: nowrap;
+  }
+
+  .rk thead th:first-child {
+    border-top-left-radius: 14px;
+  }
+
+  .rk thead th:last-child {
+    border-top-right-radius: 14px;
+  }
+
+  .rk tr.row > * {
+    padding: 0.8rem 0.75rem;
+    border-top: 1px solid var(--color-rule);
+    vertical-align: top;
+  }
+
+  .rk tr.row:hover > * {
+    background: #fafbfe;
+  }
+
+  .rk tr.band th {
+    padding: 0.55rem 1.25rem;
+  }
+
+  .rk tr.band span {
+    margin-left: 0.5rem;
+  }
+
+  .rk thead th:first-child,
+  .rk tr.row > :first-child {
+    padding-left: 1.25rem;
+  }
+
+  .rk thead th:last-child,
+  .rk tr.row > :last-child {
+    padding-right: 1.25rem;
+  }
+
+  .rk td.rank {
+    width: 6.5rem;
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+
+  .rk td.rank.band {
+    font-size: 0.95rem;
+    padding-top: 1rem;
+  }
+
+  .rk th.name {
+    font-weight: 400;
+  }
+
+  .rk td.city,
+  .rk td.state,
+  .rk td.own,
+  .rk td.score {
+    color: var(--color-ink-soft);
+  }
+
+  .rk .right {
+    text-align: right;
+  }
+
+  .rk td.score {
+    font-weight: 700;
+  }
+}
