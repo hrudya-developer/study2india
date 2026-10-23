@@ -103,6 +103,23 @@ export const institutions = mysqlTable(
   (t) => [index("institutions_state_idx").on(t.stateCode), index("institutions_status_idx").on(t.status), index("institutions_name_idx").on(t.name)],
 );
 
+/**
+ * Slugs an institution was published under before it was merged into another record. The college
+ * page answers an old slug with a permanent redirect to the institution's current slug, so links
+ * and search results keep working.
+ */
+export const slugRedirects = mysqlTable(
+  "slug_redirects",
+  {
+    oldSlug: varchar("old_slug", { length: 120 }).primaryKey(),
+    institutionId: int("institution_id")
+      .notNull()
+      .references(() => institutions.id, { onDelete: "cascade" }),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+  },
+  (t) => [index("slug_redirects_institution_idx").on(t.institutionId)],
+);
+
 /** Codes other bodies use for the same institution (NIRF IR code, AISHE code, NMC id). */
 export const institutionIdentifiers = mysqlTable(
   "institution_identifiers",

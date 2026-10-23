@@ -107,6 +107,18 @@ type NirfFile = {
   rows: NirfRow[];
 };
 
+/**
+ * The first of base, base-2, base-3... that no institution uses and that is not an old slug kept
+ * as a redirect, so a URL that once named one college never starts showing another.
+ */
+async function freeSlug(base: string) {
+  let slug = base;
+  for (let n = 2; (await rows(sql`select 1 from institutions where slug = ${slug} union all select 1 from slug_redirects where old_slug = ${slug} limit 1`)).length; n++) {
+    slug = `${base}-${n}`;
+  }
+  return slug;
+}
+
 async function findOrCreateInstitution(r: NirfRow, sourceId: number) {
   const db = getDb();
   const nirfId = r.institute_id?.trim() || null;
@@ -135,8 +147,7 @@ async function findOrCreateInstitution(r: NirfRow, sourceId: number) {
   let id = byName?.id;
   if (!id) {
     const base = slugify(`${name} ${r.city ?? ""}`);
-    let slug = base;
-    for (let n = 2; (await db.select({ id: institutions.id }).from(institutions).where(eq(institutions.slug, slug)))[0]; n++) slug = `${base}-${n}`;
+    const slug = await freeSlug(base);
     const [res] = await db
       .insert(institutions)
       .values({ slug, name, city, district: normaliseDistrict(code, city, { asCity: true }), stateCode: code, status: "published", sourceId })
@@ -259,8 +270,7 @@ async function nmcInstitution(r: NmcCollege, sourceId: number, medical: number |
   if (!id) {
     const name = r.name.trim().replace(/\s+/g, " ");
     const base = slugify(name);
-    let slug = base;
-    for (let n = 2; (await db.select({ id: institutions.id }).from(institutions).where(eq(institutions.slug, slug)))[0]; n++) slug = `${base}-${n}`;
+    const slug = await freeSlug(base);
     const [res] = await db
       .insert(institutions)
       .values({
@@ -424,6 +434,13 @@ const COUNCIL_LOADER_VERSION = 4;
  */
 async function mergeInstitution(fromId: number, intoId: number) {
   const db = getDb();
+  // The removed record's slug, and any old slugs that already led to it, now lead to the record it
+  // was merged into, so published links answer with a redirect instead of a 404. Re-pointing first
+  // means a redirect always names a live record and chains never form.
+  await db.execute(sql`update slug_redirects set institution_id = ${intoId} where institution_id = ${fromId}`);
+  await db.execute(sql`insert into slug_redirects (old_slug, institution_id)
+    select slug, ${intoId} from institutions where id = ${fromId}
+    on duplicate key update institution_id = values(institution_id)`);
   await db.execute(sql`update ignore institution_identifiers set institution_id = ${intoId} where institution_id = ${fromId}`);
   await db.execute(sql`update ignore institution_streams set institution_id = ${intoId} where institution_id = ${fromId}`);
   await db.execute(sql`update ignore rankings set institution_id = ${intoId} where institution_id = ${fromId}`);
@@ -474,8 +491,7 @@ export async function seedCouncils(streamIds: Map<string, number>, log: (m: stri
         // The slug keeps the council's own spelling, so slugs match those of databases loaded earlier.
         const own = slugify(name);
         const base = r.district && !own.endsWith(slugify(r.district)) ? slugify(`${name} ${r.district}`) : own;
-        let slug = base;
-        for (let n = 2; (await db.select({ id: institutions.id }).from(institutions).where(eq(institutions.slug, slug)))[0]; n++) slug = `${base}-${n}`;
+        const slug = await freeSlug(base);
         const [res] = await db
           .insert(institutions)
           .values({ slug, name, address: r.address, district, city: r.city ?? null, pin: r.pin && /^\d{6}$/.test(r.pin) ? r.pin : null, stateCode: code, ownership: r.ownership ?? null, affiliatingUniversity: r.university ?? null, status: "published", sourceId })
