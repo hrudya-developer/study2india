@@ -1,5 +1,6 @@
 import { sql } from "drizzle-orm";
 import { rows } from "@/lib/db";
+import { EXAMS, examStateNames, type ExamField } from "@/data/reference";
 
 export type HomeCounts = {
   institutions: number;
@@ -159,7 +160,13 @@ export type ExamSummary = {
   level: string;
   url: string | null;
   streams: string[];
+  /** From data/reference.ts: the field it is listed under, the states a state exam serves, and whether it is counselling only. */
+  field: ExamField;
+  states: string[];
+  counsellingOnly: boolean;
 };
+
+const examSeeds = new Map(EXAMS.map((e) => [e.slug, e]));
 
 export async function getExams(): Promise<ExamSummary[]> {
   const [list, links] = await Promise.all([
@@ -178,6 +185,9 @@ export async function getExams(): Promise<ExamSummary[]> {
     level: e.level,
     url: e.official_url,
     streams: links.filter((l) => l.exam_id === e.id).map((l) => l.name),
+    field: examSeeds.get(e.slug)?.field ?? "general",
+    states: examStateNames(examSeeds.get(e.slug)),
+    counsellingOnly: !!examSeeds.get(e.slug)?.counsellingOnly,
   }));
 }
 

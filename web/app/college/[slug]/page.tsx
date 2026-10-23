@@ -468,7 +468,7 @@ export default async function CollegePage({ params }: Props) {
                             {e.short}
                           </Link>
                           <span className="shrink-0 rounded bg-band px-2 py-0.5 text-[0.75rem] font-bold text-ink-soft">
-                            {e.level}, {e.forLevel}
+                            {e.level === "University" ? "Institute" : e.level}, {e.forLevel}
                           </span>
                         </div>
                         <p className="mt-0.5 text-[0.88rem] text-ink-soft">{e.name}</p>

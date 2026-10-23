@@ -38,10 +38,21 @@ export default async function CoursePage({ params }: Props) {
   const options = await getSearchOptions();
   const predictor = own(NEET_PREDICTOR, c.slug);
 
+  const allIndiaExams = c.exams.filter((e) => e.level !== "State");
+  const stateExams = c.exams.filter((e) => e.level === "State");
+  const examFact = c.exams.length
+    ? [
+        allIndiaExams.map((e) => e.short).join(", "),
+        stateExams.length ? `${allIndiaExams.length ? "plus " : ""}${stateExams.length} state ${stateExams.length === 1 ? "exam" : "exams"}` : "",
+      ]
+        .filter(Boolean)
+        .join(", ")
+    : null;
+
   const facts = [
     { icon: GraduationCap, k: "Level", v: LEVEL_LABEL[c.level] ?? c.level },
     { icon: Clock, k: "Duration", v: c.duration },
-    { icon: Target, k: "Entrance exams", v: c.exams.length ? c.exams.map((e) => e.short).join(", ") : null },
+    { icon: Target, k: "Entrance exams", v: examFact },
     { icon: Layers, k: "Field of study", v: c.streamName },
   ];
 
@@ -111,22 +122,44 @@ export default async function CoursePage({ params }: Props) {
             {c.exams.length ? (
               <section className="card p-5 sm:p-6">
                 <h2 className="text-2xl font-bold">Entrance exams for {c.short}</h2>
-                <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-                  {c.exams.map((e) => (
-                    <li key={e.slug} className="rounded-xl border border-rule p-4">
-                      <Link href={`/exam/${e.slug}`} className="text-lg font-bold hover:text-brand-hover">
-                        {e.short}
-                      </Link>
-                      <p className="text-[0.9rem] text-muted">{e.body}</p>
-                      {e.url ? (
-                        <a href={e.url} target="_blank" rel="noopener" className="mt-2 inline-flex items-center gap-1 text-[0.9rem] text-ink-soft hover:text-ink">
-                          Official site <ExternalLink size={14} aria-hidden="true" />
-                        </a>
-                      ) : null}
-                    </li>
+                {[
+                  { key: "all-india", title: stateExams.length ? "National and institute exams" : null, items: allIndiaExams },
+                  { key: "state", title: "State exams, for colleges in that state only", items: stateExams },
+                ]
+                  .filter((g) => g.items.length)
+                  .map((g) => (
+                    <div key={g.key} className="mt-4">
+                      {g.title ? <h3 className="text-lg font-bold">{g.title}</h3> : null}
+                      <ul className={`${g.title ? "mt-3" : ""} grid gap-3 sm:grid-cols-2`}>
+                        {g.items.map((e) => (
+                          <li key={e.slug} className="rounded-xl border border-rule p-4">
+                            <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+                              <Link href={`/exam/${e.slug}`} className="text-lg font-bold hover:text-brand-hover">
+                                {e.short}
+                              </Link>
+                              {e.states.length ? (
+                                <span className="rounded bg-verified-bg px-2 py-0.5 text-[0.78rem] font-bold text-verified">{e.states.join(", ")}</span>
+                              ) : e.level === "University" ? (
+                                <span className="rounded bg-band px-2 py-0.5 text-[0.78rem] font-bold text-ink-soft">Institute exam</span>
+                              ) : null}
+                            </div>
+                            <p className="text-[0.9rem] text-muted">
+                              {e.body}
+                              {e.counsellingOnly ? ". Counselling on Class 12 marks, no entrance test" : ""}
+                            </p>
+                            {e.url ? (
+                              <a href={e.url} target="_blank" rel="noopener" className="mt-2 inline-flex items-center gap-1 text-[0.9rem] text-ink-soft hover:text-ink">
+                                Official site <ExternalLink size={14} aria-hidden="true" />
+                              </a>
+                            ) : null}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   ))}
-                </ul>
-                <p className="mt-3 text-[0.9rem] text-muted">Which exam applies depends on the college and the quota. A counsellor can check this for your case.</p>
+                <p className="mt-3 text-[0.9rem] text-muted">
+                  Which exam applies depends on the college and the quota. A state exam is used only by colleges in its state, and an institute exam only by that institute. A counsellor can check this for your case.
+                </p>
               </section>
             ) : null}
 

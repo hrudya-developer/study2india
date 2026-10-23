@@ -5,6 +5,7 @@ import { CONTACT, STREAMS, EXAMS } from "@/data/reference";
 import { slugify } from "@/lib/slug";
 import { landingPath } from "@/lib/seo";
 import { POPULAR_STATES } from "@/components/site-header";
+import { FEATURED_EXAMS, examBySlug, pick } from "@/components/nav-data";
 
 const FOOTER_COURSES = ["mbbs", "bds", "bsc-nursing", "gnm", "bams", "bhms", "b-pharm", "bpt", "btech", "diploma-engineering", "mba", "bba", "ba-llb", "barch", "bca", "bcom"];
 
@@ -138,13 +139,18 @@ export function SiteFooter() {
           <div>
             <h2 className={head}>Entrance exams</h2>
             <ul className={list}>
-              {EXAMS.map((e) => (
+              {pick(examBySlug, FEATURED_EXAMS).map((e) => (
                 <li key={e.slug}>
                   <Link href={`/exam/${e.slug}`} className={link}>
                     {e.short}
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link href="/exams" className={link}>
+                  All {EXAMS.length} exams
+                </Link>
+              </li>
             </ul>
             <h2 className={`${head} mt-8`}>Study2India</h2>
             <ul className={list}>

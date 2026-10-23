@@ -10,6 +10,7 @@ import { FieldIcon } from "@/components/field-icon";
 import { SentenceSelect } from "@/components/sentence-select";
 import { SearchBox } from "@/components/search-box";
 import { POPULAR_STATES } from "@/components/site-header";
+import { FEATURED_EXAMS } from "@/components/nav-data";
 import { CONTACT } from "@/data/reference";
 import { slugify } from "@/lib/slug";
 
@@ -82,7 +83,9 @@ export default async function HomePage() {
 
   const popular = POPULAR_COURSES.map((s) => courses.find((c) => c.slug === s)).filter((c): c is NonNullable<typeof c> => !!c);
   const stateCount = new Map(stateCounts.map((s) => [s.slug, s.institutions]));
-  const examsByStream = (streamName: string) => exams.filter((e) => e.streams.includes(streamName)).map((e) => e.short);
+  // Course cards name national exams only; state and institute exams apply to some colleges only.
+  const examsByStream = (streamName: string) => exams.filter((e) => e.level === "National" && e.streams.includes(streamName)).map((e) => e.short);
+  const featuredExams = FEATURED_EXAMS.map((s) => exams.find((e) => e.slug === s)).filter((e): e is NonNullable<typeof e> => !!e);
   const checked = formatDate(coverage.lastChecked);
 
   // Each course in the three states our students most often choose, ordered course by course.
@@ -365,9 +368,9 @@ export default async function HomePage() {
       {/* Exams */}
       <section className="mt-12 bg-band py-12 sm:mt-16 sm:py-16" aria-labelledby="exams-title">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <SectionHead id="exams-title" title="Entrance exams" intro="Dates appear only once the conducting body announces them. Until then, follow the official site." href="/exams" cta="All exams" />
+          <SectionHead id="exams-title" title="Entrance exams" intro="Dates appear only once the conducting body announces them. Until then, follow the official site." href="/exams" cta={`All ${exams.length} exams`} />
           <ul className={`${rowList} sm:grid-cols-2 lg:grid-cols-3`}>
-            {exams.map((e) => (
+            {featuredExams.map((e) => (
               <li key={e.slug} className={`card flex flex-col p-4 sm:p-5 ${rowItem}`}>
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
@@ -379,7 +382,7 @@ export default async function HomePage() {
                     <p className="mt-0.5 text-[0.86rem] leading-snug text-muted">{e.name}</p>
                   </div>
                   <span className={`shrink-0 rounded px-2 py-0.5 text-[0.78rem] font-bold ${e.level === "State" ? "bg-verified-bg text-verified" : "bg-[#e9edff] text-ink-2"}`}>
-                    {e.level === "State" ? "State" : "National"}
+                    {e.level === "State" ? e.states.join(", ") || "State" : e.level === "University" ? "Institute" : "National"}
                   </span>
                 </div>
                 <p className="mt-2 text-[0.88rem] text-ink-soft">{e.body}</p>

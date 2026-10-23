@@ -234,7 +234,12 @@ export default async function CoursesPage({ searchParams }: Props) {
             {groups.length ? (
               <div className="mt-8 space-y-10">
                 {groups.map((g) => {
-                  const ex = exams.filter((e) => e.streams.includes(g.name)).map((e) => e.short);
+                  const inField = exams.filter((e) => e.streams.includes(g.name));
+                  const others = inField.filter((e) => e.level !== "National").length;
+                  const ex = [
+                    ...inField.filter((e) => e.level === "National").map((e) => e.short),
+                    ...(others ? [`${others} state and institute ${others === 1 ? "exam" : "exams"}`] : []),
+                  ];
                   const cover = seatCoverage(g.items);
                   const partial = cover.recorded < cover.offerings;
                   const seatText =

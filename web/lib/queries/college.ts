@@ -2,6 +2,7 @@ import { cache } from "react";
 import { sql, type SQL } from "drizzle-orm";
 import { rows } from "@/lib/db";
 import { CURRENT_OFFERING, publisherShort } from "@/lib/queries/colleges";
+import { EXAMS } from "@/data/reference";
 
 function parseJson<T>(v: unknown, fallback: T): T {
   if (v === null || v === undefined) return fallback;
@@ -89,22 +90,53 @@ const src = (r: SrcRow): SourceRef | null => (r.s_publisher ? { publisher: r.s_p
  * only for the IITs; the rest when the college teaches the exam's field at the matching level.
  * The page says these are the exams for the field, not that this college uses them.
  */
-const EXAM_RULES: Record<string, { levels: string[]; state?: string; namePattern?: RegExp }> = {
-  "neet-ug": { levels: ["ug", "integrated"] },
-  "neet-pg": { levels: ["pg"] },
-  "neet-mds": { levels: ["pg"] },
-  "jee-main": { levels: ["ug", "integrated"] },
-  "jee-advanced": { levels: ["ug", "integrated"], namePattern: /Indian Institute of Technology/i },
-  gate: { levels: ["pg", "doctorate"] },
-  keam: { levels: ["ug", "integrated"], state: "KL" },
-  kcet: { levels: ["ug", "integrated"], state: "KA" },
-  "cuet-ug": { levels: ["ug", "integrated"] },
-  cat: { levels: ["pg"] },
-  clat: { levels: ["ug", "integrated", "pg"] },
-  nata: { levels: ["ug"] },
-  uceed: { levels: ["ug"] },
-  "nchm-jee": { levels: ["ug"] },
-  gpat: { levels: ["pg"] },
+const EXAM_LEVELS: Record<string, string[]> = {
+  "neet-ug": ["ug", "integrated"],
+  "neet-pg": ["pg"],
+  "neet-mds": ["pg"],
+  "jee-main": ["ug", "integrated"],
+  "jee-advanced": ["ug", "integrated"],
+  gate: ["pg", "doctorate"],
+  keam: ["ug", "integrated"],
+  kcet: ["ug", "integrated"],
+  "cuet-ug": ["ug", "integrated"],
+  cat: ["pg"],
+  clat: ["ug", "integrated", "pg"],
+  nata: ["ug"],
+  uceed: ["ug"],
+  "nchm-jee": ["ug"],
+  gpat: ["pg"],
+  "mht-cet": ["ug", "integrated"],
+  "ap-eapcet": ["ug", "integrated"],
+  "ts-eapcet": ["ug", "integrated"],
+  wbjee: ["ug", "integrated"],
+  "comedk-uget": ["ug"],
+  tnea: ["ug"],
+  gujcet: ["ug"],
+  bitsat: ["ug", "integrated"],
+  viteee: ["ug"],
+  srmjeee: ["ug"],
+  met: ["ug"],
+  "ini-cet": ["pg"],
+  "aiims-nursing": ["ug", "pg"],
+  xat: ["pg"],
+  mat: ["pg"],
+  cmat: ["pg"],
+  nmat: ["pg"],
+  snap: ["pg"],
+  "ipmat-indore": ["ug", "integrated"],
+  "mah-mba-cet": ["pg"],
+  ailet: ["ug", "integrated", "pg"],
+  "lsat-india": ["ug", "integrated", "pg"],
+  "mh-cet-law": ["ug", "integrated"],
+  "nid-dat": ["ug", "pg"],
+  nift: ["ug", "pg"],
+  nest: ["ug", "integrated"],
+  "iiser-iat": ["ug", "integrated"],
+  "cuet-pg": ["pg"],
+  "icar-aieea-pg": ["pg"],
+  ncet: ["ug", "integrated"],
+  ojee: ["ug", "pg"],
 };
 
 /**
@@ -124,6 +156,14 @@ export const getRedirectedSlug = cache(async (slug: string): Promise<string | nu
     return null;
   }
 });
+
+/** Course levels, state codes and institution names from data/reference.ts. JEE Advanced is shown only for the IITs. */
+const EXAM_RULES: Record<string, { levels: string[]; states?: string[]; namePattern?: RegExp }> = Object.fromEntries(
+  EXAMS.filter((e) => EXAM_LEVELS[e.slug]).map((e) => [
+    e.slug,
+    { levels: EXAM_LEVELS[e.slug], states: e.states, namePattern: e.slug === "jee-advanced" ? /Indian Institute of Technology/i : e.institutions },
+  ]),
+);
 
 /** One database read per request: generateMetadata and the page both ask for the same college. */
 export const getCollege = cache(loadCollege);
@@ -218,7 +258,7 @@ async function loadCollege(slug: string): Promise<CollegeDetail | null> {
     .filter((e) => {
       const rule = EXAM_RULES[e.slug];
       if (!rule) return e.level === "National";
-      if (rule.state && rule.state !== stateCode) return false;
+      if (rule.states?.length && !(stateCode && rule.states.includes(stateCode))) return false;
       if (rule.namePattern && !rule.namePattern.test(name)) return false;
       // With no course list loaded we cannot tell UG from PG, so keep the exam.
       return !levels.size || rule.levels.some((l) => levels.has(l));
