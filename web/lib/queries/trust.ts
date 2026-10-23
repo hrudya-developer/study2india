@@ -26,14 +26,24 @@ export type Coverage = {
   lastChecked: string | null;
 };
 
-const SCHEMES: { scheme: string; publisher: string; short: string; regulator: string; covers: string }[] = [
+/**
+ * One entry per official list. `publisher` matches sources.publisher exactly, or as the start of a
+ * longer name ("Dental Council of India (National Dental Commission)"). `url`, when set, is the
+ * list's public page and is linked instead of the file we loaded.
+ */
+const SCHEMES: { scheme: string; publisher: string; short: string; regulator: string; covers: string; url?: string }[] = [
   { scheme: "aicte", publisher: "All India Council for Technical Education", short: "AICTE", regulator: "All India Council for Technical Education", covers: "engineering, management, pharmacy and other technical institutes" },
   { scheme: "nmc", publisher: "National Medical Commission", short: "NMC", regulator: "National Medical Commission", covers: "medical colleges teaching MBBS and PG courses" },
   { scheme: "inc", publisher: "Indian Nursing Council", short: "INC", regulator: "Indian Nursing Council", covers: "nursing institutions found suitable by the council" },
   { scheme: "ncism", publisher: "National Commission for Indian System of Medicine", short: "NCISM", regulator: "National Commission for Indian System of Medicine", covers: "Ayurveda, Unani and Siddha colleges" },
   { scheme: "nch", publisher: "National Commission for Homoeopathy", short: "NCH", regulator: "National Commission for Homoeopathy", covers: "homoeopathy colleges" },
+  { scheme: "pci", publisher: "Pharmacy Council of India", short: "PCI", regulator: "Pharmacy Council of India", covers: "pharmacy institutions approved by the council", url: "https://pci.gov.in/en/approved-institute/" },
+  { scheme: "dci", publisher: "Dental Council of India", short: "DCI", regulator: "Dental Council of India", covers: "dental colleges teaching BDS and MDS", url: "https://dciindia.gov.in/CollegeSearch.aspx" },
+  { scheme: "vci", publisher: "Veterinary Council of India", short: "VCI", regulator: "Veterinary Council of India", covers: "veterinary colleges recognised by the council", url: "https://vci.dahd.gov.in/list-of-college" },
   { scheme: "nirf", publisher: "NIRF, Ministry of Education", short: "NIRF", regulator: "National Institutional Ranking Framework", covers: "institutions ranked by the Ministry of Education" },
 ];
+
+const samePublisher = (name: string, publisher: string) => name === publisher || name.startsWith(`${publisher} (`);
 
 export async function getCoverage(): Promise<Coverage> {
   const [ids, srcs, totals] = await Promise.all([
@@ -45,18 +55,35 @@ export async function getCoverage(): Promise<Coverage> {
     rows<{ publisher: string; lists: unknown; url: string | null; checked_on: string | null }>(sql`
       select publisher, count(*) as lists, min(url) as url, max(retrieved_on) as checked_on from sources group by publisher
     `),
+    // Seats follow the course pages and /courses: one offering per institution and course, from the
+    // latest academic year it appears in (a missing year sorts last), with branch seats summed when
+    // the offering has no total.
     rows<{ institutions: unknown; with_seats: unknown; seats: unknown; last_checked: string | null }>(sql`
+      with off as (
+        select o.institution_id,
+          coalesce(o.seats, (select sum(b.seats) from offering_branches b where b.offering_id = o.id)) as seats,
+          row_number() over (partition by o.institution_id, o.course_id order by o.academic_year is null, o.academic_year desc, o.id desc) as rn
+        from offerings o join institutions i on i.id = o.institution_id
+        where i.status = 'published'
+      )
       select
         (select count(*) from institutions where status = 'published') as institutions,
-        (select count(distinct o.institution_id) from offerings o join institutions i on i.id = o.institution_id
-          where i.status = 'published' and o.seats is not null) as with_seats,
-        (select coalesce(sum(o.seats), 0) from offerings o join institutions i on i.id = o.institution_id
-          where i.status = 'published') as seats,
+        (select count(distinct off.institution_id) from off where off.rn = 1 and off.seats is not null) as with_seats,
+        (select coalesce(sum(off.seats), 0) from off where off.rn = 1) as seats,
         (select max(retrieved_on) from sources) as last_checked
     `),
   ]);
   const idCount = new Map(ids.map((r) => [r.scheme, Number(r.n)]));
-  const src = new Map(srcs.map((r) => [r.publisher, r]));
+  // Several lists can share a publisher's name prefix, so pool them per scheme.
+  const sourceFor = (publisher: string) => {
+    const matched = srcs.filter((r) => samePublisher(r.publisher, publisher));
+    if (!matched.length) return null;
+    return {
+      lists: matched.reduce((n, r) => n + Number(r.lists), 0),
+      url: matched.map((r) => r.url).find(Boolean) ?? null,
+      checkedOn: matched.map((r) => r.checked_on).filter((d): d is string => !!d).sort().at(-1) ?? null,
+    };
+  };
   const t = totals[0];
   return {
     institutions: Number(t?.institutions ?? 0),
@@ -64,16 +91,16 @@ export async function getCoverage(): Promise<Coverage> {
     seats: Number(t?.seats ?? 0),
     lastChecked: t?.last_checked ?? null,
     sources: SCHEMES.map((s) => {
-      const r = src.get(s.publisher);
+      const r = sourceFor(s.publisher);
       return {
         scheme: s.scheme,
         regulator: s.regulator,
         short: s.short,
         covers: s.covers,
         institutions: idCount.get(s.scheme) ?? 0,
-        lists: Number(r?.lists ?? 0),
-        url: r?.url?.split(" ")[0] ?? null,
-        checkedOn: r?.checked_on ?? null,
+        lists: r?.lists ?? 0,
+        url: s.url ?? r?.url?.split(" ")[0] ?? null,
+        checkedOn: r?.checkedOn ?? null,
       };
     }).filter((s) => s.institutions > 0 || s.lists > 0),
   };

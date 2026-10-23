@@ -14,7 +14,24 @@ function examsForCourse(exams: ExamSummary[], c: CourseLite) {
   });
 }
 
-export type CourseStateRow = { slug: string; name: string; colleges: number; seats: number | null };
+/**
+ * The site's coverage rule for a figure that only some colleges have: a total or count is shown
+ * only when at least half of the colleges have the value recorded. Below that the figure would
+ * mostly reflect what is missing, so pages show "Not recorded" and how many colleges have it.
+ */
+export function mostlyRecorded(recorded: number, total: number) {
+  return total > 0 && recorded * 2 >= total;
+}
+
+export type CourseStateRow = {
+  slug: string;
+  name: string;
+  colleges: number;
+  /** Colleges in the state with a seat figure. */
+  collegesWithSeats: number;
+  /** Sum of approved seats; null unless at least half of the state's colleges have a figure. */
+  seats: number | null;
+};
 export type CourseOwnershipRow = { key: string; label: string; colleges: number };
 export type CourseSeatSource = { publisher: string; title: string | null; url: string | null; retrievedOn: string };
 
@@ -23,7 +40,7 @@ export type CourseStats = {
   colleges: number;
   /** Colleges whose offering has an approved intake figure (on the offering or summed from its branches). */
   collegesWithSeats: number;
-  /** Sum of approved intake where recorded; null when no college has a figure. */
+  /** Sum of approved intake where recorded; null unless at least half of the colleges have a figure (see mostlyRecorded). */
   seats: number | null;
   states: number;
   /** Colleges with no state recorded, so they are missing from the state table. */
@@ -31,7 +48,8 @@ export type CourseStats = {
   /** Academic years the counted offerings come from, most recent first. */
   years: { year: string | null; colleges: number }[];
   byState: CourseStateRow[];
-  ownership: { government: number; private: number; others: CourseOwnershipRow[]; notRecorded: number };
+  /** Colleges by ownership as the regulator records it; `recorded` is every college with an ownership value. */
+  ownership: { government: number; private: number; others: CourseOwnershipRow[]; notRecorded: number; recorded: number };
   sources: CourseSeatSource[];
 };
 
@@ -124,7 +142,7 @@ async function getCourseStats(slug: string): Promise<CourseStats> {
   let collegesWithSeats = 0;
   let seats = 0;
   let collegesWithoutState = 0;
-  const states = new Map<string, CourseStateRow & { withSeats: number }>();
+  const states = new Map<string, { slug: string; name: string; colleges: number; seats: number; withSeats: number }>();
   const years = new Map<string | null, number>();
   const owners = new Map<string | null, number>();
 
@@ -143,13 +161,13 @@ async function getCourseStats(slug: string): Promise<CourseStats> {
     }
     const row = states.get(g.state_slug) ?? { slug: g.state_slug, name: g.state_name, colleges: 0, seats: 0, withSeats: 0 };
     row.colleges += n;
-    row.seats = (row.seats ?? 0) + s;
+    row.seats += s;
     row.withSeats += withSeats;
     states.set(g.state_slug, row);
   }
 
-  const byState = [...states.values()]
-    .map(({ withSeats, ...r }) => ({ ...r, seats: withSeats ? r.seats : null }))
+  const byState: CourseStateRow[] = [...states.values()]
+    .map(({ withSeats, ...r }) => ({ ...r, collegesWithSeats: withSeats, seats: mostlyRecorded(withSeats, r.colleges) ? r.seats : null }))
     .sort((a, b) => (b.seats ?? -1) - (a.seats ?? -1) || b.colleges - a.colleges || a.name.localeCompare(b.name));
 
   const others = [...owners.entries()]
@@ -160,7 +178,7 @@ async function getCourseStats(slug: string): Promise<CourseStats> {
   return {
     colleges,
     collegesWithSeats,
-    seats: collegesWithSeats ? seats : null,
+    seats: mostlyRecorded(collegesWithSeats, colleges) ? seats : null,
     states: byState.length,
     collegesWithoutState,
     years: [...years.entries()]
@@ -172,6 +190,7 @@ async function getCourseStats(slug: string): Promise<CourseStats> {
       private: owners.get("private") ?? 0,
       others,
       notRecorded: owners.get(null) ?? 0,
+      recorded: colleges - (owners.get(null) ?? 0),
     },
     sources: sources.map((s) => ({ publisher: s.publisher, title: s.title, url: s.url, retrievedOn: s.retrieved_on })),
   };

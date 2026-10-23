@@ -11,7 +11,8 @@ function NotRecorded() {
 
 /** One course on the index: the title link covers the card, the colleges link sits above it. */
 export function CourseCard({ c }: { c: CourseIndexItem }) {
-  const partialSeats = c.seats !== null && c.collegesWithSeats < c.colleges;
+  // c.seats is already null when fewer than half of the colleges have a figure; say how many do whenever coverage is partial.
+  const partialSeats = c.collegesWithSeats > 0 && c.collegesWithSeats < c.colleges;
 
   return (
     <li className="card card-link relative flex flex-col p-4 sm:p-5">
@@ -49,7 +50,7 @@ export function CourseCard({ c }: { c: CourseIndexItem }) {
       </dl>
       {partialSeats ? (
         <p className="tabular mt-1 text-[0.8rem] text-muted">
-          Seats recorded for {num(c.collegesWithSeats)} of {num(c.colleges)} colleges
+          Seats recorded for {num(c.collegesWithSeats)} of {num(c.colleges)} {c.colleges === 1 ? "college" : "colleges"}
         </p>
       ) : null}
 
