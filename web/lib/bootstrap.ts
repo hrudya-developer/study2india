@@ -1,11 +1,21 @@
 import { createHash } from "node:crypto";
-import { and, eq, sql } from "drizzle-orm";
+import { and, eq, sql, type SQL } from "drizzle-orm";
 import { getDb, getPool, rows, schema } from "@/lib/db";
 import { MIGRATIONS } from "@/lib/db/migrations.generated";
 import { NIRF_FILES, NMC_FILES, NMC_LINKS, COUNCIL_FILES } from "@/lib/db/seed-data.generated";
 import { STATES, STATE_ALIASES, STREAMS, EXAMS, NIRF_CATEGORY_STREAM } from "@/data/reference";
 import { slugify } from "@/lib/slug";
-import { DISTRICT_NORMALISER_VERSION, isOfficialDistrict, matchDistrict, normaliseDistrict, type DistrictMatch } from "@/lib/districts";
+import {
+  DISTRICT_NORMALISER_VERSION,
+  isOfficialDistrict,
+  matchDistrict,
+  normaliseDistrict,
+  placeFromAddress,
+  placeFromCollegeName,
+  type DistrictMatch,
+  type TextPlace,
+  type TextPlaceMethod,
+} from "@/lib/districts";
 import { AMBIGUOUS_DISTRICTS, CITIES_SPANNING_DISTRICTS, DISTRICTS, DISTRICT_ALIASES, DISTRICT_TOWNS } from "@/data/districts";
 import { seedReferenceExtras } from "@/lib/seed/reference-extras";
 import { seedCutoffs } from "@/lib/seed/cutoffs";
@@ -267,6 +277,9 @@ async function nmcInstitution(r: NmcCollege, sourceId: number, medical: number |
   let id = await identifierOwner("nmc", r.code);
   if (!id && NMC_LINKS[r.code]) id = await identifierOwner("nirf", NMC_LINKS[r.code]);
   let created = false;
+  // NMC's lists have no address column; the town is read from the college's name ("Government
+  // Medical College, Ernakulam") and placed through the district normaliser.
+  const place = placeFromCollegeName(stateCode(r.state), r.name);
   if (!id) {
     const name = r.name.trim().replace(/\s+/g, " ");
     const base = slugify(name);
@@ -276,6 +289,8 @@ async function nmcInstitution(r: NmcCollege, sourceId: number, medical: number |
       .values({
         slug,
         name,
+        city: place.city,
+        district: place.district,
         stateCode: stateCode(r.state),
         ownership: NMC_OWNERSHIP[r.management] ?? null,
         establishedYear: r.established ?? null,
@@ -291,7 +306,9 @@ async function nmcInstitution(r: NmcCollege, sourceId: number, medical: number |
     await db.execute(sql`update institutions set
       ownership = coalesce(ownership, ${NMC_OWNERSHIP[r.management] ?? null}),
       established_year = coalesce(established_year, ${r.established ?? null}),
-      affiliating_university = coalesce(affiliating_university, ${r.university})
+      affiliating_university = coalesce(affiliating_university, ${r.university}),
+      district = coalesce(district, ${place.district}),
+      city = coalesce(nullif(city, ''), ${place.city})
       where id = ${id}`);
   }
   // Being on an NMC list is the commission's permission to admit students to those courses.
@@ -429,6 +446,18 @@ type CouncilFile = {
 const COUNCIL_LOADER_VERSION = 4;
 
 /**
+ * Lists whose rows carry an address but neither a district nor a town column, so the town and
+ * district are read from the address line. NCH only: the other lists give a district or city
+ * column, and PCI's free-text addresses have not been audited for this.
+ */
+const ADDRESS_PLACE_COUNCILS = new Set(["NCH"]);
+
+function addressPlace(council: string, r: CouncilRow): TextPlace | null {
+  if (!ADDRESS_PLACE_COUNCILS.has(council) || r.district?.trim() || r.city?.trim() || !r.address?.trim()) return null;
+  return placeFromAddress(stateCode(r.state), r.address, r.name);
+}
+
+/**
  * Moves everything recorded against one institution onto another and removes the first. Used when
  * a hand-checked link shows two records are the same institution.
  */
@@ -473,7 +502,10 @@ export async function seedCouncils(streamIds: Map<string, number>, log: (m: stri
       const code = stateCode(r.state);
       // Every district written goes through the normaliser: the official name, or null when the
       // council's value cannot be placed in one district (the raw text stays in data/councils).
-      const district = normaliseDistrict(code, r.district) ?? normaliseDistrict(code, r.city, { asCity: true });
+      // A list that prints only an address (NCH) gives its town and district from the address.
+      const fromAddress = addressPlace(data.council, r);
+      const district = normaliseDistrict(code, r.district) ?? normaliseDistrict(code, r.city, { asCity: true }) ?? fromAddress?.district ?? null;
+      const city = r.city ?? fromAddress?.city ?? null;
       let id = await identifierOwner(data.scheme, r.code);
       if (r.same_as) {
         const target = await identifierOwner(r.same_as.scheme, r.same_as.value);
@@ -494,7 +526,7 @@ export async function seedCouncils(streamIds: Map<string, number>, log: (m: stri
         const slug = await freeSlug(base);
         const [res] = await db
           .insert(institutions)
-          .values({ slug, name, address: r.address, district, city: r.city ?? null, pin: r.pin && /^\d{6}$/.test(r.pin) ? r.pin : null, stateCode: code, ownership: r.ownership ?? null, affiliatingUniversity: r.university ?? null, status: "published", sourceId })
+          .values({ slug, name, address: r.address, district, city, pin: r.pin && /^\d{6}$/.test(r.pin) ? r.pin : null, stateCode: code, ownership: r.ownership ?? null, affiliatingUniversity: r.university ?? null, status: "published", sourceId })
           .$returningId();
         id = res.id;
         created++;
@@ -504,7 +536,7 @@ export async function seedCouncils(streamIds: Map<string, number>, log: (m: stri
           ownership = coalesce(ownership, ${r.ownership ?? null}),
           address = coalesce(address, ${r.address}),
           district = coalesce(district, ${district}),
-          city = coalesce(city, ${r.city ?? null}),
+          city = coalesce(nullif(city, ''), ${city}),
           pin = coalesce(pin, ${r.pin && /^\d{6}$/.test(r.pin) ? r.pin : null}),
           affiliating_university = coalesce(affiliating_university, ${r.university ?? null})
           where id = ${id}`);
@@ -531,7 +563,9 @@ export async function seedCouncils(streamIds: Map<string, number>, log: (m: stri
             .from(offerings)
             .where(and(eq(offerings.institutionId, id), eq(offerings.courseId, courseId), eq(offerings.academicYear, year)));
           await db.delete(offeringBranches).where(and(eq(offeringBranches.offeringId, off.id), eq(offeringBranches.sourceId, sourceId)));
-          await db.insert(offeringBranches).values(o.branches.map((b) => ({ offeringId: off.id, name: b.name, seats: b.seats, sourceId })));
+          // A branch another list already gave for this offering (AICTE's intake, then JoSAA's
+          // seat matrix for the same B.Tech) keeps the first list's figure instead of failing the load.
+          await db.insert(offeringBranches).ignore().values(o.branches.map((b) => ({ offeringId: off.id, name: b.name, seats: b.seats, sourceId })));
         }
         offeringsLoaded++;
       }
@@ -541,6 +575,9 @@ export async function seedCouncils(streamIds: Map<string, number>, log: (m: stri
   }
 }
 
+/** Where a raw value came from: a council's district or city column, an address line, or a college name. */
+export type DistrictField = "district" | "city" | "address" | "name";
+
 /** One institution's district as the normaliser would set it, and the raw value it came from. */
 export type DistrictPlan = {
   id: number;
@@ -549,36 +586,60 @@ export type DistrictPlan = {
   next: string | null;
   /** The raw value that decided `next`, or the first one tried when none matched. */
   raw: string | null;
-  field: "district" | "city" | "kept" | null;
-  match: DistrictMatch | "kept" | null;
-  /** Every raw value for the institution, in order, with its result (for the audit report). */
-  tried: { raw: string; field: "district" | "city"; district: string | null; match: DistrictMatch }[];
+  field: DistrictField | "kept" | null;
+  match: DistrictMatch | "conflict" | "kept" | null;
+  /** The institution's city now, and the town to fill it with when it is empty. */
+  currentCity: string | null;
+  nextCity: string | null;
+  /** Every raw value for the institution, in order, with its result (for the audit reports). */
+  tried: {
+    raw: string;
+    field: DistrictField;
+    district: string | null;
+    match: DistrictMatch | "conflict" | null;
+    /** For an address or a name: how the place was read, the town found and the text that decided it. */
+    method?: TextPlaceMethod | null;
+    town?: string | null;
+    part?: string | null;
+  }[];
 };
 
 /**
  * Works out every institution's district from the raw values: each council list's district for
  * it (the embedded files keep the council's own text), then the institution's city, then the
- * councils' city values. The first value the normaliser can place wins. Without one, a district
- * that is already an official name is kept and anything else is cleared.
+ * councils' city values, then the town read from an address-only list's address (NCH), then the
+ * town read from the college's name on the NMC lists, which have no address column. The first
+ * value the normaliser can place wins. Without one, a district that is already an official name is
+ * kept and anything else is cleared. An empty city is filled with the town the address or name gave.
  */
 export async function planDistricts(): Promise<DistrictPlan[]> {
-  const schemes = [...new Set(COUNCIL_FILES.map((f) => (f.data as CouncilFile).scheme))];
+  const schemes = [...new Set(COUNCIL_FILES.map((f) => (f.data as CouncilFile).scheme)), "nmc"];
   const owner = new Map<string, number>();
-  if (schemes.length) {
-    const ids = await rows<{ scheme: string; value: string; institution_id: number }>(
-      sql`select scheme, value, institution_id from institution_identifiers where scheme in (${sql.join(schemes.map((s) => sql`${s}`), sql`, `)})`,
-    );
-    for (const r of ids) owner.set(`${r.scheme}\u0000${r.value}`, Number(r.institution_id));
-  }
+  const ids = await rows<{ scheme: string; value: string; institution_id: number }>(
+    sql`select scheme, value, institution_id from institution_identifiers where scheme in (${sql.join(schemes.map((s) => sql`${s}`), sql`, `)})`,
+  );
+  for (const r of ids) owner.set(`${r.scheme}\u0000${r.value}`, Number(r.institution_id));
+  const push = <T>(m: Map<number, T[]>, id: number, v: T) => (m.get(id) ?? m.set(id, []).get(id)!).push(v);
   const councilDistricts = new Map<number, string[]>();
   const councilCities = new Map<number, string[]>();
+  const addresses = new Map<number, { raw: string; place: TextPlace }[]>();
   for (const file of COUNCIL_FILES) {
     const data = file.data as CouncilFile;
     for (const r of data.rows) {
       const id = owner.get(`${data.scheme}\u0000${r.code}`);
       if (!id) continue;
-      if (r.district?.trim()) (councilDistricts.get(id) ?? councilDistricts.set(id, []).get(id)!).push(r.district);
-      if (r.city?.trim()) (councilCities.get(id) ?? councilCities.set(id, []).get(id)!).push(r.city);
+      if (r.district?.trim()) push(councilDistricts, id, r.district);
+      if (r.city?.trim()) push(councilCities, id, r.city);
+      const place = addressPlace(data.council, r);
+      if (place) push(addresses, id, { raw: r.address!, place });
+    }
+  }
+  const names = new Map<number, { raw: string; place: TextPlace }[]>();
+  for (const file of NMC_FILES) {
+    const list: NmcCollege[] = "course" in file.data ? (file.data as NmcUgFile).rows : (file.data as NmcPgFile).institutions;
+    for (const r of list) {
+      const id = owner.get(`nmc\u0000${r.code}`);
+      if (id) push(names, id, { raw: r.name, place: placeFromCollegeName(stateCode(r.state), r.name) });
     }
   }
   const list = await rows<{ id: number; state_code: string | null; district: string | null; city: string | null }>(
@@ -586,33 +647,41 @@ export async function planDistricts(): Promise<DistrictPlan[]> {
   );
   return list.map((i) => {
     const id = Number(i.id);
-    const candidates: { raw: string; field: "district" | "city" }[] = [
-      ...(councilDistricts.get(id) ?? []).map((raw) => ({ raw, field: "district" as const })),
-      ...(i.city?.trim() ? [{ raw: i.city, field: "city" as const }] : []),
-      ...(councilCities.get(id) ?? []).map((raw) => ({ raw, field: "city" as const })),
-    ];
     const tried: DistrictPlan["tried"] = [];
     const seen = new Set<string>();
-    for (const c of candidates) {
-      const k = `${c.field}\u0000${c.raw}`;
-      if (seen.has(k)) continue;
+    const add = (t: DistrictPlan["tried"][number]) => {
+      const k = `${t.field}\u0000${t.raw}`;
+      if (seen.has(k)) return;
       seen.add(k);
-      tried.push({ ...c, ...matchDistrict(i.state_code, c.raw, { asCity: c.field === "city" }) });
+      tried.push(t);
+    };
+    for (const raw of councilDistricts.get(id) ?? []) add({ raw, field: "district", ...matchDistrict(i.state_code, raw) });
+    if (i.city?.trim()) add({ raw: i.city, field: "city", ...matchDistrict(i.state_code, i.city, { asCity: true }) });
+    for (const raw of councilCities.get(id) ?? []) add({ raw, field: "city", ...matchDistrict(i.state_code, raw, { asCity: true }) });
+    for (const [field, m] of [["address", addresses], ["name", names]] as const) {
+      for (const { raw, place } of m.get(id) ?? []) {
+        add({ raw, field, district: place.district, match: place.match, method: place.method, town: place.city, part: place.raw });
+      }
     }
     const hit = tried.find((t) => t.district);
-    if (hit) return { id, stateCode: i.state_code, current: i.district, next: hit.district, raw: hit.raw, field: hit.field, match: hit.match, tried };
+    // The town an address or name gave, for an institution with no city yet: the deciding one first.
+    const towns = [hit, ...tried].filter((t) => t && (t.field === "address" || t.field === "name") && t.town);
+    const nextCity = i.city?.trim() ? i.city : (towns[0]?.town ?? null);
+    const base = { id, stateCode: i.state_code, current: i.district, currentCity: i.city, nextCity, tried };
+    if (hit) return { ...base, next: hit.district, raw: hit.raw, field: hit.field, match: hit.match };
     if (i.district && isOfficialDistrict(i.state_code, i.district)) {
-      return { id, stateCode: i.state_code, current: i.district, next: i.district, raw: i.district, field: "kept", match: "kept", tried };
+      return { ...base, next: i.district, raw: i.district, field: "kept", match: "kept" };
     }
     const first = tried[0];
-    return { id, stateCode: i.state_code, current: i.district, next: null, raw: first?.raw ?? null, field: first?.field ?? null, match: first?.match ?? null, tried };
+    return { ...base, next: null, raw: first?.raw ?? null, field: first?.field ?? null, match: first?.match ?? null };
   });
 }
 
 /**
- * Rewrites institutions.district through the normaliser, once per normaliser version, district
- * data and set of embedded lists (recorded in app_seeds), so databases loaded before the
- * normaliser existed, or with an older alias list, are corrected on the next start.
+ * Rewrites institutions.district through the normaliser, and fills an empty city with the town an
+ * address or college name gave, once per normaliser version, district data and set of embedded
+ * lists (recorded in app_seeds), so databases loaded before the normaliser existed, or with an
+ * older alias list, are corrected on the next start.
  */
 export async function normaliseInstitutionDistricts(log: (m: string) => void = console.log) {
   const tag = "district-normaliser";
@@ -625,21 +694,26 @@ export async function normaliseInstitutionDistricts(log: (m: string) => void = c
   if (done?.hash === key) return;
   const plan = await planDistricts();
   const changes = new Map<string | null, number[]>();
+  const cityChanges = new Map<string, number[]>();
   for (const p of plan) {
-    if (p.next === p.current) continue;
-    (changes.get(p.next) ?? changes.set(p.next, []).get(p.next)!).push(p.id);
+    if (p.next !== p.current) (changes.get(p.next) ?? changes.set(p.next, []).get(p.next)!).push(p.id);
+    if (p.nextCity && !p.currentCity?.trim()) (cityChanges.get(p.nextCity) ?? cityChanges.set(p.nextCity, []).get(p.nextCity)!).push(p.id);
   }
-  let updated = 0;
-  for (const [district, ids] of changes) {
+  const apply = async (set: (ids: SQL) => SQL, ids: number[]) => {
     for (let i = 0; i < ids.length; i += 500) {
-      const chunk = ids.slice(i, i + 500);
-      await getDb().execute(sql`update institutions set district = ${district} where id in (${sql.join(chunk.map((x) => sql`${x}`), sql`, `)})`);
-      updated += chunk.length;
+      await getDb().execute(set(sql.join(ids.slice(i, i + 500).map((x) => sql`${x}`), sql`, `)));
     }
+    return ids.length;
+  };
+  let updated = 0;
+  for (const [district, ids] of changes) updated += await apply((list) => sql`update institutions set district = ${district} where id in (${list})`, ids);
+  let cities = 0;
+  for (const [city, ids] of cityChanges) {
+    cities += await apply((list) => sql`update institutions set city = ${city} where (city is null or city = '') and id in (${list})`, ids);
   }
   await getDb().execute(sql`insert into app_seeds (tag, hash) values (${tag}, ${key}) on duplicate key update hash = values(hash), loaded_at = current_timestamp`);
   const withDistrict = plan.filter((p) => p.next).length;
-  log(`Districts normalised (v${DISTRICT_NORMALISER_VERSION}): ${updated} institutions updated, ${withDistrict} of ${plan.length} have an official district`);
+  log(`Districts normalised (v${DISTRICT_NORMALISER_VERSION}): ${updated} institutions updated, ${cities} cities filled, ${withDistrict} of ${plan.length} have an official district`);
 }
 
 /** Migrate, then load reference data and any official data files shipped with the app. */

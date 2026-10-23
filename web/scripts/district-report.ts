@@ -36,10 +36,12 @@ async function main() {
     const state = (p.stateCode && stateName.get(p.stateCode)) || "(no state)";
     const hasDistrictHit = p.tried.some((t) => t.field === "district" && t.district);
     for (const t of p.tried) {
+      // Addresses and college names are audited in docs/district-mapping-nmc.md (scripts/district-report-nmc.ts).
+      if (t.field !== "district" && t.field !== "city") continue;
       // City values are listed only where the district column gave nothing usable.
       if (t.field === "city" && hasDistrictHit) continue;
       const k = `${state}\u0000${t.field}\u0000${t.raw}`;
-      const row = rowsByKey.get(k) ?? { state, raw: t.raw, field: t.field, district: t.district, match: t.match, n: 0 };
+      const row = rowsByKey.get(k) ?? { state, raw: t.raw, field: t.field, district: t.district, match: t.match ?? "empty", n: 0 };
       row.n++;
       rowsByKey.set(k, row);
     }
