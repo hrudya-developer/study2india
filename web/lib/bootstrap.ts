@@ -402,7 +402,20 @@ type CouncilFile = {
   sources: (NmcSource & { prefix: string })[];
   rows: CouncilRow[];
 };
-const COUNCIL_LOADER_VERSION = 1;
+const COUNCIL_LOADER_VERSION = 2;
+
+/**
+ * Moves everything recorded against one institution onto another and removes the first. Used when
+ * a hand-checked link shows two records are the same institution.
+ */
+async function mergeInstitution(fromId: number, intoId: number) {
+  const db = getDb();
+  await db.execute(sql`update ignore institution_identifiers set institution_id = ${intoId} where institution_id = ${fromId}`);
+  await db.execute(sql`update ignore institution_streams set institution_id = ${intoId} where institution_id = ${fromId}`);
+  await db.execute(sql`update ignore rankings set institution_id = ${intoId} where institution_id = ${fromId}`);
+  await db.execute(sql`update ignore offerings set institution_id = ${intoId} where institution_id = ${fromId}`);
+  await db.execute(sql`delete from institutions where id = ${fromId}`);
+}
 
 /**
  * Loads college lists published by other regulators (NCISM, and others in the same format):
@@ -424,9 +437,15 @@ export async function seedCouncils(streamIds: Map<string, number>, log: (m: stri
     for (const r of data.rows) {
       const sourceId = sourceIds.get(data.sources.find((s) => r.code.startsWith(s.prefix))?.prefix ?? data.sources[0].prefix)!;
       let id = await identifierOwner(data.scheme, r.code);
-      if (!id && r.same_as) {
-        id = await identifierOwner(r.same_as.scheme, r.same_as.value);
-        if (id) await db.insert(institutionIdentifiers).values({ institutionId: id, scheme: data.scheme, value: r.code });
+      if (r.same_as) {
+        const target = await identifierOwner(r.same_as.scheme, r.same_as.value);
+        if (target && id && target !== id) {
+          await mergeInstitution(id, target);
+          id = target;
+        } else if (target && !id) {
+          id = target;
+          await db.insert(institutionIdentifiers).values({ institutionId: id, scheme: data.scheme, value: r.code });
+        }
       }
       if (!id) {
         const name = r.name.trim().replace(/\s+/g, " ");
