@@ -190,7 +190,7 @@ export default async function HomePage() {
                 How we check data
               </Link>
             </div>
-            <ul className={`${rowList} mt-5 sm:grid-cols-3 lg:grid-cols-6`}>
+            <ul className={`${rowList} mt-5 sm:grid-cols-3`}>
               {coverage.sources.map((s) => (
                 <li key={s.scheme} className="w-[46%] max-w-[220px] shrink-0 snap-start rounded-xl border border-rule bg-paper p-3.5 sm:w-auto sm:max-w-none">
                   <p className="flex items-baseline justify-between gap-2">
