@@ -1,11 +1,11 @@
 import { and, eq, sql } from "drizzle-orm";
 import { getDb, getPool, rows, schema } from "@/lib/db";
 import { MIGRATIONS } from "@/lib/db/migrations.generated";
-import { NIRF_FILES } from "@/lib/db/seed-data.generated";
+import { NIRF_FILES, NMC_FILES, NMC_LINKS } from "@/lib/db/seed-data.generated";
 import { STATES, STATE_ALIASES, STREAMS, EXAMS, NIRF_CATEGORY_STREAM } from "@/data/reference";
 import { slugify } from "@/lib/slug";
 
-const { states, streams, courses, exams, examStreams, sources, institutions, institutionIdentifiers, institutionStreams, rankings } = schema;
+const { states, streams, courses, exams, examStreams, sources, institutions, institutionIdentifiers, institutionStreams, rankings, offerings } = schema;
 
 /**
  * Applies the embedded migrations in order, once each, recorded in app_migrations.
@@ -192,10 +192,110 @@ export async function seedNirf(streamIds: Map<string, number>, log: (m: string) 
 }
 
 /** Migrate, then load reference data and any official data files shipped with the app. */
+type NmcRow = {
+  code: string;
+  name: string;
+  state: string;
+  university: string | null;
+  management: "Government" | "Private" | "Trust";
+  established: number | null;
+  seats: number | null;
+  lop_date: string | null;
+};
+type NmcFile = { source: { publisher: string; title: string; url: string; retrieved: string }; course: string; academic_year: string; rows: NmcRow[] };
+
+/** NMC lists the management type; trust-run colleges are privately managed. */
+const NMC_OWNERSHIP = { Government: "government", Private: "private", Trust: "private" } as const;
+const NMC_LOADER_VERSION = 1;
+
+async function identifierOwner(scheme: string, value: string) {
+  const [hit] = await getDb()
+    .select({ id: institutionIdentifiers.institutionId })
+    .from(institutionIdentifiers)
+    .where(and(eq(institutionIdentifiers.scheme, scheme), eq(institutionIdentifiers.value, value)));
+  return hit?.id;
+}
+
+/**
+ * Loads the National Medical Commission college lists: one institution per NMC college code,
+ * with its intake for the course as an offering. Colleges NIRF already ranks are joined to the
+ * same record through the hand-checked links in data/nmc/links.json.
+ */
+export async function seedNmc(streamIds: Map<string, number>, log: (m: string) => void = console.log) {
+  const db = getDb();
+  const done = new Map((await rows<{ tag: string; hash: string }>(sql`select tag, hash from app_seeds`)).map((r) => [r.tag, r.hash]));
+  const medical = streamIds.get("medical");
+  for (const file of NMC_FILES) {
+    const key = `${file.hash}-${NMC_LOADER_VERSION}`;
+    if (done.get(file.tag) === key) continue;
+    const data = file.data as NmcFile;
+    const [course] = await db.select({ id: courses.id }).from(courses).where(eq(courses.slug, data.course));
+    if (!course) {
+      log(`NMC ${data.course}: course not found, skipped`);
+      continue;
+    }
+    const [existing] = await db.select({ id: sources.id }).from(sources).where(eq(sources.title, data.source.title));
+    const sourceId =
+      existing?.id ??
+      (await db.insert(sources).values({ publisher: data.source.publisher, title: data.source.title, url: data.source.url, retrievedOn: data.source.retrieved }).$returningId())[0].id;
+    if (existing) await db.update(sources).set({ url: data.source.url, retrievedOn: data.source.retrieved }).where(eq(sources.id, existing.id));
+
+    let created = 0;
+    for (const r of data.rows) {
+      const code = stateCode(r.state);
+      const name = r.name.trim().replace(/\s+/g, " ");
+      let id = await identifierOwner("nmc", r.code);
+      if (!id && NMC_LINKS[r.code]) id = await identifierOwner("nirf", NMC_LINKS[r.code]);
+      if (!id) {
+        const base = slugify(name);
+        let slug = base;
+        for (let n = 2; (await db.select({ id: institutions.id }).from(institutions).where(eq(institutions.slug, slug)))[0]; n++) slug = `${base}-${n}`;
+        const [res] = await db
+          .insert(institutions)
+          .values({
+            slug,
+            name,
+            stateCode: code,
+            ownership: NMC_OWNERSHIP[r.management] ?? null,
+            establishedYear: r.established,
+            affiliatingUniversity: r.university,
+            status: "published",
+            sourceId,
+          })
+          .$returningId();
+        id = res.id;
+        created++;
+      } else {
+        // Fill only what is still empty; never overwrite a value another source set.
+        await db.execute(sql`update institutions set
+          ownership = coalesce(ownership, ${NMC_OWNERSHIP[r.management] ?? null}),
+          established_year = coalesce(established_year, ${r.established}),
+          affiliating_university = coalesce(affiliating_university, ${r.university})
+          where id = ${id}`);
+      }
+      // Being on the NMC list is the commission's permission to admit MBBS students.
+      await db.execute(sql`update institutions set approvals = case
+          when approvals is null then json_array('NMC')
+          when json_contains(approvals, '"NMC"') then approvals
+          else json_array_append(approvals, '$', 'NMC') end
+        where id = ${id}`);
+      await db.insert(institutionIdentifiers).values({ institutionId: id, scheme: "nmc", value: r.code }).onDuplicateKeyUpdate({ set: { institutionId: id } });
+      if (medical) await db.insert(institutionStreams).values({ institutionId: id, streamId: medical }).onDuplicateKeyUpdate({ set: { streamId: medical } });
+      await db
+        .insert(offerings)
+        .values({ institutionId: id, courseId: course.id, academicYear: data.academic_year, seats: r.seats, seatsSourceId: sourceId })
+        .onDuplicateKeyUpdate({ set: { seats: r.seats, seatsSourceId: sourceId } });
+    }
+    await db.execute(sql`insert into app_seeds (tag, hash) values (${file.tag}, ${key}) on duplicate key update hash = values(hash), loaded_at = current_timestamp`);
+    log(`NMC ${data.course} ${data.academic_year}: ${data.rows.length} colleges loaded (${created} new)`);
+  }
+}
+
 export async function bootstrap(log: (m: string) => void = console.log) {
   await runMigrations(log);
   const streamIds = await seedReference();
   await seedNirf(streamIds, log);
+  await seedNmc(streamIds, log);
   const [c] = await rows<{ n: number }>(sql`select count(*) as n from institutions`);
   log(`Database ready: ${STATES.length} states, ${STREAMS.length} fields, ${EXAMS.length} exams, ${c?.n ?? 0} institutions`);
 }
