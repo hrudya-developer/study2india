@@ -107,6 +107,24 @@ const EXAM_RULES: Record<string, { levels: string[]; state?: string; namePattern
   gpat: { levels: ["pg"] },
 };
 
+/**
+ * The current slug of the college an old slug now leads to (a record merged into another keeps its
+ * old slug in slug_redirects), or null when the slug was never redirected.
+ */
+export const getRedirectedSlug = cache(async (slug: string): Promise<string | null> => {
+  try {
+    const [r] = await rows<{ slug: string }>(sql`
+      select i.slug from slug_redirects r join institutions i on i.id = r.institution_id
+      where r.old_slug = ${slug} and i.status = 'published'
+    `);
+    return r && r.slug !== slug ? r.slug : null;
+  } catch (e) {
+    // A database without the table yet answers as "not redirected"; the caller shows a 404.
+    console.error("[study2india] Slug redirect lookup failed:", e);
+    return null;
+  }
+});
+
 /** One database read per request: generateMetadata and the page both ask for the same college. */
 export const getCollege = cache(loadCollege);
 

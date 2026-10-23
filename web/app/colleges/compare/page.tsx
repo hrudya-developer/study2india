@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Search, X } from "lucide-react";
-import { approvalYears, getCollege, offeringSeats, type CollegeDetail } from "@/lib/queries/college";
+import { approvalYears, getCollege, getRedirectedSlug, offeringSeats, type CollegeDetail } from "@/lib/queries/college";
 import { APPROVAL_BODIES, OWNERSHIP_LABELS, findCollegesByName, formatNumber, publisherShort } from "@/lib/queries/colleges";
 import { CompareFromShortlist } from "@/components/colleges/shortlist-view";
 import { COMPARE_MAX } from "@/components/colleges/limits";
@@ -38,12 +38,21 @@ function bestRank(c: CollegeDetail) {
   return latest.find((r) => r.category === "Overall") ?? latest[0] ?? null;
 }
 
+/** A college by slug, following the redirect when the slug belonged to a record since merged. */
+async function loadCompared(slug: string) {
+  const c = await getCollege(slug);
+  if (c) return c;
+  const moved = await getRedirectedSlug(slug);
+  return moved ? getCollege(moved) : null;
+}
+
 export default async function ComparePage({ searchParams }: Props) {
   const p = await searchParams;
   const slugs = readSlugs(p.c);
   const q = (Array.isArray(p.q) ? p.q[0] : p.q)?.trim().slice(0, 80);
-  const [found, matches] = await Promise.all([Promise.all(slugs.map((s) => getCollege(s))), q ? findCollegesByName(q) : Promise.resolve([])]);
-  const colleges = found.filter((c): c is CollegeDetail => !!c);
+  const [found, matches] = await Promise.all([Promise.all(slugs.map(loadCompared)), q ? findCollegesByName(q) : Promise.resolve([])]);
+  // Two old slugs merged into one college, or an old and a current one, show the college once.
+  const colleges = found.filter((c, i): c is CollegeDetail => !!c && found.findIndex((x) => x?.slug === c.slug) === i);
   const current = colleges.map((c) => c.slug);
   const room = current.length < COMPARE_MAX;
 

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { MapPin, Globe, Phone, Mail, Award, ShieldCheck, ExternalLink, Building, CalendarDays, GraduationCap, Trophy, Users, BookOpen, Navigation, Scale } from "lucide-react";
-import { approvalYears, getCollege, getSimilarColleges, offeringSeats, type SourceRef } from "@/lib/queries/college";
+import { approvalYears, getCollege, getRedirectedSlug, getSimilarColleges, offeringSeats, type SourceRef } from "@/lib/queries/college";
 import { getSearchOptions } from "@/lib/queries/home";
 import { APPROVAL_BODIES, OWNERSHIP_LABELS, formatNumber, publisherShort } from "@/lib/queries/colleges";
 import { CounsellingForm } from "@/components/counselling-form";
@@ -22,8 +22,14 @@ export const dynamic = "force-dynamic";
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const c = await getCollege((await params).slug);
-  if (!c) return { title: "College not found" };
+  const { slug } = await params;
+  const c = await getCollege(slug);
+  if (!c) {
+    // An old slug of a merged record: send it on to the college it now belongs to.
+    const moved = await getRedirectedSlug(slug);
+    if (moved) permanentRedirect(`/college/${moved}`);
+    return { title: "College not found" };
+  }
   const place = [c.city ?? c.district, c.state].filter(Boolean).join(", ");
   const facts = [
     c.approvals.length ? c.approvals.map((a) => own(APPROVAL_BODIES, a)?.badge ?? a).join(", ") : null,
@@ -80,7 +86,11 @@ const SECTIONS = [
 export default async function CollegePage({ params }: Props) {
   const { slug } = await params;
   const c = await getCollege(slug);
-  if (!c) notFound();
+  if (!c) {
+    const moved = await getRedirectedSlug(slug);
+    if (moved) permanentRedirect(`/college/${moved}`);
+    notFound();
+  }
   const [{ items: similar, inState: similarInState }, options, landingIndex] = await Promise.all([getSimilarColleges(c), getSearchOptions(), getLandingIndex()]);
 
   const town = c.city ?? c.district;

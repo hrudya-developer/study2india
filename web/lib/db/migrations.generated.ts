@@ -79,5 +79,13 @@ export const MIGRATIONS: { tag: string; statements: string[] }[] = [
     "statements": [
       "CREATE INDEX `cutoffs_predictor_idx` ON `cutoffs` (`exam_id`,`year`,`category`,`quota`,`offering_id`,`round`,`closing_rank`);"
     ]
+  },
+  {
+    "tag": "0006_slug_redirects",
+    "statements": [
+      "CREATE TABLE `slug_redirects` (\n\t`old_slug` varchar(120) NOT NULL,\n\t`institution_id` int NOT NULL,\n\t`created_at` timestamp NOT NULL DEFAULT (now()),\n\tCONSTRAINT `slug_redirects_old_slug` PRIMARY KEY(`old_slug`)\n);",
+      "ALTER TABLE `slug_redirects` ADD CONSTRAINT `slug_redirects_institution_id_institutions_id_fk` FOREIGN KEY (`institution_id`) REFERENCES `institutions`(`id`) ON DELETE cascade ON UPDATE no action;",
+      "CREATE INDEX `slug_redirects_institution_idx` ON `slug_redirects` (`institution_id`);"
+    ]
   }
 ];

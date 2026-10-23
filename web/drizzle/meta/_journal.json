@@ -36,6 +36,13 @@
       "when": 1792787479882,
       "tag": "0004_cutoff_predictor_idx",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1792788401885,
+      "tag": "0006_slug_redirects",
+      "breakpoints": true
     }
   ]
 }
