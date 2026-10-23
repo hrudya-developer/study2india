@@ -1,0 +1,40 @@
+{
+ "source": {
+  "publisher": "NIRF, Ministry of Education",
+  "url": [
+   "https://www.nirfindia.org/Rankings/2025/OPENUNIVERSITYRanking.html"
+  ],
+  "retrieved": "2026-10-23"
+ },
+ "year": 2025,
+ "category": "Open University",
+ "rows": [
+  {
+   "institute_id": "U-0104",
+   "name": "Indira Gandhi National Open University (IGNOU)",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": null,
+   "rank": 1,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0228",
+   "name": "Karnataka State Open University, Mysore",
+   "city": "Mysore",
+   "state": "Karnataka",
+   "score": null,
+   "rank": 2,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0546",
+   "name": "U.P. Rajarshi Tandon Open University, Allahabad",
+   "city": "Prayagraj (Allahabad)",
+   "state": "Uttar Pradesh",
+   "score": null,
+   "rank": 3,
+   "rank_band": null
+  }
+ ]
+}

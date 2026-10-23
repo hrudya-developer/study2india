@@ -1,0 +1,464 @@
+{
+ "source": {
+  "publisher": "NIRF, Ministry of Education",
+  "url": [
+   "https://www.nirfindia.org/Rankings/2025/InnovationRanking.html",
+   "https://www.nirfindia.org/Rankings/2025/InnovationRanking50.html"
+  ],
+  "retrieved": "2026-10-23"
+ },
+ "year": 2025,
+ "category": "Innovation",
+ "rows": [
+  {
+   "institute_id": "U-0456",
+   "name": "Indian Institute of Technology Madras",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": 1,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0306",
+   "name": "Indian Institute of Technology Bombay",
+   "city": "Mumbai",
+   "state": "Maharashtra",
+   "score": null,
+   "rank": 2,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0220",
+   "name": "Indian Institute of Science",
+   "city": "Bengaluru",
+   "state": "Karnataka",
+   "score": null,
+   "rank": 3,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0573",
+   "name": "Indian Institute of Technology Kharagpur",
+   "city": "Kharagpur",
+   "state": "West Bengal",
+   "score": null,
+   "rank": 4,
+   "rank_band": null
+  },
+  {
+   "institute_id": "I-1075",
+   "name": "Indian Institute of Technology Kanpur",
+   "city": "Kanpur",
+   "state": "Uttar Pradesh",
+   "score": null,
+   "rank": 5,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0013",
+   "name": "Indian Institute of Technology Hyderabad",
+   "city": "Hyderabad",
+   "state": "Telangana",
+   "score": null,
+   "rank": 6,
+   "rank_band": null
+  },
+  {
+   "institute_id": "I-1074",
+   "name": "Indian Institute of Technology Delhi",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": null,
+   "rank": 7,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0560",
+   "name": "Indian Institute of Technology Roorkee",
+   "city": "Roorkee",
+   "state": "Uttarakhand",
+   "score": null,
+   "rank": 8,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0439",
+   "name": "Anna University",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": 9,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0184",
+   "name": "Indian Institute of Technology Mandi",
+   "city": "Mandi",
+   "state": "Himachal Pradesh",
+   "score": null,
+   "rank": 10,
+   "rank_band": null
+  },
+  {
+   "institute_id": null,
+   "name": "Amity University",
+   "city": "Gautam Budh Nagar",
+   "state": "Uttar Pradesh",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Andhra University, Visakhapatnam",
+   "city": "Visakhapatnam",
+   "state": "Andhra Pradesh",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "B. S. Abdur Rahman Crescent Institute of Science and Technology",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Banasthali Vidyapith",
+   "city": "Banasthali",
+   "state": "Rajasthan",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Chandigarh University",
+   "city": "Mohali",
+   "state": "Punjab",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Chitkara University",
+   "city": "Rajpura",
+   "state": "Punjab",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Galgotias University",
+   "city": "Gautam Budh Nagar",
+   "state": "Uttar Pradesh",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Gandhi Institute of Technology And Management (GITAM)",
+   "city": "Visakhapatnam",
+   "state": "Andhra Pradesh",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Gujarat Technological University",
+   "city": "Ahmedabad",
+   "state": "Gujarat",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Indraprastha Institute of Information Technology",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Indian Agricultural Research Institute",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Indian Institute of Technology (Banaras Hindu University) Varanasi",
+   "city": "Varanasi",
+   "state": "Uttar Pradesh",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Indian Institute of Technology (Indian School of Mines)",
+   "city": "Dhanbad",
+   "state": "Jharkhand",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Indian Institute of Technology Guwahati",
+   "city": "Guwahati",
+   "state": "Assam",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Indian Institute of Technology Indore",
+   "city": "Indore",
+   "state": "Madhya Pradesh",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Indian Institute of Technology Patna",
+   "city": "Patna",
+   "state": "Bihar",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Kalasalingam Academy of Research and Education",
+   "city": "Krishnan Koil",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Kalinga Institute of Industrial Technology",
+   "city": "Bhubaneswar",
+   "state": "Odisha",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "KIET Group of Institutions",
+   "city": "Ghaziabad",
+   "state": "Uttar Pradesh",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Koneru Lakshmaiah Education Foundation University (K L College of Engineering)",
+   "city": "Vaddeswaram",
+   "state": "Andhra Pradesh",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Lovely Professional University",
+   "city": "Phagwara",
+   "state": "Punjab",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Manipal Academy of Higher Education-Manipal",
+   "city": "Manipal",
+   "state": "Karnataka",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Manipal University Jaipur",
+   "city": "Jaipur",
+   "state": "Rajasthan",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "National Institute of Technology Calicut",
+   "city": "Kozhikode",
+   "state": "Kerala",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "National Institute of Technology Rourkela",
+   "city": "Rourkela",
+   "state": "Odisha",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "National Institute of Technology Tiruchirappalli",
+   "city": "Tiruchirappalli",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Pandit Deendayal Energy University",
+   "city": "Gandhinagar",
+   "state": "Gujarat",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Panjab University",
+   "city": "Chandigarh",
+   "state": "Chandigarh",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Parul University",
+   "city": "Vadodara",
+   "state": "Gujarat",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Rathinam Technical Campus",
+   "city": "Coimbatore",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "S.R.M. Institute of Science and Technology",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Sathyabama Institute of Science and Technology",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Saveetha Institute of Medical and Technical Sciences",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Sharda University",
+   "city": "Greater Noida",
+   "state": "Uttar Pradesh",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Sri Krishna College of Engineering and Technology",
+   "city": "Coimbatore",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Sri Sairam Engineering College",
+   "city": "Kancheepuram",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Sri Sivasubramaniya Nadar College of Engineering",
+   "city": "Kalavakkam",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "UPES",
+   "city": "Dehradun",
+   "state": "Uttarakhand",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Vel Tech Rangarajan Dr. Sagunthala R & D Institute of Science and Technology",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  },
+  {
+   "institute_id": null,
+   "name": "Vellore Institute of Technology",
+   "city": "Vellore",
+   "state": "Tamil Nadu",
+   "score": null,
+   "rank": null,
+   "rank_band": "11-50"
+  }
+ ]
+}

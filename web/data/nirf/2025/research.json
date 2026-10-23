@@ -1,0 +1,463 @@
+{
+ "source": {
+  "publisher": "NIRF, Ministry of Education",
+  "url": [
+   "https://www.nirfindia.org/Rankings/2025/ResearchRanking.html"
+  ],
+  "retrieved": "2026-10-23"
+ },
+ "year": 2025,
+ "category": "Research",
+ "rows": [
+  {
+   "institute_id": "U-0220",
+   "name": "Indian Institute of Science",
+   "city": "Bengaluru",
+   "state": "Karnataka",
+   "score": 85.01,
+   "rank": 1,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0456",
+   "name": "Indian Institute of Technology Madras",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": 82.99,
+   "rank": 2,
+   "rank_band": null
+  },
+  {
+   "institute_id": "I-1074",
+   "name": "Indian Institute of Technology Delhi",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": 80.42,
+   "rank": 3,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0306",
+   "name": "Indian Institute of Technology Bombay",
+   "city": "Mumbai",
+   "state": "Maharashtra",
+   "score": 77.8,
+   "rank": 4,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0573",
+   "name": "Indian Institute of Technology Kharagpur",
+   "city": "Kharagpur",
+   "state": "West Bengal",
+   "score": 71.61,
+   "rank": 5,
+   "rank_band": null
+  },
+  {
+   "institute_id": "I-1075",
+   "name": "Indian Institute of Technology Kanpur",
+   "city": "Kanpur",
+   "state": "Uttar Pradesh",
+   "score": 69.8,
+   "rank": 6,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0304",
+   "name": "Homi Bhabha National Institute",
+   "city": "Mumbai",
+   "state": "Maharashtra",
+   "score": 69.39,
+   "rank": 7,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0560",
+   "name": "Indian Institute of Technology Roorkee",
+   "city": "Roorkee",
+   "state": "Uttarakhand",
+   "score": 67.27,
+   "rank": 8,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0713",
+   "name": "Academy of Scientific and Innovative Research",
+   "city": "Ghaziabad",
+   "state": "Uttar Pradesh",
+   "score": 67.15,
+   "rank": 9,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0053",
+   "name": "Indian Institute of Technology Guwahati",
+   "city": "Guwahati",
+   "state": "Assam",
+   "score": 64.18,
+   "rank": 10,
+   "rank_band": null
+  },
+  {
+   "institute_id": "N-15",
+   "name": "All India Institute of Medical Sciences, Delhi",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": 63.61,
+   "rank": 11,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0120",
+   "name": "University of Delhi",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": 62.65,
+   "rank": 12,
+   "rank_band": null
+  },
+  {
+   "institute_id": "I-1441",
+   "name": "Saveetha Institute of Medical and Technical Sciences",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": 60.96,
+   "rank": 13,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0490",
+   "name": "Vellore Institute of Technology",
+   "city": "Vellore",
+   "state": "Tamil Nadu",
+   "score": 60.39,
+   "rank": 14,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0013",
+   "name": "Indian Institute of Technology Hyderabad",
+   "city": "Hyderabad",
+   "state": "Telangana",
+   "score": 60.15,
+   "rank": 15,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0500",
+   "name": "Banaras Hindu University",
+   "city": "Varanasi",
+   "state": "Uttar Pradesh",
+   "score": 58.28,
+   "rank": 16,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0330",
+   "name": "Tata Institute of Fundamental Research",
+   "city": "Mumbai",
+   "state": "Maharashtra",
+   "score": 57.96,
+   "rank": 17,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0391",
+   "name": "Birla Institute of Technology & Science -Pilani",
+   "city": "Pilani",
+   "state": "Rajasthan",
+   "score": 56.71,
+   "rank": 18,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0234",
+   "name": "Manipal Academy of Higher Education-Manipal",
+   "city": "Manipal",
+   "state": "Karnataka",
+   "score": 56.41,
+   "rank": 19,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0108",
+   "name": "Jamia Millia Islamia",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": 56.13,
+   "rank": 20,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0109",
+   "name": "Jawaharlal Nehru University",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": 56.06,
+   "rank": 21,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0701",
+   "name": "Indian Institute of Technology (Banaras Hindu University) Varanasi",
+   "city": "Varanasi",
+   "state": "Uttar Pradesh",
+   "score": 55.81,
+   "rank": 22,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0575",
+   "name": "Jadavpur University",
+   "city": "Kolkata",
+   "state": "West Bengal",
+   "score": 55.53,
+   "rank": 23,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0273",
+   "name": "Indian Institute of Technology Indore",
+   "city": "Indore",
+   "state": "Madhya Pradesh",
+   "score": 55.52,
+   "rank": 24,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0473",
+   "name": "S.R.M. Institute of Science and Technology",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": 55.41,
+   "rank": 25,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0439",
+   "name": "Anna University",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": 55.09,
+   "rank": 26,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0205",
+   "name": "Indian Institute of Technology (Indian School of Mines)",
+   "city": "Dhanbad",
+   "state": "Jharkhand",
+   "score": 54.28,
+   "rank": 27,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0496",
+   "name": "Aligarh Muslim University",
+   "city": "Aligarh",
+   "state": "Uttar Pradesh",
+   "score": 54.07,
+   "rank": 28,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0101",
+   "name": "Indian Agricultural Research Institute",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": 52.98,
+   "rank": 29,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0357",
+   "name": "National Institute of Technology Rourkela",
+   "city": "Rourkela",
+   "state": "Odisha",
+   "score": 52.69,
+   "rank": 30,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0436",
+   "name": "Amrita Vishwa Vidyapeetham",
+   "city": "Coimbatore",
+   "state": "Tamil Nadu",
+   "score": 52.48,
+   "rank": 31,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0042",
+   "name": "University of Hyderabad",
+   "city": "Hyderabad",
+   "state": "Telangana",
+   "score": 51.48,
+   "rank": 32,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0467",
+   "name": "National Institute of Technology Tiruchirappalli",
+   "city": "Tiruchirappalli",
+   "state": "Tamil Nadu",
+   "score": 51.4,
+   "rank": 33,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0747",
+   "name": "Chandigarh University",
+   "city": "Mohali",
+   "state": "Punjab",
+   "score": 50.47,
+   "rank": 34,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0305",
+   "name": "Indian Institute of Science Education & Research Pune",
+   "city": "Pune",
+   "state": "Maharashtra",
+   "score": 50.35,
+   "rank": 35,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0139",
+   "name": "Indian Institute of Technology Gandhinagar",
+   "city": "Gandhinagar",
+   "state": "Gujarat",
+   "score": 49.61,
+   "rank": 36,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0078",
+   "name": "Panjab University",
+   "city": "Chandigarh",
+   "state": "Chandigarh",
+   "score": 49.47,
+   "rank": 37,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0497",
+   "name": "Amity University",
+   "city": "Gautam Budh Nagar",
+   "state": "Uttar Pradesh",
+   "score": 49.25,
+   "rank": 38,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0064",
+   "name": "Indian Institute of Technology Patna",
+   "city": "Patna",
+   "state": "Bihar",
+   "score": 48.75,
+   "rank": 39,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0379",
+   "name": "Lovely Professional University",
+   "city": "Phagwara",
+   "state": "Punjab",
+   "score": 48.72,
+   "rank": 40,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0308",
+   "name": "Institute of Chemical Technology",
+   "city": "Mumbai",
+   "state": "Maharashtra",
+   "score": 47.92,
+   "rank": 41,
+   "rank_band": null
+  },
+  {
+   "institute_id": "I-1480",
+   "name": "Thapar Institute of Engineering and Technology (Deemed-to-be-university)",
+   "city": "Patiala",
+   "state": "Punjab",
+   "score": 47.59,
+   "rank": 42,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0356",
+   "name": "Kalinga Institute of Industrial Technology",
+   "city": "Bhubaneswar",
+   "state": "Odisha",
+   "score": 46.73,
+   "rank": 43,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0224",
+   "name": "Jawaharlal Nehru Centre for Advanced Scientific Research",
+   "city": "Bengaluru",
+   "state": "Karnataka",
+   "score": 46.57,
+   "rank": 44,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0564",
+   "name": "UPES",
+   "city": "Dehradun",
+   "state": "Uttarakhand",
+   "score": 46.46,
+   "rank": 45,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0572",
+   "name": "Indian Institute of Science Education & Research Kolkata",
+   "city": "Mohanpur",
+   "state": "West Bengal",
+   "score": 46.42,
+   "rank": 46,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0378",
+   "name": "Indian Institute of Technology Ropar",
+   "city": "Rupnagar",
+   "state": "Punjab",
+   "score": 46,
+   "rank": 47,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0570",
+   "name": "Calcutta University",
+   "city": "Kolkata",
+   "state": "West Bengal",
+   "score": 45.83,
+   "rank": 48,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0363",
+   "name": "Siksha `O` Anusandhan",
+   "city": "Bhubaneswar",
+   "state": "Odisha",
+   "score": 45.12,
+   "rank": 49,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0410",
+   "name": "Malaviya National Institute of Technology",
+   "city": "Jaipur",
+   "state": "Rajasthan",
+   "score": 45.02,
+   "rank": 50,
+   "rank_band": null
+  }
+ ]
+}

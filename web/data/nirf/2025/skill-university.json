@@ -1,0 +1,40 @@
+{
+ "source": {
+  "publisher": "NIRF, Ministry of Education",
+  "url": [
+   "https://www.nirfindia.org/Rankings/2025/SKILLUNIVERSITYRanking.html"
+  ],
+  "retrieved": "2026-10-23"
+ },
+ "year": 2025,
+ "category": "Skill University",
+ "rows": [
+  {
+   "institute_id": "U-0979",
+   "name": "Symbiosis Skills and Professional University (Formerly Symbiosis Skill and Open University)",
+   "city": "Pune",
+   "state": "Maharashtra",
+   "score": null,
+   "rank": 1,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0921",
+   "name": "Symbiosis University of Applied Sciences",
+   "city": "Indore",
+   "state": "Madhya Pradesh",
+   "score": null,
+   "rank": 2,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-1048",
+   "name": "Shri Vishwakarma Skill University",
+   "city": "Palwal",
+   "state": "Haryana",
+   "score": null,
+   "rank": 3,
+   "rank_band": null
+  }
+ ]
+}
