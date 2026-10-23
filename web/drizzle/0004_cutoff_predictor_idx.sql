@@ -1,0 +1,1 @@
+CREATE INDEX `cutoffs_predictor_idx` ON `cutoffs` (`exam_id`,`year`,`category`,`quota`,`offering_id`,`round`,`closing_rank`);

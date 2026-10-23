@@ -29,7 +29,7 @@ async function districtChunkPages(n: number) {
   return districtLandingPages(await getLandingIndex()).slice(start, start + DISTRICT_LANDINGS_PER_SITEMAP);
 }
 
-const STATIC_PAGES = ["/", "/colleges", "/courses", "/exams", "/rankings", "/scholarships", "/counselling", "/about", "/contact", "/how-we-check-data", "/privacy"];
+const STATIC_PAGES = ["/", "/colleges", "/courses", "/exams", "/rankings", "/scholarships", "/counselling", "/predictor", "/predictor/neet", "/about", "/contact", "/how-we-check-data", "/privacy"];
 
 type College = { slug: string; updated_at: string };
 

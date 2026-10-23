@@ -269,7 +269,12 @@ export const cutoffs = mysqlTable(
       { mode: "stored" },
     ),
   },
-  (t) => [index("cutoffs_offering_idx").on(t.offeringId), uniqueIndex("cutoffs_row_key").on(t.rowKey)],
+  (t) => [
+    index("cutoffs_offering_idx").on(t.offeringId),
+    uniqueIndex("cutoffs_row_key").on(t.rowKey),
+    // The college predictor: one exam and year, the candidate's seat categories and chosen quotas.
+    index("cutoffs_predictor_idx").on(t.examId, t.year, t.category, t.quota, t.offeringId, t.round, t.closingRank),
+  ],
 );
 
 export const scholarships = mysqlTable("scholarships", {
