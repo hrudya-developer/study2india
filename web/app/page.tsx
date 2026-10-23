@@ -79,50 +79,66 @@ export default async function HomePage() {
               <ShieldCheck size={16} className="text-verified" aria-hidden="true" />
               Every fee, seat and rank checked against official sources
             </p>
-            <h1 className="mt-5 text-[2.5rem] font-extrabold leading-[1.05] sm:text-[3.4rem]">Find the right college in India for your future</h1>
+            <h1 className="mt-5 text-[2.6rem] font-extrabold leading-[1.02] sm:text-[3.6rem]">Find your college in India.</h1>
             <p className="mt-4 max-w-[54ch] text-[1.08rem] text-ink-soft">
-              Search colleges, courses and entrance exams in every field, from MBBS and nursing to engineering, law and management. Then talk to a counsellor in Kerala, free.
+              Colleges, courses, rankings and entrance exams for every field, with the source shown beside each figure.
             </p>
 
-            <form action="/colleges" method="get" className="card mt-7 p-3 sm:p-4">
-              <div className="grid gap-3 sm:grid-cols-[1fr_1fr_auto]">
-                <div>
-                  <label htmlFor="h-course" className="mb-1 block px-1 text-[0.8rem] font-bold text-muted">
-                    Course
-                  </label>
-                  <select id="h-course" name="course" defaultValue="" className="w-full rounded-lg border border-rule bg-paper px-3 py-3 font-bold focus:border-ink">
-                    <option value="">Any course</option>
-                    {streams.map((s) => (
-                      <optgroup key={s.slug} label={s.name}>
-                        {s.courses.map((c) => (
-                          <option key={c.slug} value={c.slug}>
-                            {c.short}
-                          </option>
-                        ))}
-                      </optgroup>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="h-state" className="mb-1 block px-1 text-[0.8rem] font-bold text-muted">
-                    State
-                  </label>
-                  <select id="h-state" name="state" defaultValue="" className="w-full rounded-lg border border-rule bg-paper px-3 py-3 font-bold focus:border-ink">
-                    <option value="">Anywhere in India</option>
-                    {options.states.map((s) => (
-                      <option key={s.value} value={s.value}>
-                        {s.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <button type="submit" className="flex items-center justify-center gap-2 self-end rounded-lg bg-brand px-6 py-3 text-[1.02rem] font-bold text-ink hover:bg-brand-hover">
-                  <Search size={18} aria-hidden="true" /> Find colleges
+            <form action="/colleges" method="get" className="mt-8">
+              <p className="font-[family-name:var(--font-display)] text-[1.8rem] font-bold leading-[1.55] sm:text-[2.5rem]">
+                <span>I want to study </span>
+                <label htmlFor="h-course" className="sr-only">
+                  Course
+                </label>
+                <select id="h-course" name="course" defaultValue="mbbs" className="sentence-select">
+                  <option value="">any course</option>
+                  {streams.map((s) => (
+                    <optgroup key={s.slug} label={s.name}>
+                      {s.courses.map((c) => (
+                        <option key={c.slug} value={c.slug}>
+                          {c.short}
+                        </option>
+                      ))}
+                    </optgroup>
+                  ))}
+                </select>
+                <span> in </span>
+                <label htmlFor="h-state" className="sr-only">
+                  State
+                </label>
+                <select id="h-state" name="state" defaultValue="" className="sentence-select">
+                  <option value="">any state</option>
+                  {options.states.map((s) => (
+                    <option key={s.value} value={s.value}>
+                      {s.label}
+                    </option>
+                  ))}
+                </select>
+              </p>
+              <button type="submit" className="mt-6 inline-flex items-center gap-2 rounded-lg bg-ink px-6 py-3.5 text-[1.05rem] font-bold text-white hover:bg-ink-2">
+                <Search size={18} aria-hidden="true" /> Show colleges
+              </button>
+            </form>
+
+            <form action="/search" method="get" role="search" className="mt-8 max-w-xl">
+              <label htmlFor="h-name" className="text-[0.95rem] text-ink-soft">
+                Know the college already? Search by name
+              </label>
+              <div className="mt-2 flex gap-2">
+                <input
+                  id="h-name"
+                  name="q"
+                  type="search"
+                  placeholder="For example, Government Medical College Thrissur"
+                  className="min-w-0 flex-1 rounded-lg border border-rule bg-paper px-3 py-2.5 placeholder:text-muted focus:border-ink"
+                />
+                <button type="submit" className="rounded-lg border-2 border-ink bg-paper px-4 py-2 font-bold hover:bg-band">
+                  Search
                 </button>
               </div>
             </form>
 
-            <div className="mt-4 flex flex-wrap items-center gap-2 text-[0.9rem]">
+            <div className="mt-5 flex flex-wrap items-center gap-2 text-[0.9rem]">
               <span className="text-muted">Popular:</span>
               {HERO_CHIPS.map((c) => (
                 <Link key={c.href} href={c.href} className="rounded-full border border-rule bg-paper px-3 py-1 text-ink-soft hover:border-brand hover:text-ink">

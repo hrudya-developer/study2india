@@ -110,3 +110,27 @@ h4 {
     scroll-behavior: auto !important;
   }
 }
+
+/* Hero search written as a sentence the student completes. */
+.sentence-select {
+  appearance: none;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 3px solid var(--color-brand);
+  border-radius: 0;
+  color: var(--color-ink);
+  font: inherit;
+  padding: 0 1.3em 0.05em 0.1em;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23f68c1e' stroke-width='2.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.15em center;
+  background-size: 0.55em auto;
+  max-width: 100%;
+  min-width: 3ch;
+  field-sizing: content;
+}
+
+.sentence-select:hover {
+  background-color: var(--color-brand-soft);
+}
