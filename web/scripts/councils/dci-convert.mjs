@@ -89,6 +89,36 @@ const addressLine = (v) => {
 };
 const titleCase = (s) => (s && s === s.toUpperCase() ? s.toLowerCase().replace(/(^|[\s(-])([a-z])/g, (m, a, c) => a + c.toUpperCase()) : s);
 
+// The town for the city field, from DCI's own City field. Values that name a state or a district rather than
+// a town are left out (the town is not guessed); a few values that add a district, state or locality are cut
+// to the town they name.
+const NOT_A_TOWN = new Set(["goa", "imphal east", "gautam budh nagar", "namakkal district", "west godavari", "kanpur nagar"]);
+const TOWN_FIXES = {
+  "beed, maharashtra": "Beed",
+  "hyderabad, telangana": "Hyderabad",
+  "chalissery, palakkad": "Chalissery",
+  "kotputli, jaipur": "Kotputli",
+  "manoor , edappal": "Edappal",
+  "vidyanagar, hassan": "Hassan",
+  "yamunanagar": "Yamunanagar",
+  "kgf": "KGF",
+};
+const townOf = (v) => {
+  let s = tidy(v);
+  if (!s) return null;
+  if (TOWN_FIXES[s.toLowerCase()]) return TOWN_FIXES[s.toLowerCase()];
+  if (NOT_A_TOWN.has(s.toLowerCase())) return null;
+  s = s
+    .replace(/\s*\(\s*M\.P\.\s*\)$/i, "") // "Bhopal ( M.P.)"
+    .replace(/\s*\([^)]*\)$/, "") // "Kalaburagi (Gulbarga)": the old name in brackets
+    .replace(/[-\s]*\d{3}\s?\d{3}$/, "") // "DAVANGERE-577 004": a PIN run on
+    .replace(/\.$/, "")
+    .trim();
+  if (!/^[A-Za-z][A-Za-z .'-]*$/.test(s)) return null;
+  if (s === s.toUpperCase() || s === s.toLowerCase()) s = s.toLowerCase().replace(/(^|[\s-])([a-z])/g, (m, a, c) => a + c.toUpperCase());
+  return s;
+};
+
 // DCI publishes no college code, so each college is keyed by a hash of its state, name and city.
 const hashCode = (state, name, city) => {
   const key = [state, name, city ?? ""].map((x) => x.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim()).join("|");
@@ -151,6 +181,8 @@ for (const line of lines) {
     name,
     address: parts.length ? `${[...parts, state].join(", ")}${p ? ` - ${p}` : ""}` : null,
     district: null,
+    city: townOf(rawCity),
+    pin: p && /^\d{6}$/.test(p) ? p : null,
     state,
     management,
     ownership: management ? OWNERSHIP[management] ?? null : null,
@@ -184,6 +216,7 @@ const file = {
     "Colleges with no permitted BDS or MDS seats (admissions stopped or permission refused) and specialities with 0 seats are left out; " +
     "PG Diploma seats are left out (no course for them). Addresses come from each college's DCI details page. " +
     "DCI publishes no college code, so each college is keyed by a hash of its state, name and city. " +
+    "city is the town from DCI's City field (left empty where that field names a state or district rather than a town) and pin is the 6-digit PIN from the details page. " +
     "same_as joins a college to the NIRF record for the same institution (checked by hand).",
   rows,
 };

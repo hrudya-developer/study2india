@@ -22,6 +22,10 @@
 // which is split off below), and gives intake only inside the decision text.
 // Seats are taken from the decision text only where it states an intake for an approval that covers
 // the target academic year; everything else stays null.
+//
+// pci-same-as.json maps a PCI code to the record it is the same institution as, checked by hand:
+// { "PCI-50": { "scheme": "aicte", "value": "1-2504741" } } (a bare string is read as a NIRF ID).
+// Each decision, linked or rejected, is written up in pci-same-as-review.md.
 import { readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 
@@ -887,7 +891,9 @@ function main() {
     if (split.address) stats.namesSplit++;
     const university = pickTop(inst.universities);
     if (university) row.university = university;
-    if (sameAs[inst.code]) row.same_as = { scheme: "nirf", value: sameAs[inst.code] };
+    const link = sameAs[inst.code];
+    if (typeof link === "string") row.same_as = { scheme: "nirf", value: link };
+    else if (link) row.same_as = { scheme: link.scheme, value: link.value };
     rows.push(row);
   }
 

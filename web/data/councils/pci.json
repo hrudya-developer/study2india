@@ -1144,7 +1144,11 @@
           ]
         }
       ],
-      "university": "Jawaharlal Nehru Technological University Kakinada"
+      "university": "Jawaharlal Nehru Technological University Kakinada",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-2504741"
+      }
     },
     {
       "code": "PCI-53",
@@ -1257,7 +1261,11 @@
           "seats": 60
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-7455037"
+      }
     },
     {
       "code": "PCI-58",
@@ -1718,7 +1726,11 @@
           "seats": null
         }
       ],
-      "university": "Veer Madho Singh Bhandari Uttarakhand Technical University, Dehradun"
+      "university": "Veer Madho Singh Bhandari Uttarakhand Technical University, Dehradun",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-465503761"
+      }
     },
     {
       "code": "PCI-80",
@@ -2309,7 +2321,11 @@
           ]
         }
       ],
-      "university": "Annamacharya University, Rajampet"
+      "university": "Annamacharya University, Rajampet",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-5841586"
+      }
     },
     {
       "code": "PCI-109",
@@ -2788,7 +2804,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "nmc",
+        "value": "MH/002/G/1"
+      }
     },
     {
       "code": "PCI-130",
@@ -3090,7 +3110,11 @@
           "seats": null
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-5716861"
+      }
     },
     {
       "code": "PCI-143",
@@ -3785,7 +3809,11 @@
           "seats": null
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-47100614054"
+      }
     },
     {
       "code": "PCI-180",
@@ -3802,7 +3830,11 @@
           "course": "d-pharm",
           "seats": 40
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-487132803"
+      }
     },
     {
       "code": "PCI-181",
@@ -4069,7 +4101,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-506517641"
+      }
     },
     {
       "code": "PCI-195",
@@ -6815,7 +6851,11 @@
           ]
         }
       ],
-      "university": "Chandigarh University, Mohali"
+      "university": "Chandigarh University, Mohali",
+      "same_as": {
+        "scheme": "nirf",
+        "value": "U-0747"
+      }
     },
     {
       "code": "PCI-323",
@@ -7276,7 +7316,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "nmc",
+        "value": "TN/009/G/1"
+      }
     },
     {
       "code": "PCI-344",
@@ -7367,7 +7411,11 @@
           "seats": null
         }
       ],
-      "university": "Dayananda Sagar University, Bengaluru"
+      "university": "Dayananda Sagar University, Bengaluru",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-7324150851"
+      }
     },
     {
       "code": "PCI-351",
@@ -7611,7 +7659,11 @@
           "seats": null
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-9870715"
+      }
     },
     {
       "code": "PCI-362",
@@ -7846,7 +7898,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-464054631"
+      }
     },
     {
       "code": "PCI-376",
@@ -7863,7 +7919,11 @@
           "course": "d-pharm",
           "seats": 40
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-475096201"
+      }
     },
     {
       "code": "PCI-377",
@@ -8596,7 +8656,11 @@
           "seats": 100
         }
       ],
-      "university": "Pt. B.D. Sharma University of Health Sciences, Rohtak"
+      "university": "Pt. B.D. Sharma University of Health Sciences, Rohtak",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-2064666851"
+      }
     },
     {
       "code": "PCI-415",
@@ -9244,7 +9308,11 @@
           "seats": 40
         }
       ],
-      "university": "Maharaja Ranjit Singh Punjab Technical University, Bathinda"
+      "university": "Maharaja Ranjit Singh Punjab Technical University, Bathinda",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-440475501"
+      }
     },
     {
       "code": "PCI-441",
@@ -9348,7 +9416,11 @@
           ]
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-3962501"
+      }
     },
     {
       "code": "PCI-447",
@@ -9428,7 +9500,11 @@
           "seats": 60
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-6588351"
+      }
     },
     {
       "code": "PCI-450",
@@ -12069,7 +12145,11 @@
           ]
         }
       ],
-      "university": "Dr Subhash University"
+      "university": "Dr Subhash University",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-5368841"
+      }
     },
     {
       "code": "PCI-581",
@@ -12659,7 +12739,11 @@
           "seats": null
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-10003974"
+      }
     },
     {
       "code": "PCI-607",
@@ -12883,7 +12967,11 @@
           ]
         }
       ],
-      "university": "Dharmsinh Desai University, Nadiad"
+      "university": "Dharmsinh Desai University, Nadiad",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-4329052051"
+      }
     },
     {
       "code": "PCI-620",
@@ -12949,7 +13037,11 @@
           "seats": null
         }
       ],
-      "university": "Integral University, Lucknow"
+      "university": "Integral University, Lucknow",
+      "same_as": {
+        "scheme": "nirf",
+        "value": "U-0519"
+      }
     },
     {
       "code": "PCI-624",
@@ -14298,7 +14390,11 @@
           ]
         }
       ],
-      "university": "Godavari Global University, Rajamahendravaram"
+      "university": "Godavari Global University, Rajamahendravaram",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44924579667"
+      }
     },
     {
       "code": "PCI-686",
@@ -14601,7 +14697,11 @@
           "seats": null
         }
       ],
-      "university": "Glocal University, Saharanpur"
+      "university": "Glocal University, Saharanpur",
+      "same_as": {
+        "scheme": "nirf",
+        "value": "U-0645"
+      }
     },
     {
       "code": "PCI-701",
@@ -15043,7 +15143,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-474009353"
+      }
     },
     {
       "code": "PCI-722",
@@ -15336,7 +15440,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44573663344"
+      }
     },
     {
       "code": "PCI-738",
@@ -15353,7 +15461,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-422467281"
+      }
     },
     {
       "code": "PCI-739",
@@ -15387,7 +15499,11 @@
           "course": "d-pharm",
           "seats": 40
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-445641901"
+      }
     },
     {
       "code": "PCI-741",
@@ -15404,7 +15520,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-450090791"
+      }
     },
     {
       "code": "PCI-742",
@@ -15421,7 +15541,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-455760951"
+      }
     },
     {
       "code": "PCI-743",
@@ -15455,7 +15579,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-466044331"
+      }
     },
     {
       "code": "PCI-745",
@@ -15472,7 +15600,11 @@
           "course": "d-pharm",
           "seats": 50
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-454592681"
+      }
     },
     {
       "code": "PCI-746",
@@ -15489,7 +15621,11 @@
           "course": "d-pharm",
           "seats": 40
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-456042871"
+      }
     },
     {
       "code": "PCI-747",
@@ -15506,7 +15642,11 @@
           "course": "d-pharm",
           "seats": 40
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-454353601"
+      }
     },
     {
       "code": "PCI-748",
@@ -15523,7 +15663,11 @@
           "course": "d-pharm",
           "seats": 40
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-453072271"
+      }
     },
     {
       "code": "PCI-749",
@@ -15557,7 +15701,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-848846411"
+      }
     },
     {
       "code": "PCI-752",
@@ -15574,7 +15722,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-486143161"
+      }
     },
     {
       "code": "PCI-753",
@@ -15591,7 +15743,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-505396871"
+      }
     },
     {
       "code": "PCI-754",
@@ -15608,7 +15764,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-2847849001"
+      }
     },
     {
       "code": "PCI-755",
@@ -15625,7 +15785,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-451917201"
+      }
     },
     {
       "code": "PCI-756",
@@ -15647,7 +15811,11 @@
           "seats": 60
         }
       ],
-      "university": "Veer Madho Singh Bhandari Uttarakhand Technical University, Dehradun"
+      "university": "Veer Madho Singh Bhandari Uttarakhand Technical University, Dehradun",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-516235421"
+      }
     },
     {
       "code": "PCI-757",
@@ -15698,7 +15866,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-455597101"
+      }
     },
     {
       "code": "PCI-760",
@@ -15771,7 +15943,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-512726941"
+      }
     },
     {
       "code": "PCI-764",
@@ -16305,7 +16481,11 @@
           ]
         }
       ],
-      "university": "Jawaharlal Nehru Technological University Hyderabad"
+      "university": "Jawaharlal Nehru Technological University Hyderabad",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-491038511"
+      }
     },
     {
       "code": "PCI-795",
@@ -17252,7 +17432,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "nmc",
+        "value": "UP/041/P/3"
+      }
     },
     {
       "code": "PCI-841",
@@ -17773,7 +17957,11 @@
           ]
         }
       ],
-      "university": "IIMT University, Meerut"
+      "university": "IIMT University, Meerut",
+      "same_as": {
+        "scheme": "inc",
+        "value": "1w4xdst"
+      }
     },
     {
       "code": "PCI-869",
@@ -18231,7 +18419,11 @@
           "seats": null
         }
       ],
-      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal"
+      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-9558208151"
+      }
     },
     {
       "code": "PCI-888",
@@ -18489,7 +18681,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "inc",
+        "value": "1hb4pwf"
+      }
     },
     {
       "code": "PCI-901",
@@ -18506,7 +18702,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "inc",
+        "value": "1orpr88"
+      }
     },
     {
       "code": "PCI-903",
@@ -18986,7 +19186,11 @@
           ]
         }
       ],
-      "university": "Chhatrapati Shahu Ji Maharaj University, Kanpur"
+      "university": "Chhatrapati Shahu Ji Maharaj University, Kanpur",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-11334228611"
+      }
     },
     {
       "code": "PCI-925",
@@ -19344,7 +19548,11 @@
           "seats": null
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-4056851"
+      }
     },
     {
       "code": "PCI-943",
@@ -20836,7 +21044,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-461530291"
+      }
     },
     {
       "code": "PCI-1024",
@@ -21459,7 +21671,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-451562311"
+      }
     },
     {
       "code": "PCI-1050",
@@ -22490,7 +22706,11 @@
           "seats": null
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "inc",
+        "value": "1bbwt2a"
+      }
     },
     {
       "code": "PCI-1098",
@@ -24332,7 +24552,11 @@
           "seats": 100
         }
       ],
-      "university": "Maharaja Ranjit Singh Punjab Technical University, Bathinda"
+      "university": "Maharaja Ranjit Singh Punjab Technical University, Bathinda",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-7141211"
+      }
     },
     {
       "code": "PCI-1186",
@@ -24354,7 +24578,11 @@
           "seats": null
         }
       ],
-      "university": "Pt. B.D. Sharma University of Health Sciences, Rohtak"
+      "university": "Pt. B.D. Sharma University of Health Sciences, Rohtak",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-2483031241"
+      }
     },
     {
       "code": "PCI-1188",
@@ -24824,7 +25052,11 @@
           "seats": null
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-6275721"
+      }
     },
     {
       "code": "PCI-1209",
@@ -24999,7 +25231,11 @@
           ]
         }
       ],
-      "university": "Pt. B.D. Sharma University of Health Sciences, Rohtak"
+      "university": "Pt. B.D. Sharma University of Health Sciences, Rohtak",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-8166056"
+      }
     },
     {
       "code": "PCI-1218",
@@ -27307,7 +27543,11 @@
           ]
         }
       ],
-      "university": "Marwadi University"
+      "university": "Marwadi University",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44096844407"
+      }
     },
     {
       "code": "PCI-1340",
@@ -28145,7 +28385,11 @@
           "seats": null
         }
       ],
-      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal"
+      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-21296761"
+      }
     },
     {
       "code": "PCI-1379",
@@ -28162,7 +28406,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44240509223"
+      }
     },
     {
       "code": "PCI-1380",
@@ -28458,7 +28706,11 @@
           "seats": null
         }
       ],
-      "university": "Pondicherry University, Puducherry"
+      "university": "Pondicherry University, Puducherry",
+      "same_as": {
+        "scheme": "inc",
+        "value": "3zjg2l"
+      }
     },
     {
       "code": "PCI-1393",
@@ -28635,7 +28887,11 @@
           "seats": 100
         }
       ],
-      "university": "Bihar University of Health Sciences, Patna"
+      "university": "Bihar University of Health Sciences, Patna",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-25385201"
+      }
     },
     {
       "code": "PCI-1403",
@@ -28986,7 +29242,11 @@
           "seats": null
         }
       ],
-      "university": "Jawaharlal Nehru Technological University Hyderabad"
+      "university": "Jawaharlal Nehru Technological University Hyderabad",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-6127201"
+      }
     },
     {
       "code": "PCI-1418",
@@ -29931,7 +30191,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44612941723"
+      }
     },
     {
       "code": "PCI-1461",
@@ -30114,7 +30378,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "inc",
+        "value": "182zbru"
+      }
     },
     {
       "code": "PCI-1468",
@@ -30580,7 +30848,11 @@
           "seats": null
         }
       ],
-      "university": "Maulana Abul Kalam Azad University of Technology, West Bengal"
+      "university": "Maulana Abul Kalam Azad University of Technology, West Bengal",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-4592571"
+      }
     },
     {
       "code": "PCI-1490",
@@ -30886,7 +31158,11 @@
           "seats": null
         }
       ],
-      "university": "Oriental University"
+      "university": "Oriental University",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-43368332656"
+      }
     },
     {
       "code": "PCI-1505",
@@ -31022,7 +31298,11 @@
           ]
         }
       ],
-      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal"
+      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44485896064"
+      }
     },
     {
       "code": "PCI-1510",
@@ -32096,7 +32376,11 @@
           "seats": 100
         }
       ],
-      "university": "I.K. Gujral Punjab Technical University, Jalandhar"
+      "university": "I.K. Gujral Punjab Technical University, Jalandhar",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-7349863"
+      }
     },
     {
       "code": "PCI-1560",
@@ -34224,7 +34508,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-2081817161"
+      }
     },
     {
       "code": "PCI-1671",
@@ -35556,7 +35844,11 @@
           "seats": null
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-5796654"
+      }
     },
     {
       "code": "PCI-1728",
@@ -36519,7 +36811,11 @@
           "seats": null
         }
       ],
-      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal"
+      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-7646641"
+      }
     },
     {
       "code": "PCI-1779",
@@ -37100,7 +37396,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-455999511"
+      }
     },
     {
       "code": "PCI-1818",
@@ -37385,7 +37685,11 @@
           "seats": null
         }
       ],
-      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal"
+      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-7398831"
+      }
     },
     {
       "code": "PCI-1833",
@@ -38282,7 +38586,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "inc",
+        "value": "vb75ma"
+      }
     },
     {
       "code": "PCI-1877",
@@ -38760,7 +39068,11 @@
           "seats": null
         }
       ],
-      "university": "Odisha University of Health Sciences, Bhubaneswar"
+      "university": "Odisha University of Health Sciences, Bhubaneswar",
+      "same_as": {
+        "scheme": "inc",
+        "value": "1xmetbx"
+      }
     },
     {
       "code": "PCI-1897",
@@ -39126,7 +39438,11 @@
           "seats": null
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-7995104"
+      }
     },
     {
       "code": "PCI-1917",
@@ -39405,7 +39721,11 @@
           "seats": null
         }
       ],
-      "university": "I.K. Gujral Punjab Technical University, Jalandhar"
+      "university": "I.K. Gujral Punjab Technical University, Jalandhar",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-450586851"
+      }
     },
     {
       "code": "PCI-1932",
@@ -39757,7 +40077,11 @@
           ]
         }
       ],
-      "university": "IFTM University, Moradabad"
+      "university": "IFTM University, Moradabad",
+      "same_as": {
+        "scheme": "nirf",
+        "value": "U-0515"
+      }
     },
     {
       "code": "PCI-1946",
@@ -40429,7 +40753,11 @@
           "seats": null
         }
       ],
-      "university": "LNCT University"
+      "university": "LNCT University",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44520296944"
+      }
     },
     {
       "code": "PCI-1971",
@@ -40636,7 +40964,11 @@
           ]
         }
       ],
-      "university": "Desh Bhagat University, Mandi Gobindgarh"
+      "university": "Desh Bhagat University, Mandi Gobindgarh",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-47356591822"
+      }
     },
     {
       "code": "PCI-1981",
@@ -40782,7 +41114,11 @@
           ]
         }
       ],
-      "university": "Parul University, Vadodara"
+      "university": "Parul University, Vadodara",
+      "same_as": {
+        "scheme": "nirf",
+        "value": "U-0763"
+      }
     },
     {
       "code": "PCI-1986",
@@ -40866,7 +41202,11 @@
           "seats": null
         }
       ],
-      "university": "Techno India University, Kolkata"
+      "university": "Techno India University, Kolkata",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-3392703851"
+      }
     },
     {
       "code": "PCI-1990",
@@ -41204,7 +41544,11 @@
           "seats": null
         }
       ],
-      "university": "Maharaja Ranjit Singh Punjab Technical University, Bathinda"
+      "university": "Maharaja Ranjit Singh Punjab Technical University, Bathinda",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-3726522441"
+      }
     },
     {
       "code": "PCI-2005",
@@ -41469,7 +41813,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-431052731"
+      }
     },
     {
       "code": "PCI-2016",
@@ -42127,7 +42475,11 @@
           "seats": null
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-5368091"
+      }
     },
     {
       "code": "PCI-2049",
@@ -42414,7 +42766,11 @@
           "seats": null
         }
       ],
-      "university": "Veer Madho Singh Bhandari Uttarakhand Technical University, Dehradun"
+      "university": "Veer Madho Singh Bhandari Uttarakhand Technical University, Dehradun",
+      "same_as": {
+        "scheme": "inc",
+        "value": "1a45ds9"
+      }
     },
     {
       "code": "PCI-2065",
@@ -43464,7 +43820,11 @@
           ]
         }
       ],
-      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal"
+      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-10540411"
+      }
     },
     {
       "code": "PCI-2123",
@@ -43563,7 +43923,11 @@
           "seats": null
         }
       ],
-      "university": "The Tamil Nadu Dr. M.G.R. Medical University, Chennai"
+      "university": "The Tamil Nadu Dr. M.G.R. Medical University, Chennai",
+      "same_as": {
+        "scheme": "inc",
+        "value": "d9m6kw"
+      }
     },
     {
       "code": "PCI-2128",
@@ -43904,7 +44268,11 @@
           "seats": null
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-4412641"
+      }
     },
     {
       "code": "PCI-2145",
@@ -44332,7 +44700,11 @@
           "seats": null
         }
       ],
-      "university": "Pt. B.D. Sharma University of Health Sciences, Rohtak"
+      "university": "Pt. B.D. Sharma University of Health Sciences, Rohtak",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-501945791"
+      }
     },
     {
       "code": "PCI-2164",
@@ -45433,7 +45805,11 @@
           "seats": 60
         }
       ],
-      "university": "Himachal Pradesh Technical University, Hamirpur"
+      "university": "Himachal Pradesh Technical University, Hamirpur",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-466670311"
+      }
     },
     {
       "code": "PCI-2219",
@@ -46748,7 +47124,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-454450051"
+      }
     },
     {
       "code": "PCI-2282",
@@ -46799,7 +47179,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-449910521"
+      }
     },
     {
       "code": "PCI-2285",
@@ -47265,7 +47649,11 @@
           "course": "d-pharm",
           "seats": 30
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-479882101"
+      }
     },
     {
       "code": "PCI-2307",
@@ -49797,7 +50185,11 @@
           "seats": null
         }
       ],
-      "university": "Swami Vivekanand University, Sagar"
+      "university": "Swami Vivekanand University, Sagar",
+      "same_as": {
+        "scheme": "inc",
+        "value": "tgnl03"
+      }
     },
     {
       "code": "PCI-2427",
@@ -49869,7 +50261,11 @@
           ]
         }
       ],
-      "university": "Jawaharlal Nehru Technological University Hyderabad"
+      "university": "Jawaharlal Nehru Technological University Hyderabad",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-4544061"
+      }
     },
     {
       "code": "PCI-2429",
@@ -50943,7 +51339,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "nmc",
+        "value": "TN/069/G/1"
+      }
     },
     {
       "code": "PCI-2481",
@@ -51259,7 +51659,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-466246701"
+      }
     },
     {
       "code": "PCI-2496",
@@ -53807,7 +54211,11 @@
           ]
         }
       ],
-      "university": "Jawaharlal Nehru Technological University Kakinada"
+      "university": "Jawaharlal Nehru Technological University Kakinada",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-5601571"
+      }
     },
     {
       "code": "PCI-2609",
@@ -54153,7 +54561,11 @@
           "seats": null
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-5978601"
+      }
     },
     {
       "code": "PCI-2627",
@@ -55499,7 +55911,11 @@
           ]
         }
       ],
-      "university": "I.K. Gujral Punjab Technical University, Jalandhar"
+      "university": "I.K. Gujral Punjab Technical University, Jalandhar",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-5295261"
+      }
     },
     {
       "code": "PCI-2693",
@@ -57193,7 +57609,11 @@
           ]
         }
       ],
-      "university": "Chhattisgarh Swami Vivekanand Technical University, Bhilai"
+      "university": "Chhattisgarh Swami Vivekanand Technical University, Bhilai",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44238209755"
+      }
     },
     {
       "code": "PCI-2790",
@@ -57223,7 +57643,11 @@
           "seats": null
         }
       ],
-      "university": "Veer Madho Singh Bhandari Uttarakhand Technical University, Dehradun"
+      "university": "Veer Madho Singh Bhandari Uttarakhand Technical University, Dehradun",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44646673273"
+      }
     },
     {
       "code": "PCI-2791",
@@ -58320,7 +58744,11 @@
           "seats": 30
         }
       ],
-      "university": "I.K. Gujral Punjab Technical University, Jalandhar"
+      "university": "I.K. Gujral Punjab Technical University, Jalandhar",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-4449363"
+      }
     },
     {
       "code": "PCI-2889",
@@ -58551,7 +58979,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "inc",
+        "value": "y00y60"
+      }
     },
     {
       "code": "PCI-2903",
@@ -59137,7 +59569,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "inc",
+        "value": "14paa4l"
+      }
     },
     {
       "code": "PCI-2949",
@@ -59159,7 +59595,11 @@
           "seats": null
         }
       ],
-      "university": "Sister Nivedita University"
+      "university": "Sister Nivedita University",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-3728024061"
+      }
     },
     {
       "code": "PCI-2950",
@@ -60138,7 +60578,11 @@
           ]
         }
       ],
-      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal"
+      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-4316957341"
+      }
     },
     {
       "code": "PCI-3015",
@@ -60506,7 +60950,11 @@
           "seats": null
         }
       ],
-      "university": "Arka Jain University"
+      "university": "Arka Jain University",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-4535260521"
+      }
     },
     {
       "code": "PCI-3034",
@@ -61655,7 +62103,11 @@
           "seats": null
         }
       ],
-      "university": "Tripura University, Agartala"
+      "university": "Tripura University, Agartala",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-2518088841"
+      }
     },
     {
       "code": "PCI-3098",
@@ -61938,7 +62390,11 @@
           "seats": null
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-47432882313"
+      }
     },
     {
       "code": "PCI-3111",
@@ -62805,7 +63261,11 @@
           "seats": null
         }
       ],
-      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal"
+      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-8088311"
+      }
     },
     {
       "code": "PCI-3157",
@@ -63724,7 +64184,11 @@
           "seats": null
         }
       ],
-      "university": "Radha Govind University"
+      "university": "Radha Govind University",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-11323263511"
+      }
     },
     {
       "code": "PCI-3212",
@@ -64046,7 +64510,11 @@
           "seats": null
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-22275071"
+      }
     },
     {
       "code": "PCI-3232",
@@ -64700,7 +65168,11 @@
           "seats": 100
         }
       ],
-      "university": "Pt. B.D. Sharma University of Health Sciences, Rohtak"
+      "university": "Pt. B.D. Sharma University of Health Sciences, Rohtak",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-4169394"
+      }
     },
     {
       "code": "PCI-3263",
@@ -65539,7 +66011,11 @@
           "seats": null
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-454823691"
+      }
     },
     {
       "code": "PCI-3311",
@@ -66160,7 +66636,11 @@
           "seats": null
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-798862511"
+      }
     },
     {
       "code": "PCI-3343",
@@ -66309,7 +66789,11 @@
           ]
         }
       ],
-      "university": "Gurugram University, Gurugram"
+      "university": "Gurugram University, Gurugram",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-11336439941"
+      }
     },
     {
       "code": "PCI-3350",
@@ -68864,7 +69348,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "inc",
+        "value": "1rv8s42"
+      }
     },
     {
       "code": "PCI-3503",
@@ -69220,7 +69708,11 @@
           "seats": null
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-5924881"
+      }
     },
     {
       "code": "PCI-3522",
@@ -70015,7 +70507,11 @@
           "seats": null
         }
       ],
-      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal"
+      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-6590991"
+      }
     },
     {
       "code": "PCI-3570",
@@ -71002,7 +71498,11 @@
           "seats": 100
         }
       ],
-      "university": "Usha Martin University, Ranchi"
+      "university": "Usha Martin University, Ranchi",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-11265438181"
+      }
     },
     {
       "code": "PCI-3629",
@@ -71089,7 +71589,11 @@
           "seats": null
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-4631873461"
+      }
     },
     {
       "code": "PCI-3634",
@@ -72122,7 +72626,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-456992901"
+      }
     },
     {
       "code": "PCI-3698",
@@ -72690,7 +73198,11 @@
           ]
         }
       ],
-      "university": "Bihar University of Health Sciences, Patna"
+      "university": "Bihar University of Health Sciences, Patna",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44081521403"
+      }
     },
     {
       "code": "PCI-3740",
@@ -73157,7 +73669,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-4235787"
+      }
     },
     {
       "code": "PCI-3765",
@@ -73409,7 +73925,11 @@
           "seats": null
         }
       ],
-      "university": "Arunachal University of Studies, Namsai"
+      "university": "Arunachal University of Studies, Namsai",
+      "same_as": {
+        "scheme": "inc",
+        "value": "1iaq4mr"
+      }
     },
     {
       "code": "PCI-3787",
@@ -73448,7 +73968,11 @@
           "seats": null
         }
       ],
-      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal"
+      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-47429432007"
+      }
     },
     {
       "code": "PCI-3790",
@@ -75616,7 +76140,11 @@
           "seats": null
         }
       ],
-      "university": "IES University, Bhopal"
+      "university": "IES University, Bhopal",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-7809651"
+      }
     },
     {
       "code": "PCI-3930",
@@ -75755,7 +76283,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "inc",
+        "value": "i9s5o9"
+      }
     },
     {
       "code": "PCI-3942",
@@ -75812,7 +76344,11 @@
           "seats": 100
         }
       ],
-      "university": "Bihar University of Health Sciences, Patna"
+      "university": "Bihar University of Health Sciences, Patna",
+      "same_as": {
+        "scheme": "inc",
+        "value": "1mxuz9e"
+      }
     },
     {
       "code": "PCI-3946",
@@ -76674,7 +77210,11 @@
           "seats": null
         }
       ],
-      "university": "Dr. Babasaheb Ambedkar Technological University, Lonere"
+      "university": "Dr. Babasaheb Ambedkar Technological University, Lonere",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-2067945951"
+      }
     },
     {
       "code": "PCI-4001",
@@ -76691,7 +77231,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44240520673"
+      }
     },
     {
       "code": "PCI-4002",
@@ -77631,7 +78175,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "inc",
+        "value": "14fmhxg"
+      }
     },
     {
       "code": "PCI-4070",
@@ -77745,7 +78293,11 @@
           "seats": null
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-6777301"
+      }
     },
     {
       "code": "PCI-4078",
@@ -79621,7 +80173,11 @@
           ]
         }
       ],
-      "university": "Sri Balaji Vidyapeeth, Puducherry"
+      "university": "Sri Balaji Vidyapeeth, Puducherry",
+      "same_as": {
+        "scheme": "nirf",
+        "value": "U-0370"
+      }
     },
     {
       "code": "PCI-4228",
@@ -80949,7 +81505,11 @@
           "seats": 100
         }
       ],
-      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal"
+      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-7040081"
+      }
     },
     {
       "code": "PCI-4333",
@@ -81331,7 +81891,11 @@
           "seats": null
         }
       ],
-      "university": "Pt. B.D. Sharma University of Health Sciences, Rohtak"
+      "university": "Pt. B.D. Sharma University of Health Sciences, Rohtak",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-5452869"
+      }
     },
     {
       "code": "PCI-4364",
@@ -81387,7 +81951,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-1237131"
+      }
     },
     {
       "code": "PCI-4370",
@@ -81688,7 +82256,11 @@
           "seats": null
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44239810243"
+      }
     },
     {
       "code": "PCI-4402",
@@ -83343,7 +83915,11 @@
           ]
         }
       ],
-      "university": "Bihar University of Health Sciences, Patna"
+      "university": "Bihar University of Health Sciences, Patna",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44019712797"
+      }
     },
     {
       "code": "PCI-4505",
@@ -83360,7 +83936,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-467357021"
+      }
     },
     {
       "code": "PCI-4506",
@@ -83479,7 +84059,11 @@
           ]
         }
       ],
-      "university": "Central University of Haryana, Mahendragarh"
+      "university": "Central University of Haryana, Mahendragarh",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-7468045221"
+      }
     },
     {
       "code": "PCI-4513",
@@ -83927,7 +84511,11 @@
           "seats": null
         }
       ],
-      "university": "Bihar University of Health Sciences, Patna"
+      "university": "Bihar University of Health Sciences, Patna",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44462418854"
+      }
     },
     {
       "code": "PCI-4555",
@@ -84033,7 +84621,11 @@
           "seats": null
         }
       ],
-      "university": "Bihar University of Health Sciences, Patna"
+      "university": "Bihar University of Health Sciences, Patna",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-9591844721"
+      }
     },
     {
       "code": "PCI-4561",
@@ -84699,7 +85291,11 @@
           ]
         }
       ],
-      "university": "Bihar University of Health Sciences, Patna"
+      "university": "Bihar University of Health Sciences, Patna",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44030884253"
+      }
     },
     {
       "code": "PCI-4607",
@@ -84985,7 +85581,11 @@
           ]
         }
       ],
-      "university": "Bihar University of Health Sciences, Patna"
+      "university": "Bihar University of Health Sciences, Patna",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44316178713"
+      }
     },
     {
       "code": "PCI-4623",
@@ -85063,7 +85663,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-47132244098"
+      }
     },
     {
       "code": "PCI-4627",
@@ -86155,7 +86759,11 @@
           ]
         }
       ],
-      "university": "Bihar University of Health Sciences, Patna"
+      "university": "Bihar University of Health Sciences, Patna",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44048612983"
+      }
     },
     {
       "code": "PCI-4708",
@@ -87192,7 +87800,11 @@
           ]
         }
       ],
-      "university": "Bihar University of Health Sciences, Patna"
+      "university": "Bihar University of Health Sciences, Patna",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-47447283123"
+      }
     },
     {
       "code": "PCI-4909",
@@ -88090,7 +88702,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-43377322503"
+      }
     },
     {
       "code": "PCI-5221",
@@ -88146,7 +88762,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "inc",
+        "value": "kmzlov"
+      }
     },
     {
       "code": "PCI-5224",
@@ -88572,7 +89192,11 @@
           ]
         }
       ],
-      "university": "University of Lucknow"
+      "university": "University of Lucknow",
+      "same_as": {
+        "scheme": "nirf",
+        "value": "U-0524"
+      }
     },
     {
       "code": "PCI-5259",
@@ -88594,7 +89218,11 @@
           "seats": 60
         }
       ],
-      "university": "Khongnangthaba University"
+      "university": "Khongnangthaba University",
+      "same_as": {
+        "scheme": "inc",
+        "value": "1tc13fo"
+      }
     },
     {
       "code": "PCI-5260",
@@ -88768,7 +89396,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-508493831"
+      }
     },
     {
       "code": "PCI-5274",
@@ -88802,7 +89434,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-4756979121"
+      }
     },
     {
       "code": "PCI-5276",
@@ -88928,7 +89564,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-3348030800"
+      }
     },
     {
       "code": "PCI-5283",
@@ -89788,7 +90428,11 @@
           ]
         }
       ],
-      "university": "Krishna University, Machilipatnam"
+      "university": "Krishna University, Machilipatnam",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-11331633011"
+      }
     },
     {
       "code": "PCI-5353",
@@ -90154,7 +90798,11 @@
           "seats": 60
         }
       ],
-      "university": "Adikavi Nannaya University, Rajamahendravaram"
+      "university": "Adikavi Nannaya University, Rajamahendravaram",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-7427986041"
+      }
     },
     {
       "code": "PCI-5382",
@@ -91256,7 +91904,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "inc",
+        "value": "1xbt9qw"
+      }
     },
     {
       "code": "PCI-5468",
@@ -91395,7 +92047,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-7371505983"
+      }
     },
     {
       "code": "PCI-5479",
@@ -91797,7 +92453,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-16872534"
+      }
     },
     {
       "code": "PCI-5509",
@@ -91875,7 +92535,11 @@
           "seats": null
         }
       ],
-      "university": "AISECT University"
+      "university": "AISECT University",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-9438183771"
+      }
     },
     {
       "code": "PCI-5514",
@@ -92226,7 +92890,11 @@
           "seats": 100
         }
       ],
-      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal"
+      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-46996434428"
+      }
     },
     {
       "code": "PCI-5542",
@@ -92620,7 +93288,11 @@
           "seats": null
         }
       ],
-      "university": "Eklavya University"
+      "university": "Eklavya University",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-15539545"
+      }
     },
     {
       "code": "PCI-5570",
@@ -92654,7 +93326,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-7450578061"
+      }
     },
     {
       "code": "PCI-5573",
@@ -94203,7 +94879,11 @@
           "seats": null
         }
       ],
-      "university": "DRIEMS University"
+      "university": "DRIEMS University",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-10750751"
+      }
     },
     {
       "code": "PCI-5704",
@@ -94729,7 +95409,11 @@
           "seats": 60
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "inc",
+        "value": "rodb3n"
+      }
     },
     {
       "code": "PCI-5752",
@@ -95443,7 +96127,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-11569944"
+      }
     },
     {
       "code": "PCI-5808",
@@ -97443,7 +98131,11 @@
           "seats": 60
         }
       ],
-      "university": "Mody University of Science and Technology, Lakshmangarh"
+      "university": "Mody University of Science and Technology, Lakshmangarh",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-7269511"
+      }
     },
     {
       "code": "PCI-5992",
@@ -98642,7 +99334,11 @@
           "seats": null
         }
       ],
-      "university": "The West Bengal University of Health Sciences, Kolkata"
+      "university": "The West Bengal University of Health Sciences, Kolkata",
+      "same_as": {
+        "scheme": "inc",
+        "value": "1vyawue"
+      }
     },
     {
       "code": "PCI-6101",
@@ -100812,7 +101508,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "inc",
+        "value": "1pcwwp7"
+      }
     },
     {
       "code": "PCI-6280",
@@ -100916,7 +101616,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-4873385049"
+      }
     },
     {
       "code": "PCI-6288",
@@ -101609,7 +102313,11 @@
           "seats": null
         }
       ],
-      "university": "Aryabhatta Knowledge University, Patna"
+      "university": "Aryabhatta Knowledge University, Patna",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44788621294"
+      }
     },
     {
       "code": "PCI-6349",
@@ -103800,7 +104508,11 @@
           "seats": null
         }
       ],
-      "university": "Bihar University of Health Sciences, Patna"
+      "university": "Bihar University of Health Sciences, Patna",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44079446927"
+      }
     },
     {
       "code": "PCI-6544",
@@ -104116,7 +104828,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-11564604"
+      }
     },
     {
       "code": "PCI-6579",
@@ -107042,7 +107758,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44245027579"
+      }
     },
     {
       "code": "PCI-6833",
@@ -107419,7 +108139,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "inc",
+        "value": "325njs"
+      }
     },
     {
       "code": "PCI-6878",
@@ -109107,7 +109831,11 @@
           "seats": 100
         }
       ],
-      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal"
+      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-9431357186"
+      }
     },
     {
       "code": "PCI-7028",
@@ -116328,7 +117056,11 @@
           "seats": null
         }
       ],
-      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal"
+      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44278690394"
+      }
     },
     {
       "code": "PCI-7713",
@@ -117492,7 +118224,11 @@
           "seats": null
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44480490763"
+      }
     },
     {
       "code": "PCI-7834",
@@ -118683,7 +119419,11 @@
           "seats": 60
         }
       ],
-      "university": "Sharnbasva University, Kalaburagi"
+      "university": "Sharnbasva University, Kalaburagi",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-4400571391"
+      }
     },
     {
       "code": "PCI-7951",
@@ -119610,7 +120350,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "inc",
+        "value": "l5fexw"
+      }
     },
     {
       "code": "PCI-8032",
@@ -120186,7 +120930,11 @@
           "seats": null
         }
       ],
-      "university": "Jharkhand University of Technology, Ranchi"
+      "university": "Jharkhand University of Technology, Ranchi",
+      "same_as": {
+        "scheme": "inc",
+        "value": "1ijvd25"
+      }
     },
     {
       "code": "PCI-8076",
@@ -120344,7 +121092,11 @@
           "seats": null
         }
       ],
-      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal"
+      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-11319834191"
+      }
     },
     {
       "code": "PCI-8088",
@@ -120480,7 +121232,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "inc",
+        "value": "8a40dd"
+      }
     },
     {
       "code": "PCI-8100",
@@ -121476,7 +122232,11 @@
           "seats": null
         }
       ],
-      "university": "Bihar University of Health Sciences, Patna"
+      "university": "Bihar University of Health Sciences, Patna",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44031123227"
+      }
     },
     {
       "code": "PCI-8184",
@@ -122868,7 +123628,11 @@
           "seats": null
         }
       ],
-      "university": "Dr. Babasaheb Ambedkar Marathwada University, Chhatrapati Sambhajinagar"
+      "university": "Dr. Babasaheb Ambedkar Marathwada University, Chhatrapati Sambhajinagar",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-479589481"
+      }
     },
     {
       "code": "PCI-8314",
@@ -123679,7 +124443,11 @@
           "seats": null
         }
       ],
-      "university": "I.K. Gujral Punjab Technical University, Jalandhar"
+      "university": "I.K. Gujral Punjab Technical University, Jalandhar",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-1486931211"
+      }
     },
     {
       "code": "PCI-8382",
@@ -123780,7 +124548,11 @@
           "seats": null
         }
       ],
-      "university": "Mahayogi Gorakhnath University"
+      "university": "Mahayogi Gorakhnath University",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-47414078303"
+      }
     },
     {
       "code": "PCI-8390",
@@ -126290,7 +127062,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-2863444437"
+      }
     },
     {
       "code": "PCI-8574",
@@ -126402,7 +127178,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-2843555031"
+      }
     },
     {
       "code": "PCI-8582",
@@ -126481,7 +127261,11 @@
           "seats": null
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-6383651"
+      }
     },
     {
       "code": "PCI-8587",
@@ -127033,7 +127817,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-11327924401"
+      }
     },
     {
       "code": "PCI-8623",
@@ -127675,7 +128463,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-7451617881"
+      }
     },
     {
       "code": "PCI-8694",
@@ -127972,7 +128764,11 @@
           ]
         }
       ],
-      "university": "Chaudhary Charan Singh University, Meerut"
+      "university": "Chaudhary Charan Singh University, Meerut",
+      "same_as": {
+        "scheme": "nirf",
+        "value": "U-0506"
+      }
     },
     {
       "code": "PCI-8740",
@@ -130223,7 +131019,11 @@
           "seats": 60
         }
       ],
-      "university": "Dr. C.V. Raman University, Khandwa"
+      "university": "Dr. C.V. Raman University, Khandwa",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-7447661461"
+      }
     },
     {
       "code": "PCI-9107",
@@ -130998,7 +131798,11 @@
           "seats": 60
         }
       ],
-      "university": "Rabindranath Tagore University"
+      "university": "Rabindranath Tagore University",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44095807013"
+      }
     },
     {
       "code": "PCI-9251",
@@ -132328,7 +133132,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44282845644"
+      }
     },
     {
       "code": "PCI-9426",
@@ -132443,7 +133251,11 @@
           "seats": null
         }
       ],
-      "university": "MIT Vishwaprayag University"
+      "university": "MIT Vishwaprayag University",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-43799280853"
+      }
     },
     {
       "code": "PCI-9453",
@@ -132461,7 +133273,11 @@
           "seats": 60
         }
       ],
-      "university": "Harcourt Butler Technical University, Kanpur"
+      "university": "Harcourt Butler Technical University, Kanpur",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-38136961"
+      }
     },
     {
       "code": "PCI-9454",
@@ -132605,7 +133421,11 @@
           "seats": null
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-3143011"
+      }
     },
     {
       "code": "PCI-9464",
@@ -132758,7 +133578,11 @@
           "seats": null
         }
       ],
-      "university": "Odisha University of Health Sciences, Bhubaneswar"
+      "university": "Odisha University of Health Sciences, Bhubaneswar",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-460640153"
+      }
     },
     {
       "code": "PCI-9478",
@@ -132923,7 +133747,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-2845501211"
+      }
     },
     {
       "code": "PCI-9500",
@@ -133507,7 +134335,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-2847931031"
+      }
     },
     {
       "code": "PCI-9560",
@@ -133693,7 +134525,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-3381672191"
+      }
     },
     {
       "code": "PCI-9579",
@@ -134406,7 +135242,11 @@
           ]
         }
       ],
-      "university": "Dr. Babasaheb Ambedkar Technological University, Lonere"
+      "university": "Dr. Babasaheb Ambedkar Technological University, Lonere",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-463267231"
+      }
     },
     {
       "code": "PCI-9673",
@@ -136005,7 +136845,11 @@
           "seats": 60
         }
       ],
-      "university": "Scope Global Skills University"
+      "university": "Scope Global Skills University",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-4884771"
+      }
     },
     {
       "code": "PCI-9893",
@@ -136830,7 +137674,11 @@
           "seats": 100
         }
       ],
-      "university": "Anjaneya University"
+      "university": "Anjaneya University",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-3799438"
+      }
     },
     {
       "code": "PCI-9990",
@@ -136967,7 +137815,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "inc",
+        "value": "8qiroe"
+      }
     },
     {
       "code": "PCI-10005",
@@ -137899,7 +138751,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-518894391"
+      }
     },
     {
       "code": "PCI-10155",
@@ -138149,7 +139005,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "inc",
+        "value": "sl37te"
+      }
     },
     {
       "code": "PCI-10219",
@@ -138241,7 +139101,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-2857057061"
+      }
     },
     {
       "code": "PCI-10225",
@@ -138259,7 +139123,11 @@
           "seats": null
         }
       ],
-      "university": "Manipal University Jaipur"
+      "university": "Manipal University Jaipur",
+      "same_as": {
+        "scheme": "nirf",
+        "value": "U-0749"
+      }
     },
     {
       "code": "PCI-10228",
@@ -138531,7 +139399,11 @@
           "seats": 100
         }
       ],
-      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal"
+      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-3357241821"
+      }
     },
     {
       "code": "PCI-10261",
@@ -140261,7 +141133,11 @@
           "seats": null
         }
       ],
-      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal"
+      "university": "Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-13636687"
+      }
     },
     {
       "code": "PCI-10431",
@@ -141474,7 +142350,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "inc",
+        "value": "1wtvfz5"
+      }
     },
     {
       "code": "PCI-10647",
@@ -141526,7 +142406,11 @@
           "seats": 60
         }
       ],
-      "university": "Pt. B.D. Sharma University of Health Sciences, Rohtak"
+      "university": "Pt. B.D. Sharma University of Health Sciences, Rohtak",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-23439963"
+      }
     },
     {
       "code": "PCI-10655",
@@ -142319,7 +143203,11 @@
           "seats": null
         }
       ],
-      "university": "Swami Ramanand Teerth Marathwada University, Nanded"
+      "university": "Swami Ramanand Teerth Marathwada University, Nanded",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-490747501"
+      }
     },
     {
       "code": "PCI-10857",
@@ -142516,7 +143404,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44231872073"
+      }
     },
     {
       "code": "PCI-10881",
@@ -142611,7 +143503,11 @@
           "seats": 60
         }
       ],
-      "university": "Abhyuday University"
+      "university": "Abhyuday University",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-43381905583"
+      }
     },
     {
       "code": "PCI-10902",
@@ -142667,7 +143563,11 @@
           "seats": 100
         }
       ],
-      "university": "Renaissance University"
+      "university": "Renaissance University",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-43370563218"
+      }
     },
     {
       "code": "PCI-10919",
@@ -142968,7 +143868,11 @@
           "course": "b-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-47407999933"
+      }
     },
     {
       "code": "PCI-10981",
