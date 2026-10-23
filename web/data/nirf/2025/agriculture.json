@@ -1,0 +1,373 @@
+{
+ "source": {
+  "publisher": "NIRF, Ministry of Education",
+  "url": [
+   "https://www.nirfindia.org/Rankings/2025/AgricultureRanking.html"
+  ],
+  "retrieved": "2026-10-23"
+ },
+ "year": 2025,
+ "category": "Agriculture",
+ "rows": [
+  {
+   "institute_id": "U-0101",
+   "name": "Indian Agricultural Research Institute",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": 89.23,
+   "rank": 1,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0171",
+   "name": "ICAR - National Dairy Research Institute",
+   "city": "Karnal",
+   "state": "Haryana",
+   "score": 75.87,
+   "rank": 2,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0381",
+   "name": "Punjab Agricultural University",
+   "city": "Ludhiana",
+   "state": "Punjab",
+   "score": 75.83,
+   "rank": 3,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0500",
+   "name": "Banaras Hindu University",
+   "city": "Varanasi",
+   "state": "Uttar Pradesh",
+   "score": 68.95,
+   "rank": 4,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0518",
+   "name": "Indian Veterinary Research Institute, Izatnagar",
+   "city": "Bareilly",
+   "state": "Uttar Pradesh",
+   "score": 67.66,
+   "rank": 5,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0485",
+   "name": "Tamil Nadu Agricultural University",
+   "city": "Coimbatore",
+   "state": "Tamil Nadu",
+   "score": 67.06,
+   "rank": 6,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0200",
+   "name": "Sher-e-Kashmir University of Agricultural Science and Technology of Kashmir",
+   "city": "Srinagar",
+   "state": "Jammu and Kashmir",
+   "score": 65.81,
+   "rank": 7,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0293",
+   "name": "Central Institute of Fisheries Education, Fisheries University",
+   "city": "Mumbai",
+   "state": "Maharashtra",
+   "score": 63.92,
+   "rank": 8,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0554",
+   "name": "G.B. Pant Universtiy of Agriculture and Technology, Pantnagar",
+   "city": "Pantnagar",
+   "state": "Uttarakhand",
+   "score": 61.56,
+   "rank": 9,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0159",
+   "name": "Chaudhary Charan Singh Haryana Agricultural University",
+   "city": "Hisar",
+   "state": "Haryana",
+   "score": 61.47,
+   "rank": 10,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0248",
+   "name": "University of Agricultural Sciences, Bangalore",
+   "city": "Bengaluru",
+   "state": "Karnataka",
+   "score": 60.35,
+   "rank": 11,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0257",
+   "name": "Kerala Agricultural University, Thrissur",
+   "city": "Thrissur",
+   "state": "Kerala",
+   "score": 60,
+   "rank": 12,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-45375",
+   "name": "National Institute of Food Technology, Entrepreneurship and Management - Thanjavur (NIFTEM - Thanjavur)",
+   "city": "Thanjavur",
+   "state": "Tamil Nadu",
+   "score": 58.76,
+   "rank": 13,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0075",
+   "name": "Dr Rajendra Prasad Central Agricultural University, Samastipur",
+   "city": "Samastipur",
+   "state": "Bihar",
+   "score": 58.25,
+   "rank": 14,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0497",
+   "name": "Amity University",
+   "city": "Gautam Budh Nagar",
+   "state": "Uttar Pradesh",
+   "score": 58.14,
+   "rank": 15,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0568",
+   "name": "Bidhan Chandra Krishi Vishwavidyalaya",
+   "city": "Nadia",
+   "state": "West Bengal",
+   "score": 57.64,
+   "rank": 16,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0379",
+   "name": "Lovely Professional University",
+   "city": "Phagwara",
+   "state": "Punjab",
+   "score": 57.61,
+   "rank": 17,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0048",
+   "name": "Assam Agricultural University, Jorhat",
+   "city": "Jorhat",
+   "state": "Assam",
+   "score": 57.2,
+   "rank": 18,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0360",
+   "name": "Odisha University of Agriculture and Technology",
+   "city": "Khordha",
+   "state": "Odisha",
+   "score": 56.61,
+   "rank": 19,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0181",
+   "name": "Dr. Y.S. Parmar University of Horticulture and Forestry",
+   "city": "Solan",
+   "state": "Himachal Pradesh",
+   "score": 55.53,
+   "rank": 20,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0498",
+   "name": "Babasheb Bhimrao Ambedkar University",
+   "city": "Lucknow",
+   "state": "Uttar Pradesh",
+   "score": 55.46,
+   "rank": 21,
+   "rank_band": null
+  },
+  {
+   "institute_id": "S-8898",
+   "name": "National Institute of Food Technology, Enterprenurship & Management",
+   "city": "Sonipat",
+   "state": "Haryana",
+   "score": 54.61,
+   "rank": 22,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0199",
+   "name": "Sher-e-Kashmir University of Agricultural Science and Technology of Jammu",
+   "city": "Jammu",
+   "state": "Jammu and Kashmir",
+   "score": 54.28,
+   "rank": 23,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0336",
+   "name": "Central Agricultural University",
+   "city": "Imphal West",
+   "state": "Manipur",
+   "score": 52.97,
+   "rank": 24,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0784",
+   "name": "Professor Jayashankar Telangana Agricultural University (PJTAU)",
+   "city": "Hyderabad",
+   "state": "Telangana",
+   "score": 52.97,
+   "rank": 24,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0487",
+   "name": "Tamil Nadu Veterinary & Animal Sciences University",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": 52.91,
+   "rank": 26,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0123",
+   "name": "Anand Agricultural University",
+   "city": "Anand",
+   "state": "Gujarat",
+   "score": 51.67,
+   "rank": 27,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0087",
+   "name": "Indira Gandhi Krishi Vishwavidyalaya, Raipur",
+   "city": "Raipur",
+   "state": "Chhattisgarh",
+   "score": 50.6,
+   "rank": 28,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0179",
+   "name": "Chaudhary Sarwan Kumar Himachal Pardesh Krishi Vishvavidyalaya",
+   "city": "Kangra",
+   "state": "Himachal Pradesh",
+   "score": 50.18,
+   "rank": 29,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0375",
+   "name": "Guru Angad Dev Veterinary & Animal Sciences University",
+   "city": "Ludhiana",
+   "state": "Punjab",
+   "score": 50.02,
+   "rank": 30,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0259",
+   "name": "Kerala University of Fisheries & Ocean Studies",
+   "city": "Kochi",
+   "state": "Kerala",
+   "score": 49.45,
+   "rank": 31,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0004",
+   "name": "Acharya NG Ranga Agricultural University, Guntur",
+   "city": "Guntur",
+   "state": "Andhra Pradesh",
+   "score": 49.45,
+   "rank": 31,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0473",
+   "name": "S.R.M. Institute of Science and Technology",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": 49.38,
+   "rank": 33,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0145",
+   "name": "Navsari Agricultural University",
+   "city": "Navsari",
+   "state": "Gujarat",
+   "score": 49.13,
+   "rank": 34,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0246",
+   "name": "University of Agricultural Sciences",
+   "city": "Dharwad",
+   "state": "Karnataka",
+   "score": 48.79,
+   "rank": 35,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0060",
+   "name": "Bihar Agriculture University",
+   "city": "Bhagalpur",
+   "state": "Bihar",
+   "score": 48.05,
+   "rank": 36,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0165",
+   "name": "Lala lajpat Rai University of Veterinary and Animal Sciences",
+   "city": "Hisar",
+   "state": "Haryana",
+   "score": 48.03,
+   "rank": 37,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0443",
+   "name": "Annamalai University",
+   "city": "Annamalainagar",
+   "state": "Tamil Nadu",
+   "score": 47.3,
+   "rank": 38,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0591",
+   "name": "West Bengal University of Animal and Fishery Sciences, Kolkata",
+   "city": "Kolkata",
+   "state": "West Bengal",
+   "score": 46.97,
+   "rank": 39,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0001",
+   "name": "Dr Y S R Horticulture University",
+   "city": "West Godavari",
+   "state": "Andhra Pradesh",
+   "score": 46.87,
+   "rank": 40,
+   "rank_band": null
+  }
+ ]
+}

@@ -1,0 +1,373 @@
+{
+ "source": {
+  "publisher": "NIRF, Ministry of Education",
+  "url": [
+   "https://www.nirfindia.org/Rankings/2025/LawRanking.html"
+  ],
+  "retrieved": "2026-10-23"
+ },
+ "year": 2025,
+ "category": "Law",
+ "rows": [
+  {
+   "institute_id": "U-0238",
+   "name": "National Law School of India University",
+   "city": "Bengaluru",
+   "state": "Karnataka",
+   "score": 82.97,
+   "rank": 1,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0111",
+   "name": "National Law University",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": 80,
+   "rank": 2,
+   "rank_band": null
+  },
+  {
+   "institute_id": "N-18",
+   "name": "Nalsar University of Law",
+   "city": "Hyderabad",
+   "state": "Telangana",
+   "score": 79.5,
+   "rank": 3,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0585",
+   "name": "The West Bengal National University of Juridical Sciences",
+   "city": "Kolkata",
+   "state": "West Bengal",
+   "score": 79.39,
+   "rank": 4,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0134",
+   "name": "Gujarat National Law University",
+   "city": "Gandhinagar",
+   "state": "Gujarat",
+   "score": 76.23,
+   "rank": 5,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0573",
+   "name": "Indian Institute of Technology Kharagpur",
+   "city": "Kharagpur",
+   "state": "West Bengal",
+   "score": 74.09,
+   "rank": 6,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-19328",
+   "name": "Symbiosis Law School, Pune",
+   "city": "Pune",
+   "state": "Maharashtra",
+   "score": 74.07,
+   "rank": 7,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0108",
+   "name": "Jamia Millia Islamia",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": 66.39,
+   "rank": 8,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0496",
+   "name": "Aligarh Muslim University",
+   "city": "Aligarh",
+   "state": "Uttar Pradesh",
+   "score": 65.82,
+   "rank": 9,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0363",
+   "name": "Siksha `O` Anusandhan",
+   "city": "Bhubaneswar",
+   "state": "Odisha",
+   "score": 65.36,
+   "rank": 10,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0476",
+   "name": "Shanmugha Arts Science Technology & Research Academy",
+   "city": "Thanjavur",
+   "state": "Tamil Nadu",
+   "score": 65.29,
+   "rank": 11,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0498",
+   "name": "Babasheb Bhimrao Ambedkar University",
+   "city": "Lucknow",
+   "state": "Uttar Pradesh",
+   "score": 65.26,
+   "rank": 12,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0253",
+   "name": "Cochin University of Science and Technology",
+   "city": "Cochin",
+   "state": "Kerala",
+   "score": 65.19,
+   "rank": 13,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0356",
+   "name": "Kalinga Institute of Industrial Technology",
+   "city": "Bhubaneswar",
+   "state": "Odisha",
+   "score": 65.04,
+   "rank": 14,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0358",
+   "name": "National Law University",
+   "city": "Cuttack",
+   "state": "Odisha",
+   "score": 63.66,
+   "rank": 15,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-23907",
+   "name": "Dr. B. R. Ambedkar College of Law",
+   "city": "Visakhapatnam",
+   "state": "Andhra Pradesh",
+   "score": 63.12,
+   "rank": 16,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0063",
+   "name": "Chanakya National Law University",
+   "city": "Patna",
+   "state": "Bihar",
+   "score": 62.4,
+   "rank": 17,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0564",
+   "name": "UPES",
+   "city": "Dehradun",
+   "state": "Uttarakhand",
+   "score": 61.45,
+   "rank": 18,
+   "rank_band": null
+  },
+  {
+   "institute_id": "I-1441",
+   "name": "Saveetha Institute of Medical and Technical Sciences",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": 60.9,
+   "rank": 19,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0213",
+   "name": "Alliance University",
+   "city": "Bengaluru",
+   "state": "Karnataka",
+   "score": 60.83,
+   "rank": 20,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0511",
+   "name": "Dr. Ram Manohar Lohiya National Law University, Lucknow",
+   "city": "Lucknow",
+   "state": "Uttar Pradesh",
+   "score": 60.12,
+   "rank": 21,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0099",
+   "name": "Guru Gobind Singh Indraprastha University",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": 60.05,
+   "rank": 22,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0062",
+   "name": "Central University of South Bihar",
+   "city": "Gaya",
+   "state": "Bihar",
+   "score": 58.84,
+   "rank": 23,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0217",
+   "name": "Christ University",
+   "city": "Bengaluru",
+   "state": "Karnataka",
+   "score": 58.4,
+   "rank": 24,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0473",
+   "name": "S.R.M. Institute of Science and Technology",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": 58,
+   "rank": 25,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0379",
+   "name": "Lovely Professional University",
+   "city": "Phagwara",
+   "state": "Punjab",
+   "score": 57.98,
+   "rank": 26,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0285",
+   "name": "National Law Institute University, Bhopal",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "score": 57.64,
+   "rank": 27,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0880",
+   "name": "Maharashtra National Law University, Nagpur",
+   "city": "Nagpur",
+   "state": "Maharashtra",
+   "score": 56.54,
+   "rank": 28,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0524",
+   "name": "University of Lucknow",
+   "city": "Lucknow",
+   "state": "Uttar Pradesh",
+   "score": 55.85,
+   "rank": 29,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0600",
+   "name": "National University of Study & Research in Law, Ranchi",
+   "city": "Ranchi",
+   "state": "Jharkhand",
+   "score": 55.81,
+   "rank": 30,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0012",
+   "name": "ICFAI Foundation for Higher Education, Hyderabad",
+   "city": "Hyderabad",
+   "state": "Telangana",
+   "score": 55.28,
+   "rank": 31,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0749",
+   "name": "Manipal University Jaipur",
+   "city": "Jaipur",
+   "state": "Rajasthan",
+   "score": 54.83,
+   "rank": 32,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0146",
+   "name": "Nirma University",
+   "city": "Ahmedabad",
+   "state": "Gujarat",
+   "score": 53.7,
+   "rank": 33,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-1035",
+   "name": "Himachal Pradesh National Law University, Shimla",
+   "city": null,
+   "state": "Himachal Pradesh",
+   "score": 53.49,
+   "rank": 34,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0677",
+   "name": "National Law University and Judicial Academy",
+   "city": "Kamrup",
+   "state": "Assam",
+   "score": 53.39,
+   "rank": 35,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0643",
+   "name": "Galgotias University",
+   "city": "Gautam Budh Nagar",
+   "state": "Uttar Pradesh",
+   "score": 53.33,
+   "rank": 36,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-22215",
+   "name": "Army Institute of Law",
+   "city": "Mohali",
+   "state": "Punjab",
+   "score": 53.27,
+   "rank": 37,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0011",
+   "name": "Gandhi Institute of Technology And Management (GITAM)",
+   "city": "Visakhapatnam",
+   "state": "Andhra Pradesh",
+   "score": 53.26,
+   "rank": 38,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0155",
+   "name": "Amity University Haryana, Gurgaon",
+   "city": "Gurugram, Haryana",
+   "state": "Haryana",
+   "score": 53.22,
+   "rank": 39,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0372",
+   "name": "Central University of Punjab",
+   "city": "Bathinda",
+   "state": "Punjab",
+   "score": 52.7,
+   "rank": 40,
+   "rank_band": null
+  }
+ ]
+}

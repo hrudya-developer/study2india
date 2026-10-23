@@ -1,0 +1,373 @@
+{
+ "source": {
+  "publisher": "NIRF, Ministry of Education",
+  "url": [
+   "https://www.nirfindia.org/Rankings/2025/DentalRanking.html"
+  ],
+  "retrieved": "2026-10-23"
+ },
+ "year": 2025,
+ "category": "Dental",
+ "rows": [
+  {
+   "institute_id": "N-15",
+   "name": "All India Institute of Medical Sciences, Delhi",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": 89.12,
+   "rank": 1,
+   "rank_band": null
+  },
+  {
+   "institute_id": "I-1441",
+   "name": "Saveetha Institute of Medical and Technical Sciences",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": 85.31,
+   "rank": 2,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-28507",
+   "name": "Maulana Azad Institute of Dental Sciences",
+   "city": "Delhi",
+   "state": "Delhi",
+   "score": 72.55,
+   "rank": 3,
+   "rank_band": null
+  },
+  {
+   "institute_id": "I-1110",
+   "name": "Dr. D. Y. Patil Vidyapeeth",
+   "city": "Pune",
+   "state": "Maharashtra",
+   "score": 72.36,
+   "rank": 4,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-7254",
+   "name": "Manipal College of Dental Sciences, Manipal",
+   "city": "Manipal",
+   "state": "Karnataka",
+   "score": 70.58,
+   "rank": 5,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-19320",
+   "name": "A.B.Shetty Memorial Institute of Dental Sciences",
+   "city": "Mangaluru",
+   "state": "Karnataka",
+   "score": 69,
+   "rank": 6,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0523",
+   "name": "King George`s Medical University",
+   "city": "Lucknow",
+   "state": "Uttar Pradesh",
+   "score": 68.89,
+   "rank": 7,
+   "rank_band": null
+  },
+  {
+   "institute_id": "N-352",
+   "name": "SRM Dental College",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": 68.19,
+   "rank": 8,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0363",
+   "name": "Siksha `O` Anusandhan",
+   "city": "Bhubaneswar",
+   "state": "Odisha",
+   "score": 63.12,
+   "rank": 9,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-35008",
+   "name": "JSS Dental College and Hospital",
+   "city": "Mysuru",
+   "state": "Karnataka",
+   "score": 62.59,
+   "rank": 10,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-7240",
+   "name": "Manipal College of Dental Sciences, Mangalore",
+   "city": "Mangaluru",
+   "state": "Karnataka",
+   "score": 62.43,
+   "rank": 11,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-30756",
+   "name": "Postgraduate Institute of Dental Sciences",
+   "city": "Rohtak",
+   "state": "Haryana",
+   "score": 62.03,
+   "rank": 12,
+   "rank_band": null
+  },
+  {
+   "institute_id": "I-1486",
+   "name": "Sri Ramachandra Institute of Higher Education and Research",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": 61.28,
+   "rank": 13,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0436",
+   "name": "Amrita Vishwa Vidyapeetham",
+   "city": "Coimbatore",
+   "state": "Tamil Nadu",
+   "score": 60.83,
+   "rank": 14,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0500",
+   "name": "Banaras Hindu University",
+   "city": "Varanasi",
+   "state": "Uttar Pradesh",
+   "score": 60.14,
+   "rank": 15,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0465",
+   "name": "Meenakshi Academy of Higher Education and Research",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": 59.92,
+   "rank": 16,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0108",
+   "name": "Jamia Millia Islamia",
+   "city": "New Delhi",
+   "state": "Delhi",
+   "score": 59.5,
+   "rank": 17,
+   "rank_band": null
+  },
+  {
+   "institute_id": "N-71",
+   "name": "Faculty of Dental Sciences, Institute of Medical Sciences",
+   "city": "Varanasi",
+   "state": "Uttar Pradesh",
+   "score": null,
+   "rank": null,
+   "rank_band": "Rank withdrawn"
+  },
+  {
+   "institute_id": "N-153",
+   "name": "Nair Hospital Dental College",
+   "city": "Mumbai",
+   "state": "Maharashtra",
+   "score": 58.1,
+   "rank": 19,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-14033",
+   "name": "Govt. Dental College, Nagpur",
+   "city": "Nagpur",
+   "state": "Maharashtra",
+   "score": 57.7,
+   "rank": 20,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-13829",
+   "name": "Govt. Dental College, Mumbai",
+   "city": "Mumbai",
+   "state": "Maharashtra",
+   "score": 57.42,
+   "rank": 21,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0724",
+   "name": "M.S. Ramaiah University of Applied Sciences",
+   "city": "Bengaluru",
+   "state": "Karnataka",
+   "score": 57.39,
+   "rank": 22,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-6548",
+   "name": "Mahatma Gandhi P.G. Institute of Dental Sciences",
+   "city": "Pondicherry",
+   "state": "Pondicherry",
+   "score": 57.05,
+   "rank": 23,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-29150",
+   "name": "Christian Dental College",
+   "city": "Ludhiana",
+   "state": "Punjab",
+   "score": 56.96,
+   "rank": 24,
+   "rank_band": null
+  },
+  {
+   "institute_id": "N-238",
+   "name": "SDM College of Dental Sciences & Hospital",
+   "city": "Dharwad",
+   "state": "Karnataka",
+   "score": 56.49,
+   "rank": 25,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0356",
+   "name": "Kalinga Institute of Industrial Technology",
+   "city": "Bhubaneswar",
+   "state": "Odisha",
+   "score": 56.34,
+   "rank": 26,
+   "rank_band": null
+  },
+  {
+   "institute_id": "N-91",
+   "name": "Sree Balaji Dental College & Hospital",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": 56.32,
+   "rank": 27,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0496",
+   "name": "Aligarh Muslim University",
+   "city": "Aligarh",
+   "state": "Uttar Pradesh",
+   "score": 55.69,
+   "rank": 28,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-24504",
+   "name": "KLE Vishwanath Katti Institute of Dental Sciences",
+   "city": "Belgaum",
+   "state": "Karnataka",
+   "score": 55.42,
+   "rank": 29,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0461",
+   "name": "Dr. M. G. R. Educational and Research Institute",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": 55.08,
+   "rank": 30,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-8528",
+   "name": "Yenepoya Dental College",
+   "city": "Mangaluru",
+   "state": "Karnataka",
+   "score": 55,
+   "rank": 31,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-45605",
+   "name": "Chettinad Dental College and Research Institute",
+   "city": "Kelambakkam",
+   "state": "Tamil Nadu",
+   "score": 54.9,
+   "rank": 32,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0169",
+   "name": "Manav Rachna International Institute of Research & Studies",
+   "city": "Faridabad",
+   "state": "Haryana",
+   "score": 54.86,
+   "rank": 33,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-40178",
+   "name": "Government Dental College, Bangalore",
+   "city": "Bengaluru",
+   "state": "Karnataka",
+   "score": 54.8,
+   "rank": 34,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-48122",
+   "name": "Government Dental College",
+   "city": "Thiruvananthapuram",
+   "state": "Kerala",
+   "score": 54.73,
+   "rank": 35,
+   "rank_band": null
+  },
+  {
+   "institute_id": "U-0295",
+   "name": "Datta Meghe Institute of Higher Education and Research",
+   "city": "Wardha",
+   "state": "Maharashtra",
+   "score": 54.29,
+   "rank": 36,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-5910",
+   "name": "Government Dental College",
+   "city": "Ahmedabad",
+   "state": "Gujarat",
+   "score": 54.13,
+   "rank": 37,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-8121",
+   "name": "Government Dental College",
+   "city": "Kozhikode",
+   "state": "Kerala",
+   "score": 52.97,
+   "rank": 38,
+   "rank_band": null
+  },
+  {
+   "institute_id": "N-353",
+   "name": "SRM Kattankulathur Dental College",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "score": 52.88,
+   "rank": 39,
+   "rank_band": null
+  },
+  {
+   "institute_id": "C-40342",
+   "name": "K L E Society's Institute of Dental Sciences",
+   "city": "Bengaluru",
+   "state": "Karnataka",
+   "score": 52.19,
+   "rank": 40,
+   "rank_band": null
+  }
+ ]
+}

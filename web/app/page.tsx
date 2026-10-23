@@ -5,6 +5,7 @@ import { getHomeCounts, getStreams, getTopRankings, getStateCounts, getExams, ge
 import { CounsellingForm } from "@/components/counselling-form";
 import { RankingTabs } from "@/components/ranking-tabs";
 import { FieldIcon } from "@/components/field-icon";
+import { SentenceSelect } from "@/components/sentence-select";
 import { POPULAR_STATES } from "@/components/site-header";
 import { CONTACT } from "@/data/reference";
 import { slugify } from "@/lib/slug";
@@ -87,33 +88,16 @@ export default async function HomePage() {
             <form action="/colleges" method="get" className="mt-8">
               <p className="font-[family-name:var(--font-display)] text-[1.8rem] font-bold leading-[1.55] sm:text-[2.5rem]">
                 <span>I want to study </span>
-                <label htmlFor="h-course" className="sr-only">
-                  Course
-                </label>
-                <select id="h-course" name="course" defaultValue="mbbs" className="sentence-select">
-                  <option value="">any course</option>
-                  {streams.map((s) => (
-                    <optgroup key={s.slug} label={s.name}>
-                      {s.courses.map((c) => (
-                        <option key={c.slug} value={c.slug}>
-                          {c.short}
-                        </option>
-                      ))}
-                    </optgroup>
-                  ))}
-                </select>
+                <SentenceSelect
+                  id="h-course"
+                  name="course"
+                  label="Course"
+                  placeholder="any course"
+                  defaultValue="mbbs"
+                  groups={streams.map((s) => ({ label: s.name, options: s.courses.map((c) => ({ value: c.slug, label: c.short })) }))}
+                />
                 <span> in </span>
-                <label htmlFor="h-state" className="sr-only">
-                  State
-                </label>
-                <select id="h-state" name="state" defaultValue="" className="sentence-select">
-                  <option value="">any state</option>
-                  {options.states.map((s) => (
-                    <option key={s.value} value={s.value}>
-                      {s.label}
-                    </option>
-                  ))}
-                </select>
+                <SentenceSelect id="h-state" name="state" label="State" placeholder="any state" options={options.states} />
               </p>
               <button type="submit" className="mt-6 inline-flex items-center gap-2 rounded-lg bg-ink px-6 py-3.5 text-[1.05rem] font-bold text-white hover:bg-ink-2">
                 <Search size={18} aria-hidden="true" /> Show colleges

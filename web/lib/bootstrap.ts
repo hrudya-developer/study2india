@@ -1,8 +1,7 @@
-import { readdirSync, readFileSync, existsSync, statSync } from "node:fs";
-import path from "node:path";
 import { and, eq, sql } from "drizzle-orm";
 import { getDb, getPool, rows, schema } from "@/lib/db";
 import { MIGRATIONS } from "@/lib/db/migrations.generated";
+import { NIRF_FILES } from "@/lib/db/seed-data.generated";
 import { STATES, STATE_ALIASES, STREAMS, EXAMS, NIRF_CATEGORY_STREAM } from "@/data/reference";
 import { slugify } from "@/lib/slug";
 
@@ -139,40 +138,43 @@ async function findOrCreateInstitution(r: NirfRow, sourceId: number) {
   return id;
 }
 
-/** Loads every official NIRF file found in data/nirf/<year>/. Safe to re-run. */
+/**
+ * Loads the official NIRF files built into the app (see scripts/embed-migrations.mjs).
+ * Each file is recorded in app_seeds with its content hash and skipped once loaded.
+ */
 export async function seedNirf(streamIds: Map<string, number>, log: (m: string) => void = console.log) {
   const db = getDb();
-  const root = path.join(process.cwd(), "data", "nirf");
-  if (!existsSync(root)) return;
-  for (const year of readdirSync(root).filter((d) => statSync(path.join(root, d)).isDirectory())) {
-    const dir = path.join(root, year);
-    for (const file of readdirSync(dir).filter((f) => f.endsWith(".json") && !f.startsWith("_"))) {
-      const data = JSON.parse(readFileSync(path.join(dir, file), "utf8")) as NirfFile;
-      const url = Array.isArray(data.source.url) ? data.source.url.join(" ") : data.source.url;
-      const title = `NIRF India Rankings ${data.year}: ${data.category}`;
-      const [existing] = await db.select({ id: sources.id }).from(sources).where(eq(sources.title, title));
-      const sourceId =
-        existing?.id ??
-        (await db.insert(sources).values({ publisher: data.source.publisher, title, url, retrievedOn: data.source.retrieved }).$returningId())[0].id;
-      const streamSlug = NIRF_CATEGORY_STREAM[data.category] ?? null;
-      const streamId = streamSlug ? streamIds.get(streamSlug) : undefined;
-      let count = 0;
-      for (const r of data.rows) {
-        if (!r.name) continue;
-        const instId = await findOrCreateInstitution(r, sourceId);
-        const score = r.score === null || r.score === undefined || r.score === "" ? null : String(r.score);
-        const values = { rank: r.rank ?? null, rankBand: r.rank_band ?? null, score, sourceId };
-        await db
-          .insert(rankings)
-          .values({ institutionId: instId, agency: "NIRF", year: data.year, category: data.category, ...values })
-          .onDuplicateKeyUpdate({ set: values });
-        if (streamId) {
-          await db.insert(institutionStreams).values({ institutionId: instId, streamId }).onDuplicateKeyUpdate({ set: { streamId } });
-        }
-        count++;
+  await db.execute(sql`create table if not exists app_seeds (tag varchar(120) primary key, hash varchar(32) not null, loaded_at timestamp not null default current_timestamp)`);
+  const done = new Map((await rows<{ tag: string; hash: string }>(sql`select tag, hash from app_seeds`)).map((r) => [r.tag, r.hash]));
+  for (const file of NIRF_FILES) {
+    if (done.get(file.tag) === file.hash) continue;
+    const data = file.data as NirfFile;
+    const url = Array.isArray(data.source.url) ? data.source.url.join(" ") : data.source.url;
+    const title = `NIRF India Rankings ${data.year}: ${data.category}`;
+    const [existing] = await db.select({ id: sources.id }).from(sources).where(eq(sources.title, title));
+    const sourceId =
+      existing?.id ??
+      (await db.insert(sources).values({ publisher: data.source.publisher, title, url, retrievedOn: data.source.retrieved }).$returningId())[0].id;
+    if (existing) await db.update(sources).set({ url, retrievedOn: data.source.retrieved }).where(eq(sources.id, existing.id));
+    const streamSlug = NIRF_CATEGORY_STREAM[data.category] ?? null;
+    const streamId = streamSlug ? streamIds.get(streamSlug) : undefined;
+    let count = 0;
+    for (const r of data.rows) {
+      if (!r.name) continue;
+      const instId = await findOrCreateInstitution(r, sourceId);
+      const score = r.score === null || r.score === undefined || r.score === "" ? null : String(r.score);
+      const values = { rank: r.rank ?? null, rankBand: r.rank_band ?? null, score, sourceId };
+      await db
+        .insert(rankings)
+        .values({ institutionId: instId, agency: "NIRF", year: data.year, category: data.category, ...values })
+        .onDuplicateKeyUpdate({ set: values });
+      if (streamId) {
+        await db.insert(institutionStreams).values({ institutionId: instId, streamId }).onDuplicateKeyUpdate({ set: { streamId } });
       }
-      log(`NIRF ${data.year} ${data.category}: ${count} rows`);
+      count++;
     }
+    await db.execute(sql`insert into app_seeds (tag, hash) values (${file.tag}, ${file.hash}) on duplicate key update hash = values(hash), loaded_at = current_timestamp`);
+    log(`NIRF ${data.year} ${data.category}: ${count} rows loaded`);
   }
 }
 
