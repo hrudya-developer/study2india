@@ -78,6 +78,22 @@ const NIRF_LINKS = {
   "Sree Balaji Dental College & Hospital, Narayanpuram": "N-91",
 };
 
+// Colleges that are the same institution as an NMC medical college already in the database, checked by hand:
+// DCI lists the medical institution itself (AFMC, UCMS, Lady Hardinge, Army Hospital R&R, UP RIMS Saifai under
+// its earlier name) or its own dental wing under the institution's name, at the same place. Separately named
+// dental colleges of a medical college's trust ("X Dental College" beside "X Medical College"), and the
+// Faculty of Dental Sciences at King George's Medical University (a university record), are left unlinked.
+const NMC_LINKS = {
+  "Armed Forces Medical College, Pune-1": "MH/002/G/1",
+  "University College of Medical Sciences, Dilshad Garden": "DL/010/G/1",
+  "Lady Hardinge Medical College & Smt. Sucheta Kriplani Hospital New Delhi": "DL/008/G/1",
+  "Army Hospital (Research and Referral) Delhi Cantt, Delhi": "PG/DL/01/G/1",
+  "Dental Institute Rajendra Institute of Medical Sciences, Ranchi": "JH/008/G/1",
+  "Dental College, Jawaharlal Nehru Institute of Medical Sciences": "MN/002/G/1",
+  "School of Dental Sciences, Krishna Institute of Medical Sciences, Karad": "MH/054/P/3",
+  "U.P. Rural Institute of Medical Sciences & Research, Saifai": "UP/084/G/1",
+};
+
 const tidy = (v) => {
   const s = String(v ?? "").replace(/\s+/g, " ").replace(/\s+,/g, ",").replace(/^[\s,.]+|[\s,]+$/g, "").trim();
   return s || null;
@@ -189,6 +205,7 @@ for (const line of lines) {
     offerings,
   };
   if (NIRF_LINKS[name]) row.same_as = { scheme: "nirf", value: NIRF_LINKS[name] };
+  else if (NMC_LINKS[name]) row.same_as = { scheme: "nmc", value: NMC_LINKS[name] };
   rows.push(row);
 }
 rows.sort((a, b) => a.state.localeCompare(b.state) || a.name.localeCompare(b.name));
@@ -217,7 +234,7 @@ const file = {
     "PG Diploma seats are left out (no course for them). Addresses come from each college's DCI details page. " +
     "DCI publishes no college code, so each college is keyed by a hash of its state, name and city. " +
     "city is the town from DCI's City field (left empty where that field names a state or district rather than a town) and pin is the 6-digit PIN from the details page. " +
-    "same_as joins a college to the NIRF record for the same institution (checked by hand).",
+    "same_as joins a college to the NIRF or NMC record for the same institution (checked by hand).",
   rows,
 };
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..", "..");
@@ -230,8 +247,10 @@ console.log(`${lines.length} colleges read, ${rows.length} written to ${out}`);
 console.log(`BDS: ${offeringsOf("bds").length} colleges, ${total("bds")} seats (${offeringsOf("bds").filter((o) => o.seats === null).length} unknown)`);
 console.log(`MDS: ${offeringsOf("mds").length} colleges, ${total("mds")} seats`);
 console.log(`PG Diploma seats left out: ${pgDiploma}`);
-console.log(`NIRF links: ${rows.filter((r) => r.same_as).length} of ${Object.keys(NIRF_LINKS).length}`);
-const missing = Object.keys(NIRF_LINKS).filter((n) => !rows.some((r) => r.name === n));
-if (missing.length) console.log(`NIRF links with no matching college: ${missing.join("; ")}`);
+for (const [scheme, links] of [["nirf", NIRF_LINKS], ["nmc", NMC_LINKS]]) {
+  console.log(`${scheme.toUpperCase()} links: ${rows.filter((r) => r.same_as?.scheme === scheme).length} of ${Object.keys(links).length}`);
+  const missing = Object.keys(links).filter((n) => !rows.some((r) => r.name === n));
+  if (missing.length) console.log(`${scheme.toUpperCase()} links with no matching college: ${missing.join("; ")}`);
+}
 if (flagged.length) console.log(`Flagged:\n  ${flagged.join("\n  ")}`);
 if (noSeats.length) console.log(`Left out, no BDS or MDS seats:\n  ${noSeats.join("\n  ")}`);

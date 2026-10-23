@@ -12,7 +12,7 @@
    "prefix": ""
   }
  ],
- "note": "Every college the DCI (National Dental Commission) College Search returns for any state that has BDS or MDS seats. The search table is headed 'Permitted Seats for Academic Year 2025-26', but its college-wise seats add up exactly to the totals DCI's Permitted Seats page (https://dciindia.gov.in/PermittedSeats.aspx) gives for 2026-27 (BDS 28,114, MDS 7,704; 2025-26 was 28,016 and 7,357) and its remarks describe 2026-27 changes, so the seats are recorded as 2026-27. BDS seats are the permitted intake. DCI prints MDS seats only by speciality, so the MDS total is the sum of the speciality seats, kept in branches. Colleges with no permitted BDS or MDS seats (admissions stopped or permission refused) and specialities with 0 seats are left out; PG Diploma seats are left out (no course for them). Addresses come from each college's DCI details page. DCI publishes no college code, so each college is keyed by a hash of its state, name and city. city is the town from DCI's City field (left empty where that field names a state or district rather than a town) and pin is the 6-digit PIN from the details page. same_as joins a college to the NIRF record for the same institution (checked by hand).",
+ "note": "Every college the DCI (National Dental Commission) College Search returns for any state that has BDS or MDS seats. The search table is headed 'Permitted Seats for Academic Year 2025-26', but its college-wise seats add up exactly to the totals DCI's Permitted Seats page (https://dciindia.gov.in/PermittedSeats.aspx) gives for 2026-27 (BDS 28,114, MDS 7,704; 2025-26 was 28,016 and 7,357) and its remarks describe 2026-27 changes, so the seats are recorded as 2026-27. BDS seats are the permitted intake. DCI prints MDS seats only by speciality, so the MDS total is the sum of the speciality seats, kept in branches. Colleges with no permitted BDS or MDS seats (admissions stopped or permission refused) and specialities with 0 seats are left out; PG Diploma seats are left out (no course for them). Addresses come from each college's DCI details page. DCI publishes no college code, so each college is keyed by a hash of its state, name and city. city is the town from DCI's City field (left empty where that field names a state or district rather than a town) and pin is the 6-digit PIN from the details page. same_as joins a college to the NIRF or NMC record for the same institution (checked by hand).",
  "rows": [
   {
    "code": "20407p3wgf",
@@ -1554,7 +1554,11 @@
       }
      ]
     }
-   ]
+   ],
+   "same_as": {
+    "scheme": "nmc",
+    "value": "PG/DL/01/G/1"
+   }
   },
   {
    "code": "enp35gw8n",
@@ -1663,7 +1667,11 @@
       }
      ]
     }
-   ]
+   ],
+   "same_as": {
+    "scheme": "nmc",
+    "value": "DL/008/G/1"
+   }
   },
   {
    "code": "21dimscmzc",
@@ -1753,7 +1761,11 @@
       }
      ]
     }
-   ]
+   ],
+   "same_as": {
+    "scheme": "nmc",
+    "value": "DL/010/G/1"
+   }
   },
   {
    "code": "2pqs1ekku3",
@@ -3331,7 +3343,11 @@
       }
      ]
     }
-   ]
+   ],
+   "same_as": {
+    "scheme": "nmc",
+    "value": "JH/008/G/1"
+   }
   },
   {
    "code": "zk926ssp1",
@@ -7650,7 +7666,11 @@
       }
      ]
     }
-   ]
+   ],
+   "same_as": {
+    "scheme": "nmc",
+    "value": "MH/002/G/1"
+   }
   },
   {
    "code": "c152c6dm2",
@@ -8943,7 +8963,11 @@
       }
      ]
     }
-   ]
+   ],
+   "same_as": {
+    "scheme": "nmc",
+    "value": "MH/054/P/3"
+   }
   },
   {
    "code": "doj6ajt7n",
@@ -9391,7 +9415,11 @@
      "course": "bds",
      "seats": 50
     }
-   ]
+   ],
+   "same_as": {
+    "scheme": "nmc",
+    "value": "MN/002/G/1"
+   }
   },
   {
    "code": "yiz9ldlzn",
@@ -14830,7 +14858,11 @@
       }
      ]
     }
-   ]
+   ],
+   "same_as": {
+    "scheme": "nmc",
+    "value": "UP/084/G/1"
+   }
   },
   {
    "code": "1bm5hyhlf4",

@@ -3200,7 +3200,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44106930189"
+      }
     },
     {
       "code": "PCI-148",
@@ -6562,7 +6566,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-2874076941"
+      }
     },
     {
       "code": "PCI-313",
@@ -6628,7 +6636,11 @@
           ]
         }
       ],
-      "university": "Chaitanya (Deemed to be University), Hanamkonda"
+      "university": "Chaitanya (Deemed to be University), Hanamkonda",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-2403671"
+      }
     },
     {
       "code": "PCI-315",
@@ -7757,7 +7769,11 @@
           ]
         }
       ],
-      "university": "The Tamil Nadu Dr. M.G.R. Medical University, Chennai"
+      "university": "The Tamil Nadu Dr. M.G.R. Medical University, Chennai",
+      "same_as": {
+        "scheme": "nmc",
+        "value": "TN/047/G/1"
+      }
     },
     {
       "code": "PCI-368",
@@ -10922,7 +10938,11 @@
           "course": "d-pharm",
           "seats": 40
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-426003341"
+      }
     },
     {
       "code": "PCI-521",
@@ -15352,7 +15372,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-475922551"
+      }
     },
     {
       "code": "PCI-731",
@@ -15369,7 +15393,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-458745535"
+      }
     },
     {
       "code": "PCI-734",
@@ -15482,7 +15510,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-512921241"
+      }
     },
     {
       "code": "PCI-740",
@@ -15562,7 +15594,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-477935925"
+      }
     },
     {
       "code": "PCI-744",
@@ -15684,7 +15720,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-502739463"
+      }
     },
     {
       "code": "PCI-750",
@@ -15832,7 +15872,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-511453611"
+      }
     },
     {
       "code": "PCI-758",
@@ -15849,7 +15893,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-462258093"
+      }
     },
     {
       "code": "PCI-759",
@@ -15892,7 +15940,11 @@
           "seats": 60
         }
       ],
-      "university": "I.K. Gujral Punjab Technical University, Jalandhar"
+      "university": "I.K. Gujral Punjab Technical University, Jalandhar",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-453388051"
+      }
     },
     {
       "code": "PCI-761",
@@ -15909,7 +15961,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-504844461"
+      }
     },
     {
       "code": "PCI-762",
@@ -16020,7 +16076,11 @@
           "seats": 60
         }
       ],
-      "university": "Chhattisgarh Swami Vivekanand Technical University, Bhilai"
+      "university": "Chhattisgarh Swami Vivekanand Technical University, Bhilai",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-435383081"
+      }
     },
     {
       "code": "PCI-769",
@@ -16037,7 +16097,11 @@
           "course": "d-pharm",
           "seats": 30
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-424547651"
+      }
     },
     {
       "code": "PCI-770",
@@ -20659,7 +20723,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-465940751"
+      }
     },
     {
       "code": "PCI-1001",
@@ -22477,7 +22545,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-486173471"
+      }
     },
     {
       "code": "PCI-1087",
@@ -28039,7 +28111,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-425565411"
+      }
     },
     {
       "code": "PCI-1362",
@@ -33826,7 +33902,11 @@
           "course": "d-pharm",
           "seats": 30
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-519634701"
+      }
     },
     {
       "code": "PCI-1637",
@@ -36655,7 +36735,11 @@
           "seats": null
         }
       ],
-      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow"
+      "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-12316186653"
+      }
     },
     {
       "code": "PCI-1772",
@@ -37379,7 +37463,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-441892501"
+      }
     },
     {
       "code": "PCI-1817",
@@ -38090,7 +38178,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-425522671"
+      }
     },
     {
       "code": "PCI-1858",
@@ -46862,7 +46954,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-458986541"
+      }
     },
     {
       "code": "PCI-2268",
@@ -49031,7 +49127,11 @@
           "seats": null
         }
       ],
-      "university": "Jawaharlal Nehru Technological University Hyderabad"
+      "university": "Jawaharlal Nehru Technological University Hyderabad",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-5147475"
+      }
     },
     {
       "code": "PCI-2367",
@@ -55330,7 +55430,11 @@
           ]
         }
       ],
-      "university": "Dr. Babasaheb Ambedkar Technological University, Lonere"
+      "university": "Dr. Babasaheb Ambedkar Technological University, Lonere",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-467424873"
+      }
     },
     {
       "code": "PCI-2662",
@@ -58679,7 +58783,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-524758461"
+      }
     },
     {
       "code": "PCI-2884",
@@ -68030,7 +68138,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "inc",
+        "value": "1vgz911"
+      }
     },
     {
       "code": "PCI-3422",
@@ -88902,7 +89014,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-504796451"
+      }
     },
     {
       "code": "PCI-5234",
@@ -96278,7 +96394,11 @@
           "seats": 60
         }
       ],
-      "university": "Jawaharlal Nehru Technological University Kakinada"
+      "university": "Jawaharlal Nehru Technological University Kakinada",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-2736031"
+      }
     },
     {
       "code": "PCI-5821",
@@ -108717,7 +108837,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44236418753"
+      }
     },
     {
       "code": "PCI-6927",
@@ -118760,7 +118884,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44798829578"
+      }
     },
     {
       "code": "PCI-7879",
@@ -119801,7 +119929,11 @@
           "seats": null
         }
       ],
-      "university": "Birla Institute of Technology and Science, Pilani"
+      "university": "Birla Institute of Technology and Science, Pilani",
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-43407522093"
+      }
     },
     {
       "code": "PCI-7983",
@@ -125047,7 +125179,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-11311213491"
+      }
     },
     {
       "code": "PCI-8425",
@@ -126869,7 +127005,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-514226023"
+      }
     },
     {
       "code": "PCI-8561",
@@ -126920,7 +127060,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-3358301121"
+      }
     },
     {
       "code": "PCI-8564",
@@ -128506,7 +128650,11 @@
           "course": "d-pharm",
           "seats": null
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-44756193529"
+      }
     },
     {
       "code": "PCI-8701",
@@ -134123,7 +134271,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-3378682311"
+      }
     },
     {
       "code": "PCI-9541",
@@ -139084,7 +139236,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-513089491"
+      }
     },
     {
       "code": "PCI-10224",
@@ -142444,7 +142600,11 @@
           "course": "d-pharm",
           "seats": 60
         }
-      ]
+      ],
+      "same_as": {
+        "scheme": "aicte",
+        "value": "1-484611381"
+      }
     },
     {
       "code": "PCI-10675",
@@ -142598,7 +142758,11 @@
           "seats": 100
         }
       ],
-      "university": "Veer Madho Singh Bhandari Uttarakhand Technical University, Dehradun"
+      "university": "Veer Madho Singh Bhandari Uttarakhand Technical University, Dehradun",
+      "same_as": {
+        "scheme": "inc",
+        "value": "1gbrdo4"
+      }
     },
     {
       "code": "PCI-10722",
