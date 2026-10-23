@@ -26,7 +26,7 @@
    "prefix": "SID"
   }
  ],
- "note": "Seats are NCISM's total sanctioned UG intake (with and without EWS) and sanctioned PG seats.",
+ "note": "Seats are NCISM's total sanctioned UG intake (with and without EWS) and sanctioned PG seats. same_as joins a college to the record another list already created for the same institution (checked by hand).",
  "rows": [
   {
    "code": "AYU0002",
@@ -1357,8 +1357,8 @@
   },
   {
    "code": "AYU0050",
-   "name": "A.V. Samiti’s Ayurveda Mahavidyalaya",
-   "address": "A.V. Samiti’s Ayurveda Mahavidyalaya, Vidya nagar, Bagalkot Road, Dist. & Tal Bijapur-586109, Karnataka",
+   "name": "A.V. Samiti\u2019s Ayurveda Mahavidyalaya",
+   "address": "A.V. Samiti\u2019s Ayurveda Mahavidyalaya, Vidya nagar, Bagalkot Road, Dist. & Tal Bijapur-586109, Karnataka",
    "district": "Bijapur",
    "state": "Karnataka",
    "management": "Private",
@@ -1414,8 +1414,8 @@
   },
   {
    "code": "AYU0053",
-   "name": "Ashwini Educational Association’s Ayurved Medical College & PG Centre",
-   "address": "Ashwini Educational Association’s Ayurved Medical College & PG Centre, #405/1, Opp. Bathi Lake, “Ashwini nagar”, P.B. Road, Dist. Davangere-577566, Karnataka",
+   "name": "Ashwini Educational Association\u2019s Ayurved Medical College & PG Centre",
+   "address": "Ashwini Educational Association\u2019s Ayurved Medical College & PG Centre, #405/1, Opp. Bathi Lake, \u201cAshwini nagar\u201d, P.B. Road, Dist. Davangere-577566, Karnataka",
    "district": "Davanagere",
    "state": "Karnataka",
    "management": "Private",
@@ -1506,7 +1506,7 @@
   {
    "code": "AYU0058",
    "name": "Shri Vijay Mahantesh Ayurvedic Medical College",
-   "address": "Shri Vijay Mahantesh Ayurvedic Medical College, Tq. –Hungund, Dist. Bagalkot, Ilkal-587125, Karnataka",
+   "address": "Shri Vijay Mahantesh Ayurvedic Medical College, Tq. \u2013Hungund, Dist. Bagalkot, Ilkal-587125, Karnataka",
    "district": "Bagalkot",
    "state": "Karnataka",
    "management": "Private",
@@ -1539,8 +1539,8 @@
   },
   {
    "code": "AYU0060",
-   "name": "T.M.A.E Society’s Ayurvedic Medical College",
-   "address": "T.M.A.E Society’s Ayurvedic Medical College, Sankalapura, Tanda, Ballary Road, Hospet-583201, Karnataka",
+   "name": "T.M.A.E Society\u2019s Ayurvedic Medical College",
+   "address": "T.M.A.E Society\u2019s Ayurvedic Medical College, Sankalapura, Tanda, Ballary Road, Hospet-583201, Karnataka",
    "district": "Ballari (Bellary)",
    "state": "Karnataka",
    "management": "Private",
@@ -1626,8 +1626,8 @@
   },
   {
    "code": "AYU0066",
-   "name": "Shri Jagadguru Gurusiddeshwar Co- Operative Society’s Sahakar Maharshi, Shri B. A. Patil Ayurvedic Medical College",
-   "address": "Shri Jagadguru Gurusiddeshwar Co- Operative Society’s Sahakar Maharshi, Shri B. A. Patil Ayurvedic Medical College, Tal-Gokak, Dist. Belgaum, Ghataprabha- 591310, Karnataka",
+   "name": "Shri Jagadguru Gurusiddeshwar Co- Operative Society\u2019s Sahakar Maharshi, Shri B. A. Patil Ayurvedic Medical College",
+   "address": "Shri Jagadguru Gurusiddeshwar Co- Operative Society\u2019s Sahakar Maharshi, Shri B. A. Patil Ayurvedic Medical College, Tal-Gokak, Dist. Belgaum, Ghataprabha- 591310, Karnataka",
    "district": "Belgaum",
    "state": "Karnataka",
    "management": "Private",
@@ -1660,8 +1660,8 @@
   },
   {
    "code": "AYU0070",
-   "name": "Alva’s Ayurveda Medical College",
-   "address": "Alva’s Ayurveda Medical College, Moodbidri, South Canara, Distt. Dakshin- 574227, Karnataka",
+   "name": "Alva\u2019s Ayurveda Medical College",
+   "address": "Alva\u2019s Ayurveda Medical College, Moodbidri, South Canara, Distt. Dakshin- 574227, Karnataka",
    "district": "Dakshina Kannada",
    "state": "Karnataka",
    "management": "Private",
@@ -1679,8 +1679,8 @@
   },
   {
    "code": "AYU0071",
-   "name": "SNVV Samasthe’s SGV Ayurved Medical College, Hospital & Research Centre",
-   "address": "SNVV Samasthe’s SGV Ayurved Medical College, Hospital & Research Centre, Tal: Bailhongal, Distt. Belgaum-591102, Karnataka",
+   "name": "SNVV Samasthe\u2019s SGV Ayurved Medical College, Hospital & Research Centre",
+   "address": "SNVV Samasthe\u2019s SGV Ayurved Medical College, Hospital & Research Centre, Tal: Bailhongal, Distt. Belgaum-591102, Karnataka",
    "district": "Belagavi (Belgaum)",
    "state": "Karnataka",
    "management": "Private",
@@ -1695,7 +1695,7 @@
   {
    "code": "AYU0074",
    "name": "Shri Jagadguru Gavisiddheshwar Ayurvedic Medical College",
-   "address": "Shri Jagadguru Gavisiddheshwar Ayurvedic Medical College, Post Graduate Studies & Research Center, Koppal – 583231, Karnataka",
+   "address": "Shri Jagadguru Gavisiddheshwar Ayurvedic Medical College, Post Graduate Studies & Research Center, Koppal \u2013 583231, Karnataka",
    "district": "KOPPAL",
    "state": "Karnataka",
    "management": "Private",
@@ -1713,8 +1713,8 @@
   },
   {
    "code": "AYU0075",
-   "name": "Shri Hingulambika Education Society’s Ayurvedic Medical College, Hospital & Research Centre",
-   "address": "Shri Hingulambika Education Society’s Ayurvedic Medical College, Hospital & Research Centre, Bhavsar nagar, Sedam Road, Gulbarga-585106, Karnataka",
+   "name": "Shri Hingulambika Education Society\u2019s Ayurvedic Medical College, Hospital & Research Centre",
+   "address": "Shri Hingulambika Education Society\u2019s Ayurvedic Medical College, Hospital & Research Centre, Bhavsar nagar, Sedam Road, Gulbarga-585106, Karnataka",
    "district": "Kalaburagi (Gulbarga)",
    "state": "Karnataka",
    "management": "Private",
@@ -1747,8 +1747,8 @@
   },
   {
    "code": "AYU0078",
-   "name": "Shri Bahubali Vidhyapeeth’s J.V. Mandal’s Grameen Ayurvedic Medical College Gurukul Campus",
-   "address": "Shri Bahubali Vidhyapeeth’s J.V. Mandal’s Grameen Ayurvedic Medical College Gurukul Campus, Tq. Jamkhandi, Distt. Bagalkot, Terdal -587315, Karnataka",
+   "name": "Shri Bahubali Vidhyapeeth\u2019s J.V. Mandal\u2019s Grameen Ayurvedic Medical College Gurukul Campus",
+   "address": "Shri Bahubali Vidhyapeeth\u2019s J.V. Mandal\u2019s Grameen Ayurvedic Medical College Gurukul Campus, Tq. Jamkhandi, Distt. Bagalkot, Terdal -587315, Karnataka",
    "district": "Bagalkot",
    "state": "Karnataka",
    "management": "Private",
@@ -1762,8 +1762,8 @@
   },
   {
    "code": "AYU0080",
-   "name": "JSVV Samsthe’s Danappa Gurushiddappa Melmalagi Ayurvedic Medical College, Hospital",
-   "address": "JSVV Samsthe’s Danappa Gurushiddappa Melmalagi Ayurvedic Medical College, Hospital, Dr. Savadi Road, Shivananda Nagar, Ta. & Distt. Gadag-582103, Karnataka",
+   "name": "JSVV Samsthe\u2019s Danappa Gurushiddappa Melmalagi Ayurvedic Medical College, Hospital",
+   "address": "JSVV Samsthe\u2019s Danappa Gurushiddappa Melmalagi Ayurvedic Medical College, Hospital, Dr. Savadi Road, Shivananda Nagar, Ta. & Distt. Gadag-582103, Karnataka",
    "district": "Gadag",
    "state": "Karnataka",
    "management": "Grant-in-aid",
@@ -1781,8 +1781,8 @@
   },
   {
    "code": "AYU0081",
-   "name": "Shri Veerpulikeshi Rural Vidyavardhak Samasth’s Rural Ayurvedic Medical College, Hospital & Research Centre",
-   "address": "Shri Veerpulikeshi Rural Vidyavardhak Samasth’s Rural Ayurvedic Medical College, Hospital & Research Centre ,Opp. J.M.F.Court, Ramadurg Road, P.O & Tq. Badami, Distt. Bagalkot-587201, Karnataka",
+   "name": "Shri Veerpulikeshi Rural Vidyavardhak Samasth\u2019s Rural Ayurvedic Medical College, Hospital & Research Centre",
+   "address": "Shri Veerpulikeshi Rural Vidyavardhak Samasth\u2019s Rural Ayurvedic Medical College, Hospital & Research Centre ,Opp. J.M.F.Court, Ramadurg Road, P.O & Tq. Badami, Distt. Bagalkot-587201, Karnataka",
    "district": "BADAMI",
    "state": "Karnataka",
    "management": "Private",
@@ -1796,8 +1796,8 @@
   },
   {
    "code": "AYU0083",
-   "name": "Bagamar Seva Samiti’s Bhagwan Mahaveer Jain Ayurvedic Medical College & Hospital",
-   "address": "Bagamar Seva Samiti’s Bhagwan Mahaveer Jain Ayurvedic Medical College & Hospital, Gajendergad Tq. Ron, Distt. Gadag-582114, Karnataka",
+   "name": "Bagamar Seva Samiti\u2019s Bhagwan Mahaveer Jain Ayurvedic Medical College & Hospital",
+   "address": "Bagamar Seva Samiti\u2019s Bhagwan Mahaveer Jain Ayurvedic Medical College & Hospital, Gajendergad Tq. Ron, Distt. Gadag-582114, Karnataka",
    "district": "Gadag",
    "state": "Karnataka",
    "management": "Private",
@@ -1830,8 +1830,8 @@
   },
   {
    "code": "AYU0085",
-   "name": "Rajiv Gandhi Education Society’s Ayurvedic Medical College & Hospital",
-   "address": "Rajiv Gandhi Education Society’s Ayurvedic Medical College & Hospital Taluka Ron, Dist. Gadag-582209, Karnataka",
+   "name": "Rajiv Gandhi Education Society\u2019s Ayurvedic Medical College & Hospital",
+   "address": "Rajiv Gandhi Education Society\u2019s Ayurvedic Medical College & Hospital Taluka Ron, Dist. Gadag-582209, Karnataka",
    "district": "Gadag",
    "state": "Karnataka",
    "management": "Private",
@@ -2031,8 +2031,8 @@
   },
   {
    "code": "AYU0098",
-   "name": "SDM Trust’s Ayurvedic Medical College, Padma Ayurvedic Hospital & Research Centre",
-   "address": "SDM Trust’s Ayurvedic Medical College, Padma Ayurvedic Hospital & Research Centre, Terdal, Tq. Jamkhandi, Dist. Bagalkot-587315, Karnataka",
+   "name": "SDM Trust\u2019s Ayurvedic Medical College, Padma Ayurvedic Hospital & Research Centre",
+   "address": "SDM Trust\u2019s Ayurvedic Medical College, Padma Ayurvedic Hospital & Research Centre, Terdal, Tq. Jamkhandi, Dist. Bagalkot-587315, Karnataka",
    "district": "Bagalkot",
    "state": "Karnataka",
    "management": "Private",
@@ -2065,8 +2065,8 @@
   },
   {
    "code": "AYU0101",
-   "name": "YET’s Sri Siddhrameshwar Ayurvedic Medical College, Hospital & Research Centre",
-   "address": "YET’s Sri Siddhrameshwar Ayurvedic Medical College, Hospital & Research Centre, naubad, Bidar-585402, Karnataka",
+   "name": "YET\u2019s Sri Siddhrameshwar Ayurvedic Medical College, Hospital & Research Centre",
+   "address": "YET\u2019s Sri Siddhrameshwar Ayurvedic Medical College, Hospital & Research Centre, naubad, Bidar-585402, Karnataka",
    "district": "Bidar",
    "state": "Karnataka",
    "management": "Private",
@@ -2080,8 +2080,8 @@
   },
   {
    "code": "AYU0103",
-   "name": "Latthe Education Society’s Acharya Deshabhushan Ayurvedic Medical College & Hospital",
-   "address": "Latthe Education Society’s Acharya Deshabhushan Ayurvedic Medical College & Hospital, A/P- Bedkihal, Shamanewadi, Tal-Chikodi, Distt. Belgaum-591214, Karnataka",
+   "name": "Latthe Education Society\u2019s Acharya Deshabhushan Ayurvedic Medical College & Hospital",
+   "address": "Latthe Education Society\u2019s Acharya Deshabhushan Ayurvedic Medical College & Hospital, A/P- Bedkihal, Shamanewadi, Tal-Chikodi, Distt. Belgaum-591214, Karnataka",
    "district": "Belagavi (Belgaum)",
    "state": "Karnataka",
    "management": "Private",
@@ -2129,8 +2129,8 @@
   },
   {
    "code": "AYU0347",
-   "name": "Tapovana Ayurvedic Medical College & Hospital Doddabathi –",
-   "address": "Tapovana Ayurvedic Medical College & Hospital Doddabathi – 577566, Davangere, Karnataka",
+   "name": "Tapovana Ayurvedic Medical College & Hospital Doddabathi \u2013",
+   "address": "Tapovana Ayurvedic Medical College & Hospital Doddabathi \u2013 577566, Davangere, Karnataka",
    "district": "Davanagere",
    "state": "Karnataka",
    "management": "Private",
@@ -2741,8 +2741,8 @@
   },
   {
    "code": "AYU0106",
-   "name": "P.N. Panicker Souhruda Trust’s Ayurveda Medical College",
-   "address": "P.N. Panicker Souhruda Trust’s Ayurveda Medical College, P.O: Parakalai, Anandashram (Via), Distt. Kasaragod- 671531, Kerala",
+   "name": "P.N. Panicker Souhruda Trust\u2019s Ayurveda Medical College",
+   "address": "P.N. Panicker Souhruda Trust\u2019s Ayurveda Medical College, P.O: Parakalai, Anandashram (Via), Distt. Kasaragod- 671531, Kerala",
    "district": "Kasaragod",
    "state": "Kerala",
    "management": "Private",
@@ -3458,8 +3458,8 @@
   },
   {
    "code": "AYU0140",
-   "name": "Bharti Vidyapeeth’s University, College of Ayurved",
-   "address": "Bharti Vidyapeeth’s University, College of Ayurved, Satara Road, Tal. Haveli. Pune- 411043, Maharashtra",
+   "name": "Bharti Vidyapeeth\u2019s University, College of Ayurved",
+   "address": "Bharti Vidyapeeth\u2019s University, College of Ayurved, Satara Road, Tal. Haveli. Pune- 411043, Maharashtra",
    "district": "Pune",
    "state": "Maharashtra",
    "management": "Deemed University (Private)",
@@ -3515,8 +3515,8 @@
   },
   {
    "code": "AYU0143",
-   "name": "Ayurved Seva Sangh’s Ayurved Mahavidyalaya",
-   "address": "Ayurved Seva Sangh’s Ayurved Mahavidyalaya, Ganeshwadi Panchavati Tal. & Dist. Nashik- 422003, Maharashtra",
+   "name": "Ayurved Seva Sangh\u2019s Ayurved Mahavidyalaya",
+   "address": "Ayurved Seva Sangh\u2019s Ayurved Mahavidyalaya, Ganeshwadi Panchavati Tal. & Dist. Nashik- 422003, Maharashtra",
    "district": "Nashik",
    "state": "Maharashtra",
    "management": "Grant-in-aid",
@@ -3579,8 +3579,8 @@
   },
   {
    "code": "AYU0147",
-   "name": "Shri Vivekanand Nursing Home Trust’s Ayurved Mahavidyalaya",
-   "address": "Shri Vivekanand Nursing Home Trust’s Ayurved Mahavidyalaya Shri Shivaji nagar, A/P- Rahuri Factory, Tal. Rahuri, Distt. Ahmednagar-413706, Maharashtra",
+   "name": "Shri Vivekanand Nursing Home Trust\u2019s Ayurved Mahavidyalaya",
+   "address": "Shri Vivekanand Nursing Home Trust\u2019s Ayurved Mahavidyalaya Shri Shivaji nagar, A/P- Rahuri Factory, Tal. Rahuri, Distt. Ahmednagar-413706, Maharashtra",
    "district": "Ahilyanagar",
    "state": "Maharashtra",
    "management": "Private",
@@ -3598,8 +3598,8 @@
   },
   {
    "code": "AYU0148",
-   "name": "Maharashtra Arogya Mandal’s Sumati Bhai Shah Ayurved Mahavidyalaya",
-   "address": "Maharashtra Arogya Mandal’s Sumati Bhai Shah Ayurved Mahavidyalaya, Malwadi Hadapsar, Tal: Haveli, Distt. Pune- 411028, Maharashtra",
+   "name": "Maharashtra Arogya Mandal\u2019s Sumati Bhai Shah Ayurved Mahavidyalaya",
+   "address": "Maharashtra Arogya Mandal\u2019s Sumati Bhai Shah Ayurved Mahavidyalaya, Malwadi Hadapsar, Tal: Haveli, Distt. Pune- 411028, Maharashtra",
    "district": "Pune",
    "state": "Maharashtra",
    "management": "Private",
@@ -3617,8 +3617,8 @@
   },
   {
    "code": "AYU0149",
-   "name": "Poona District Education Association’s, College of Ayurved & Research Centre",
-   "address": "Poona District Education Association’s, College of Ayurved & Research Centre, Sector No. 25, Pradhikaran, Akurdi, Nigadi, Tal. Haveli, Distt. Pune –411044, Maharashtra",
+   "name": "Poona District Education Association\u2019s, College of Ayurved & Research Centre",
+   "address": "Poona District Education Association\u2019s, College of Ayurved & Research Centre, Sector No. 25, Pradhikaran, Akurdi, Nigadi, Tal. Haveli, Distt. Pune \u2013411044, Maharashtra",
    "district": "Pune",
    "state": "Maharashtra",
    "management": "Private",
@@ -3636,8 +3636,8 @@
   },
   {
    "code": "AYU0150",
-   "name": "Sangam Sevabhavi Trust’s Ayurved Mahavidyalaya",
-   "address": "Sangam Sevabhavi Trust’s Ayurved Mahavidyalaya Tal. Sangamner – 422605, Distt. Ahmednagar, Maharashtra",
+   "name": "Sangam Sevabhavi Trust\u2019s Ayurved Mahavidyalaya",
+   "address": "Sangam Sevabhavi Trust\u2019s Ayurved Mahavidyalaya Tal. Sangamner \u2013 422605, Distt. Ahmednagar, Maharashtra",
    "district": "Sangamner",
    "state": "Maharashtra",
    "management": "Private",
@@ -3674,8 +3674,8 @@
   },
   {
    "code": "AYU0152",
-   "name": "Bharatiya Sanskriti Darshan Trust’s Ayurved Mahavidyalaya Vishwa Shanti Dham",
-   "address": "Bharatiya Sanskriti Darshan Trust’s Ayurved Mahavidyalaya Vishwa Shanti Dham, A/P Wagholi, Tal.-Haweli, Dist.- Pune-412207, Maharashtra",
+   "name": "Bharatiya Sanskriti Darshan Trust\u2019s Ayurved Mahavidyalaya Vishwa Shanti Dham",
+   "address": "Bharatiya Sanskriti Darshan Trust\u2019s Ayurved Mahavidyalaya Vishwa Shanti Dham, A/P Wagholi, Tal.-Haweli, Dist.- Pune-412207, Maharashtra",
    "district": "Pune",
    "state": "Maharashtra",
    "management": "Private",
@@ -3693,8 +3693,8 @@
   },
   {
    "code": "AYU0153",
-   "name": "Chhatrapati Shahu Maharaj Shikshan Sanstha’s Ayurved Mahavidyalaya & Rugnalaya",
-   "address": "Chhatrapati Shahu Maharaj Shikshan Sanstha’s Ayurved Mahavidyalaya & Rugnalaya Kanchanwadi, Paithan Road Tq. & Distt. Aurangabad-431002, Maharashtra",
+   "name": "Chhatrapati Shahu Maharaj Shikshan Sanstha\u2019s Ayurved Mahavidyalaya & Rugnalaya",
+   "address": "Chhatrapati Shahu Maharaj Shikshan Sanstha\u2019s Ayurved Mahavidyalaya & Rugnalaya Kanchanwadi, Paithan Road Tq. & Distt. Aurangabad-431002, Maharashtra",
    "district": "Chhatrapati Sambhaji Nagar",
    "state": "Maharashtra",
    "management": "Private",
@@ -3788,8 +3788,8 @@
   },
   {
    "code": "AYU0158",
-   "name": "Hanuman Shikshan Prasarak Mandal Savarde’s Ayurvedic Medical College Peth",
-   "address": "Hanuman Shikshan Prasarak Mandal Savarde’s Ayurvedic Medical College Peth, Vadgaon, Taluka-Hatkanangale, Dist. Kolhapur-416112, Maharashtra",
+   "name": "Hanuman Shikshan Prasarak Mandal Savarde\u2019s Ayurvedic Medical College Peth",
+   "address": "Hanuman Shikshan Prasarak Mandal Savarde\u2019s Ayurvedic Medical College Peth, Vadgaon, Taluka-Hatkanangale, Dist. Kolhapur-416112, Maharashtra",
    "district": "Kolhapur",
    "state": "Maharashtra",
    "management": "Private",
@@ -3804,7 +3804,7 @@
   {
    "code": "AYU0160",
    "name": "Smt. K.C. Ajmera Ayurved College",
-   "address": "Smt. K.C. Ajmera Ayurved College, Dayasagar Educational Campus, Agra Road, Deopur, Distt. & Tal Dhule–424002, Maharashtra",
+   "address": "Smt. K.C. Ajmera Ayurved College, Dayasagar Educational Campus, Agra Road, Deopur, Distt. & Tal Dhule\u2013424002, Maharashtra",
    "district": "Dhule",
    "state": "Maharashtra",
    "management": "Private",
@@ -3822,8 +3822,8 @@
   },
   {
    "code": "AYU0162",
-   "name": "Kisan Dnyanoday Mandal Gudhe’s Ayurved College & Hospital",
-   "address": "Kisan Dnyanoday Mandal Gudhe’s Ayurved College & Hospital Near Aurangabad Bye Pass, Dhule Raod , Chalisgaon, Dist. Jalgaon-424101, Maharashtra",
+   "name": "Kisan Dnyanoday Mandal Gudhe\u2019s Ayurved College & Hospital",
+   "address": "Kisan Dnyanoday Mandal Gudhe\u2019s Ayurved College & Hospital Near Aurangabad Bye Pass, Dhule Raod , Chalisgaon, Dist. Jalgaon-424101, Maharashtra",
    "district": "Chalisgaon",
    "state": "Maharashtra",
    "management": "Private",
@@ -3890,8 +3890,8 @@
   },
   {
    "code": "AYU0166",
-   "name": "Ayurved Prasarak Mandal’s Ayurved Mahavidyalaya",
-   "address": "Ayurved Prasarak Mandal’s Ayurved Mahavidyalaya, Near Sion Railway Station, Distt. Mumbai- 400022, Maharashtra",
+   "name": "Ayurved Prasarak Mandal\u2019s Ayurved Mahavidyalaya",
+   "address": "Ayurved Prasarak Mandal\u2019s Ayurved Mahavidyalaya, Near Sion Railway Station, Distt. Mumbai- 400022, Maharashtra",
    "district": "Mumbai",
    "state": "Maharashtra",
    "management": "Grant-in-aid",
@@ -3910,7 +3910,7 @@
   {
    "code": "AYU0167",
    "name": "Yerala Medical Trust Ayurvedic Medical College & Hospital Institutional Area",
-   "address": "Yerala Medical Trust Ayurvedic Medical College & Hospital Institutional Area, Sector No.4, Kharghar, Navi Mumbai– 410210, Maharashtra",
+   "address": "Yerala Medical Trust Ayurvedic Medical College & Hospital Institutional Area, Sector No.4, Kharghar, Navi Mumbai\u2013 410210, Maharashtra",
    "district": "Navi Mumbai",
    "state": "Maharashtra",
    "management": "Private",
@@ -3943,8 +3943,8 @@
   },
   {
    "code": "AYU0169",
-   "name": "Shri Narsingh K. Dube Charitable Trust’s nalasopara Ayurved Medical College & Hospital",
-   "address": "Shri Narsingh K. Dube Charitable Trust’s nalasopara Ayurved Medical College & Hospital, Serve No-59 (Old) 112 New, Achole, Nallasopara (E) Tal. Vasai, Dist. Thane- 401209, Maharashtra",
+   "name": "Shri Narsingh K. Dube Charitable Trust\u2019s nalasopara Ayurved Medical College & Hospital",
+   "address": "Shri Narsingh K. Dube Charitable Trust\u2019s nalasopara Ayurved Medical College & Hospital, Serve No-59 (Old) 112 New, Achole, Nallasopara (E) Tal. Vasai, Dist. Thane- 401209, Maharashtra",
    "district": "Palghar",
    "state": "Maharashtra",
    "management": "Private",
@@ -4088,7 +4088,7 @@
   {
    "code": "AYU0178",
    "name": "Dr. Vandanatai Jagannathrao Dhone Gramin Ayurved Mahavidyalaya",
-   "address": "Dr. Vandanatai Jagannathrao Dhone Gramin Ayurved Mahavidyalaya, Tq. Patur, Distt. Akola–444501, Maharashtra",
+   "address": "Dr. Vandanatai Jagannathrao Dhone Gramin Ayurved Mahavidyalaya, Tq. Patur, Distt. Akola\u2013444501, Maharashtra",
    "district": "Akola",
    "state": "Maharashtra",
    "management": "Private",
@@ -4107,7 +4107,7 @@
   {
    "code": "AYU0179",
    "name": "Lt. Sunil Ramsinh Chunawale Ayurved Mahavidyalaya",
-   "address": "Lt. Sunil Ramsinh Chunawale Ayurved Mahavidyalaya, Deendayal nagar, Tq. Chikhli, Distt. Buldana–443201, Maharashtra",
+   "address": "Lt. Sunil Ramsinh Chunawale Ayurved Mahavidyalaya, Deendayal nagar, Tq. Chikhli, Distt. Buldana\u2013443201, Maharashtra",
    "district": "Buldhana",
    "state": "Maharashtra",
    "management": "Private",
@@ -4156,7 +4156,7 @@
   {
    "code": "AYU0182",
    "name": "Late Kedari Redekar Ayurvedic Mahavidyalaya",
-   "address": "Late Kedari Redekar Ayurvedic Mahavidyalaya, P-2, MIDC Area, Shendri Mal, Tal. Gadhinglaj, Distt. Kolhapur –416502, Maharashtra",
+   "address": "Late Kedari Redekar Ayurvedic Mahavidyalaya, P-2, MIDC Area, Shendri Mal, Tal. Gadhinglaj, Distt. Kolhapur \u2013416502, Maharashtra",
    "district": "Kolhapur",
    "state": "Maharashtra",
    "management": "Private",
@@ -4174,8 +4174,8 @@
   },
   {
    "code": "AYU0183",
-   "name": "Pravara Medical Trust’s Padmashri Dr. Vitthal Rao Vikhe Patil Foundation Ayurved College",
-   "address": "Pravara Medical Trust’s Padmashri Dr. Vitthal Rao Vikhe Patil Foundation Ayurved College Akhegaon Road, Tal. Shevgaon, Distt. Ahmednagar-414502, Maharashtra",
+   "name": "Pravara Medical Trust\u2019s Padmashri Dr. Vitthal Rao Vikhe Patil Foundation Ayurved College",
+   "address": "Pravara Medical Trust\u2019s Padmashri Dr. Vitthal Rao Vikhe Patil Foundation Ayurved College Akhegaon Road, Tal. Shevgaon, Distt. Ahmednagar-414502, Maharashtra",
    "district": "Shevgaon",
    "state": "Maharashtra",
    "management": "Private",
@@ -4232,7 +4232,7 @@
   {
    "code": "AYU0186",
    "name": "Jupiter Ayurved Medical College & Tarini Ayurved Hospital",
-   "address": "Jupiter Ayurved Medical College & Tarini Ayurved Hospital, Shankarpur, Post- Khapri, Tehsil & District, Nagpur–441108, Maharashtra",
+   "address": "Jupiter Ayurved Medical College & Tarini Ayurved Hospital, Shankarpur, Post- Khapri, Tehsil & District, Nagpur\u2013441108, Maharashtra",
    "district": "Nagpur",
    "state": "Maharashtra",
    "management": "Private",
@@ -4284,8 +4284,8 @@
   },
   {
    "code": "AYU0189",
-   "name": "Bal Bhagwan Shikshan Prasarak Mandal’s Dhanwantari Ayurved Medical College & Hospital",
-   "address": "Bal Bhagwan Shikshan Prasarak Mandal’s Dhanwantari Ayurved Medical College & Hospital, Degloor Road, Udgir-413517, Distt. Latur, Maharashtra",
+   "name": "Bal Bhagwan Shikshan Prasarak Mandal\u2019s Dhanwantari Ayurved Medical College & Hospital",
+   "address": "Bal Bhagwan Shikshan Prasarak Mandal\u2019s Dhanwantari Ayurved Medical College & Hospital, Degloor Road, Udgir-413517, Distt. Latur, Maharashtra",
    "district": "Latur",
    "state": "Maharashtra",
    "management": "Private",
@@ -4372,7 +4372,7 @@
   {
    "code": "AYU0198",
    "name": "S.M.B.T. Ayurved College & Hospital",
-   "address": "S.M.B.T. Ayurved College & Hospital At. Nandi Hills, Dhamangaon, Teh. Igatpuri, Distt. Nashik–422403, Maharashtra",
+   "address": "S.M.B.T. Ayurved College & Hospital At. Nandi Hills, Dhamangaon, Teh. Igatpuri, Distt. Nashik\u2013422403, Maharashtra",
    "district": "Nashik",
    "state": "Maharashtra",
    "management": "Private",
@@ -4458,8 +4458,8 @@
   },
   {
    "code": "AYU0326",
-   "name": "Anandi Shikshan Prasark Mandal’s, Ayurved Medical College, Hospital & Research Institute",
-   "address": "Anandi Shikshan Prasark Mandal’s, Ayurved Medical College, Hospital & Research Institute, Dhad Naka Area, Ajanta Road, Buldana-443001, Maharashtra",
+   "name": "Anandi Shikshan Prasark Mandal\u2019s, Ayurved Medical College, Hospital & Research Institute",
+   "address": "Anandi Shikshan Prasark Mandal\u2019s, Ayurved Medical College, Hospital & Research Institute, Dhad Naka Area, Ajanta Road, Buldana-443001, Maharashtra",
    "district": "Buldhana",
    "state": "Maharashtra",
    "management": "Private",
@@ -4775,7 +4775,7 @@
   {
    "code": "AYU0720",
    "name": "Sanjivani College of Ayurveda and Research Center",
-   "address": "Sanjivani College of Ayurveda and Research Center, at – Khirdi Ganesh, Post Kopargaon, Tal. Kopargaon, Distt. Ahmednagar-423603, Maharashtra",
+   "address": "Sanjivani College of Ayurveda and Research Center, at \u2013 Khirdi Ganesh, Post Kopargaon, Tal. Kopargaon, Distt. Ahmednagar-423603, Maharashtra",
    "district": "Kopargaon",
    "state": "Maharashtra",
    "management": "Private",
@@ -4970,7 +4970,7 @@
   {
    "code": "AYU0810",
    "name": "Smt. Sumitrabai Thakare Ayurvedic College",
-   "address": "Smt. Sumitrabai Thakare Ayurvedic College, At Plot No.- P-2, P-3 , MIDC Area, Darwha Road, Yavatmal – 445001, Maharashtra",
+   "address": "Smt. Sumitrabai Thakare Ayurvedic College, At Plot No.- P-2, P-3 , MIDC Area, Darwha Road, Yavatmal \u2013 445001, Maharashtra",
    "district": "Yavatmal",
    "state": "Maharashtra",
    "management": "Private",
@@ -4984,8 +4984,8 @@
   },
   {
    "code": "AYU0812",
-   "name": "Vews’S Ahimsha, Institute of Ayurveda Shindkheda",
-   "address": "Vews’S Ahimsha, Institute of Ayurveda Shindkheda, SR. No. 190, Dhule Road, Dondaicha, Tq. Shindkheda, Dondaicha, Dhule, Maharashtra",
+   "name": "Vews\u2019S Ahimsha, Institute of Ayurveda Shindkheda",
+   "address": "Vews\u2019S Ahimsha, Institute of Ayurveda Shindkheda, SR. No. 190, Dhule Road, Dondaicha, Tq. Shindkheda, Dondaicha, Dhule, Maharashtra",
    "district": "Dondaicha",
    "state": "Maharashtra",
    "management": "Private",
@@ -5749,7 +5749,11 @@
      "course": "ayush-pg",
      "seats": 16
     }
-   ]
+   ],
+   "same_as": {
+    "scheme": "nch",
+    "value": "1701"
+   }
   },
   {
    "code": "AYU0822",
@@ -6164,8 +6168,8 @@
   },
   {
    "code": "AYU0228",
-   "name": "JR’s Tantia Shri Ganganagar College of Ayurvedic Science & Hospital",
-   "address": "JR’s Tantia Shri Ganganagar College of Ayurvedic Science & Hospital, Near RIICO, Hanumangarh Road, Sri Ganganagar- 335002, Rajasthan",
+   "name": "JR\u2019s Tantia Shri Ganganagar College of Ayurvedic Science & Hospital",
+   "address": "JR\u2019s Tantia Shri Ganganagar College of Ayurvedic Science & Hospital, Near RIICO, Hanumangarh Road, Sri Ganganagar- 335002, Rajasthan",
    "district": "Ganganagar",
    "state": "Rajasthan",
    "management": "Private",
@@ -6353,7 +6357,7 @@
   {
    "code": "AYU0235",
    "name": "Sri Sai Ram Ayurveda Medical College & Research Centre",
-   "address": "Sri Sai Ram Ayurveda Medical College & Research Centre, Sai Leo Nagar, Poonthandalam Sriperumbudur, Taluk Kanchipuram Chennai–600044, Tamil Nadu",
+   "address": "Sri Sai Ram Ayurveda Medical College & Research Centre, Sai Leo Nagar, Poonthandalam Sriperumbudur, Taluk Kanchipuram Chennai\u2013600044, Tamil Nadu",
    "district": "Chennai",
    "state": "Tamil Nadu",
    "management": "Private",
@@ -6387,7 +6391,7 @@
   {
    "code": "AYU0237",
    "name": "Government Ayurveda Medical College and Hospital",
-   "address": "Government Ayurveda Medical College and Hospital, Kottar, Nagercoil – 629002, Tamil Nadu",
+   "address": "Government Ayurveda Medical College and Hospital, Kottar, Nagercoil \u2013 629002, Tamil Nadu",
    "district": "Nagercoil",
    "state": "Tamil Nadu",
    "management": "Government",
@@ -6613,7 +6617,7 @@
   {
    "code": "AYU0254",
    "name": "Sri Sai Ayurvedic Medical College & Hospital",
-   "address": "Sri Sai Ayurvedic Medical College & Hospital, Opp. Phal Mandi, Sarsol, G.T. Road Aligarh–202001, Uttar Pradesh",
+   "address": "Sri Sai Ayurvedic Medical College & Hospital, Opp. Phal Mandi, Sarsol, G.T. Road Aligarh\u2013202001, Uttar Pradesh",
    "district": "Aligarh",
    "state": "Uttar Pradesh",
    "management": "Private",
@@ -6689,7 +6693,7 @@
   {
    "code": "AYU0259",
    "name": "Shri Anand Niketan Dharmshala Avom Dharmik Trust, Shri Dhanwantri Ayurvedic Medical College & Research Centre",
-   "address": "Shri Anand Niketan Dharmshala Avom Dharmik Trust, Shri Dhanwantri Ayurvedic Medical College & Research Centre , At NH – 02, Vill. Semari, Tehsil Chhatta , Distt. Mathura-281401, Uttar Pradesh",
+   "address": "Shri Anand Niketan Dharmshala Avom Dharmik Trust, Shri Dhanwantri Ayurvedic Medical College & Research Centre , At NH \u2013 02, Vill. Semari, Tehsil Chhatta , Distt. Mathura-281401, Uttar Pradesh",
    "district": "Mathura",
    "state": "Uttar Pradesh",
    "management": "Private",
@@ -7080,7 +7084,7 @@
   {
    "code": "AYU0422",
    "name": "R.K. Ayurvedic Medical College & Hospital",
-   "address": "R.K. Ayurvedic Medical College & Hospital, Kashipur, Surai, Sathiaon, Azamgarh–243501, Uttar Pradesh",
+   "address": "R.K. Ayurvedic Medical College & Hospital, Kashipur, Surai, Sathiaon, Azamgarh\u2013243501, Uttar Pradesh",
    "district": "Azamgarh",
    "state": "Uttar Pradesh",
    "management": "Private",
@@ -8286,7 +8290,7 @@
   {
    "code": "UNI0289",
    "name": "HMS Unani Medical College & Hospital",
-   "address": "HMS Unani Medical College & Hospital, Sadashiv Nagar, IInd Stage, Ring Road, P.O.Maralur, Tumkur –572105, Karnataka",
+   "address": "HMS Unani Medical College & Hospital, Sadashiv Nagar, IInd Stage, Ring Road, P.O.Maralur, Tumkur \u2013572105, Karnataka",
    "district": "Tumkur",
    "state": "Karnataka",
    "management": "Private",
@@ -8379,8 +8383,8 @@
   },
   {
    "code": "UNI0295",
-   "name": "Anjuman-I-Islam’s Dr. M. Ishaq (MIJ) Jamkhanawala Tibbia Unani Medical College & Haji Abdul Razak Kalsekar, Tibbia Hospital",
-   "address": "Anjuman-I-Islam’s Dr. M. Ishaq (MIJ) Jamkhanawala Tibbia Unani Medical College & Haji Abdul Razak Kalsekar, Tibbia Hospital, 60, Yari Road, Versova, Andheri (West), Mumbai-400061, Maharashtra",
+   "name": "Anjuman-I-Islam\u2019s Dr. M. Ishaq (MIJ) Jamkhanawala Tibbia Unani Medical College & Haji Abdul Razak Kalsekar, Tibbia Hospital",
+   "address": "Anjuman-I-Islam\u2019s Dr. M. Ishaq (MIJ) Jamkhanawala Tibbia Unani Medical College & Haji Abdul Razak Kalsekar, Tibbia Hospital, 60, Yari Road, Versova, Andheri (West), Mumbai-400061, Maharashtra",
    "district": "Mumbai",
    "state": "Maharashtra",
    "management": "Government Aided",
@@ -8443,8 +8447,8 @@
   },
   {
    "code": "UNI0299",
-   "name": "Iqra Education Society’s, Unani Medical College Hospital & Research Center",
-   "address": "Iqra Education Society’s, Unani Medical College Hospital & Research Center, G.No.25/2, Iqra Nagar, Mohdi Shivar, Shirsoli Road, Post Box No. 40, Jalgaon 425135, Maharashtra",
+   "name": "Iqra Education Society\u2019s, Unani Medical College Hospital & Research Center",
+   "address": "Iqra Education Society\u2019s, Unani Medical College Hospital & Research Center, G.No.25/2, Iqra Nagar, Mohdi Shivar, Shirsoli Road, Post Box No. 40, Jalgaon 425135, Maharashtra",
    "district": "Jalgaon",
    "state": "Maharashtra",
    "management": "Private",
@@ -8489,7 +8493,7 @@
   {
    "code": "UNI0897",
    "name": "Dr. APJ Abdul Kalam Unani College",
-   "address": "Dr. APJ Abdul Kalam Unani College, SND Campus, Babhulgaon, Tal. Yeola, Distt. Nashik – 423401, Maharashtra",
+   "address": "Dr. APJ Abdul Kalam Unani College, SND Campus, Babhulgaon, Tal. Yeola, Distt. Nashik \u2013 423401, Maharashtra",
    "district": "Nashik",
    "state": "Maharashtra",
    "management": "Private",
@@ -8518,7 +8522,11 @@
      "course": "ayush-pg",
      "seats": 13
     }
-   ]
+   ],
+   "same_as": {
+    "scheme": "ncism",
+    "value": "AYU0021"
+   }
   },
   {
    "code": "UNI0283",
@@ -8738,7 +8746,7 @@
   {
    "code": "UNI0310",
    "name": "Sham-e-Ghausia Minority Unani Medical College & Hospital",
-   "address": "Sham-e-Ghausia Minority Unani Medical College & Hospital, Saheri, Via- Nandganj, Ghazipur–233001, Uttar Pradesh",
+   "address": "Sham-e-Ghausia Minority Unani Medical College & Hospital, Saheri, Via- Nandganj, Ghazipur\u2013233001, Uttar Pradesh",
    "district": "Ghazipur",
    "state": "Uttar Pradesh",
    "management": "Private",
@@ -8847,7 +8855,7 @@
   {
    "code": "UNI0314",
    "name": "Calcutta Unani Medical College & Hospital",
-   "address": "Calcutta Unani Medical College & Hospital, 8/1, Abdul Halim Lane, Kolkata – 700016, West Bengal",
+   "address": "Calcutta Unani Medical College & Hospital, 8/1, Abdul Halim Lane, Kolkata \u2013 700016, West Bengal",
    "district": "Kolkata",
    "state": "West Bengal",
    "management": "Private",
@@ -9039,7 +9047,7 @@
   {
    "code": "SID0575",
    "name": "Nandha Siddha Medical College and Hospital",
-   "address": "Nandha Siddha Medical College and Hospital, Erode–Perundurai Main Road, Thiruvachi Panchayat, Pitchandampalayam Post, Erode– 638052, Tamil Nadu",
+   "address": "Nandha Siddha Medical College and Hospital, Erode\u2013Perundurai Main Road, Thiruvachi Panchayat, Pitchandampalayam Post, Erode\u2013 638052, Tamil Nadu",
    "district": "Erode",
    "state": "Tamil Nadu",
    "management": "Private",

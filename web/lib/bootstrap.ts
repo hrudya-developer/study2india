@@ -388,7 +388,9 @@ type CouncilRow = {
   /** The council's own wording for the management type. */
   management: string | null;
   ownership: (typeof schema.institutions.$inferInsert)["ownership"] | null;
-  offerings: { course: string; seats: number | null }[];
+  offerings: { course: string; seats: number | null; branches?: { name: string; seats: number | null }[] }[];
+  /** The same institution under another list's code, checked by hand; loaded onto that record. */
+  same_as?: { scheme: string; value: string };
 };
 type CouncilFile = {
   council: string;
@@ -422,6 +424,10 @@ export async function seedCouncils(streamIds: Map<string, number>, log: (m: stri
     for (const r of data.rows) {
       const sourceId = sourceIds.get(data.sources.find((s) => r.code.startsWith(s.prefix))?.prefix ?? data.sources[0].prefix)!;
       let id = await identifierOwner(data.scheme, r.code);
+      if (!id && r.same_as) {
+        id = await identifierOwner(r.same_as.scheme, r.same_as.value);
+        if (id) await db.insert(institutionIdentifiers).values({ institutionId: id, scheme: data.scheme, value: r.code });
+      }
       if (!id) {
         const name = r.name.trim().replace(/\s+/g, " ");
         // Many council colleges share a name ("Govt. Ayurved Mahavidhalaya"); the district tells them apart.
@@ -456,6 +462,14 @@ export async function seedCouncils(streamIds: Map<string, number>, log: (m: stri
           .insert(offerings)
           .values({ institutionId: id, courseId, academicYear: data.academic_year, seats: o.seats, seatsSourceId: sourceId })
           .onDuplicateKeyUpdate({ set: { seats: o.seats, seatsSourceId: sourceId } });
+        if (o.branches?.length) {
+          const [off] = await db
+            .select({ id: offerings.id })
+            .from(offerings)
+            .where(and(eq(offerings.institutionId, id), eq(offerings.courseId, courseId), eq(offerings.academicYear, data.academic_year)));
+          await db.delete(offeringBranches).where(and(eq(offeringBranches.offeringId, off.id), eq(offeringBranches.sourceId, sourceId)));
+          await db.insert(offeringBranches).values(o.branches.map((b) => ({ offeringId: off.id, name: b.name, seats: b.seats, sourceId })));
+        }
         offeringsLoaded++;
       }
     }

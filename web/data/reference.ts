@@ -112,6 +112,7 @@ export const STREAMS: StreamSeed[] = [
       { slug: "bsms", name: "Bachelor of Siddha Medicine and Surgery", short: "BSMS", level: "ug", duration: "5.5 years including 1 year internship" },
       { slug: "bnys", name: "Bachelor of Naturopathy and Yogic Sciences", short: "BNYS", level: "ug", duration: "5.5 years including 1 year internship" },
       { slug: "ayush-pg", name: "MD / MS in Ayurveda, Unani or Siddha", short: "MD / MS (AYUSH)", level: "pg", duration: "3 years" },
+      { slug: "md-homoeopathy", name: "Doctor of Medicine in Homoeopathy", short: "MD (Hom.)", level: "pg", duration: "3 years" },
     ],
   },
   {

@@ -1,0 +1,5824 @@
+{
+ "council": "NCH",
+ "scheme": "nch",
+ "stream": "ayush",
+ "academic_year": "2026-27",
+ "sources": [
+  {
+   "publisher": "National Commission for Homoeopathy",
+   "title": "NCH college permission status 2026-27 (16.10.2026)",
+   "url": "https://www.nch.org.in/upload/Permission-Status%20as%20on%2016-10-2026.pdf.pdf",
+   "retrieved": "2026-10-23",
+   "prefix": ""
+  }
+ ],
+ "note": "Colleges granted permission or conditional permission for 2026-27; colleges denied permission are left out. Seats are the permitted UG intake including EWS and the permitted PG intake with its subject-wise split.",
+ "rows": [
+  {
+   "code": "101",
+   "name": "A.S.R. Homoeopathic Medical College",
+   "address": "A.S.R. Homoeopathic Medical College, Y - Junction, , Prathipadu, Tadepalligudem, West Godavari - 534146",
+   "district": null,
+   "state": "Andhra Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 90
+    }
+   ]
+  },
+  {
+   "code": "102",
+   "name": "Dr. Allu Ramalingaiah Govt. Homoeopathic Medical College",
+   "address": "Dr. Allu Ramalingaiah Govt. Homoeopathic Medical College, 26-1-11, Y Junction, Rajamahendravaram, East Godavari - 533106",
+   "district": null,
+   "state": "Andhra Pradesh",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 63
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 23,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 8
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 8
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 7
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "103",
+   "name": "Dr. Gururaju Govt. Homoeopathic Medical College",
+   "address": "Dr. Gururaju Govt. Homoeopathic Medical College, Gudivada, Krishna Distt.- 521301",
+   "district": null,
+   "state": "Andhra Pradesh",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 50
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 23,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 8
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 8
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 7
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "104",
+   "name": "Govt. Homoeopathic Medical College",
+   "address": "Govt. Homoeopathic Medical College, Rama Raju Palli, Ravindra Nagar Post, Kadapa Cuddapah, Andhra Pradesh, 516003",
+   "district": null,
+   "state": "Andhra Pradesh",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 38
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 8,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 4
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 4
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "105",
+   "name": "KKC Homoeopathic Medical College",
+   "address": "KKC Homoeopathic Medical College, 1-52, KKC Nagar, Parameswara Mangalam, Chittoor- 517584",
+   "district": null,
+   "state": "Andhra Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "106",
+   "name": "Maharajaha Institute of Homoeopathy Sciences and Hospital",
+   "address": "Maharajaha Institute of Homoeopathy Sciences and Hospital, D.NO: 31-15, Nellimarla, Near MDO Office, Nellimarla, Vizianagaram-535217",
+   "district": null,
+   "state": "Andhra Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "107",
+   "name": "Sri Adi Shiva Satguru Ali Saheb Shivaaryula Homoeopathic Medical College",
+   "address": "Sri Adi Shiva Satguru Ali Saheb Shivaaryula Homoeopathic Medical College, Thimmapuram, NH-63, , Near Anjineyaswamy Temple, Guntakal, Anantapur- 515801",
+   "district": null,
+   "state": "Andhra Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "108",
+   "name": "Sri Venkateswara Homoeopathy College and Hospital",
+   "address": "Sri Venkateswara Homoeopathy College and Hospital , R.V.S. Nagar, Murukambattu, Tirupati Road, Andhra Pradesh",
+   "district": null,
+   "state": "Andhra Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "303",
+   "name": "Swahid Jadav Nath Govt. Homoeopathic Medical College",
+   "address": "Swahid Jadav Nath Govt. Homoeopathic Medical College, Vill. Bagharbari, P.O. Khanapara, Guwahati-781037",
+   "district": null,
+   "state": "Assam",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 63
+    }
+   ]
+  },
+  {
+   "code": "404",
+   "name": "G.D. Memorial Homoeopathic Medical College and Hospital",
+   "address": "G.D. Memorial Homoeopathic Medical College and Hospital, East Ram Krishna Nagar, P.O. Jaganpura Patna -800027",
+   "district": null,
+   "state": "Bihar",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 42,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Pediatrics",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Pshcyiatry",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "405",
+   "name": "Dr. Rambalak Singh Gaya Homoeopathic Medical College & Hospital",
+   "address": "Dr. Rambalak Singh Gaya Homoeopathic Medical College & Hospital, Amwa, Bodh Gaya- 824231, Gaya",
+   "district": null,
+   "state": "Bihar",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 45
+    }
+   ]
+  },
+  {
+   "code": "406",
+   "name": "Dr. Yadubir Sinha Homoeopathic Medical College and Hospital",
+   "address": "Dr. Yadubir Sinha Homoeopathic Medical College and Hospital, Laharisarai, Darbhanga- 846002",
+   "district": null,
+   "state": "Bihar",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 50
+    }
+   ]
+  },
+  {
+   "code": "407",
+   "name": "Mangla Kamla Homoeopathic Medical College & Hospital",
+   "address": "Mangla Kamla Homoeopathic Medical College & Hospital, Prof. Vishnu Kumar Marg, Srinagar, Siwan-841226",
+   "district": null,
+   "state": "Bihar",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 35
+    }
+   ]
+  },
+  {
+   "code": "410",
+   "name": "R.B.T.S. Govt. Homoeopathic Medical College",
+   "address": "R.B.T.S. Govt. Homoeopathic Medical College, Ram Dayalu Nagar, P.O. Ramna, Muzaffarpur- 842002",
+   "district": null,
+   "state": "Bihar",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 75
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 31,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 5
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 8
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 7
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "411",
+   "name": "Dr. Halim Homoeopathic Medical College and Hospital",
+   "address": "Dr. Halim Homoeopathic Medical College and Hospital, Ekmighat, P.O. Laheria Sarai- 846001",
+   "district": null,
+   "state": "Bihar",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 35
+    }
+   ]
+  },
+  {
+   "code": "412",
+   "name": "Kent Homoeopathic Medical College and Hospital",
+   "address": "Kent Homoeopathic Medical College and Hospital At & P. O. Khilwat (via-Bidupur Bazar) Hajipur, District Vaishali- 844503",
+   "district": null,
+   "state": "Bihar",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 40
+    }
+   ]
+  },
+  {
+   "code": "413",
+   "name": "Maharshi Menhi Homoeopathic Medical College and Hospital",
+   "address": "Maharshi Menhi Homoeopathic Medical College and Hospital, Jeewachh Nagar, Katihar-",
+   "district": null,
+   "state": "Bihar",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 35
+    }
+   ]
+  },
+  {
+   "code": "415",
+   "name": "Patna Homoeopathic Medical College and Hospital",
+   "address": "Patna Homoeopathic Medical College and Hospital, Ram Krishan Nagar, (Sorangpur), Patna- 800027",
+   "district": null,
+   "state": "Bihar",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 35
+    }
+   ]
+  },
+  {
+   "code": "601",
+   "name": "Homoeopathic Medical College and Hospital",
+   "address": "Homoeopathic Medical College and Hospital, M- 671, Sector 26, U.T. Chandigarh - 160019",
+   "district": null,
+   "state": "Chandigarh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 35
+    }
+   ]
+  },
+  {
+   "code": "503",
+   "name": "Raipur Homoeopathic Medical College and Hospital",
+   "address": "Raipur Homoeopathic Medical College and Hospital, Ram Kund, Chaube Colony, Raipur- 492001",
+   "district": null,
+   "state": "Chhattisgarh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 35
+    }
+   ]
+  },
+  {
+   "code": "new-university-college-of-homoeopathy",
+   "name": "University College of Homoeopathy",
+   "address": "University College of Homoeopathy, Sector 40, Uparwara, Atal Nagar , Nava Raipur, Chhattisgarh- 493661",
+   "district": null,
+   "state": "Chhattisgarh",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 63
+    }
+   ]
+  },
+  {
+   "code": "701",
+   "name": "Nehru Homoeopathic Medical College and Hospital",
+   "address": "Nehru Homoeopathic Medical College and Hospital, B- Block, Defence Colony, New Delhi- 110024",
+   "district": null,
+   "state": "Delhi",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 125
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 9,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "702",
+   "name": "Dr. B.R. Sur Homoeopathic Medical College and Hospital",
+   "address": "Dr. B.R. Sur Homoeopathic Medical College and Hospital, Near Nanakpura Gurudwara (Ring Road), Moti Bagh-II, New Delhi-110021",
+   "district": null,
+   "state": "Delhi",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 63
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 6,
+     "branches": [
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "703",
+   "name": "National Institute of Homoeopathy, Delhi (A Satellite Institute of NIH",
+   "address": "National Institute of Homoeopathy, Delhi (A Satellite Institute of NIH, KOLKATA); Sector A-8, Chaudhary Ramdev Marg, Narela, Delhi-110040",
+   "district": null,
+   "state": "Delhi",
+   "management": "Govt./NI",
+   "ownership": "central",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "md-homoeopathy",
+     "seats": 17,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 2
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 2
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 2
+      },
+      {
+       "name": "MD (Hom.) Practice of medicine",
+       "seats": 4
+      },
+      {
+       "name": "MD (Hom.) Pediatrics",
+       "seats": 2
+      },
+      {
+       "name": "MD (Hom.) Psychitary",
+       "seats": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "801",
+   "name": "Kamaxi Devi Homoeopathic Medical College",
+   "address": "Kamaxi Devi Homoeopathic Medical College, Hill Top, Shiroda, Goa-403103",
+   "district": null,
+   "state": "Goa",
+   "management": "Govt Aided",
+   "ownership": "aided",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 63
+    }
+   ]
+  },
+  {
+   "code": "901",
+   "name": "Aarihant Homoeopathic Medical College & Research Institute",
+   "address": "Aarihant Homoeopathic Medical College & Research Institute, At Bhoya Rathod, Opp. Iffco Adalaj-Sertha Road, Gandhinagar-382420",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 90
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 16,
+     "branches": [
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 2
+      },
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 5
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "902",
+   "name": "Laxmiben Homoeopathy Institute & Research Centre",
+   "address": "Laxmiben Homoeopathy Institute & Research Centre, Lalji Park, Unjha-Mehsana Highway, At and PO-Bhandu, Ta-Visanagar, Distt. Mehsana, (North Gujarat) -384120",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 70
+    }
+   ]
+  },
+  {
+   "code": "903",
+   "name": "Shree Limbdi Vikas Trust Homoeopathic Medical College",
+   "address": "Shree Limbdi Vikas Trust Homoeopathic Medical College, Limbdi– Dhanuka State Highway, District Surendra Nagar Limbdi - 363421",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 80
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 16,
+     "branches": [
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 5
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "904",
+   "name": "Anand Homoeopathic Medical College and Research Institute",
+   "address": "Anand Homoeopathic Medical College and Research Institute, Near 0Sardar Baug, Bhalej Road, Anand- 388001. Dist.Kheda",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Govt Aided",
+   "ownership": "aided",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 125
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 18,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "905",
+   "name": "Baroda Homoeopathic Medical College",
+   "address": "Baroda Homoeopathic Medical College, Near Sonar Kui, Opp. Xavier Technical Institute, Sevasi- Sindhrot Road, Sevasi, Vadodara-391101",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 80
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 28,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 4
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "906",
+   "name": "Dr. V.H. Dave Homoeopathic Medical College and Smt. S.I. Patel (Ipcowala) Homoeopathic Hospital",
+   "address": "Dr. V.H. Dave Homoeopathic Medical College and Smt. S.I. Patel (Ipcowala) Homoeopathic Hospital, Hahnemann House, Amul Dairy Road, Anand- - 388001, Dist. Kheda",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Govt Aided",
+   "ownership": "aided",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 125
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 9,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "907",
+   "name": "Jawaharlal Nehru Homoeopathic Medical College",
+   "address": "Jawaharlal Nehru Homoeopathic Medical College, C/o Parul Educational Complex, Post- Limbda, Tal- Waghodia, Dist.- Vadodara-391760",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 24,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "908",
+   "name": "Govt. Homoeopathic Medical College and Hospital",
+   "address": "Govt. Homoeopathic Medical College and Hospital, Dethali, Ta. Sidhdhpur, Dist. Patan (North Gujarat)- 384151",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 125
+    }
+   ]
+  },
+  {
+   "code": "909",
+   "name": "Sh. H.N. Shukla Homoeopathic Medical College & Hospital",
+   "address": "Sh. H.N. Shukla Homoeopathic Medical College & Hospital, Sh. H. N. Shukla College Campus, Nr. Lalpari Lake, Bh. Marketing Yard, Amargadh- Bhichri, Rajkot - 360003. (by Shree Mahatama Gandhi Education Trust, Rajkot, Gujarat)",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "910",
+   "name": "Swami Vivekanand Homoeopathic Medical College & Hospital",
+   "address": "Swami Vivekanand Homoeopathic Medical College & Hospital, Near Sports Complex, Sidsar Road, Bhavnagar- 364060",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 90
+    }
+   ]
+  },
+  {
+   "code": "911",
+   "name": "Vidhyadeep Homoeopathic Medical College and Research Center (GJ035) Anita (Kim)",
+   "address": "Vidhyadeep Homoeopathic Medical College and Research Center (GJ035) Anita (Kim), Surat, Gujrat - 394110",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "945",
+   "name": "Shri Aryatej Homoeopathic Medical College",
+   "address": "Shri Aryatej Homoeopathic Medical College, Aryavart, Nr. Narvyug Tiles. Opp. Laxminagar Villege, 8-A National Highway, Laxminagar- 363642",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 36
+    }
+   ]
+  },
+  {
+   "code": "944",
+   "name": "Gokul Foundation Gokul Homoeopathy Medical College",
+   "address": "Gokul Foundation Gokul Homoeopathy Medical College, Opp. IOC Depot, State Highway No. 41, Sujanpur Patia, Sidhpur – 384151, Distt. Patan",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 90
+    }
+   ]
+  },
+  {
+   "code": "934",
+   "name": "Valan Homoeopathic Medical College and Hospital",
+   "address": "Valan Homoeopathic Medical College and Hospital, Valan- Palej Road, At P. O. Valan, TA. Karjan Dist.Vadodara.392310",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 54
+    }
+   ]
+  },
+  {
+   "code": "935",
+   "name": "Shree Sardar Patel Mahila Homoeopathic Medical College",
+   "address": "Shree Sardar Patel Mahila Homoeopathic Medical College, Morbi Road, Hadala, Rajkot- 360003",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 60
+    }
+   ]
+  },
+  {
+   "code": "936",
+   "name": "Sumandeep Homoeopathic Medical College and Hospital",
+   "address": "Sumandeep Homoeopathic Medical College and Hospital, At and Post-Piparia, Talnka-Waghodia , Dist-Vododara-391760",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private/Deemed University",
+   "ownership": "deemed",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "938",
+   "name": "Nootan Homoeopathic Medical College",
+   "address": "Nootan Homoeopathic Medical College, Nootan SarvaVidyalaya Kelarani Mandal, Sankalchand Patel Vidyadham Ambaji Gandhi Nagar Star Highway Visnagar-384315",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 70
+    }
+   ]
+  },
+  {
+   "code": "912",
+   "name": "Arrdekta Homoeopathic Medical College and Hoapital",
+   "address": "Arrdekta Homoeopathic Medical College and Hoapital, PO- Navi Metral, Dist. Sabarkantha - 383255",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 60
+    }
+   ]
+  },
+  {
+   "code": "914",
+   "name": "Ahmedabad Homoeopathic Medical College",
+   "address": "Ahmedabad Homoeopathic Medical College, At & PO. Ghuma- Bopal Road, Ghuma, Ahmedabad.- 380058",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 18,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "915",
+   "name": "Rajkot Homoeopathic Medical College",
+   "address": "Rajkot Homoeopathic Medical College, Jainath Petrol Pump, Gondal Road, Rajkot- 360002",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 24,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "916",
+   "name": "Aarya-Veer Homoeopathic Medical College",
+   "address": "Aarya-Veer Homoeopathic Medical College, at Kuvadva, Kuvada-Sardar Road, Rajkot- Ahmedabad NH, District- Rajkot-360030",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "917",
+   "name": "Agarwal Education Foundation",
+   "address": "Agarwal Education Foundation, S.S. Agarwal Homoeopathic Medical College at Near Devina Park Society, Viranjali Marg, Gandevi Raod, Navsari-396445",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 80
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 28,
+     "branches": [
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Homoeopathic Pharmacy",
+       "seats": 4
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "919",
+   "name": "Bhargva Homoeopathic Medical College",
+   "address": "Bhargva Homoeopathic Medical College, Vidyagram, At & Post-Dahemi, Ta-Borsad, Dist. Anand-388560",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "920",
+   "name": "C.D. Pachchigar Homoeopathic Medical College",
+   "address": "C.D. Pachchigar Homoeopathic Medical College, Near Anand Mangal Society, Bhatar Road, Majura, Surat-395001",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 37,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Psychiatry",
+       "seats": 4
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "921",
+   "name": "Gujarat Homoeopathic Medical College",
+   "address": "Gujarat Homoeopathic Medical College At & P.O. Savli- 391770, Dist.Vadodara",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Govt Aided",
+   "ownership": "aided",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 125
+    }
+   ]
+  },
+  {
+   "code": "922",
+   "name": "Gyan Jyot Education Trust B.G. Garaiya Homoeopathy Medical College",
+   "address": "Gyan Jyot Education Trust B.G. Garaiya Homoeopathy Medical College, At Kalipat Nr. Tramba, Bhavnagar Highway, Rajkot-360020",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 18,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "923",
+   "name": "Jay Jalaram Homoeopathic Medical College",
+   "address": "Jay Jalaram Homoeopathic Medical College, At & Post Morva (Rena), Takula Shahera, Distt. Panchmahal-389001",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 90
+    }
+   ]
+  },
+  {
+   "code": "924",
+   "name": "Kamdar Homoeopathy Medical College & Research Centre",
+   "address": "Kamdar Homoeopathy Medical College & Research Centre, Haripar Pal Survery No.12, Behind NRI Bungalows, Opp. Delhi Public School, Kalawad Road, Rajkot-360007",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "925",
+   "name": "Merchant Homoeopathic Medical College",
+   "address": "Merchant Homoeopathic Medical College, Merchant Education Campus, Mehsana- Visnagar Highway, At. Gadha & P.O. Basna, Mehsana- 384315",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 90
+    }
+   ]
+  },
+  {
+   "code": "926",
+   "name": "P.P. Savani Homoeopathy Medical College & Hospital",
+   "address": "P.P. Savani Homoeopathy Medical College & Hospital, NH- 8, GETCO, Near Biltech Company, Vill-Dhamdod, Kosamaba, Dist. Surat -394125",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 16,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 4
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 2
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "927",
+   "name": "Parul Institute of Homoeopathy & Reserach",
+   "address": "Parul Institute of Homoeopathy & Reserach, P.O. LiImda, Tal. Waghodia, Dist. Vadodara- 391760",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 24,
+     "branches": [
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "928",
+   "name": "Pioneer Homoeopathic Medical College",
+   "address": "Pioneer Homoeopathic Medical College, Pioneer Medical Campus, Near American School of Baroda, AT & P.O. :- Sayajipura Village, Near National Highway No:-8, Ajwa Cross Road, Vadodara -390019",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "929",
+   "name": "Shree Chotalal Nagindas Kothari Homoeopathic Medical College and Research Centre",
+   "address": "Shree Chotalal Nagindas Kothari Homoeopathic Medical College and Research Centre, Near Van Chetna, Kakrapar Bye Pass, Tadkuva, Vyara, Dist. Surat-394 650",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "930",
+   "name": "Shree Mahalaxmi Mahila Homoeopathic Medical College",
+   "address": "Shree Mahalaxmi Mahila Homoeopathic Medical College, (Shree Shamlaji Arogya Seva Trust), Beside Gujarat Tractors Nr. Vishwamitri Bridge, Munjanaluda Lalbag Road, Vadodara- 390011",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 90
+    }
+   ]
+  },
+  {
+   "code": "931",
+   "name": "Shree Swaminarayan Homoeopathy College Shree Swaminarayan Vishwa Mangal Gurukul Trust",
+   "address": "Shree Swaminarayan Homoeopathy College Shree Swaminarayan Vishwa Mangal Gurukul Trust, Nr. Ahmedabad-Mehsana National Highway, At & PO- Saij, Kalol, Dist. Gandhinagar-382721",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 16,
+     "branches": [
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 4
+      },
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "932",
+   "name": "Shri Shamlaji Homoeopathic Medical College and Research Institute",
+   "address": "Shri Shamlaji Homoeopathic Medical College and Research Institute, Godhra, Near Moon Light Cinema, Godhra-389 001",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "933",
+   "name": "Shri Vivek Bharti Trust, Noble Homoeopathic College & Research Institute-Junagadh",
+   "address": "Shri Vivek Bharti Trust, Noble Homoeopathic College & Research Institute-Junagadh, “Parth Vatika, Bhesan Road, Via-Vadal, At. Bamangam- 362310, Ta & Dist. – Junagadh",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "939",
+   "name": "Smt. A.J. Savla Homoeopathic Medical College and Research Institute",
+   "address": "Smt. A.J. Savla Homoeopathic Medical College and Research Institute, Pushpanjali ‘Building’ Near Jilla Panchayat, Nr. Karve School, Visnagar Road, Mehsana- 384001",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 80
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 16,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 4
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "940",
+   "name": "Smt. Malini Kishore Sanghavi Homoeopathic Medical College at Miyagaon",
+   "address": "Smt. Malini Kishore Sanghavi Homoeopathic Medical College at Miyagaon, Tal. Karjan, Dist. Vadodara-391240",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "941",
+   "name": "Smt. T.V. Mehta Charitable Foundation, Lalitaben Ramniklal Shah Homoeopathic Medical College",
+   "address": "Smt. T.V. Mehta Charitable Foundation, Lalitaben Ramniklal Shah Homoeopathic Medical College, Gardi Vidyapith Campus, Opp. Shiv Shakti Hotel, Kalawad Highway, Village Anandpar-361162, Rajkot",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 90
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 13,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 4
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 1
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 4
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 4
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "942",
+   "name": "Smt. Vasantaben N. Vyas Homoeopathic Medical College & Hospital",
+   "address": "Smt. Vasantaben N. Vyas Homoeopathic Medical College & Hospital, SR No.873/2 Jeshingpara, Amreli- 365601",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 70
+    }
+   ]
+  },
+  {
+   "code": "943",
+   "name": "Gandhinagar Homoeopathic Medical College",
+   "address": "Gandhinagar Homoeopathic Medical College, Mubarakpur (Pearl Education Charitable Trust), Ahmadabad-392721",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 90
+    }
+   ]
+  },
+  {
+   "code": "946",
+   "name": "Monark Homoeopathic Medical College and Hospital",
+   "address": "Monark Homoeopathic Medical College and Hospital, Dt and Post:-Vahelal, Taluka Daseroi, Dist- Ahmedabad, Gujarat -382330",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "947",
+   "name": "Shree Swaminarayan Homoeopathic College Jamnagar Shree Swaminarayan Gurukul",
+   "address": "Shree Swaminarayan Homoeopathic College Jamnagar Shree Swaminarayan Gurukul, Okla State Highway, Nr.Civil Airport Road, Naghedim, Jamnagar, Gujarat 361006",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "948",
+   "name": "CVM Homoeopathic Medical College & Hospital",
+   "address": "CVM Homoeopathic Medical College & Hospital, Aribas Building, Near G.J. Patel Ayurvedic College, ADIT Campus, Behind GIDC, New Vallabh vidya Nagar, Anand, Gujarat-388121",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "949",
+   "name": "Noble Star Homoeopathic Medical College and Research Institute",
+   "address": "Noble Star Homoeopathic Medical College and Research Institute, Noble Star Campus, Junagadh Dhoraji road, Near Makhiyala, Taluka, Dist. Junagadh-362037",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "950",
+   "name": "Arpit Homoeopathic Medical College & Hospital",
+   "address": "Arpit Homoeopathic Medical College & Hospital, Hadala, Rajkot-Morbi Highway, Rajkot Gujarat",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "951",
+   "name": "Amrut Homoeopathic Medical College and Hospital",
+   "address": "Amrut Homoeopathic Medical College and Hospital, Khadiya, Bilkha Road, Post toraniya, Dist. Junagadh, At Khadiya - 362263",
+   "district": null,
+   "state": "Gujarat",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "1001",
+   "name": "J.R. Kissan Homoeopathic Medical College and Hospital",
+   "address": "J.R. Kissan Homoeopathic Medical College and Hospital, Old Sunderpur Road, Jind Bye Pass, Rohtak – 124 001",
+   "district": null,
+   "state": "Haryana",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 50
+    }
+   ]
+  },
+  {
+   "code": "1101",
+   "name": "Solan Homoeopathic Medical College & Hospital",
+   "address": "Solan Homoeopathic Medical College & Hospital, Barog Bye-pass, (Near Shoolini Filling Station), Kumarahatti - 173229, Distt. Solan",
+   "district": null,
+   "state": "Himachal Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 52
+    }
+   ]
+  },
+  {
+   "code": "1203",
+   "name": "State Homoeopathic Medical College",
+   "address": "State Homoeopathic Medical College, Paraspani Godda -814147",
+   "district": null,
+   "state": "Jharkhand",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 63
+    }
+   ]
+  },
+  {
+   "code": "2601",
+   "name": "Government Homoeopathic Medical College & Hospital, Mahatma Gandhi Hospital",
+   "address": "Government Homoeopathic Medical College & Hospital, Mahatma Gandhi Hospital, Main Bazaar Kathua 184152",
+   "district": null,
+   "state": "Jammu & Kashmir",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 63
+    }
+   ]
+  },
+  {
+   "code": "1301",
+   "name": "Bhartesh Homoeopathic Medical College",
+   "address": "Bhartesh Homoeopathic Medical College, Survey No 16 Basvan Kudachi Extension, Shindoli Road, Belagavi, Karnataka 591124",
+   "district": null,
+   "state": "Karnataka",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 18,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1302",
+   "name": "AGM Homoeopathic Medical College & Hospital",
+   "address": "AGM Homoeopathic Medical College & Hospital, Navagrha Teerth Kshetra, Varur Hubballi - 581207",
+   "district": null,
+   "state": "Karnataka",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 48
+    }
+   ]
+  },
+  {
+   "code": "1303",
+   "name": "KLE Homoeopathic Medical College & Hospital",
+   "address": "KLE Homoeopathic Medical College & Hospital, RS No. 9/1 and 9/2, Ward No. 44, Airport Road, Basavan Kudachi - 591124, Tq. And Dist. Belagavi",
+   "district": null,
+   "state": "Karnataka",
+   "management": "Private/Deemed University",
+   "ownership": "deemed",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "1304",
+   "name": "Shetty Homoeopathic Medical College and Hospital",
+   "address": "Shetty Homoeopathic Medical College and Hospital, Shetty Education hub, Shahabad road, Kalburagi – 585105",
+   "district": null,
+   "state": "Karnataka",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 54
+    }
+   ]
+  },
+  {
+   "code": "1305",
+   "name": "Yenepoya Homoeopathic Medical College & Hospital",
+   "address": "Yenepoya Homoeopathic Medical College & Hospital, R.S. No.29, 30, 31, Naringana Village, Post- Deralakatte (Mangalore), Tah. Bantwal, Distt. Dikshin Kannada-575018",
+   "district": null,
+   "state": "Karnataka",
+   "management": "Private/Deemed University",
+   "ownership": "deemed",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 60
+    }
+   ]
+  },
+  {
+   "code": "1308",
+   "name": "A.M. Shaikh Homoeopathic Medical College",
+   "address": "A.M. Shaikh Homoeopathic Medical College, Nehru Nagar, Belgaum-590 010",
+   "district": null,
+   "state": "Karnataka",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 21,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1309",
+   "name": "Dr. B.D. Jatti Homoeopathic Medical College and Hospital",
+   "address": "Dr. B.D. Jatti Homoeopathic Medical College and Hospital, D.C. Compound, Dharwad-580001",
+   "district": null,
+   "state": "Karnataka",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 17,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 5
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1310",
+   "name": "Dr. Maalakaraddy Homoeopathic Medical College and Hospital",
+   "address": "Dr. Maalakaraddy Homoeopathic Medical College and Hospital, Mahadevappa Rampure Marg, Sedam Raod, Kalaburagi-585105",
+   "district": null,
+   "state": "Karnataka",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 24,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1311",
+   "name": "Father Muller Homoeopathic Medical College & Hospital",
+   "address": "Father Muller Homoeopathic Medical College & Hospital, University Road, Deralakatte, Mangalore- 574160",
+   "district": null,
+   "state": "Karnataka",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 44,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 8
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Psychiatry",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1312",
+   "name": "Govt. Homoeopathic Medical College",
+   "address": "Govt. Homoeopathic Medical College, Dr. Siddaiah Puranik Road, (Near Govt. Medical Stores) Basaveshwara-Nagar, Bangalore-560 079",
+   "district": null,
+   "state": "Karnataka",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 28,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 4
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1313",
+   "name": "Alvas Homoeopathic Medical College",
+   "address": "Alvas Homoeopathic Medical College, Shobhavana Campus, NH-13, Mijar Moodbidri- 574225",
+   "district": null,
+   "state": "Karnataka",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "1314",
+   "name": "Anuradha Homoeopathic Medical College and Hospital SY. No.78/5 (Old SY.No.78/1)",
+   "address": "Anuradha Homoeopathic Medical College and Hospital SY. No.78/5 (Old SY.No.78/1), Srigandrakaval, Sri. 560091",
+   "district": null,
+   "state": "Karnataka",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 54
+    }
+   ]
+  },
+  {
+   "code": "1315",
+   "name": "Bhagwan Buddha Homoeopathic Medical College and Hospital",
+   "address": "Bhagwan Buddha Homoeopathic Medical College and Hospital, 'Srinidhi Complex' Mallathalli, Bangalore-560056",
+   "district": null,
+   "state": "Karnataka",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "1316",
+   "name": "BVV Sangha BVVS Homoeopathic Medical College and Hospital",
+   "address": "BVV Sangha BVVS Homoeopathic Medical College and Hospital, BVVS Old Campus, Belgavi-Raichur Road, Bagalkot 587101",
+   "district": null,
+   "state": "Karnataka",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 60
+    }
+   ]
+  },
+  {
+   "code": "1317",
+   "name": "S.C.S.E. Society’s. Shiv Basav Jyoti Homoeopathic Medical College",
+   "address": "S.C.S.E. Society’s. Shiv Basav Jyoti Homoeopathic Medical College, Aadhar Education Society, R.S. No. 232 Near Bauxite Road, Chanakya Nagar, Belgaum, Karnataka - 590019",
+   "district": null,
+   "state": "Karnataka",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "1318",
+   "name": "Sri Basaveshwar Rural Education and Development Trust Sri Sathya Sai College of Homoeopathic Medical Sciences",
+   "address": "Sri Basaveshwar Rural Education and Development Trust Sri Sathya Sai College of Homoeopathic Medical Sciences, Plot No. 19 ‘C’, Industrial Area, Sattur, Dharwad–580009",
+   "district": null,
+   "state": "Karnataka",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 40
+    }
+   ]
+  },
+  {
+   "code": "1319",
+   "name": "SVE Trust's Veerabhadreswar Homoeopathic Medical College & Hospital",
+   "address": "SVE Trust's Veerabhadreswar Homoeopathic Medical College & Hospital, Near Sai Baba Temple, Humnabad(Post &Tq) Dist. Bidar- 585330",
+   "district": null,
+   "state": "Karnataka",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 54
+    }
+   ]
+  },
+  {
+   "code": "1401",
+   "name": "Govt. Homoeopathic Medical College",
+   "address": "Govt. Homoeopathic Medical College, Irnamuttam, P.O. Manacaud, Thiruvananthapuram-695009",
+   "district": null,
+   "state": "Kerala",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 63
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 30,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 8
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 8
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 7
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 7
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1402",
+   "name": "Govt. Homoeopathic Medical College",
+   "address": "Govt. Homoeopathic Medical College, Karaparamba, Kozhikode Dist. – 673010., principal.ghmc-",
+   "district": null,
+   "state": "Kerala",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 63
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 28,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 8
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 8
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1403",
+   "name": "National Homoeopathy Research Institute in Mental health",
+   "address": "National Homoeopathy Research Institute in Mental health, (NHRIMH) at CRI(H), Sachivothamapuram P.O., Kottayam-686532",
+   "district": null,
+   "state": "Kerala",
+   "management": "Govt./NI",
+   "ownership": "central",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "md-homoeopathy",
+     "seats": 25,
+     "branches": [
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 13
+      },
+      {
+       "name": "MD (Hom.) Psychiatry",
+       "seats": 12
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1404",
+   "name": "Athurasramam N.S.S. Homoeopathic Medical College",
+   "address": "Athurasramam N.S.S. Homoeopathic Medical College, Sachivothamapuram, P.O. Kuricy, Distt.- Kottayam-686532",
+   "district": null,
+   "state": "Kerala",
+   "management": "Govt Aided",
+   "ownership": "aided",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 50
+    }
+   ]
+  },
+  {
+   "code": "1405",
+   "name": "Dr. Padiar Memorial Homoeopathic Medical College",
+   "address": "Dr. Padiar Memorial Homoeopathic Medical College, Chottanikkara, Ernakulam-682312",
+   "district": null,
+   "state": "Kerala",
+   "management": "Govt Aided",
+   "ownership": "aided",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 63
+    }
+   ]
+  },
+  {
+   "code": "1406",
+   "name": "Shree Vidyadhiraja Homoeopathic Medical College",
+   "address": "Shree Vidyadhiraja Homoeopathic Medical College, Nemom, Thiruvananthapuram- 695020",
+   "district": null,
+   "state": "Kerala",
+   "management": "Govt Aided",
+   "ownership": "aided",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 50
+    }
+   ]
+  },
+  {
+   "code": "1503",
+   "name": "R.K.D.F. Homoeopathic Medical College and Hospital, Research Centre",
+   "address": "R.K.D.F. Homoeopathic Medical College and Hospital, Research Centre, Mile Stone 12, Hoshangabad Road, Bhopal-462046",
+   "district": null,
+   "state": "Madhya Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 80
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 29,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 5
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 5
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 4
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1505",
+   "name": "Anushree Homoeopathic Medical College",
+   "address": "Anushree Homoeopathic Medical College, 112, Near Samdariya Green City , Kashodhan Nagar, Madhotal, Jabalpur 482 002",
+   "district": null,
+   "state": "Madhya Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "1506",
+   "name": "Narayan Shree Homoeopathic Medical College, Clinical & Research Centre",
+   "address": "Narayan Shree Homoeopathic Medical College, Clinical & Research Centre, Pushpa Nagar, Near Bhopal Railway Station, Bhopal- 462 010",
+   "district": null,
+   "state": "Madhya Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 70
+    }
+   ]
+  },
+  {
+   "code": "1507",
+   "name": "Hahnemann Homoeopathic Medical College",
+   "address": "Hahnemann Homoeopathic Medical College, New Jail By- Pass `Road, Karond, Bhopal-462 038",
+   "district": null,
+   "state": "Madhya Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 50
+    }
+   ]
+  },
+  {
+   "code": "1508",
+   "name": "Mahatma Gandhi Homoeopathic Medical College & Hospital",
+   "address": "Mahatma Gandhi Homoeopathic Medical College & Hospital, Neemkheda, Gour Tiraha, (Mandla Road) Opp. Marble Rock School, Jabalpur-482001",
+   "district": null,
+   "state": "Madhya Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "1509",
+   "name": "K.S. Homoeopathic Medical College",
+   "address": "K.S. Homoeopathic Medical College, Village, Piproli, Chirwai Naka, Lashkar, Gwalior-474001",
+   "district": null,
+   "state": "Madhya Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 50
+    }
+   ]
+  },
+  {
+   "code": "1510",
+   "name": "R.N. Kapoor Homoeopathic Medical College",
+   "address": "R.N. Kapoor Homoeopathic Medical College, Indore-Dewas Bypass Road, A P J Abdul Kalum Vill - Arandia, Indore-452016",
+   "district": null,
+   "state": "Madhya Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 54,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Psychiatry",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Community Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Dermatology",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1511",
+   "name": "Rani Dullaiya Smriti Homoeopathy College & Hospital",
+   "address": "Rani Dullaiya Smriti Homoeopathy College & Hospital, Barkhedi Kalan, Bhadbhada Road, Bhopal- 462044",
+   "district": null,
+   "state": "Madhya Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "1512",
+   "name": "Shri Gujarati Samaj Shrimati Kamlaben Raoji Bhai Patel Gujarati Homoeopathic Medical College Hospital & Research Centre",
+   "address": "Shri Gujarati Samaj Shrimati Kamlaben Raoji Bhai Patel Gujarati Homoeopathic Medical College Hospital & Research Centre, Sch.No.54A.B. Road, Indore- 452010",
+   "district": null,
+   "state": "Madhya Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "1513",
+   "name": "Indira Gandhi Memorial Homoeopathic Medical College",
+   "address": "Indira Gandhi Memorial Homoeopathic Medical College, 131, Prakash Nagar, Dhar-454001",
+   "district": null,
+   "state": "Madhya Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "1514",
+   "name": "Lal Bahadur Shastri (L.B.S.) Homoeopathic Medical College",
+   "address": "Lal Bahadur Shastri (L.B.S.) Homoeopathic Medical College, Samarda Kaliasaut, Ratanpur, Mandideep Road, Bhopal – 462026",
+   "district": null,
+   "state": "Madhya Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 70
+    }
+   ]
+  },
+  {
+   "code": "1515",
+   "name": "School of Homoeopathy, Sri Satya Sai University of Technology & Medical Sciences",
+   "address": "School of Homoeopathy, Sri Satya Sai University of Technology & Medical Sciences, SH-18, Bhopal- Indore Road, Opposite Oilfed Plant, Pachama, District Sehore, Sehore-466001",
+   "district": null,
+   "state": "Madhya Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 80
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 15,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1516",
+   "name": "Govt. Homoeopathic Medical College and Hospital",
+   "address": "Govt. Homoeopathic Medical College and Hospital, MACT HILLS, AYUSH Campus, Beside Kaliasot Dam, Chuna Bhatti, Bhopal-462003",
+   "district": null,
+   "state": "Madhya Pradesh",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 125
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 79,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 11
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 12
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 11
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 12
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 11
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 5
+      },
+      {
+       "name": "MD (Hom.) Psychiatry",
+       "seats": 7
+      },
+      {
+       "name": "MD (Hom.) Community Medicine",
+       "seats": 5
+      },
+      {
+       "name": "MD (Hom.) Dermatology",
+       "seats": 5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1517",
+   "name": "Ram Krishna College of Homoeopathy & Medical Sciences",
+   "address": "Ram Krishna College of Homoeopathy & Medical Sciences, RKDF, University Campus, Nr. Airport Bypass Road, Gandhi Nagar, Bhopal-462033",
+   "district": null,
+   "state": "Madhya Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 90
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 21,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Psychiatry",
+       "seats": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1524",
+   "name": "Smt. S.M. Deo Homoeopathic Medical College & Hospital",
+   "address": "Smt. S.M. Deo Homoeopathic Medical College & Hospital, Sardar Patel Campus Gaykhuri, Balaghat, Distt. Balaghat –481 001",
+   "district": null,
+   "state": "Madhya Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 60
+    }
+   ]
+  },
+  {
+   "code": "1526",
+   "name": "Index Homoeopathic Medical College, Hospital & Research Centre",
+   "address": "Index Homoeopathic Medical College, Hospital & Research Centre, Index City, Gram Morodhat, NH- 59A, Nemawar Road, Indore-452016, Madhya Pradesh",
+   "district": null,
+   "state": "Madhya Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "1527",
+   "name": "Amaltas Institute of Homoeopathy",
+   "address": "Amaltas Institute of Homoeopathy , Gram Bangar, Dewas-Ujjain Highway, Dist. Dewas 455001, Madhya Pradesh",
+   "district": null,
+   "state": "Madhya Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "1528",
+   "name": "Ram Krishna Homoeopathic College",
+   "address": "Ram Krishna Homoeopathic College, Inayatpur Kolar Road, Bhopal, Madhya Pradesh - 462042",
+   "district": null,
+   "state": "Madhya Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "1529",
+   "name": "Bhabha Homoeopathic College and Hospital",
+   "address": "Bhabha Homoeopathic College and Hospital, NH- 12, hoshangabad Road, Jatkhedi, Bhopal, Madhya Pradesh",
+   "district": null,
+   "state": "Madhya Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 60
+    }
+   ]
+  },
+  {
+   "code": "1601",
+   "name": "Ratnadeep Homoeopathic Medical College Ratnapur",
+   "address": "Ratnadeep Homoeopathic Medical College Ratnapur, Taluka Jamkhed, District Ahmednagar, Maharashtra",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 65
+    }
+   ]
+  },
+  {
+   "code": "1602",
+   "name": "Dhondumama Sathe (D.S.) Homoeopathic Medical College",
+   "address": "Dhondumama Sathe (D.S.) Homoeopathic Medical College, F.P.No.23, Off Karve Road, Pune-411004",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 12,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1603",
+   "name": "Dr. D.Y. Patil Homoeopathic Medical College",
+   "address": "Dr. D.Y. Patil Homoeopathic Medical College, Pimpri, Dist. Pune-411018",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private/Deemed University",
+   "ownership": "deemed",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 18,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1604",
+   "name": "Dr. G.D. Pol Foundations Yerala Homoeopathic Medical College and Research Centre",
+   "address": "Dr. G.D. Pol Foundations Yerala Homoeopathic Medical College and Research Centre, Institutional Area, Sector-4, Opp. Kharghar Railway Station, Kharghar, Navi Mumbai- 410210",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 24,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1605",
+   "name": "Dr. J.J. Magdum Trust’s Homoeopathic Medical College",
+   "address": "Dr. J.J. Magdum Trust’s Homoeopathic Medical College, Jaysingpur-416 101, Dist. Kolhapur",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 24,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1607",
+   "name": "Motiwala Homoeopathic Medical College and Hospital",
+   "address": "Motiwala Homoeopathic Medical College and Hospital, Motiwala Nagar, Gangapur Satpur Link Road, Via Nashik, H.P.O., Nashik-422 001",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "1608",
+   "name": "Prabhat Education Society’s P.D. Jain Homoeopathic Medical College",
+   "address": "Prabhat Education Society’s P.D. Jain Homoeopathic Medical College, Behind State Bank of Hyderabad, Vakil Colony, Parbhani-431 401",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 90
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 12,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 1
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1612",
+   "name": "Mauli Homoeopathic College & Research Institute",
+   "address": "Mauli Homoeopathic College & Research Institute, Tondar, TQ Udgir, Dist. Latur -413517",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 54
+    }
+   ]
+  },
+  {
+   "code": "1614",
+   "name": "Govt. Homoeopathic Medical College",
+   "address": "Govt. Homoeopathic Medical College, Chincholi, Jalgaon- 425002",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 63
+    }
+   ]
+  },
+  {
+   "code": "1615",
+   "name": "K.E.S. Loknete Adv. Datta Patil Homoeopathic Medical College & Hospital",
+   "address": "K.E.S. Loknete Adv. Datta Patil Homoeopathic Medical College & Hospital, Balasaheb Khardekar Road, Vengurla, Bhatawadi, Dist. Sindhudurg- 416516",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 50
+    }
+   ]
+  },
+  {
+   "code": "1616",
+   "name": "Kisan Dnyanoday Mandal’s Homoeopathic Medical College",
+   "address": "Kisan Dnyanoday Mandal’s Homoeopathic Medical College, Nimzari Road, Shirpur Dist. Dhule-425405",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 75
+    }
+   ]
+  },
+  {
+   "code": "1617",
+   "name": "DRSGWF's Vrindawan Homoeopathic Medical College & Hospital",
+   "address": "DRSGWF's Vrindawan Homoeopathic Medical College & Hospital, Hahnemann Hills, Chandanapuri Ghat, Gunjalwadipathar, Post- Warudi Pathar, Tal: Sangamner, Dist: Ahilyanagar - 422620",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 90
+    }
+   ]
+  },
+  {
+   "code": "1621",
+   "name": "Nootan Homoeopathic Medical College and Hospital",
+   "address": "Nootan Homoeopathic Medical College and Hospital, Gat No.412, Landgewadi, Tal. Kavathemahankal, Dist. Sangli- 416405, M.S",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 54
+    }
+   ]
+  },
+  {
+   "code": "1623",
+   "name": "Sayali Charitable Trust, College of Homoeopathy",
+   "address": "Sayali Charitable Trust, College of Homoeopathy, Gut No. 141, 150, 55 Mitmita, Nashik Road, Aurangabad-431003",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "1624",
+   "name": "Shri Bhagwan Homoeopathic Medical College and Indira Gandhi Memorial Hospital",
+   "address": "Shri Bhagwan Homoeopathic Medical College and Indira Gandhi Memorial Hospital, CIDCO N-6, Aurangabad-431003",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 90
+    }
+   ]
+  },
+  {
+   "code": "1625",
+   "name": "Shri Takhatmal Shrivallabh Homoeopathic Medical College",
+   "address": "Shri Takhatmal Shrivallabh Homoeopathic Medical College, Homoeo. Sadan, Rajapet, Amravati.-444 606",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 60
+    }
+   ]
+  },
+  {
+   "code": "1626",
+   "name": "Shri Tatyasaheb Ghatake Charitable Trust, R.R. Patil College of Homoeopathy & Hospital",
+   "address": "Shri Tatyasaheb Ghatake Charitable Trust, R.R. Patil College of Homoeopathy & Hospital, Pune Baypass Road, Sangli-416416",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 6,
+     "branches": [
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1627",
+   "name": "Vidya Vaibhav Shikshan Mandal Dapoli Homoeopathic Medical College",
+   "address": "Vidya Vaibhav Shikshan Mandal Dapoli Homoeopathic Medical College, At. Apati, P.O. Talsure, Taluka-Dapoli, Distt. Ratnagiri- 415 712",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "1618",
+   "name": "Matoshri Aasarbai Darade Homoeopathic College, Matoshri Asarabai Darade Homoeopathic Medical college Babhulgaon",
+   "address": "Matoshri Aasarbai Darade Homoeopathic College, Matoshri Asarabai Darade Homoeopathic Medical college Babhulgaon , Tal-Yeola, Dist-Nashik",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 60
+    }
+   ]
+  },
+  {
+   "code": "1629",
+   "name": "Gandhi Natha Rangaji Homoeopathic Medical College",
+   "address": "Gandhi Natha Rangaji Homoeopathic Medical College, 13, Budhawar Peth, Jain Boarding Campus, Balives, Solapur- 413 002",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 50
+    }
+   ]
+  },
+  {
+   "code": "1630",
+   "name": "Bharati Vidyapeeth’s Homoeopathic Medical College",
+   "address": "Bharati Vidyapeeth’s Homoeopathic Medical College, Dhankawadi, Katraj, Pune-411043",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private/Deemed University",
+   "ownership": "deemed",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 30,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1631",
+   "name": "Dakshin Kesari Muni Mishrilalji Homoeopathic Medical College",
+   "address": "Dakshin Kesari Muni Mishrilalji Homoeopathic Medical College, Behind Bibi Ka Makbara, Shree Guru Ganesh Nagar, Aurangabad-431 004",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 27,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 1
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 5
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 4
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 4
+      },
+      {
+       "name": "MD (Hom.) Psychiatry",
+       "seats": 4
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1632",
+   "name": "Dr. M.L. Dhawale Memorial Homoeopathic Institute",
+   "address": "Dr. M.L. Dhawale Memorial Homoeopathic Institute, Opp. S.T. Workshop, Palghar Boisor Road, Palghar- 401 404",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "md-homoeopathy",
+     "seats": 36,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Psychiatry",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1633",
+   "name": "Foster Development Homoeopathic Medical College",
+   "address": "Foster Development Homoeopathic Medical College, N-5, Behind Gulmohar Colony, CIDCO, Aurangabad-431003",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 36,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1634",
+   "name": "Guru Mishri Homoeopathic Medical College & Hospital at Shelgaon",
+   "address": "Guru Mishri Homoeopathic Medical College & Hospital at Shelgaon, Tq. Badnapur, Dist. Jalna- 431202",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 51,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 9
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 9
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 9
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 9
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 9
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1635",
+   "name": "National Medical College of Homoeo. Science (Vamanrao Ithape Homoeopathic Medical College)",
+   "address": "National Medical College of Homoeo. Science (Vamanrao Ithape Homoeopathic Medical College), New Nagar Road, Sangamner, Distt. Ahmednagar- 422 605",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 27,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Psychiatry",
+       "seats": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1619",
+   "name": "OMAR Homoeopathic Medical College and Research Center",
+   "address": "OMAR Homoeopathic Medical College and Research Center, New Railway Station, Rajni, Tq. Gansawangi, Dist. Jalna, -425415",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 60
+    }
+   ]
+  },
+  {
+   "code": "1620",
+   "name": "Shraddha Homoeopathic Medical College Hospital and Research Center",
+   "address": "Shraddha Homoeopathic Medical College Hospital and Research Center, Dist-Washim, Kondalazambre, Maharashtra- 443301",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "1636",
+   "name": "Panchsheel Homoeopathic Shikshan Prasarak Mandal’s Homoeopathic Medical College",
+   "address": "Panchsheel Homoeopathic Shikshan Prasarak Mandal’s Homoeopathic Medical College, Civil Lines, Kelanagar, Khamgaon-444 303, Dist. Buldana",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 70
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 14,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 2
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1637",
+   "name": "Pouravi Shikshan Prasarak Mandal’s Mahila Homoeopathic Medical College & Hospital",
+   "address": "Pouravi Shikshan Prasarak Mandal’s Mahila Homoeopathic Medical College & Hospital, 283/1B, Kolgiri Nagar, Hotgi Road, Majrewadi, Solapur, Maharashtra",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 15,
+     "branches": [
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 5
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 5
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1638",
+   "name": "Ahmednagar Homoeopathic Medical College",
+   "address": "Ahmednagar Homoeopathic Medical College, Savedi Road, Ahmednagar-414 003",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "1639",
+   "name": "Anantrao Kanse Homoeopathic Medical College Hospital",
+   "address": "Anantrao Kanse Homoeopathic Medical College Hospital, Alephata, Tal.Junnar, Distt. Pune- 412411",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "1640",
+   "name": "Antarbharti Homoeopathic Medical College",
+   "address": "Antarbharti Homoeopathic Medical College , Near Airforce, Vayusena Road, Dabha, Nagpur, Maharashtra 440023",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 35
+    }
+   ]
+  },
+  {
+   "code": "1641",
+   "name": "Atal Bihari Vajpayee Homoeopathic Medical College and Hospital",
+   "address": "Atal Bihari Vajpayee Homoeopathic Medical College and Hospital, At-Jalke, Khadke, Tq. –Newasa, Dist. Ahmednagar",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 48
+    }
+   ]
+  },
+  {
+   "code": "1642",
+   "name": "Shri Jagadguru Panchacharya Education Society’s Homoeopathic Medical College",
+   "address": "Shri Jagadguru Panchacharya Education Society’s Homoeopathic Medical College, 200 E, Tararani Chowk, Kolhapur-416 003",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 75
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 6,
+     "branches": [
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1643",
+   "name": "Baliraja Shikshan Prasarak Mandal’s Padmashri Shyamraoji Kadam Homoeopathic Medical College, Hospital & Research Centre",
+   "address": "Baliraja Shikshan Prasarak Mandal’s Padmashri Shyamraoji Kadam Homoeopathic Medical College, Hospital & Research Centre, CIDCO, New Nanded-431603",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "1645",
+   "name": "Godawari Foundation Dr. Ulhas Patil Homoeopathic Medical College, Godavari Hospital",
+   "address": "Godawari Foundation Dr. Ulhas Patil Homoeopathic Medical College, Godavari Hospital, M.J. College Road, Distt. Jalgaon-425001",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "1646",
+   "name": "Smt. Kanchanbai Babulalji (K..B.) Abad Homoeopathic Medical College",
+   "address": "Smt. Kanchanbai Babulalji (K..B.) Abad Homoeopathic Medical College, At & P.O. Neminagar, Chandwad, Dist. Nashik-423 101",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 12,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1647",
+   "name": "Sonajirao Kshirsagar Homoeopathic Medical College",
+   "address": "Sonajirao Kshirsagar Homoeopathic Medical College, Vidhya Nagar (W), College Road, Beed- 431 122",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 80
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 37,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 1
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Psychiatry",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1648",
+   "name": "Gulabrao Patil Homoeopathic Medical College",
+   "address": "Gulabrao Patil Homoeopathic Medical College, 795, Gulabrao Patil Education Camps, Near Govt. Milk Dairy, Distt. Sangli, Miraj-416410",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "1649",
+   "name": "Homoeopathic Medical College",
+   "address": "Homoeopathic Medical College, Akot Road, Akola- 444001",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "1650",
+   "name": "Janseva Mandal’s Sai Homoeopathic Medical College",
+   "address": "Janseva Mandal’s Sai Homoeopathic Medical College, Dugad Phata, Tal-Bhiwandi, Distt. Thane- 421302",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 60
+    }
+   ]
+  },
+  {
+   "code": "1651",
+   "name": "K.E.S.’s Chandrakant Hari Keluskar Homoeopathic Medical College",
+   "address": "K.E.S.’s Chandrakant Hari Keluskar Homoeopathic Medical College, Alibag, Dist. Raigad-",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 75
+    }
+   ]
+  },
+  {
+   "code": "1653",
+   "name": "Late Mrs. Housabai Homoeopathic Medial College and Hospital",
+   "address": "Late Mrs. Housabai Homoeopathic Medial College and Hospital, Nimshirgaon-416101, Sangli- Kolhapur Road, Near Dharmnaga, Tal- Shirol, Distt. Kolhapur",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "1654",
+   "name": "Lokmanya Medical Foundation’s Homoeopathic Medical College",
+   "address": "Lokmanya Medical Foundation’s Homoeopathic Medical College, Near Elpro Company, Behind Auditorium of P.C.M. Chinchwad, Pune-411 033",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "1655",
+   "name": "Mahalaxmi Homoeopathy Medical College",
+   "address": "Mahalaxmi Homoeopathy Medical College, S. No.259 At. Post Raigaon, Tal.Jaoli, Distt. Satara- 415020",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 30
+    }
+   ]
+  },
+  {
+   "code": "1656",
+   "name": "Rashtrasant Janardan Swami Homoeopathic Medical college & Research Centre",
+   "address": "Rashtrasant Janardan Swami Homoeopathic Medical college & Research Centre, Ahmednagar",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "1657",
+   "name": "Samarth Education Trust’s Sawkar Homoeopathic Medical College",
+   "address": "Samarth Education Trust’s Sawkar Homoeopathic Medical College, AM-1./1, Additional MIDC, Degaon Road, Satara",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "1658",
+   "name": "Sharadchandraji Pawar Homoeopathic Medical College and Hospital",
+   "address": "Sharadchandraji Pawar Homoeopathic Medical College and Hospital, At Shiva Trust Campus, Wadala-Mahadev Tq. Shiriram Distt. Ahmednagar- 413739",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 70
+    }
+   ]
+  },
+  {
+   "code": "1659",
+   "name": "Shri Chamundamata Homoeopathic Medical College & Hospital",
+   "address": "Shri Chamundamata Homoeopathic Medical College & Hospital, 9, 10, 11 Gayatri Nagar Telephone & Parakh Nagar, Jillha Peth, Jalgaon- 425003",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 90
+    }
+   ]
+  },
+  {
+   "code": "1660",
+   "name": "Smt. Chandaben Mohanbhai Patel Homoeopathic Medical College",
+   "address": "Smt. Chandaben Mohanbhai Patel Homoeopathic Medical College, Irla, Natakkar R.G. Gadkari Marg, Vile, Parle (West), Mumbai- 400 056",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "1661",
+   "name": "SSVP Homoeopathic Medical College & Research Institute",
+   "address": "SSVP Homoeopathic Medical College & Research Institute, Gut No. 421 At Post Hatta, Tq Basmath Dist. Hingoli, Maharashtra - 431705",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "1662",
+   "name": "Vasantrao Kale Medical College & Hospital",
+   "address": "Vasantrao Kale Medical College & Hospital, P- 12, M.I.D.C. Kallam Road, Latur – 413 531",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 75
+    }
+   ]
+  },
+  {
+   "code": "1666",
+   "name": "Matoshri Homoeopathic Medical College",
+   "address": "Matoshri Homoeopathic Medical College, MKD Educational Campus, Eklahare, Tal. Nashik, Dist. Nashik - 422105",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 54
+    }
+   ]
+  },
+  {
+   "code": "1667",
+   "name": "Sai Homoeopathic Medical College",
+   "address": "Sai Homoeopathic Medical College, At Gat No. 67, Solapur-Barshi Highway, Sasure (Vairag), Tal- Barshi, Dist. Solapur 413402",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "1665",
+   "name": "Dr. R.N. Lahoti homoeopathy medical college, hospital and research center",
+   "address": "Dr. R.N. Lahoti homoeopathy medical college, hospital and research center, Sultanpur (MS) , Survey No. 900/1, 900/2, At Po. Sultanpur, Tq. Lonar, Dist. Buldhana, Maharashtra - 443302",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "1668",
+   "name": "Anand College of Homoeopathy",
+   "address": "Anand College of Homoeopathy, At. Phulewadi Road, Vaijapur Tal. Vaijapur, Dist. Chhatrapati Sambhajinagar, Maharashtra",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 48
+    }
+   ]
+  },
+  {
+   "code": "1669",
+   "name": "Muhammad Wahed Homoeopathic Medical College and Research Centre.",
+   "address": "Muhammad Wahed Homoeopathic Medical College and Research Centre. At Anwapada, Post. Anwa Tq. Bhokardan, Dist-Jalna - 431112",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 54
+    }
+   ]
+  },
+  {
+   "code": "1670",
+   "name": "Shalinitai Meghe Homoeopathy Hospital College and Research Center",
+   "address": "Shalinitai Meghe Homoeopathy Hospital College and Research Center, Wanadongri, Hingna, Nagpur - 441110 Maharashtra",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private/Deemed University",
+   "ownership": "deemed",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "1671",
+   "name": "Ashokrao mane Homoeopathic Medical College & Hospital",
+   "address": "Ashokrao mane Homoeopathic Medical College & Hospital, R.S.NO.19/A, Peth Vadgaon, Hatkanangale, Kolhapur, Maharashtra - 416112",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "1672",
+   "name": "Government Homeopathy College",
+   "address": "Government Homeopathy College, Pimpalgoan Khurd, Tal. Kagal, Dist. Kolhapur",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "1673",
+   "name": "Wellness Homeopathy College and Research Centre",
+   "address": "Wellness Homeopathy College and Research Centre, Gut No 253 Alani Gadpati Ta Dist Dharashiv, Maharashtra",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "new-pharate-patil-homoeopathic-medical-college",
+   "name": "Pharate Patil Homoeopathic Medical College",
+   "address": "Pharate Patil Homoeopathic Medical College, Mandavgan Pharata, Tal- Shirur, Dist Pune, Maharashtra-412211",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "new-ishwar-homeopathic-institute-and-hospital",
+   "name": "Ishwar Homeopathic Institute and Hospital",
+   "address": "Ishwar Homeopathic Institute and Hospital, Survey No. 24 at Nimbha, Tq. Digras, Dist. Yavatmal 445203 Maharashtra",
+   "district": null,
+   "state": "Maharashtra",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "1701",
+   "name": "North Eastern Institute of Ayurveda and Homoeopathy",
+   "address": "North Eastern Institute of Ayurveda and Homoeopathy, Mawdiangdiang, Shillong-793018",
+   "district": null,
+   "state": "Meghalaya",
+   "management": "Govt./NI",
+   "ownership": "central",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 63
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 8,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 2
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 2
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 2
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1802",
+   "name": "Dr. Abhin Chandra Homoeopathic Medical College and Hospital",
+   "address": "Dr. Abhin Chandra Homoeopathic Medical College and Hospital, Unit-III, Kharvela Nagar, Bhubaneswar, Distt. Puri. -751001",
+   "district": null,
+   "state": "Odisha",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 63
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 4,
+     "branches": [
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 4
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "1803",
+   "name": "Biju Pattnaik Homoeopathic Medical College",
+   "address": "Biju Pattnaik Homoeopathic Medical College, Berhampur- 760001 Ganjam",
+   "district": null,
+   "state": "Odisha",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 25
+    }
+   ]
+  },
+  {
+   "code": "1805",
+   "name": "Orissa Medical College of Homoeopathy & Research",
+   "address": "Orissa Medical College of Homoeopathy & Research, Sambalpur-768 001",
+   "district": null,
+   "state": "Odisha",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 25
+    }
+   ]
+  },
+  {
+   "code": "1807",
+   "name": "Utkalmani Homoeopathic Medical College & Hospital",
+   "address": "Utkalmani Homoeopathic Medical College & Hospital, Naya Bazar, Rourkela-769010",
+   "district": null,
+   "state": "Odisha",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 25
+    }
+   ]
+  },
+  {
+   "code": "1904",
+   "name": "Lord Mahavira Homoeopathic Medical College",
+   "address": "Lord Mahavira Homoeopathic Medical College, Dr. Hahnemann Chowk, Kitchlu Nagar, Civil Lines, Ludhiana- 141001",
+   "district": null,
+   "state": "Punjab",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 30
+    }
+   ]
+  },
+  {
+   "code": "2002",
+   "name": "Sri Ganganagar Homoeopathic Medical College",
+   "address": "Sri Ganganagar Homoeopathic Medical College, Hanumangarh Road, Sriganganagar- 335002",
+   "district": null,
+   "state": "Rajasthan",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 29,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 5
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 5
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 5
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 4
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 5
+      },
+      {
+       "name": "MD (Hom.) Psychiatry",
+       "seats": 5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "2003",
+   "name": "Swasthya Kalyan Homoeopathic Medical College & Research Centre",
+   "address": "Swasthya Kalyan Homoeopathic Medical College & Research Centre, 10-A, Sitapura Institutional Area, Tonk Road, Goner Road, Sitapura Industrial Area, Sitapura, Jaipur, Rajasthan 302022",
+   "district": null,
+   "state": "Rajasthan",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 25,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 4
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 1
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Psychiatry",
+       "seats": 5
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "2006",
+   "name": "Rajasthan Vidyapeeth Homoeopathic Medical College",
+   "address": "Rajasthan Vidyapeeth Homoeopathic Medical College, Vidyapeeth Campus, Dabok, Udaipur- 313 002",
+   "district": null,
+   "state": "Rajasthan",
+   "management": "Private/Deemed University",
+   "ownership": "deemed",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "2009",
+   "name": "Dr. Madan Pratap Khuteta Homoeopathic Medical College",
+   "address": "Dr. Madan Pratap Khuteta Homoeopathic Medical College, Homoeopathy Plot No.10-11 & 12, Village Saipura, Sanganer, Jaipur – 302029",
+   "district": null,
+   "state": "Rajasthan",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 70
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 10,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 1
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "2011",
+   "name": "University College of Homoeopathy",
+   "address": "University College of Homoeopathy, Kadwad, Jodhpur 342037",
+   "district": null,
+   "state": "Rajasthan",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 75
+    }
+   ]
+  },
+  {
+   "code": "2010",
+   "name": "University College of Homoeopathy",
+   "address": "University College of Homoeopathy, Kekri, Ajmeri Gate, CHC old building, Kekri, Ajmer - 305404",
+   "district": null,
+   "state": "Rajasthan",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 75
+    }
+   ]
+  },
+  {
+   "code": "2013",
+   "name": "Yuvraj Pratap Singh Memorial Homoeopathic Medical College",
+   "address": "Yuvraj Pratap Singh Memorial Homoeopathic Medical College, Shivaji Park, Alwar.- 301 001",
+   "district": null,
+   "state": "Rajasthan",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 52
+    }
+   ]
+  },
+  {
+   "code": "2014",
+   "name": "Biyani Homeopathic Medical College and Hospital",
+   "address": "Biyani Homeopathic Medical College and Hospital, Champapura, Kalwar road , Jaipur, Rajasthan",
+   "district": null,
+   "state": "Rajasthan",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 60
+    }
+   ]
+  },
+  {
+   "code": "2015",
+   "name": "D.K. Gupta Homoeopathic Medical College and Hospital",
+   "address": "D.K. Gupta Homoeopathic Medical College and Hospital, Naya Bas Jobner Jaipur, Rajasthan",
+   "district": null,
+   "state": "Rajasthan",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 60
+    }
+   ]
+  },
+  {
+   "code": "2016",
+   "name": "Shekhawati Homoeopathic M C and Hospital",
+   "address": "Shekhawati Homoeopathic M C and Hospital, Kochhor Jeenmata Road Kochhor Sikar, Rajasthan",
+   "district": null,
+   "state": "Rajasthan",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 60
+    }
+   ]
+  },
+  {
+   "code": "2017",
+   "name": "Shri Vinod Durgadutt Tibrewala Institute of Homeopathy, Shri JJT University",
+   "address": "Shri Vinod Durgadutt Tibrewala Institute of Homeopathy, Shri JJT University, Chudela, Jhunjhunu, Rajasthan-333010",
+   "district": null,
+   "state": "Rajasthan",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 60
+    }
+   ]
+  },
+  {
+   "code": "new-norang-ram-dayanand-dhukia-homoeopathic-medica",
+   "name": "Norang Ram Dayanand Dhukia Homoeopathic Medical College and Hospital",
+   "address": "Norang Ram Dayanand Dhukia Homoeopathic Medical College and Hospital , Nrdd Campus Norang Nagar Malsisar Road Jhunjhunu",
+   "district": null,
+   "state": "Rajasthan",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 60
+    }
+   ]
+  },
+  {
+   "code": "new-sudha-homeopathic-medical-college-and-hospital",
+   "name": "Sudha Homeopathic Medical College and Hospital",
+   "address": "Sudha Homeopathic Medical College and Hospital, 128 Ummedpura via Jagpura NH 52 Jhalawar Road Kota",
+   "district": null,
+   "state": "Rajasthan",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 60
+    }
+   ]
+  },
+  {
+   "code": "2101",
+   "name": "Martin Homoeopathic Medical College & Hospital",
+   "address": "Martin Homoeopathic Medical College & Hospital, D.P.F. Mill Premises, G.N. Mills (P.O.), Mettupalayam Road, Coimbatore-641029",
+   "district": null,
+   "state": "Tamil Nadu",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 45
+    }
+   ]
+  },
+  {
+   "code": "2102",
+   "name": "Sri Sairam Homoeopathic Medical College and Research Centre",
+   "address": "Sri Sairam Homoeopathic Medical College and Research Centre, (Sapthagiri Education Trust), Sai Leo Nagar Tambaram West Chennai- 600044",
+   "district": null,
+   "state": "Tamil Nadu",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 50
+    }
+   ]
+  },
+  {
+   "code": "2103",
+   "name": "Venkateswara Homoeopathic Medical College and Hospital No.",
+   "address": "Venkateswara Homoeopathic Medical College and Hospital No. 4/11, Samayapuram Main Road, Karambakkam, Porur, Chennai-600116",
+   "district": null,
+   "state": "Tamil Nadu",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "2104",
+   "name": "Sarada Krishna Homoeopathy Medical College",
+   "address": "Sarada Krishna Homoeopathy Medical College, Kulasekharam Distt. Kanyakumari-629161",
+   "district": null,
+   "state": "Tamil Nadu",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 41,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Psychiatry",
+       "seats": 5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "2105",
+   "name": "Vinayaka Mission’s Homoeopathic Medical College",
+   "address": "Vinayaka Mission’s Homoeopathic Medical College, Chinnaseeragapadi, P.O. NH 47, Sankari Main Road, Salem- 636 308",
+   "district": null,
+   "state": "Tamil Nadu",
+   "management": "Private/Deemed University",
+   "ownership": "deemed",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 90
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 21,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Psychiatry",
+       "seats": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "2106",
+   "name": "White Memorial Homoeopathic Medical College",
+   "address": "White Memorial Homoeopathic Medical College, Attoor, Veeyanoor-629 177.Dist. Kanyakumari",
+   "district": null,
+   "state": "Tamil Nadu",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 25,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 5
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 5
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 5
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 5
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "2107",
+   "name": "Dr. Hahnemann Homoeopathy Medical College, & Research Centre. Koneripatti",
+   "address": "Dr. Hahnemann Homoeopathy Medical College, & Research Centre. Koneripatti, Rasipuram, Namakkal Dist- 637408",
+   "district": null,
+   "state": "Tamil Nadu",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 90
+    }
+   ]
+  },
+  {
+   "code": "2108",
+   "name": "Excel Homoeopathy Medical College NH",
+   "address": "Excel Homoeopathy Medical College NH 544 Ranganoor Road, , Sankari West Post, Pallakkapalayam, Komarapalayam, Namakkal- 637303",
+   "district": null,
+   "state": "Tamil Nadu",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 80
+    }
+   ]
+  },
+  {
+   "code": "2109",
+   "name": "Govt. Homoeopathic Medical College and Hospital",
+   "address": "Govt. Homoeopathic Medical College and Hospital, At. Thirumangalam, Dist. Madurai – 626706",
+   "district": null,
+   "state": "Tamil Nadu",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 63
+    }
+   ]
+  },
+  {
+   "code": "2110",
+   "name": "Maria Educational and Charitable Trust, Chevaracode Kanyakumari’s Maria Homoeoapthic Medical College and Hospital",
+   "address": "Maria Educational and Charitable Trust, Chevaracode Kanyakumari’s Maria Homoeoapthic Medical College and Hospital, Perai Thiruvattar P.O., Kanyakumari Distt., -629177",
+   "district": null,
+   "state": "Tamil Nadu",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 36,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Homoeopathic Pharmacy",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "2111",
+   "name": "R.V.S. Homoeopathy Medical College and Hospital",
+   "address": "R.V.S. Homoeopathy Medical College and Hospital, 242 B, Trichy Road, Sulur, Coimbatore Distt.- 641402",
+   "district": null,
+   "state": "Tamil Nadu",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 50
+    }
+   ]
+  },
+  {
+   "code": "2112",
+   "name": "Sivaraj Homoeopathic Medical College & Research Institute",
+   "address": "Sivaraj Homoeopathic Medical College & Research Institute, Siddhar Kovil Road, Thumbathulipatty, Perumampathy (P.O.), Salem-636 307",
+   "district": null,
+   "state": "Tamil Nadu",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 50
+    }
+   ]
+  },
+  {
+   "code": "2114",
+   "name": "Shri Barani Homoeopathic Medical College and Hospital",
+   "address": "Shri Barani Homoeopathic Medical College and Hospital, Tiruchengode, Namakkal",
+   "district": null,
+   "state": "Tamil Nadu",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "2201",
+   "name": "J.S.P.S. Govt. Homoeopathic Medical College",
+   "address": "J.S.P.S. Govt. Homoeopathic Medical College, Ramanathapur, Hyderabad-500 013",
+   "district": null,
+   "state": "Telangana",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 125
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 38,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 7
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 8
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 7
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 4
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 4
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 4
+      },
+      {
+       "name": "MD (Hom.) Psychiatry",
+       "seats": 4
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "2202",
+   "name": "JIMS Homoeopathic Medical College & Hospital",
+   "address": "JIMS Homoeopathic Medical College & Hospital, Sriramnagar, Muchintal Village, Palamakula P.O., Shamshabad Mandal, Ranga Reddy District- 509325",
+   "district": null,
+   "state": "Telangana",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 54,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 9
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 9
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 9
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 9
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Psychiatry",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "2205",
+   "name": "MNR Homoeopathic Medical College & Hospital",
+   "address": "MNR Homoeopathic Medical College & Hospital, 2- 23B/350, Bhagyanagar Phase-III, Near HMT Hills Colony, Opp;JNTU, Kukatpally, Hyderabad-500085",
+   "district": null,
+   "state": "Telangana",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 53,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 8
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 7
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 9
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 8
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 7
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Psychiatry",
+       "seats": 8
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "2206",
+   "name": "Shreyaan Ishaan Educational Society, Hamsa Homoeopathy Medical College, Hospital and Research Centre",
+   "address": "Shreyaan Ishaan Educational Society, Hamsa Homoeopathy Medical College, Hospital and Research Centre, Kasheersagar Village, Mulugu Mandal, Medak Distt.-502279",
+   "district": null,
+   "state": "Telangana",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 41,
+     "branches": [
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Homoeopathic Pharmacy",
+       "seats": 5
+      },
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Psychiatry",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "2204",
+   "name": "Guru nanak Homoeopathic Medical College & Hospital",
+   "address": "Guru nanak Homoeopathic Medical College & Hospital, Ibrahimpatnam, Ranareddy District, Hyderabad-501506",
+   "district": null,
+   "state": "Telangana",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 50
+    }
+   ]
+  },
+  {
+   "code": "new-tripura-govt-homoeopathic-medical-college-and",
+   "name": "Tripura Govt. Homoeopathic Medical College and Hospital",
+   "address": "Tripura Govt. Homoeopathic Medical College and Hospital, Sadhutila, Renters Colony, Agartala, West Tripura",
+   "district": null,
+   "state": "Tripura",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 60
+    }
+   ]
+  },
+  {
+   "code": "2401",
+   "name": "National Homoeopathic Medical College & Hospital",
+   "address": "National Homoeopathic Medical College & Hospital, 1, Viraj Khand, Gomti Nagar, Lucknow - 226001",
+   "district": null,
+   "state": "Uttar Pradesh",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 125
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 23,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 8
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 8
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 7
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "2402",
+   "name": "Bakson Homoeopathic Medical College",
+   "address": "Bakson Homoeopathic Medical College, B-36, Knowledge Park, Phase-I, Greater NOIDA, Dist. Gautam Budha Nagar- 201306",
+   "district": null,
+   "state": "Uttar Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 48,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Psychiatry",
+       "seats": 6
+      },
+      {
+       "name": "MD (Hom.) Dermatology",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "2403",
+   "name": "Naiminath Homoeopathic Medical College, Hospital & Research Centre",
+   "address": "Naiminath Homoeopathic Medical College, Hospital & Research Centre, Village Nawalpur, Tehsil Etmadpur, Agra.- 283206",
+   "district": null,
+   "state": "Uttar Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 90
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 12,
+     "branches": [
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "2404",
+   "name": "Pt. Jawaharlal Nehru State Homoeopathic Medical College and Hospital",
+   "address": "Pt. Jawaharlal Nehru State Homoeopathic Medical College and Hospital, Block A/1, Scheme-38, Lakhanpur, Kalyanpur, Kanpur- 208024",
+   "district": null,
+   "state": "Uttar Pradesh",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 125
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 15,
+     "branches": [
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 8
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 7
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "2405",
+   "name": "State Lal Bahadur Shastri Homoeopathic Medical College and Hospital",
+   "address": "State Lal Bahadur Shastri Homoeopathic Medical College and Hospital, Phaphamau, Allahabad",
+   "district": null,
+   "state": "Uttar Pradesh",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 125
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 13,
+     "branches": [
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 13
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "2406",
+   "name": "State Dr. Brij Kishore Homoeopathic Medical College and Hospital",
+   "address": "State Dr. Brij Kishore Homoeopathic Medical College and Hospital, Deokali, Faizabad-224001",
+   "district": null,
+   "state": "Uttar Pradesh",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 38
+    }
+   ]
+  },
+  {
+   "code": "2408",
+   "name": "State Ghazipur Homoeopathic Medical College and Hospital",
+   "address": "State Ghazipur Homoeopathic Medical College and Hospital, Rauza, Ghazipur- 233001",
+   "district": null,
+   "state": "Uttar Pradesh",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 63
+    }
+   ]
+  },
+  {
+   "code": "2409",
+   "name": "State Homeopathic Medical College and Hospital",
+   "address": "State Homeopathic Medical College and Hospital, Barhalganj, Gorakhpur-273402",
+   "district": null,
+   "state": "Uttar Pradesh",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 125
+    }
+   ]
+  },
+  {
+   "code": "2410",
+   "name": "State Homoeopathic Medical College & Hospital",
+   "address": "State Homoeopathic Medical College & Hospital, Kasimpur Road, Chherat, Aligarh- 202122",
+   "district": null,
+   "state": "Uttar Pradesh",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 125
+    }
+   ]
+  },
+  {
+   "code": "2411",
+   "name": "State K.G.K. Homoeopathic Medical College and Hospital",
+   "address": "State K.G.K. Homoeopathic Medical College and Hospital, Rly. Line Par, Moradabad- 244001",
+   "district": null,
+   "state": "Uttar Pradesh",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 125
+    }
+   ]
+  },
+  {
+   "code": "2412",
+   "name": "State Shri Durgaji Homoeopathic Medical College and Hospital",
+   "address": "State Shri Durgaji Homoeopathic Medical College and Hospital, Chandeshwar, Dist. Azamgarh- 276001",
+   "district": null,
+   "state": "Uttar Pradesh",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 125
+    }
+   ]
+  },
+  {
+   "code": "2413",
+   "name": "G.C.Homoeopathic College & Research CenterHomoeopathic College & Research Center",
+   "address": "G.C.Homoeopathic College & Research CenterHomoeopathic College & Research Center, Vill-Parvatpur, Post-Indaurabagh, Chandrika Devi Road, Bakshi Ka Talab, Lucknow , Uttar Pradesh- 226202",
+   "district": null,
+   "state": "Uttar Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 100
+    }
+   ]
+  },
+  {
+   "code": "2415",
+   "name": "Singh Sahab Homoeopathic Medical College & Hospital",
+   "address": "Singh Sahab Homoeopathic Medical College & Hospital, Vill. Gulariya, Amroha 244221",
+   "district": null,
+   "state": "Uttar Pradesh",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 54
+    }
+   ]
+  },
+  {
+   "code": "2501",
+   "name": "Bengal Homoeopathic Medical College and Hospital",
+   "address": "Bengal Homoeopathic Medical College and Hospital, Ismile, P.O. Asansol-713 301, Dist. Burdwan",
+   "district": null,
+   "state": "West Bengal",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 30
+    }
+   ]
+  },
+  {
+   "code": "2502",
+   "name": "Birbhum Vivekanand Homoeopathic Medical College and Hospital",
+   "address": "Birbhum Vivekanand Homoeopathic Medical College and Hospital, P.O. Sainthia, Distt. Birbhum-731234",
+   "district": null,
+   "state": "West Bengal",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 36
+    }
+   ]
+  },
+  {
+   "code": "2503",
+   "name": "Netai Charan Chakravarty Homoeopathic Medical College and Hospital",
+   "address": "Netai Charan Chakravarty Homoeopathic Medical College and Hospital, 45, ‘F’ Road, Belgachia, Howrah-711101",
+   "district": null,
+   "state": "West Bengal",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 30
+    }
+   ]
+  },
+  {
+   "code": "2504",
+   "name": "D.N.De. Homoeopathic Medical College and Hospital",
+   "address": "D.N.De. Homoeopathic Medical College and Hospital, 12, G.K. Road, Kolkata -700 046",
+   "district": null,
+   "state": "West Bengal",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 63
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 31,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 7
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 8
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 8
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 4
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 4
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "2505",
+   "name": "Mahesh Bhattacharya Homoeopathic Medical College and Hospital",
+   "address": "Mahesh Bhattacharya Homoeopathic Medical College and Hospital, H.I.T. Road, Ichapur, Doomurjala Howrah-711104",
+   "district": null,
+   "state": "West Bengal",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 63
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 18,
+     "branches": [
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 8
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 7
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "2506",
+   "name": "National Institute of Homoeopathy",
+   "address": "National Institute of Homoeopathy, Block- GE, Sector III, Salt Lake, Kolkata- 700106",
+   "district": null,
+   "state": "West Bengal",
+   "management": "Govt./NI",
+   "ownership": "central",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 126
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 51,
+     "branches": [
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 12
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 12
+      },
+      {
+       "name": "MD (Hom.) Repertory",
+       "seats": 11
+      },
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 4
+      },
+      {
+       "name": "MD (Hom.) Paediatrics",
+       "seats": 4
+      },
+      {
+       "name": "MD (Hom.) Pharmacy",
+       "seats": 4
+      },
+      {
+       "name": "MD (Hom.) Community Medicine",
+       "seats": 4
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "2507",
+   "name": "The Calcutta Homoeopathic Medical College and Hospital",
+   "address": "The Calcutta Homoeopathic Medical College and Hospital, 265/66, Acharya Prafulla Chandra Road, Kolkata-700009",
+   "district": null,
+   "state": "West Bengal",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 63
+    },
+    {
+     "course": "md-homoeopathy",
+     "seats": 20,
+     "branches": [
+      {
+       "name": "MD (Hom.) Practice of Medicine",
+       "seats": 8
+      },
+      {
+       "name": "MD (Hom.) Materia Medica",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Organon of Medicine",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Homoeopathic Pharmacy",
+       "seats": 3
+      },
+      {
+       "name": "MD (Hom.) Pediatrics",
+       "seats": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "code": "2508",
+   "name": "Burdwan Homoeopathic Medical College and Hospital",
+   "address": "Burdwan Homoeopathic Medical College and Hospital, Nimbarak Bhavan Raj Ganj P.O. Nutanganj, Distt. Burdwan- 713 102",
+   "district": null,
+   "state": "West Bengal",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 35
+    }
+   ]
+  },
+  {
+   "code": "2510",
+   "name": "Metropolitan Homoeopathic Medical College and Hospital",
+   "address": "Metropolitan Homoeopathic Medical College and Hospital, Ramchandrapur, Sodepur, Kolkata- 700110",
+   "district": null,
+   "state": "West Bengal",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 45
+    }
+   ]
+  },
+  {
+   "code": "2511",
+   "name": "Midnapore Homoeopathic Medical College and Hospital",
+   "address": "Midnapore Homoeopathic Medical College and Hospital, P. O. and Dist. Midnapore-721104",
+   "district": null,
+   "state": "West Bengal",
+   "management": "Govt.",
+   "ownership": "government",
+   "conditional": true,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 63
+    }
+   ]
+  },
+  {
+   "code": "2512",
+   "name": "Pratap Chandra Memorial Homoeopathic Hospital and College",
+   "address": "Pratap Chandra Memorial Homoeopathic Hospital and College, 14/1, Narkeldanga North Road, Kolkata-700 011",
+   "district": null,
+   "state": "West Bengal",
+   "management": "Private",
+   "ownership": "private",
+   "conditional": false,
+   "offerings": [
+    {
+     "course": "bhms",
+     "seats": 30
+    }
+   ]
+  }
+ ]
+}
